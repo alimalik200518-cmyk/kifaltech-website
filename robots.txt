@@ -1,0 +1,6 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Direct search engine crawlers to full XML sitemap
+Sitemap: https://kifaltech.com/sitemap.xml
