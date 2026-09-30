@@ -45,25 +45,30 @@ while ($listener.IsListening) {
             $path = "index.html"
         }
 
+        $distBase = Join-Path (Get-Location) "dist"
+        $distPath = Join-Path $distBase ($path -replace '/', '\')
         $localPath = Join-Path (Get-Location) ($path -replace '/', '\')
 
-        if (Test-Path $localPath -PathType Leaf) {
-            $ext = [System.IO.Path]::GetExtension($localPath).ToLower()
+        $targetFile = $null
+        if ((Test-Path (Join-Path $distBase "index.html")) -and (Test-Path $distPath -PathType Leaf)) {
+            $targetFile = $distPath
+        } elseif (Test-Path $localPath -PathType Leaf) {
+            $targetFile = $localPath
+        } elseif (Test-Path (Join-Path $distBase "index.html") -PathType Leaf) {
+            $targetFile = Join-Path $distBase "index.html"
+        } elseif (Test-Path (Join-Path (Get-Location) "index.html") -PathType Leaf) {
+            $targetFile = Join-Path (Get-Location) "index.html"
+        }
+
+        if ($targetFile -and (Test-Path $targetFile -PathType Leaf)) {
+            $ext = [System.IO.Path]::GetExtension($targetFile).ToLower()
             $response.ContentType = if ($mimeTypes.ContainsKey($ext)) { $mimeTypes[$ext] } else { "application/octet-stream" }
-            $bytes = [System.IO.File]::ReadAllBytes($localPath)
+            $bytes = [System.IO.File]::ReadAllBytes($targetFile)
             $response.ContentLength64 = $bytes.Length
             $response.AddHeader("Access-Control-Allow-Origin", "*")
             $response.OutputStream.Write($bytes, 0, $bytes.Length)
         } else {
-            $indexPath = Join-Path (Get-Location) "index.html"
-            if (Test-Path $indexPath) {
-                $response.ContentType = "text/html; charset=utf-8"
-                $bytes = [System.IO.File]::ReadAllBytes($indexPath)
-                $response.ContentLength64 = $bytes.Length
-                $response.OutputStream.Write($bytes, 0, $bytes.Length)
-            } else {
-                $response.StatusCode = 404
-            }
+            $response.StatusCode = 404
         }
         $response.Close()
     } catch {

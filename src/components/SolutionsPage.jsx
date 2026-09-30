@@ -1,7 +1,7 @@
 import React from 'react';
 import SEOHead from './SEOHead.jsx';
 import { Link } from './Router.jsx';
-import agencyData from '../data/agencyData.js';
+import { agencyData } from '../data/agencyData.js';
 
 export default function SolutionsPage({ onStartProject }) {
   const { solutions } = agencyData;

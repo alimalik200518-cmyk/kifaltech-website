@@ -1705,3 +1705,5 @@ export function getCurrencyList() {
   return Object.values(agencyData.currencies);
 }
 
+export default agencyData;
+
