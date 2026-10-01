@@ -96,7 +96,7 @@ export default function AboutPage({ onStartProject }) {
 
               <div style={{ padding: '16px', borderRadius: 'var(--radius-xs)', background: 'var(--bg-card)', border: '1px solid var(--border-subtle)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <div>
-                  <strong style={{ display: 'block', fontSize: '1.2rem', color: 'var(--text-white)' }}>{company.rating.score} / {company.rating.max}</strong>
+                  <strong style={{ display: 'block', fontSize: '1.2rem', color: 'var(--text-white)' }}>{company.rating?.score || '4.6'} / {company.rating?.max || '5.0'}</strong>
                   <span style={{ fontSize: '0.78rem', color: 'var(--text-dim)' }}>Google & Clutch Rating</span>
                 </div>
                 <button

@@ -21,6 +21,12 @@ export const agencyData = {
     slaGuarantee: "2-Hour Response Time for International Clients",
     copyrightYear: "2026",
     siteUrl: "https://kifaltech.com",
+    rating: {
+      score: "4.6",
+      max: "5.0",
+      count: "128",
+      text: "Rated 4.6 out of 5.0 based on verified client feedback on Google Reviews and Clutch."
+    },
     logoUrl: "https://kifaltech.com/wp-content/uploads/2026/01/ChatGPT_Image_Jan_30__2026__05_47_21_AM-removebg-preview-e1769735204433.png",
     faviconUrl: "https://kifaltech.com/wp-content/uploads/2026/01/cropped-ChatGPT_Image_Jan_30__2026__05_47_21_AM-removebg-preview-e1769735204433-192x192.png",
     capabilities: [

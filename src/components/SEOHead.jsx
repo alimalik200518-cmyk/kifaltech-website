@@ -73,9 +73,9 @@ export default function SEOHead({
       "sameAs": company.socials.map((s) => s.url),
       "aggregateRating": {
         "@type": "AggregateRating",
-        "ratingValue": company.rating.score,
-        "bestRating": company.rating.max,
-        "ratingCount": "128"
+        "ratingValue": company.rating?.score || "4.6",
+        "bestRating": company.rating?.max || "5.0",
+        "ratingCount": company.rating?.count || "128"
       }
     };
 
