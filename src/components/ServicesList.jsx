@@ -2,6 +2,7 @@ import React from 'react';
 import { agencyData } from '../data/agencyData.js';
 import { Link } from './Router.jsx';
 import { getServiceIcon } from './ServiceIcons.jsx';
+import HalloweenBats from './HalloweenBats.jsx';
 
 export default function ServicesList({ onSelectService }) {
   const { services } = agencyData;
@@ -13,8 +14,11 @@ export default function ServicesList({ onSelectService }) {
   );
 
   return (
-    <section id="services" className="section-spacing" style={{ backgroundColor: '#0A0A0A', position: 'relative', borderTop: '1px solid rgba(255, 255, 255, 0.12)' }}>
-      <div className="container">
+    <section id="services" className="section-spacing" style={{ backgroundColor: 'var(--bg-main)', position: 'relative', borderTop: '1px solid var(--border-subtle)', overflow: 'hidden' }}>
+      {/* Subtle Atmospheric Flying Bats in Negative Space */}
+      <HalloweenBats variant="services" />
+
+      <div className="container" style={{ position: 'relative', zIndex: 1 }}>
         
         {/* Section Header: Brutalist Editorial */}
         <div style={{ maxWidth: '820px', marginBottom: '44px' }}>
@@ -92,16 +96,16 @@ export default function ServicesList({ onSelectService }) {
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        color: '#D32525'
+                        color: '#00D8FF'
                       }}
                     >
-                      {getServiceIcon(service.id, service.category, 14, "#D32525")}
+                      {getServiceIcon(service.id, service.category, 14, "#00D8FF")}
                     </div>
                     <span
                       style={{
                         fontFamily: 'var(--font-mono)',
                         fontSize: '0.72rem',
-                        color: '#D32525',
+                        color: '#00D8FF',
                         fontWeight: 700,
                         letterSpacing: '0.06em'
                       }}
@@ -155,7 +159,7 @@ export default function ServicesList({ onSelectService }) {
                 <div
                   style={{
                     backgroundColor: '#111111',
-                    borderLeft: '2px solid #D32525',
+                    borderLeft: '2px solid #00D8FF',
                     padding: '8px 12px',
                     marginBottom: '16px'
                   }}
@@ -164,7 +168,7 @@ export default function ServicesList({ onSelectService }) {
                     style={{
                       fontSize: '0.64rem',
                       fontFamily: 'var(--font-mono)',
-                      color: '#D32525',
+                      color: '#00D8FF',
                       letterSpacing: '0.06em',
                       textTransform: 'uppercase',
                       fontWeight: 700
@@ -212,7 +216,7 @@ export default function ServicesList({ onSelectService }) {
                           lineHeight: 1.4
                         }}
                       >
-                        <span style={{ color: '#D32525', fontFamily: 'var(--font-mono)', fontWeight: 700 }}>■</span>
+                        <span style={{ color: '#00D8FF', fontFamily: 'var(--font-mono)', fontWeight: 700 }}>■</span>
                         <span>{deliv}</span>
                       </li>
                     ))}
@@ -319,8 +323,8 @@ export default function ServicesList({ onSelectService }) {
                 fontFamily: 'var(--font-mono)',
                 fontSize: '0.64rem',
                 backgroundColor: '#0A0A0A',
-                color: '#D32525',
-                border: '1px solid #D32525',
+                color: '#00D8FF',
+                border: '1px solid #00D8FF',
                 padding: '2px 8px',
                 fontWeight: 700,
                 letterSpacing: '0.06em'
@@ -336,7 +340,7 @@ export default function ServicesList({ onSelectService }) {
               style={{
                 fontFamily: 'var(--font-mono)',
                 fontSize: '0.72rem',
-                color: '#D32525',
+                color: '#00D8FF',
                 letterSpacing: '0.08em',
                 fontWeight: 700,
                 marginBottom: '8px'

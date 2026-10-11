@@ -1,6 +1,15 @@
 import React, { useState } from 'react';
 import { agencyData } from '../data/agencyData.js';
 import { useCurrency } from './Router.jsx';
+import CustomSelect from './CustomSelect.jsx';
+
+const PLATFORM_OPTIONS = [
+  { value: 'landing', label: 'Single-Page Landing Experience ($149 base)' },
+  { value: 'corporate', label: 'Corporate Multi-Page Website ($399 base)' },
+  { value: 'ecommerce', label: 'E-Commerce / Shopify Storefront ($499 base)' },
+  { value: 'custom-web', label: 'Custom Web App / Portal ($799 base)' },
+  { value: 'enterprise', label: 'Enterprise Scalable Platform ($1,299 base)' }
+];
 
 export default function PricingCalculator({ onSelectPlanForProposal }) {
   const { formatPrice, currency } = useCurrency();
@@ -99,7 +108,14 @@ export default function PricingCalculator({ onSelectPlanForProposal }) {
           </p>
         </div>
         <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.78rem', color: 'var(--text-dim)' }}>
-          TRANSMISSION DESTINATION: <span style={{ color: 'var(--primary-light)' }}>forms@kifaltech.com</span>
+          CORRESPONDENCE:{' '}
+          <a
+            href="mailto:info@kifaltech.com"
+            className="email-mailto-link"
+            style={{ fontWeight: 600 }}
+          >
+            info@kifaltech.com
+          </a>
         </div>
       </div>
 
@@ -107,20 +123,16 @@ export default function PricingCalculator({ onSelectPlanForProposal }) {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '24px', marginBottom: '32px' }}>
           {/* Project Platform Type */}
           <div className="agency-field-group">
-            <label className="floating-label active">
+            <label id="label-calc-type" className="agency-field-label">
               Platform Architecture <span className="required-asterisk">*</span>
             </label>
-            <select
-              className="agency-select-minimal"
+            <CustomSelect
+              id="pricing-calc-type"
+              name="calcType"
               value={calcType}
               onChange={(e) => setCalcType(e.target.value)}
-            >
-              <option value="landing">Single-Page Landing Experience ($149 base)</option>
-              <option value="corporate">Corporate Multi-Page Website ($399 base)</option>
-              <option value="ecommerce">E-Commerce / Shopify Storefront ($499 base)</option>
-              <option value="custom-web">Custom Web App / Portal ($799 base)</option>
-              <option value="enterprise">Enterprise Scalable Platform ($1,299 base)</option>
-            </select>
+              options={PLATFORM_OPTIONS}
+            />
           </div>
 
           {/* Page Count Slider */}

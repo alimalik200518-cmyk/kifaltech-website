@@ -57,11 +57,11 @@ export default function Navbar({ onOpenQuote, onOpenQuickFix }) {
         left: 0,
         width: '100%',
         zIndex: 1000,
-        backgroundColor: scrolled ? 'rgba(10, 10, 10, 0.98)' : '#0A0A0A',
+        backgroundColor: scrolled ? 'rgba(6, 9, 15, 0.98)' : '#06090F',
         backdropFilter: scrolled ? 'blur(12px)' : 'none',
         WebkitBackdropFilter: scrolled ? 'blur(12px)' : 'none',
         borderBottom: '1px solid',
-        borderColor: scrolled ? 'rgba(255, 255, 255, 0.16)' : 'rgba(255, 255, 255, 0.08)',
+        borderColor: scrolled ? 'rgba(0, 216, 255, 0.25)' : 'rgba(0, 216, 255, 0.12)',
         transition: 'background-color 0.15s ease, border-color 0.15s ease'
       }}
     >
@@ -205,7 +205,7 @@ export default function Navbar({ onOpenQuote, onOpenQuickFix }) {
                         left: 0,
                         width: '100%',
                         height: '2px',
-                        backgroundColor: '#D32525'
+                        backgroundColor: '#00D8FF'
                       }}
                     />
                   )}

@@ -175,14 +175,14 @@ export default function ServicesPage({ onStartProject }) {
                           height: '40px',
                           borderRadius: '0px',
                           backgroundColor: '#111111',
-                          border: '1px solid #D32525',
+                          border: '1px solid #00D8FF',
                           display: 'flex',
                           alignItems: 'center',
                           justifyContent: 'center',
-                          color: '#D32525'
+                          color: '#00D8FF'
                         }}
                       >
-                        {getServiceIcon(service.id, service.category, 20, "#D32525")}
+                        {getServiceIcon(service.id, service.category, 20, "#00D8FF")}
                       </div>
                       <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.78rem', color: 'var(--primary-light)', fontWeight: 600 }}>
                         SERVICE {service.number}

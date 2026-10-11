@@ -2,6 +2,14 @@ import React, { useState } from 'react';
 import { agencyData } from '../data/agencyData.js';
 import SEOHead from './SEOHead.jsx';
 import { Link } from './Router.jsx';
+import CustomSelect from './CustomSelect.jsx';
+
+const CONTACT_BUDGET_OPTIONS = [
+  { value: '$1k – $3k', label: '$1,000 – $3,000 (MVP / Audit)' },
+  { value: '$3k – $5k', label: '$3,000 – $5,000 (Custom Build)' },
+  { value: '$5k – $10k', label: '$5,000 – $10,000 (Advanced Platform)' },
+  { value: '$10k+', label: '$10,000+ (Enterprise Scope)' }
+];
 
 export default function ContactPage() {
   const { company } = agencyData;
@@ -221,11 +229,15 @@ export default function ContactPage() {
                   PRIMARY INQUIRY EMAIL
                 </span>
                 <div style={{ marginTop: '8px' }}>
-                  <a href="mailto:info@kifaltech.com" style={{ display: 'block', fontSize: '1.2rem', fontWeight: 700, color: 'var(--primary-light)', textDecoration: 'none' }}>
+                  <a
+                    href="mailto:info@kifaltech.com"
+                    className="email-mailto-link"
+                    style={{ display: 'inline-block', fontSize: '1.2rem', fontWeight: 700 }}
+                  >
                     info@kifaltech.com
                   </a>
                   <span style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginTop: '4px', display: 'block' }}>
-                    Direct engineering review & NDA available upon request.
+                    Direct engineering review &amp; NDA available upon request.
                   </span>
                 </div>
               </div>
@@ -249,7 +261,14 @@ export default function ContactPage() {
                   Send a Detailed Scope Transmission
                 </h3>
                 <p style={{ fontSize: '0.92rem', color: '#888888', margin: 0 }}>
-                  Forms strictly processed through <code style={{ color: '#D32525', background: 'rgba(211, 37, 37, 0.12)', border: '1px solid #D32525', padding: '2px 6px', fontFamily: 'var(--font-mono)' }}>forms@kifaltech.com</code>
+                  Direct inquiries &amp; NDA requests:{' '}
+                  <a
+                    href="mailto:info@kifaltech.com"
+                    className="email-mailto-link"
+                    style={{ fontWeight: 600, fontFamily: 'var(--font-mono)' }}
+                  >
+                    info@kifaltech.com
+                  </a>
                 </p>
               </div>
 
@@ -259,21 +278,21 @@ export default function ContactPage() {
                     ✓
                   </div>
                   <h4 style={{ fontSize: '1.4rem', color: 'var(--text-white)', marginBottom: '10px' }}>
-                    Transmission received.
+                    Transmission successful. Our technical leads will be in touch within 2 business hours.
                   </h4>
                   <p style={{ fontSize: '0.98rem', lineHeight: 1.65, color: 'var(--text-muted)', marginBottom: '20px' }}>
-                    Transmission received. We'll be in touch within 2 business hours.
+                    Your scope has been logged and assigned directly to our engineering leads.
                   </p>
 
                   {inquiryRef && (
-                    <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', background: 'rgba(255, 255, 255, 0.04)', border: '1px solid var(--border-medium)', padding: '10px 18px', borderRadius: 'var(--radius-sm)', marginBottom: '24px' }}>
+                    <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', background: 'rgba(255, 255, 255, 0.04)', border: '1px solid var(--border-medium)', padding: '10px 18px', borderRadius: '0px', marginBottom: '24px' }}>
                       <span style={{ fontSize: '0.82rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)' }}>Ticket ID:</span>
-                      <strong style={{ fontFamily: 'var(--font-mono)', color: 'var(--primary-light)', fontSize: '0.95rem' }}>{inquiryRef}</strong>
+                      <strong style={{ fontFamily: 'var(--font-mono)', color: '#00D8FF', fontSize: '0.95rem' }}>{inquiryRef}</strong>
                       <button
                         type="button"
                         onClick={copyRefCode}
                         className="btn"
-                        style={{ padding: '4px 10px', fontSize: '0.75rem', background: 'var(--bg-subtle)', border: '1px solid var(--border-subtle)' }}
+                        style={{ padding: '4px 10px', fontSize: '0.75rem', background: 'var(--bg-subtle)', border: '1px solid var(--border-subtle)', borderRadius: '0px' }}
                       >
                         {copiedRef ? 'Copied!' : 'Copy'}
                       </button>
@@ -288,7 +307,7 @@ export default function ContactPage() {
                         setFormData({ name: '', email: '', company: '', service: 'Web Development', budget: '$3k – $5k', timeline: 'Standard (2 – 4 Weeks)', message: '' });
                       }}
                       className="btn btn-secondary"
-                      style={{ padding: '8px 24px', fontSize: '0.88rem' }}
+                      style={{ padding: '8px 24px', fontSize: '0.88rem', borderRadius: '0px' }}
                     >
                       Submit Another Scope
                     </button>
@@ -304,148 +323,119 @@ export default function ContactPage() {
                 >
                   <div className="agency-form-grid">
                     {/* Full Name */}
-                    <div className="field-group col-span-6">
-                      <div className="field-underline-wrapper">
-                        <input
-                          id="contact-page-name"
-                          type="text"
-                          required
-                          placeholder="Full Name"
-                          className={`agency-input-minimal ${formData.name ? 'field-has-value' : ''}`}
-                          style={formErrors.name ? { borderBottomColor: '#ef4444' } : {}}
-                          value={formData.name}
-                          onChange={(e) => handleInputChange('name', e.target.value)}
-                        />
-                        <label htmlFor="contact-page-name" className="floating-label">
-                          <span>Full Name</span>
-                          <span className="required-asterisk">*</span>
-                        </label>
-                        <div className="field-underline-bar" />
-                      </div>
+                    <div className="agency-field-group col-span-6">
+                      <label htmlFor="contact-page-name" className="agency-field-label">
+                        Full Name <span style={{ color: '#00D8FF' }}>*</span>
+                      </label>
+                      <input
+                        id="contact-page-name"
+                        type="text"
+                        required
+                        placeholder="John Doe"
+                        className="agency-input-minimal"
+                        style={formErrors.name ? { borderBottomColor: '#00D8FF' } : {}}
+                        value={formData.name}
+                        onChange={(e) => handleInputChange('name', e.target.value)}
+                      />
                       {formErrors.name && (
-                        <span style={{ fontSize: '0.75rem', color: '#ef4444', marginTop: '4px' }}>{formErrors.name}</span>
+                        <span style={{ fontSize: '0.75rem', color: '#00D8FF', marginTop: '4px' }}>{formErrors.name}</span>
                       )}
                     </div>
 
                     {/* Email */}
-                    <div className="field-group col-span-6">
-                      <div className="field-underline-wrapper">
-                        <input
-                          id="contact-page-email"
-                          type="email"
-                          required
-                          placeholder="Business Email"
-                          className={`agency-input-minimal ${formData.email ? 'field-has-value' : ''}`}
-                          style={formErrors.email ? { borderBottomColor: '#ef4444' } : {}}
-                          value={formData.email}
-                          onChange={(e) => handleInputChange('email', e.target.value)}
-                        />
-                        <label htmlFor="contact-page-email" className="floating-label">
-                          <span>Work Email</span>
-                          <span className="required-asterisk">*</span>
-                        </label>
-                        <div className="field-underline-bar" />
-                      </div>
+                    <div className="agency-field-group col-span-6">
+                      <label htmlFor="contact-page-email" className="agency-field-label">
+                        Work Email <span style={{ color: '#00D8FF' }}>*</span>
+                      </label>
+                      <input
+                        id="contact-page-email"
+                        type="email"
+                        required
+                        placeholder="john@company.com"
+                        className="agency-input-minimal"
+                        style={formErrors.email ? { borderBottomColor: '#00D8FF' } : {}}
+                        value={formData.email}
+                        onChange={(e) => handleInputChange('email', e.target.value)}
+                      />
                       {formErrors.email && (
-                        <span style={{ fontSize: '0.75rem', color: '#ef4444', marginTop: '4px' }}>{formErrors.email}</span>
+                        <span style={{ fontSize: '0.75rem', color: '#00D8FF', marginTop: '4px' }}>{formErrors.email}</span>
                       )}
                     </div>
 
                     {/* Company */}
-                    <div className="field-group col-span-12">
-                      <div className="field-underline-wrapper">
-                        <input
-                          id="contact-page-company"
-                          type="text"
-                          placeholder="Company or Brand"
-                          className={`agency-input-minimal ${formData.company ? 'field-has-value' : ''}`}
-                          value={formData.company}
-                          onChange={(e) => handleInputChange('company', e.target.value)}
-                        />
-                        <label htmlFor="contact-page-company" className="floating-label">
-                          <span>Company Name / Website (Optional)</span>
-                        </label>
-                        <div className="field-underline-bar" />
-                      </div>
+                    <div className="agency-field-group col-span-12">
+                      <label htmlFor="contact-page-company" className="agency-field-label">
+                        Company Name / Website (Optional)
+                      </label>
+                      <input
+                        id="contact-page-company"
+                        type="text"
+                        placeholder="Acme Corp (acme.com)"
+                        className="agency-input-minimal"
+                        value={formData.company}
+                        onChange={(e) => handleInputChange('company', e.target.value)}
+                      />
                     </div>
 
-                    {/* Service Selection with Custom Dropdown Arrow */}
-                    <div className="field-group col-span-6">
-                      <div className="select-wrapper">
-                        <select
-                          id="contact-page-service"
-                          className="agency-select-minimal"
-                          value={formData.service}
-                          onChange={(e) => handleInputChange('service', e.target.value)}
-                        >
-                          {servicesList.map((svc) => (
-                            <option key={svc} value={svc}>{svc}</option>
-                          ))}
-                        </select>
-                        <label htmlFor="contact-page-service" className="floating-label" style={{ top: '-8px', fontSize: '0.7rem', color: 'var(--primary-light)', textTransform: 'uppercase' }}>
-                          <span>Target Discipline</span>
-                          <span className="required-asterisk">*</span>
-                        </label>
-                        <svg className="select-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <polyline points="6 9 12 15 18 9"></polyline>
-                        </svg>
-                        <div className="field-underline-bar" />
-                      </div>
+                    {/* Service Selection */}
+                    <div className="agency-field-group col-span-6">
+                      <label id="label-contact-service" className="agency-field-label">
+                        Target Discipline <span style={{ color: '#00D8FF' }}>*</span>
+                      </label>
+                      <CustomSelect
+                        id="contact-page-service"
+                        name="service"
+                        value={formData.service}
+                        onChange={(e) => handleInputChange('service', e.target.value)}
+                        options={servicesList}
+                      />
                     </div>
 
-                    {/* Estimated Budget with Custom Dropdown Arrow */}
-                    <div className="field-group col-span-6">
-                      <div className="select-wrapper">
-                        <select
-                          id="contact-page-budget"
-                          className="agency-select-minimal"
-                          value={formData.budget}
-                          onChange={(e) => handleInputChange('budget', e.target.value)}
-                        >
-                          <option value="$1k – $3k">$1,000 – $3,000 (MVP / Audit)</option>
-                          <option value="$3k – $5k">$3,000 – $5,000 (Custom Build)</option>
-                          <option value="$5k – $10k">$5,000 – $10,000 (Advanced Platform)</option>
-                          <option value="$10k+">$10,000+ (Enterprise Scope)</option>
-                        </select>
-                        <label htmlFor="contact-page-budget" className="floating-label" style={{ top: '-8px', fontSize: '0.7rem', color: 'var(--primary-light)', textTransform: 'uppercase' }}>
-                          <span>Budget Allocation</span>
-                          <span className="required-asterisk">*</span>
-                        </label>
-                        <svg className="select-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <polyline points="6 9 12 15 18 9"></polyline>
-                        </svg>
-                        <div className="field-underline-bar" />
-                      </div>
+                    {/* Estimated Budget */}
+                    <div className="agency-field-group col-span-6">
+                      <label id="label-contact-budget" className="agency-field-label">
+                        Budget Allocation <span style={{ color: '#00D8FF' }}>*</span>
+                      </label>
+                      <CustomSelect
+                        id="contact-page-budget"
+                        name="budget"
+                        value={formData.budget}
+                        onChange={(e) => handleInputChange('budget', e.target.value)}
+                        options={CONTACT_BUDGET_OPTIONS}
+                      />
                     </div>
 
                     {/* Message / Brief */}
-                    <div className="field-group col-span-12">
-                      <div className="field-underline-wrapper">
-                        <textarea
-                          id="contact-page-message"
-                          rows="4"
-                          required
-                          placeholder="Project Scope"
-                          className={`agency-textarea-minimal ${formData.message ? 'field-has-value' : ''}`}
-                          style={formErrors.message ? { borderBottomColor: '#ef4444' } : {}}
-                          value={formData.message}
-                          onChange={(e) => handleInputChange('message', e.target.value)}
-                        />
-                        <label htmlFor="contact-page-message" className="floating-label">
-                          <span>Brief Description of Requirements & Key Deliverables</span>
-                          <span className="required-asterisk">*</span>
-                        </label>
-                        <div className="field-underline-bar" />
-                      </div>
+                    <div className="agency-field-group col-span-12">
+                      <label htmlFor="contact-page-message" className="agency-field-label">
+                        Project Scope &amp; Deliverables <span style={{ color: '#00D8FF' }}>*</span>
+                      </label>
+                      <textarea
+                        id="contact-page-message"
+                        rows="4"
+                        required
+                        placeholder="Brief description of requirements, existing tech stack, and goals..."
+                        className="agency-textarea-minimal"
+                        style={formErrors.message ? { borderBottomColor: '#00D8FF' } : {}}
+                        value={formData.message}
+                        onChange={(e) => handleInputChange('message', e.target.value)}
+                      />
                       {formErrors.message && (
-                        <span style={{ fontSize: '0.75rem', color: '#ef4444', marginTop: '4px' }}>{formErrors.message}</span>
+                        <span style={{ fontSize: '0.75rem', color: '#00D8FF', marginTop: '4px' }}>{formErrors.message}</span>
                       )}
                     </div>
                   </div>
 
                   <div style={{ marginTop: '32px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '16px' }}>
                     <div style={{ fontSize: '0.76rem', color: 'var(--text-dim)', fontFamily: 'var(--font-mono)' }}>
-                      Transmission Endpoint: <span style={{ color: '#ffffff' }}>forms@kifaltech.com</span>
+                      Official Inquiries:{' '}
+                      <a
+                        href="mailto:info@kifaltech.com"
+                        className="email-mailto-link"
+                        style={{ fontWeight: 600 }}
+                      >
+                        info@kifaltech.com
+                      </a>
                     </div>
 
                     <button

@@ -43,11 +43,11 @@ export default function Portfolio({ onStartProjectWithContext }) {
                 padding: '8px 20px',
                 fontSize: '0.84rem',
                 borderRadius: '0px',
-                backgroundColor: selectedCategory === cat ? '#D32525' : '#141414',
+                backgroundColor: selectedCategory === cat ? '#00D8FF' : '#141414',
                 color: '#ffffff',
                 fontWeight: selectedCategory === cat ? 700 : 500,
                 boxShadow: 'none',
-                border: selectedCategory === cat ? '1px solid #D32525' : '1px solid rgba(255, 255, 255, 0.15)',
+                border: selectedCategory === cat ? '1px solid #00D8FF' : '1px solid rgba(255, 255, 255, 0.15)',
                 fontFamily: 'var(--font-mono)'
               }}
             >

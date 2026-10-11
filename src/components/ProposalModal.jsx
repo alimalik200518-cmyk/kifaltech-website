@@ -1,5 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { agencyData } from '../data/agencyData.js';
+import CustomSelect from './CustomSelect.jsx';
+
+const SERVICE_OPTIONS = [
+  { value: 'Web Apps', label: 'Web Apps & SaaS' },
+  { value: 'E-Commerce', label: 'E-Commerce Architecture' },
+  { value: 'Mobile', label: 'Mobile Applications' },
+  { value: 'AI Automation', label: 'AI & Workflow Automation' },
+  { value: 'UI/UX', label: 'UI/UX Design Systems' },
+  { value: 'SEO', label: 'Technical SEO & Performance' }
+];
+
+const BUDGET_OPTIONS = [
+  { value: '$1k-$3k', label: '$1,000 – $3,000 (MVP / Audit)' },
+  { value: '$3k-$5k', label: '$3,000 – $5,000 (Custom Build)' },
+  { value: '$5k-$10k', label: '$5,000 – $10,000 (Advanced Platform)' },
+  { value: '$10k+', label: '$10,000+ (Enterprise Scope)' }
+];
 
 export default function ProposalModal({ isOpen, onClose, prefillData }) {
   if (!isOpen) return null;
@@ -128,13 +145,15 @@ export default function ProposalModal({ isOpen, onClose, prefillData }) {
         className="modal-body"
         onClick={(e) => e.stopPropagation()}
         style={{
-          maxWidth: '640px',
-          padding: '36px 32px',
+          maxWidth: '720px',
+          width: '92%',
+          padding: '38px 36px',
           maxHeight: '90vh',
           overflowY: 'auto',
-          backgroundColor: '#151111',
-          border: '1px solid rgba(139, 92, 246, 0.25)',
-          borderRadius: '12px'
+          backgroundColor: '#0E0E0E',
+          border: '1px solid rgba(255, 255, 255, 0.16)',
+          borderRadius: '0px',
+          boxShadow: '0 24px 60px rgba(0, 0, 0, 0.95)'
         }}
       >
         <button
@@ -162,11 +181,11 @@ export default function ProposalModal({ isOpen, onClose, prefillData }) {
                 <span className="eyebrow" style={{ marginBottom: 0, fontSize: '0.72rem' }}>
                   PROPOSAL DISCOVERY
                 </span>
-                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.74rem', color: 'var(--text-dim)' }}>
-                  DESTINATION: <strong style={{ color: 'var(--primary-light)' }}>forms@kifaltech.com</strong>
+                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.74rem', color: '#00D8FF', fontWeight: 700, letterSpacing: '0.08em' }}>
+                  2-HOUR RESPONSE SLA
                 </span>
               </div>
-              <h3 style={{ fontSize: '1.85rem', color: '#ffffff', marginBottom: '6px' }}>
+              <h3 style={{ fontSize: '1.85rem', color: '#ffffff', marginBottom: '6px', letterSpacing: '-0.025em' }}>
                 Request Engineering Proposal
               </h3>
               <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: 1.6 }}>
@@ -175,134 +194,126 @@ export default function ProposalModal({ isOpen, onClose, prefillData }) {
             </div>
 
             {errorMsg && (
-              <div style={{ padding: '10px 14px', backgroundColor: 'rgba(239, 68, 68, 0.15)', border: '1px solid #ef4444', borderRadius: '4px', color: '#fca5a5', fontSize: '0.84rem', marginBottom: '18px' }}>
+              <div style={{ padding: '10px 14px', backgroundColor: 'rgba(0, 216, 255, 0.15)', border: '1px solid #00D8FF', borderRadius: '0px', color: '#ff8a80', fontSize: '0.84rem', marginBottom: '18px' }}>
                 {errorMsg}
               </div>
             )}
 
             <form onSubmit={handleSubmit} className="agency-form">
-              <div className="agency-form-grid" style={{ marginBottom: '20px' }}>
+              <div className="agency-form-grid" style={{ marginBottom: '24px' }}>
                 {/* Full Name */}
-                <div className="agency-form-col-6">
-                  <div className="agency-field-group">
-                    <label className="floating-label active">
-                      Full Name <span className="required-asterisk">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      name="fullName"
-                      required
-                      placeholder="Jane Doe"
-                      value={formData.fullName}
-                      onChange={handleChange}
-                      className="agency-input-minimal"
-                    />
-                    <div className="field-underline-bar" />
-                  </div>
+                <div className="agency-field-group col-span-6">
+                  <label htmlFor="proposal-fullName" className="agency-field-label">
+                    Full Name <span className="required-asterisk">*</span>
+                  </label>
+                  <input
+                    id="proposal-fullName"
+                    type="text"
+                    name="fullName"
+                    required
+                    placeholder="Jane Doe"
+                    value={formData.fullName}
+                    onChange={handleChange}
+                    className="agency-input-minimal"
+                    autoComplete="name"
+                  />
+                  <div className="field-underline-bar" />
                 </div>
 
                 {/* Work Email */}
-                <div className="agency-form-col-6">
-                  <div className="agency-field-group">
-                    <label className="floating-label active">
-                      Work Email <span className="required-asterisk">*</span>
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      required
-                      placeholder="jane@company.com"
-                      value={formData.email}
-                      onChange={handleChange}
-                      className="agency-input-minimal"
-                    />
-                    <div className="field-underline-bar" />
-                  </div>
+                <div className="agency-field-group col-span-6">
+                  <label htmlFor="proposal-email" className="agency-field-label">
+                    Work Email <span className="required-asterisk">*</span>
+                  </label>
+                  <input
+                    id="proposal-email"
+                    type="email"
+                    name="email"
+                    required
+                    placeholder="jane@company.com"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="agency-input-minimal"
+                    autoComplete="email"
+                  />
+                  <div className="field-underline-bar" />
                 </div>
 
                 {/* Service Required */}
-                <div className="agency-form-col-6">
-                  <div className="agency-field-group">
-                    <label className="floating-label active">
-                      Service Domain <span className="required-asterisk">*</span>
-                    </label>
-                    <select
-                      name="service"
-                      value={formData.service}
-                      onChange={handleChange}
-                      className="agency-select-minimal"
-                    >
-                      <option value="Web Apps">Web Apps</option>
-                      <option value="E-Commerce">E-Commerce</option>
-                      <option value="Mobile">Mobile Apps</option>
-                      <option value="AI Automation">AI Automation</option>
-                      <option value="UI/UX">UI/UX Design</option>
-                      <option value="SEO">Technical SEO</option>
-                    </select>
-                  </div>
+                <div className="agency-field-group col-span-6">
+                  <label id="label-service" className="agency-field-label">
+                    Service Domain <span className="required-asterisk">*</span>
+                  </label>
+                  <CustomSelect
+                    id="proposal-service"
+                    name="service"
+                    value={formData.service}
+                    onChange={handleChange}
+                    options={SERVICE_OPTIONS}
+                  />
                 </div>
 
                 {/* Estimated Budget */}
-                <div className="agency-form-col-6">
-                  <div className="agency-field-group">
-                    <label className="floating-label active">
-                      Estimated Budget <span className="required-asterisk">*</span>
-                    </label>
-                    <select
-                      name="budget"
-                      value={formData.budget}
-                      onChange={handleChange}
-                      className="agency-select-minimal"
-                    >
-                      <option value="$1k-$3k">$1k – $3k</option>
-                      <option value="$3k-$5k">$3k – $5k</option>
-                      <option value="$5k-$10k">$5k – $10k</option>
-                      <option value="$10k+">$10k+</option>
-                    </select>
-                  </div>
+                <div className="agency-field-group col-span-6">
+                  <label id="label-budget" className="agency-field-label">
+                    Estimated Budget <span className="required-asterisk">*</span>
+                  </label>
+                  <CustomSelect
+                    id="proposal-budget"
+                    name="budget"
+                    value={formData.budget}
+                    onChange={handleChange}
+                    options={BUDGET_OPTIONS}
+                  />
                 </div>
 
                 {/* Phone Number */}
-                <div className="agency-form-col-12">
-                  <div className="agency-field-group">
-                    <label className="floating-label active">
-                      Phone Number (Optional)
-                    </label>
-                    <input
-                      type="tel"
-                      name="phone"
-                      placeholder="+1 (555) 123-4567 or WhatsApp"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      className="agency-input-minimal"
-                    />
-                    <div className="field-underline-bar" />
-                  </div>
+                <div className="agency-field-group col-span-12">
+                  <label htmlFor="proposal-phone" className="agency-field-label">
+                    Phone Number (Optional)
+                  </label>
+                  <input
+                    id="proposal-phone"
+                    type="tel"
+                    name="phone"
+                    placeholder="+1 (555) 123-4567 or WhatsApp"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    className="agency-input-minimal"
+                    autoComplete="tel"
+                  />
+                  <div className="field-underline-bar" />
                 </div>
 
                 {/* Message / Project Scope */}
-                <div className="agency-form-col-12">
-                  <div className="agency-field-group">
-                    <label className="floating-label active">
-                      Project Scope &amp; Deliverables <span className="required-asterisk">*</span>
-                    </label>
-                    <textarea
-                      name="message"
-                      required
-                      rows="3"
-                      placeholder="Describe target features, user stories, timeline requirements, or existing links..."
-                      value={formData.message}
-                      onChange={handleChange}
-                      className="agency-textarea-minimal"
-                    />
-                    <div className="field-underline-bar" />
-                  </div>
+                <div className="agency-field-group col-span-12">
+                  <label htmlFor="proposal-message" className="agency-field-label">
+                    Project Scope &amp; Deliverables <span className="required-asterisk">*</span>
+                  </label>
+                  <textarea
+                    id="proposal-message"
+                    name="message"
+                    required
+                    rows="3"
+                    placeholder="Describe target features, user stories, timeline requirements, or existing links..."
+                    value={formData.message}
+                    onChange={handleChange}
+                    className="agency-textarea-minimal"
+                  />
+                  <div className="field-underline-bar" />
                 </div>
               </div>
 
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '14px' }}>
                 <span style={{ fontSize: '0.78rem', color: 'var(--text-dim)', fontFamily: 'var(--font-mono)' }}>
-                  SUBMISSION DESTINATION: forms@kifaltech.com
+                  DIRECT CORRESPONDENCE:{' '}
+                  <a
+                    href="mailto:info@kifaltech.com"
+                    className="email-mailto-link"
+                    style={{ fontWeight: 600 }}
+                  >
+                    info@kifaltech.com
+                  </a>
                 </span>
 
                 <button
@@ -322,32 +333,33 @@ export default function ProposalModal({ isOpen, onClose, prefillData }) {
               style={{
                 width: '56px',
                 height: '56px',
-                borderRadius: '50%',
-                backgroundColor: 'rgba(16, 185, 129, 0.15)',
+                borderRadius: '0px',
+                backgroundColor: 'rgba(0, 216, 255, 0.15)',
+                border: '1px solid #00D8FF',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 margin: '0 auto 16px auto',
                 fontSize: '1.6rem',
-                color: 'var(--accent-emerald)'
+                color: '#00D8FF'
               }}
             >
               ✓
             </div>
-            <h4 style={{ fontSize: '1.45rem', color: '#ffffff', marginBottom: '8px' }}>
-              Transmission received. We'll be in touch within 2 business hours.
+            <h4 style={{ fontSize: '1.45rem', color: '#ffffff', marginBottom: '10px' }}>
+              Transmission successful. Our technical leads will be in touch within 2 business hours.
             </h4>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.94rem', lineHeight: 1.6, marginBottom: '24px', maxWidth: '480px', margin: '0 auto 24px auto' }}>
-              Thank you, <strong>{formData.fullName}</strong>. Your project inquiry has been logged and routed to our technical leadership at forms@kifaltech.com.
+              Thank you, <strong>{formData.fullName}</strong>. Your specification brief has been logged and routed directly to our engineering desk.
             </p>
 
             {/* Reference ID Card */}
             <div
               style={{
                 padding: '14px 18px',
-                borderRadius: 'var(--radius-xs)',
-                background: 'rgba(0, 0, 0, 0.3)',
-                border: '1px solid rgba(255, 255, 255, 0.12)',
+                borderRadius: '0px',
+                background: 'rgba(0, 0, 0, 0.4)',
+                border: '1px solid rgba(255, 255, 255, 0.16)',
                 marginBottom: '24px',
                 display: 'inline-flex',
                 alignItems: 'center',
@@ -357,7 +369,7 @@ export default function ProposalModal({ isOpen, onClose, prefillData }) {
               <span style={{ fontSize: '0.76rem', fontFamily: 'var(--font-mono)', color: 'var(--text-dim)' }}>
                 TICKET REF:
               </span>
-              <strong style={{ fontSize: '1.05rem', fontFamily: 'var(--font-mono)', color: 'var(--primary-light)' }}>
+              <strong style={{ fontSize: '1.05rem', fontFamily: 'var(--font-mono)', color: '#00D8FF' }}>
                 {submittedRefId}
               </strong>
               <button

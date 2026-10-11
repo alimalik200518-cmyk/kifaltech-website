@@ -89,13 +89,15 @@ export default function PrivacyPolicyPage() {
               6. Privacy Inquiries &amp; Data Protection Officer
             </h2>
             <p style={{ marginBottom: '40px' }}>
-              To exercise any data rights or submit security inquiries, contact our Data Privacy Team directly at <a href="mailto:info@kifaltech.com" style={{ color: 'var(--primary-light)', fontWeight: 600 }}>info@kifaltech.com</a>.
+              To exercise any data rights or submit security inquiries, contact our Data Privacy Team directly at <a href="mailto:info@kifaltech.com" className="email-mailto-link" style={{ fontWeight: 600 }}>info@kifaltech.com</a>.
             </p>
 
             <div style={{ padding: '24px', borderRadius: 'var(--radius-sm)', background: 'rgba(255, 255, 255, 0.02)', border: '1px solid rgba(255, 255, 255, 0.08)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '14px' }}>
               <div>
                 <strong style={{ color: '#ffffff', display: 'block', fontSize: '0.94rem' }}>Have questions about our data policies?</strong>
-                <span style={{ fontSize: '0.84rem', color: 'var(--text-dim)' }}>Direct email to info@kifaltech.com</span>
+                <span style={{ fontSize: '0.84rem', color: 'var(--text-dim)' }}>
+                  Direct email to <a href="mailto:info@kifaltech.com" className="email-mailto-link">info@kifaltech.com</a>
+                </span>
               </div>
               <a href="mailto:info@kifaltech.com" className="btn btn-secondary" style={{ fontSize: '0.82rem', padding: '8px 16px' }}>
                 Contact Privacy Team

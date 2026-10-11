@@ -91,7 +91,7 @@ export default function TermsOfServicePage() {
               7. Legal Inquiries &amp; Master Service Agreements
             </h2>
             <p style={{ marginBottom: '40px' }}>
-              For custom enterprise MSAs or legal questions regarding terms, contact our executive team at <a href="mailto:info@kifaltech.com" style={{ color: 'var(--primary-light)', fontWeight: 600 }}>info@kifaltech.com</a>.
+              For custom enterprise MSAs or legal questions regarding terms, contact our executive team at <a href="mailto:info@kifaltech.com" className="email-mailto-link" style={{ fontWeight: 600 }}>info@kifaltech.com</a>.
             </p>
 
             <div style={{ padding: '24px', borderRadius: 'var(--radius-sm)', background: 'rgba(255, 255, 255, 0.02)', border: '1px solid rgba(255, 255, 255, 0.08)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '14px' }}>

@@ -58,7 +58,7 @@ export default function SolutionsSection({ onSelectSolution }) {
                 justifyContent: 'space-between',
                 transition: 'border-color 0.12s ease'
               }}
-              onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#D32525'; }}
+              onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#00D8FF'; }}
               onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.14)'; }}
             >
               <div>

@@ -93,18 +93,25 @@ export default function ContactForm() {
   );
 
   return (
-    <section id="contact" className="section-spacing" style={{ backgroundColor: '#141010', position: 'relative', borderTop: '1px solid rgba(255, 255, 255, 0.05)' }}>
+    <section id="contact" className="section-spacing" style={{ backgroundColor: '#0A0A0A', position: 'relative', borderTop: '1px solid rgba(255, 255, 255, 0.12)' }}>
       <div className="container">
         {/* Remote Global Agency Eyebrow Banner */}
-        <div style={{ marginBottom: '40px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '14px', borderBottom: '1px solid rgba(255, 255, 255, 0.07)', paddingBottom: '20px' }}>
+        <div style={{ marginBottom: '40px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '14px', borderBottom: '1px solid rgba(255, 255, 255, 0.1)', paddingBottom: '20px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
             <span className="pulse-indicator"></span>
-            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.78rem', letterSpacing: '0.08em', color: 'var(--primary-light)', textTransform: 'uppercase', fontWeight: 600 }}>
+            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.78rem', letterSpacing: '0.08em', color: '#FFFFFF', textTransform: 'uppercase', fontWeight: 600 }}>
               100% REMOTE GLOBAL DIGITAL AGENCY
             </span>
           </div>
           <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.76rem', color: 'var(--text-dim)' }}>
-            DIRECT TRANSMISSION TO: <span style={{ color: '#ffffff' }}>forms@kifaltech.com</span>
+            PRIMARY INQUIRY:{' '}
+            <a
+              href="mailto:info@kifaltech.com"
+              className="email-mailto-link"
+              style={{ fontWeight: 600 }}
+            >
+              info@kifaltech.com
+            </a>
           </div>
         </div>
 
@@ -143,14 +150,14 @@ export default function ContactForm() {
             {/* Dual Location Blocks */}
             <div style={{ marginBottom: '28px' }}>
               <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.74rem', color: 'var(--text-dim)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '12px', fontWeight: 600 }}>
-                OUR PRESENCE • STRATEGY & ENGINEERING HUBS
+                OUR PRESENCE • STRATEGY &amp; ENGINEERING HUBS
               </div>
 
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))', gap: '14px' }}>
                 {/* USA Office */}
-                <div style={{ padding: '16px 18px', backgroundColor: '#1a1616', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '6px' }}>
+                <div style={{ padding: '16px 18px', backgroundColor: '#0E0E0E', border: '1px solid rgba(255, 255, 255, 0.14)', borderRadius: '0px' }}>
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '6px' }}>
-                    <span style={{ fontSize: '0.75rem', fontFamily: 'var(--font-mono)', color: 'var(--primary-light)', textTransform: 'uppercase', fontWeight: 600 }}>
+                    <span style={{ fontSize: '0.75rem', fontFamily: 'var(--font-mono)', color: '#FFFFFF', textTransform: 'uppercase', fontWeight: 600 }}>
                       USA OFFICE 🇺🇸
                     </span>
                     <span style={{ fontSize: '0.68rem', fontFamily: 'var(--font-mono)', color: 'var(--text-dim)' }}>EST Hub</span>
@@ -159,7 +166,7 @@ export default function ContactForm() {
                     Henry
                   </div>
                   <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginBottom: '10px' }}>
-                    Head of Product & Co-Founder
+                    Head of Product &amp; Co-Founder
                   </div>
                   <a
                     href="tel:+15551234567"
@@ -171,9 +178,9 @@ export default function ContactForm() {
                 </div>
 
                 {/* Pakistan Office */}
-                <div style={{ padding: '16px 18px', backgroundColor: '#1a1616', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '6px' }}>
+                <div style={{ padding: '16px 18px', backgroundColor: '#0E0E0E', border: '1px solid rgba(255, 255, 255, 0.14)', borderRadius: '0px' }}>
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '6px' }}>
-                    <span style={{ fontSize: '0.75rem', fontFamily: 'var(--font-mono)', color: '#10b981', textTransform: 'uppercase', fontWeight: 600 }}>
+                    <span style={{ fontSize: '0.75rem', fontFamily: 'var(--font-mono)', color: '#FFFFFF', textTransform: 'uppercase', fontWeight: 600 }}>
                       PAKISTAN OFFICE 🇵🇰
                     </span>
                     <span style={{ fontSize: '0.68rem', fontFamily: 'var(--font-mono)', color: 'var(--text-dim)' }}>PKT Hub</span>
@@ -182,7 +189,7 @@ export default function ContactForm() {
                     Muhammad Ali
                   </div>
                   <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginBottom: '4px' }}>
-                    Technical Lead & Co-Founder
+                    Technical Lead &amp; Co-Founder
                   </div>
                   <div style={{ fontSize: '0.75rem', color: 'var(--text-dim)', marginBottom: '6px' }}>
                     Karachi, Pakistan
@@ -199,8 +206,8 @@ export default function ContactForm() {
             </div>
 
             {/* Email CTA */}
-            <div style={{ padding: '18px 22px', backgroundColor: '#1a1616', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '6px', marginBottom: '24px' }}>
-              <div style={{ fontSize: '0.74rem', fontFamily: 'var(--font-mono)', color: 'var(--primary-light)', textTransform: 'uppercase', marginBottom: '4px', fontWeight: 600 }}>
+            <div style={{ padding: '18px 22px', backgroundColor: '#0E0E0E', border: '1px solid rgba(255, 255, 255, 0.14)', borderRadius: '0px', marginBottom: '24px' }}>
+              <div style={{ fontSize: '0.74rem', fontFamily: 'var(--font-mono)', color: '#9E9E9E', textTransform: 'uppercase', marginBottom: '4px', fontWeight: 600 }}>
                 PRIMARY EMAIL INQUIRIES
               </div>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '8px' }}>
@@ -215,14 +222,14 @@ export default function ContactForm() {
                     display: 'inline-flex',
                     alignItems: 'center',
                     gap: '6px',
-                    color: '#10b981',
+                    color: '#ffffff',
                     textDecoration: 'none',
                     fontWeight: 600,
                     fontSize: '0.8rem',
-                    background: 'rgba(16, 185, 129, 0.1)',
+                    background: 'rgba(255, 255, 255, 0.08)',
                     padding: '4px 10px',
-                    borderRadius: '4px',
-                    border: '1px solid rgba(16, 185, 129, 0.25)'
+                    borderRadius: '0px',
+                    border: '1px solid rgba(255, 255, 255, 0.2)'
                   }}
                 >
                   <span>💬 WhatsApp (+92 317 670 4325)</span>
@@ -235,7 +242,7 @@ export default function ContactForm() {
           <div
             style={{
               backgroundColor: '#0E0E0E',
-              border: '1px solid rgba(255, 255, 255, 0.15)',
+              border: '1px solid rgba(255, 255, 255, 0.16)',
               borderRadius: '0px',
               padding: 'clamp(28px, 4vw, 40px)',
               position: 'relative'
@@ -245,24 +252,24 @@ export default function ContactForm() {
               <h3 style={{ fontSize: '1.35rem', color: '#ffffff', margin: 0, fontWeight: 800, textTransform: 'uppercase', letterSpacing: '-0.02em' }}>
                 Project Discovery Brief
               </h3>
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', color: '#D32525', background: 'rgba(211, 37, 37, 0.12)', border: '1px solid #D32525', padding: '2px 8px', fontWeight: 700 }}>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', color: '#00D8FF', background: 'rgba(0, 216, 255, 0.12)', border: '1px solid #00D8FF', padding: '2px 8px', fontWeight: 700 }}>
                 &lt; 2 Hr SLA
               </span>
             </div>
 
             {status === 'success' ? (
               <div className="transmission-success-card">
-                <div style={{ width: '48px', height: '48px', borderRadius: '50%', background: 'rgba(16, 185, 129, 0.15)', color: '#10b981', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px auto', fontSize: '1.4rem' }}>
+                <div style={{ width: '48px', height: '48px', borderRadius: '0px', background: 'rgba(0, 216, 255, 0.15)', color: '#00D8FF', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px auto', fontSize: '1.4rem' }}>
                   ✓
                 </div>
                 <h4 style={{ fontSize: '1.3rem', color: '#ffffff', marginBottom: '10px' }}>
-                  Transmission received.
+                  Transmission successful. Our technical leads will be in touch within 2 business hours.
                 </h4>
                 <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', lineHeight: 1.65, marginBottom: '20px' }}>
-                  Transmission received. We'll be in touch within 2 business hours.
+                  Your scope requirements have been securely logged and assigned to our technical leads.
                 </p>
                 <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.82rem', color: 'var(--text-dim)', marginBottom: '20px' }}>
-                  Inquiry Ticket: <strong style={{ color: 'var(--primary-light)' }}>{refCode}</strong>
+                  Inquiry Ticket: <strong style={{ color: '#00D8FF' }}>{refCode}</strong>
                 </div>
                 <button
                   type="button"
@@ -286,69 +293,67 @@ export default function ContactForm() {
               >
                 <div className="agency-form-grid">
                   {/* Full Name */}
-                  <div className="field-group col-span-6">
+                  <div className="agency-field-group col-span-6">
+                    <label htmlFor="contact-fullName" className="agency-field-label">
+                      Full Name <span className="required-asterisk">*</span>
+                    </label>
                     <div className="field-underline-wrapper">
                       <input
                         id="contact-fullName"
                         type="text"
                         name="fullName"
                         required
-                        placeholder="Full Name"
-                        className={`agency-input-minimal ${formData.fullName ? 'field-has-value' : ''}`}
+                        placeholder="Jane Doe"
+                        className="agency-input-minimal"
                         value={formData.fullName}
                         onChange={handleChange}
                       />
-                      <label htmlFor="contact-fullName" className="floating-label">
-                        <span>Full Name</span>
-                        <span className="required-asterisk">*</span>
-                      </label>
                       <div className="field-underline-bar" />
                     </div>
                   </div>
 
                   {/* Work Email */}
-                  <div className="field-group col-span-6">
+                  <div className="agency-field-group col-span-6">
+                    <label htmlFor="contact-email" className="agency-field-label">
+                      Work Email <span className="required-asterisk">*</span>
+                    </label>
                     <div className="field-underline-wrapper">
                       <input
                         id="contact-email"
                         type="email"
                         name="email"
                         required
-                        placeholder="Work Email"
-                        className={`agency-input-minimal ${formData.email ? 'field-has-value' : ''}`}
+                        placeholder="jane@company.com"
+                        className="agency-input-minimal"
                         value={formData.email}
                         onChange={handleChange}
                       />
-                      <label htmlFor="contact-email" className="floating-label">
-                        <span>Work Email</span>
-                        <span className="required-asterisk">*</span>
-                      </label>
                       <div className="field-underline-bar" />
                     </div>
                   </div>
 
                   {/* Company / Brand Name */}
-                  <div className="field-group col-span-12">
+                  <div className="agency-field-group col-span-12">
+                    <label htmlFor="contact-company" className="agency-field-label">
+                      Company or Brand (Optional)
+                    </label>
                     <div className="field-underline-wrapper">
                       <input
                         id="contact-company"
                         type="text"
                         name="company"
-                        placeholder="Company or Organization"
-                        className={`agency-input-minimal ${formData.company ? 'field-has-value' : ''}`}
+                        placeholder="e.g. Acme Corp"
+                        className="agency-input-minimal"
                         value={formData.company}
                         onChange={handleChange}
                       />
-                      <label htmlFor="contact-company" className="floating-label">
-                        <span>Company or Brand (Optional)</span>
-                      </label>
                       <div className="field-underline-bar" />
                     </div>
                   </div>
 
                   {/* Service Pillar Selection */}
-                  <div className="field-group col-span-12">
-                    <label style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', color: 'var(--text-dim)', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+                  <div className="agency-field-group col-span-12">
+                    <label className="agency-field-label">
                       Primary Requirement <span className="required-asterisk">*</span>
                     </label>
                     <div className="pill-selector-group">
@@ -366,8 +371,8 @@ export default function ContactForm() {
                   </div>
 
                   {/* Budget Bracket */}
-                  <div className="field-group col-span-12">
-                    <label style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', color: 'var(--text-dim)', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+                  <div className="agency-field-group col-span-12">
+                    <label className="agency-field-label">
                       Estimated Budget <span className="required-asterisk">*</span>
                     </label>
                     <div className="pill-selector-group">
@@ -385,36 +390,42 @@ export default function ContactForm() {
                   </div>
 
                   {/* Project Details */}
-                  <div className="field-group col-span-12">
+                  <div className="agency-field-group col-span-12">
+                    <label htmlFor="contact-details" className="agency-field-label">
+                      Project Scope, Tech Constraints &amp; Objectives <span className="required-asterisk">*</span>
+                    </label>
                     <div className="field-underline-wrapper">
                       <textarea
                         id="contact-details"
                         name="details"
                         rows="3"
                         required
-                        placeholder="Project Scope & Goals"
-                        className={`agency-textarea-minimal ${formData.details ? 'field-has-value' : ''}`}
+                        placeholder="Describe target deliverables, features, and timeline requirements..."
+                        className="agency-textarea-minimal"
                         value={formData.details}
                         onChange={handleChange}
                       />
-                      <label htmlFor="contact-details" className="floating-label">
-                        <span>Project Scope, Tech Constraints & Objectives</span>
-                        <span className="required-asterisk">*</span>
-                      </label>
                       <div className="field-underline-bar" />
                     </div>
                   </div>
                 </div>
 
                 {errorMessage && (
-                  <div style={{ marginTop: '16px', padding: '10px 14px', background: 'rgba(239, 68, 68, 0.1)', border: '1px solid rgba(239, 68, 68, 0.3)', borderRadius: '4px', color: '#f87171', fontSize: '0.84rem' }}>
+                  <div style={{ marginTop: '16px', padding: '10px 14px', background: 'rgba(0, 216, 255, 0.15)', border: '1px solid #00D8FF', borderRadius: '0px', color: '#ff8a80', fontSize: '0.84rem' }}>
                     {errorMessage}
                   </div>
                 )}
 
                 <div style={{ marginTop: '28px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '14px' }}>
                   <div style={{ fontSize: '0.74rem', color: 'var(--text-dim)', fontFamily: 'var(--font-mono)' }}>
-                    Endpoints strictly dispatched to: <strong>forms@kifaltech.com</strong>
+                    Direct Correspondence:{' '}
+                    <a
+                      href="mailto:info@kifaltech.com"
+                      className="email-mailto-link"
+                      style={{ fontWeight: 600 }}
+                    >
+                      info@kifaltech.com
+                    </a>
                   </div>
 
                   <button

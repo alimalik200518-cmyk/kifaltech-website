@@ -66,14 +66,14 @@ export default function ProcessSection() {
                   height: '56px',
                   borderRadius: '0px',
                   backgroundColor: '#111111',
-                  border: '1px solid #D32525',
+                  border: '1px solid #00D8FF',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   fontFamily: 'var(--font-mono)',
                   fontSize: '0.95rem',
                   fontWeight: 800,
-                  color: '#D32525',
+                  color: '#00D8FF',
                   boxShadow: 'none'
                 }}
               >

@@ -228,8 +228,8 @@ export default function WireframePumpkin() {
       if (smoothProximity > 0.02) {
         const glowRad = rBase * (1.2 + smoothProximity * 0.5);
         const radGlow = ctx.createRadialGradient(centerX, centerY, 10, centerX, centerY, glowRad);
-        radGlow.addColorStop(0, `rgba(139, 92, 246, ${0.12 * smoothProximity})`);
-        radGlow.addColorStop(0.5, `rgba(255, 107, 43, ${0.08 * smoothProximity})`);
+        radGlow.addColorStop(0, `rgba(0, 210, 255, ${0.16 * smoothProximity})`);
+        radGlow.addColorStop(0.5, `rgba(255, 122, 0, ${0.09 * smoothProximity})`);
         radGlow.addColorStop(1, 'rgba(0, 0, 0, 0)');
         ctx.fillStyle = radGlow;
         ctx.beginPath();
@@ -253,32 +253,32 @@ export default function WireframePumpkin() {
         ctx.lineTo(p2.x, p2.y);
 
         if (type === 'eye' || type === 'mouth') {
-          // Face elements: glow neon orange/purple when mouse approaches
-          const faceAlpha = Math.min(0.55, baseAlpha * 2.2 + smoothProximity * 0.35);
-          ctx.strokeStyle = `rgba(255, 107, 43, ${faceAlpha})`;
+          // Face elements: glow electric cyan/amber when mouse approaches
+          const faceAlpha = Math.min(0.65, baseAlpha * 2.2 + smoothProximity * 0.4);
+          ctx.strokeStyle = `rgba(0, 210, 255, ${faceAlpha})`;
           ctx.lineWidth = 1.4;
           if (smoothProximity > 0.1) {
-            ctx.shadowBlur = 6 * smoothProximity;
-            ctx.shadowColor = 'rgba(255, 107, 43, 0.7)';
+            ctx.shadowBlur = 8 * smoothProximity;
+            ctx.shadowColor = 'rgba(0, 210, 255, 0.85)';
           }
           ctx.stroke();
           ctx.shadowBlur = 0;
         } else if (type === 'stem') {
-          ctx.strokeStyle = `rgba(168, 85, 247, ${alpha * 1.4})`;
+          ctx.strokeStyle = `rgba(0, 210, 255, ${alpha * 1.5})`;
           ctx.lineWidth = 1.0;
           ctx.stroke();
         } else if (type === 'rib') {
-          // Longitudinal ribs: dark twilight purple with slight orange tint near mouse
+          // Longitudinal ribs: cyan with amber highlights near mouse
           if (smoothProximity > 0.15 && Math.random() < 0.15) {
-            ctx.strokeStyle = `rgba(255, 107, 43, ${alpha * 1.5})`;
+            ctx.strokeStyle = `rgba(255, 122, 0, ${alpha * 1.5})`;
           } else {
-            ctx.strokeStyle = `rgba(139, 92, 246, ${alpha})`;
+            ctx.strokeStyle = `rgba(0, 210, 255, ${alpha})`;
           }
           ctx.lineWidth = 0.85;
           ctx.stroke();
         } else {
           // Latitude rings
-          ctx.strokeStyle = `rgba(211, 37, 37, ${alpha * 0.75})`;
+          ctx.strokeStyle = `rgba(14, 116, 144, ${alpha * 0.75})`;
           ctx.lineWidth = 0.65;
           ctx.stroke();
         }

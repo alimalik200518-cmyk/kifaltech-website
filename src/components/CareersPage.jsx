@@ -263,7 +263,14 @@ export default function CareersPage() {
                 </h2>
               </div>
               <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.82rem', color: 'var(--text-dim)' }}>
-                ALL POSITIONS 100% REMOTE • APPLICATIONS SENT TO: <span style={{ color: 'var(--primary-light)' }}>forms@kifaltech.com</span>
+                ALL POSITIONS 100% REMOTE • APPLICATIONS SENT TO:{' '}
+                <a
+                  href="mailto:info@kifaltech.com"
+                  className="email-mailto-link"
+                  style={{ fontWeight: 600 }}
+                >
+                  info@kifaltech.com
+                </a>
               </div>
             </div>
 
@@ -300,7 +307,7 @@ export default function CareersPage() {
                         {pos.type}
                       </span>
                       <a
-                        href={`mailto:forms@kifaltech.com?subject=Application:%20${encodeURIComponent(pos.title)}`}
+                        href={`mailto:info@kifaltech.com?subject=Application:%20${encodeURIComponent(pos.title)}`}
                         className="btn btn-secondary"
                         style={{ height: '38px', padding: '0 18px', fontSize: '0.84rem' }}
                       >
@@ -372,7 +379,14 @@ export default function CareersPage() {
                   TALENT INTAKE
                 </span>
                 <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.76rem', color: 'var(--text-dim)' }}>
-                  ENDPOINT: <strong style={{ color: 'var(--primary-light)' }}>forms@kifaltech.com</strong>
+                  DIRECT CHANNEL:{' '}
+                  <a
+                    href="mailto:info@kifaltech.com"
+                    className="email-mailto-link"
+                    style={{ fontWeight: 600 }}
+                  >
+                    info@kifaltech.com
+                  </a>
                 </span>
               </div>
               <h3 style={{ fontSize: 'clamp(1.6rem, 2.6vw, 2.2rem)', color: '#ffffff', marginBottom: '8px' }}>
@@ -389,10 +403,10 @@ export default function CareersPage() {
                   ✓
                 </div>
                 <h4 style={{ fontSize: '1.4rem', color: '#ffffff', marginBottom: '8px' }}>
-                  Transmission received. We'll be in touch within 2 business hours.
+                  Transmission successful. Our technical leads will be in touch within 2 business hours.
                 </h4>
                 <p style={{ fontSize: '0.94rem', color: 'var(--text-muted)', maxWidth: '520px', margin: '0 auto 24px auto', lineHeight: 1.6 }}>
-                  Thank you, <strong>{applicant.name}</strong>. Your profile for <strong>{applicant.role}</strong> has been transmitted to our engineering leads at forms@kifaltech.com.
+                  Thank you, <strong>{applicant.name}</strong>. Your profile for <strong>{applicant.role}</strong> has been transmitted directly to our engineering leads.
                 </p>
 
                 {appRef && (
@@ -525,12 +539,19 @@ export default function CareersPage() {
 
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '16px' }}>
                   <div style={{ fontSize: '0.78rem', color: 'var(--text-dim)', fontFamily: 'var(--font-mono)' }}>
-                    DIRECT TRANSMISSION TARGET: forms@kifaltech.com
+                    DIRECT TRANSMISSION TARGET:{' '}
+                    <a
+                      href="mailto:info@kifaltech.com"
+                      className="email-mailto-link"
+                      style={{ fontWeight: 600 }}
+                    >
+                      info@kifaltech.com
+                    </a>
                   </div>
 
                   <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                     <a
-                      href="mailto:forms@kifaltech.com?subject=Direct%20Career%20Application"
+                      href="mailto:info@kifaltech.com?subject=Direct%20Career%20Application"
                       className="btn btn-secondary"
                       style={{ fontSize: '0.86rem', padding: '12px 20px' }}
                     >

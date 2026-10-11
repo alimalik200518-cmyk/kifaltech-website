@@ -1,6 +1,11 @@
 import React from 'react';
 import { agencyData } from '../data/agencyData.js';
 import { Link } from './Router.jsx';
+import { HALLOWEEN_CONFIG } from '../config/halloweenConfig.js';
+import HalloweenPumpkin from './HalloweenPumpkin.jsx';
+import WireframePumpkin from './WireframePumpkin.jsx';
+
+import HeroTechCanvas from './HeroTechCanvas.jsx';
 
 export default function Hero({ onStartProject }) {
   const SvgArrow = () => (
@@ -50,7 +55,7 @@ export default function Hero({ onStartProject }) {
         overflow: 'hidden'
       }}
     >
-      {/* Full-Bleed Cinematic Grainy Architectural Background */}
+      {/* 1. Underlying Cinematic Architectural Blueprint Image (12% low-opacity) */}
       <div
         aria-hidden="true"
         style={{
@@ -59,30 +64,46 @@ export default function Hero({ onStartProject }) {
           backgroundImage: "url('/images/hero/hero-architectural-bg.jpg')",
           backgroundSize: 'cover',
           backgroundPosition: 'center 40%',
-          opacity: 0.22,
-          filter: 'grayscale(100%) contrast(1.3) brightness(0.7)',
+          opacity: 0.12,
+          filter: 'grayscale(100%) contrast(1.15) brightness(0.4)',
           zIndex: 0
         }}
       />
 
-      {/* Vignette Overlay & Subtle 1px Architectural Grid Line Accents */}
+      {/* 2. Slow-Moving Cinematic Architectural Wireframe & Data Grid Loop */}
+      <HeroTechCanvas />
+
+      {/* 3D Wireframe Pumpkin Parallax Canvas for Halloween (if active) */}
+      {HALLOWEEN_CONFIG.enabled && HALLOWEEN_CONFIG.animations?.wireframePumpkin && (
+        <WireframePumpkin />
+      )}
+
+      {/* 3. Heavy Dark Overlay (#0A0A0A) for Extreme Contrast & Readability */}
       <div
         aria-hidden="true"
         style={{
           position: 'absolute',
           inset: 0,
-          background: 'linear-gradient(180deg, rgba(10, 10, 10, 0.7) 0%, rgba(10, 10, 10, 0.88) 60%, #0A0A0A 100%)',
-          zIndex: 0
+          background: 'radial-gradient(circle at 50% 45%, rgba(10, 10, 10, 0.72) 0%, rgba(10, 10, 10, 0.92) 65%, #0A0A0A 100%)',
+          zIndex: 1
         }}
       />
-      <div className="hero-ambient-mesh" aria-hidden="true" />
+      <div
+        aria-hidden="true"
+        style={{
+          position: 'absolute',
+          inset: 0,
+          background: 'linear-gradient(180deg, rgba(10, 10, 10, 0.8) 0%, transparent 25%, transparent 75%, #0A0A0A 100%)',
+          zIndex: 1
+        }}
+      />
 
       {/* Center-Stage Editorial Typography Layout */}
       <div className="container" style={{ position: 'relative', zIndex: 2, flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto', textAlign: 'center', width: '100%' }}>
           
-          {/* Brutalist Eyebrow Metadata Tag */}
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', marginBottom: '24px' }}>
+          {/* Eyebrow Metadata Tag */}
+          <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '12px', flexWrap: 'wrap', marginBottom: '24px' }}>
             <span
               style={{
                 fontFamily: 'var(--font-mono)',
@@ -93,7 +114,8 @@ export default function Hero({ onStartProject }) {
                 textTransform: 'uppercase',
                 padding: '6px 14px',
                 backgroundColor: '#111111',
-                border: '1px solid rgba(255, 255, 255, 0.18)',
+                border: '1px solid rgba(255, 255, 255, 0.16)',
+                borderRadius: '0px',
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '8px'
@@ -103,7 +125,8 @@ export default function Hero({ onStartProject }) {
                 style={{
                   width: '6px',
                   height: '6px',
-                  backgroundColor: '#D32525',
+                  borderRadius: '0px',
+                  backgroundColor: '#00D8FF',
                   display: 'inline-block'
                 }}
               />
@@ -124,7 +147,15 @@ export default function Hero({ onStartProject }) {
               maxWidth: '960px'
             }}
           >
-            We Build <span style={{ color: '#D32525' }}>Smart Digital</span> Solutions for Modern Businesses.
+            We Build{' '}
+            <span
+              style={{
+                color: '#00D8FF'
+              }}
+            >
+              Smart Digital
+            </span>{' '}
+            Solutions for Modern Businesses.
           </h1>
 
           {/* Editorial Subtitle */}
@@ -132,7 +163,7 @@ export default function Hero({ onStartProject }) {
             style={{
               fontSize: 'clamp(1rem, 1.6vw, 1.18rem)',
               lineHeight: 1.6,
-              color: '#A0A0A0',
+              color: '#9E9E9E',
               maxWidth: '720px',
               margin: '0 auto 30px auto',
               fontWeight: 400
@@ -141,7 +172,7 @@ export default function Hero({ onStartProject }) {
             We design, engineer, and deploy high-throughput digital platforms, custom web applications, and mission-critical software with ruthless attention to architectural performance.
           </p>
 
-          {/* Rectangular Action Block CTA Group */}
+          {/* Action Block CTA Group */}
           <div
             style={{
               display: 'flex',
@@ -192,7 +223,8 @@ export default function Hero({ onStartProject }) {
             gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 250px), 1fr))',
             backgroundColor: '#0E0E0E',
             border: '1px solid rgba(255, 255, 255, 0.16)',
-            boxShadow: '0 4px 20px rgba(0, 0, 0, 0.7)'
+            borderRadius: '0px',
+            overflow: 'hidden'
           }}
         >
           {telemetryMetrics.map((item, idx) => (
@@ -201,12 +233,11 @@ export default function Hero({ onStartProject }) {
               style={{
                 padding: '18px 22px',
                 borderRight: idx < telemetryMetrics.length - 1 ? '1px solid rgba(255, 255, 255, 0.12)' : 'none',
-                borderBottom: 'none',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
                 gap: '8px',
-                backgroundColor: 'rgba(255, 255, 255, 0.015)'
+                backgroundColor: '#0E0E0E'
               }}
             >
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
@@ -224,10 +255,12 @@ export default function Hero({ onStartProject }) {
                   style={{
                     fontFamily: 'var(--font-mono)',
                     fontSize: '0.62rem',
-                    color: '#D32525',
-                    border: '1px solid #D32525',
-                    padding: '1px 5px',
-                    fontWeight: 700
+                    color: '#00D8FF',
+                    border: '1px solid rgba(0, 216, 255, 0.4)',
+                    backgroundColor: 'rgba(0, 216, 255, 0.08)',
+                    padding: '1px 6px',
+                    fontWeight: 700,
+                    borderRadius: '0px'
                   }}
                 >
                   {item.badge}
@@ -260,6 +293,22 @@ export default function Hero({ onStartProject }) {
             </div>
           ))}
         </div>
+      </div>
+
+      {/* Glowing 3D Cyber-Carved Jack-o'-Lantern at Hero Base Margin */}
+      <div
+        style={{
+          position: 'absolute',
+          bottom: '20px',
+          right: '28px',
+          zIndex: 4,
+          display: 'flex',
+          alignItems: 'center',
+          gap: '8px'
+        }}
+        title="Interactive Cyber Jack-o'-Lantern"
+      >
+        <HalloweenPumpkin size={48} />
       </div>
     </section>
   );

@@ -76,7 +76,7 @@ export default function AboutPage({ onStartProject }) {
               {/* Authentic Capability Pillars (Solid Standards) */}
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '12px', marginTop: '32px' }}>
                 <div style={{ background: '#111111', padding: '14px', borderRadius: '0px', border: '1px solid rgba(255, 255, 255, 0.15)' }}>
-                  <div style={{ fontSize: '0.88rem', fontWeight: 700, color: '#D32525', fontFamily: 'var(--font-heading)' }}>100% Remote Global</div>
+                  <div style={{ fontSize: '0.88rem', fontWeight: 700, color: '#00D8FF', fontFamily: 'var(--font-heading)' }}>100% Remote Global</div>
                   <div style={{ fontSize: '0.74rem', color: 'var(--text-dim)', marginTop: '4px' }}>US &amp; South Asia Hubs</div>
                 </div>
                 <div style={{ background: '#111111', padding: '14px', borderRadius: '0px', border: '1px solid rgba(255, 255, 255, 0.15)' }}>
@@ -84,7 +84,7 @@ export default function AboutPage({ onStartProject }) {
                   <div style={{ fontSize: '0.74rem', color: 'var(--text-dim)', marginTop: '4px' }}>React, Node &amp; Edge</div>
                 </div>
                 <div style={{ background: '#111111', padding: '14px', borderRadius: '0px', border: '1px solid rgba(255, 255, 255, 0.15)' }}>
-                  <div style={{ fontSize: '0.88rem', fontWeight: 700, color: '#D32525', fontFamily: 'var(--font-heading)' }}>Production-Grade Code</div>
+                  <div style={{ fontSize: '0.88rem', fontWeight: 700, color: '#00D8FF', fontFamily: 'var(--font-heading)' }}>Production-Grade Code</div>
                   <div style={{ fontSize: '0.74rem', color: 'var(--text-dim)', marginTop: '4px' }}>Strict architectures</div>
                 </div>
                 <div style={{ background: '#111111', padding: '14px', borderRadius: '0px', border: '1px solid rgba(255, 255, 255, 0.15)' }}>
@@ -258,9 +258,13 @@ export default function AboutPage({ onStartProject }) {
               <span style={{ fontSize: '0.76rem', fontFamily: 'var(--font-mono)', color: 'var(--text-dim)', textTransform: 'uppercase', letterSpacing: '0.08em', display: 'block', marginBottom: '4px' }}>
                 GENERAL CLIENT &amp; PARTNERSHIP INQUIRIES
               </span>
-              <div style={{ fontSize: '1.1rem', color: '#ffffff', fontWeight: 600 }}>
+              <a
+                href="mailto:info@kifaltech.com"
+                className="email-mailto-link"
+                style={{ fontSize: '1.1rem', fontWeight: 600, display: 'inline-block' }}
+              >
                 info@kifaltech.com
-              </div>
+              </a>
             </div>
             <a href="mailto:info@kifaltech.com" className="btn btn-primary" style={{ padding: '12px 24px', fontSize: '0.9rem' }}>
               <span>Send Direct Email</span>
@@ -338,7 +342,7 @@ export default function AboutPage({ onStartProject }) {
               Partner with a reliable digital engineering firm.
             </h2>
             <p style={{ maxWidth: '600px', margin: '0 auto 28px auto', fontSize: '1.05rem' }}>
-              Direct access to senior engineers and designers committed to your long-term success. Contact us anytime at <a href="mailto:info@kifaltech.com" style={{ color: 'var(--primary-light)', textDecoration: 'underline' }}>info@kifaltech.com</a>.
+              Direct access to senior engineers and designers committed to your long-term success. Contact us anytime at <a href="mailto:info@kifaltech.com" className="email-mailto-link" style={{ fontWeight: 600 }}>info@kifaltech.com</a>.
             </p>
             <button
               onClick={() => onStartProject()}

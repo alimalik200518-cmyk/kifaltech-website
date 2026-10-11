@@ -2,8 +2,8 @@
 // Set `enabled: false` to instantly and cleanly deactivate the entire Halloween theme & campaign.
 
 export const HALLOWEEN_CONFIG = {
-  // Master Kill-Switch (Disabled for high-contrast brutalist agency theme)
-  enabled: false,
+  // Master Kill-Switch (Enabled for Digital Halloween Experience)
+  enabled: true,
 
   // Campaign Information
   campaignName: "KifalTech Halloween 2026 Special",
@@ -14,7 +14,7 @@ export const HALLOWEEN_CONFIG = {
 
   // Banner Content
   banner: {
-    badge: "HALLOWEEN SPECIAL",
+    badge: "🎃 HALLOWEEN SPECIAL",
     text: "Reserve your Q4 sprint slot — Complimentary Core Web Vitals & Security Audit included with all projects.",
     ctaText: "Claim Offer",
     dismissible: true
@@ -24,9 +24,12 @@ export const HALLOWEEN_CONFIG = {
   animations: {
     wireframePumpkin: true,
     cyberWebs: true,
+    bats: true,
     ghostButtonGlitch: true,
     terminalEasterEgg: true,
-    phosphorCursor: true
+    phosphorCursor: false, // kept false for clean professional cursor
+    ghostCompanion: true,
+    interactivePumpkin: true
   },
 
   // Dedicated Offer Section Content (reusing real KifalTech services & pricing anchors)

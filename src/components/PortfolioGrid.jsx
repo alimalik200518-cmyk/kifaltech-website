@@ -1,6 +1,7 @@
 import React from 'react';
 import { agencyData } from '../data/agencyData.js';
 import { Link } from './Router.jsx';
+import HalloweenPumpkin from './HalloweenPumpkin.jsx';
 
 export default function PortfolioGrid({ onStartSimilarProject }) {
   const { portfolio } = agencyData;
@@ -18,14 +19,21 @@ export default function PortfolioGrid({ onStartSimilarProject }) {
   );
 
   return (
-    <section id="portfolio" className="section-spacing" style={{ backgroundColor: '#0A0A0A', position: 'relative', borderTop: '1px solid rgba(255, 255, 255, 0.12)' }}>
+    <section id="portfolio" className="section-spacing" style={{ backgroundColor: 'var(--bg-main)', position: 'relative', borderTop: '1px solid var(--border-subtle)' }}>
       <div className="container">
         {/* Section Header */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '56px', flexWrap: 'wrap', gap: '20px' }}>
           <div style={{ maxWidth: '720px' }}>
-            <div className="eyebrow" style={{ marginBottom: '14px' }}>
-              <span className="pulse-indicator"></span>
-              <span>SELECTED WORK</span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '14px', flexWrap: 'wrap' }}>
+              <div className="eyebrow" style={{ marginBottom: 0 }}>
+                <span className="pulse-indicator"></span>
+                <span>SELECTED WORK</span>
+              </div>
+              {/* Pair of glowing 3D cyber-carved Jack-o'-lanterns */}
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }} title="Cyber-Carved Jack-o'-Lantern Pair">
+                <HalloweenPumpkin size={36} />
+                <HalloweenPumpkin size={26} style={{ transform: 'scaleX(-1) translateY(2px)' }} />
+              </div>
             </div>
             <h2
               style={{
@@ -80,7 +88,7 @@ export default function PortfolioGrid({ onStartSimilarProject }) {
               {/* Metadata & Narrative */}
               <div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px', flexWrap: 'wrap' }}>
-                  <span style={{ fontSize: '0.72rem', fontFamily: 'var(--font-mono)', color: '#D32525', background: 'rgba(211, 37, 37, 0.12)', border: '1px solid #D32525', padding: '2px 8px', textTransform: 'uppercase', letterSpacing: '0.06em', fontWeight: 700 }}>
+                  <span style={{ fontSize: '0.72rem', fontFamily: 'var(--font-mono)', color: '#00D8FF', background: 'rgba(0, 216, 255, 0.12)', border: '1px solid #00D8FF', padding: '2px 8px', textTransform: 'uppercase', letterSpacing: '0.06em', fontWeight: 700 }}>
                     {p1.projectType || 'Client Case Study'}
                   </span>
                   <span style={{ color: 'var(--text-dim)' }}>•</span>
@@ -125,7 +133,7 @@ export default function PortfolioGrid({ onStartSimilarProject }) {
                       {svc}
                     </span>
                   ))}
-                  <span style={{ fontSize: '0.74rem', color: '#D32525', background: 'rgba(211, 37, 37, 0.12)', border: '1px solid #D32525', padding: '2px 8px', fontFamily: 'var(--font-mono)', fontWeight: 700 }}>
+                  <span style={{ fontSize: '0.74rem', color: '#00D8FF', background: 'rgba(0, 216, 255, 0.12)', border: '1px solid #00D8FF', padding: '2px 8px', fontFamily: 'var(--font-mono)', fontWeight: 700 }}>
                     React / Next.js
                   </span>
                 </div>
@@ -229,7 +237,7 @@ export default function PortfolioGrid({ onStartSimilarProject }) {
             >
               <div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '14px' }}>
-                  <span style={{ fontSize: '0.72rem', fontFamily: 'var(--font-mono)', color: '#D32525', background: 'rgba(211, 37, 37, 0.12)', border: '1px solid #D32525', padding: '2px 8px', textTransform: 'uppercase', fontWeight: 700 }}>
+                  <span style={{ fontSize: '0.72rem', fontFamily: 'var(--font-mono)', color: '#00D8FF', background: 'rgba(0, 216, 255, 0.12)', border: '1px solid #00D8FF', padding: '2px 8px', textTransform: 'uppercase', fontWeight: 700 }}>
                     {p2.category}
                   </span>
                   <span style={{ color: 'var(--text-dim)' }}>•</span>
@@ -332,7 +340,7 @@ export default function PortfolioGrid({ onStartSimilarProject }) {
             >
               <div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '14px' }}>
-                  <span style={{ fontSize: '0.72rem', fontFamily: 'var(--font-mono)', color: '#D32525', background: 'rgba(211, 37, 37, 0.12)', border: '1px solid #D32525', padding: '2px 8px', textTransform: 'uppercase', fontWeight: 700 }}>
+                  <span style={{ fontSize: '0.72rem', fontFamily: 'var(--font-mono)', color: '#00D8FF', background: 'rgba(0, 216, 255, 0.12)', border: '1px solid #00D8FF', padding: '2px 8px', textTransform: 'uppercase', fontWeight: 700 }}>
                     {p3.category}
                   </span>
                   <span style={{ color: 'var(--text-dim)' }}>•</span>
@@ -505,7 +513,7 @@ export default function PortfolioGrid({ onStartSimilarProject }) {
               {/* Description & Link */}
               <div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '14px' }}>
-                  <span style={{ fontSize: '0.72rem', fontFamily: 'var(--font-mono)', color: '#D32525', background: 'rgba(211, 37, 37, 0.12)', border: '1px solid #D32525', padding: '2px 8px', textTransform: 'uppercase', fontWeight: 700 }}>
+                  <span style={{ fontSize: '0.72rem', fontFamily: 'var(--font-mono)', color: '#00D8FF', background: 'rgba(0, 216, 255, 0.12)', border: '1px solid #00D8FF', padding: '2px 8px', textTransform: 'uppercase', fontWeight: 700 }}>
                     {p4.category}
                   </span>
                   <span style={{ color: 'var(--text-dim)' }}>•</span>

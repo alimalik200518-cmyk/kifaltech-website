@@ -12,8 +12,40 @@ export default function AboutSection({ onLearnMore }) {
   );
 
   return (
-    <section id="about" className="section-spacing" style={{ backgroundColor: '#0A0A0A', position: 'relative', borderTop: '1px solid rgba(255, 255, 255, 0.12)' }}>
-      <div className="container">
+    <section id="about" className="section-spacing" style={{ backgroundColor: 'var(--bg-main)', position: 'relative', borderTop: '1px solid var(--border-subtle)', overflow: 'hidden' }}>
+      {/* Translucent Spectral Ghost Apparition Drifting near Section Border */}
+      <div
+        className="halloween-drift-ghost"
+        style={{
+          position: 'absolute',
+          top: '32px',
+          right: '5%',
+          pointerEvents: 'none',
+          opacity: 0.35,
+          filter: 'drop-shadow(0 0 16px rgba(0, 216, 255, 0.45))',
+          animation: 'ghostDriftSlow 12s ease-in-out infinite',
+          zIndex: 0
+        }}
+        aria-hidden="true"
+      >
+        <svg width="44" height="52" viewBox="0 0 100 120" fill="none">
+          <path
+            d="M50 10C27.9 10 10 27.9 10 50V95C10 97.8 12.2 100 15 100C16.8 100 18.4 99 19.3 97.4L26 86L32.7 97.4C33.6 99 35.2 100 37 100C38.8 100 40.4 99 41.3 97.4L48 86L54.7 97.4C55.6 99 57.2 100 59 100C60.8 100 62.4 99 63.3 97.4L70 86L76.7 97.4C77.6 99 79.2 100 81 100C83.8 100 86 97.8 86 95V50C86 27.9 69.9 10 50 10Z"
+            fill="url(#driftGhostGrad)"
+          />
+          <defs>
+            <linearGradient id="driftGhostGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.85" />
+              <stop offset="60%" stopColor="#8BE4F8" stopOpacity="0.5" />
+              <stop offset="100%" stopColor="#00D8FF" stopOpacity="0.2" />
+            </linearGradient>
+          </defs>
+          <circle cx="36" cy="48" r="4" fill="#06090F" />
+          <circle cx="64" cy="48" r="4" fill="#06090F" />
+        </svg>
+      </div>
+
+      <div className="container" style={{ position: 'relative', zIndex: 1 }}>
         {/* Editorial Section Header */}
         <div style={{ maxWidth: '820px', marginBottom: '56px' }}>
           <div className="eyebrow" style={{ marginBottom: '16px' }}>
@@ -52,7 +84,7 @@ export default function AboutSection({ onLearnMore }) {
           {/* Left Column: Deep Answers to Core Questions */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
             {/* Who We Are & What We Do */}
-            <div style={{ borderLeft: '2px solid #D32525', paddingLeft: '24px' }}>
+            <div style={{ borderLeft: '2px solid #00D8FF', paddingLeft: '24px' }}>
               <h3 style={{ fontSize: '1.25rem', color: '#ffffff', marginBottom: '10px', textTransform: 'uppercase', fontWeight: 800 }}>
                 Who We Are & What We Do
               </h3>
@@ -110,7 +142,7 @@ export default function AboutSection({ onLearnMore }) {
                 fontSize: '0.78rem',
                 textTransform: 'uppercase',
                 letterSpacing: '0.08em',
-                color: '#D32525',
+                color: '#00D8FF',
                 marginBottom: '20px',
                 display: 'flex',
                 alignItems: 'center',
@@ -126,7 +158,7 @@ export default function AboutSection({ onLearnMore }) {
               <div style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.08)', paddingBottom: '18px' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
                   <h4 style={{ fontSize: '1.05rem', color: '#ffffff', margin: 0 }}>Production-Grade Code Architecture</h4>
-                  <span style={{ fontSize: '0.72rem', fontFamily: 'var(--font-mono)', color: '#D32525', background: 'rgba(211, 37, 37, 0.12)', border: '1px solid #D32525', padding: '2px 8px' }}>No Bloat</span>
+                  <span style={{ fontSize: '0.72rem', fontFamily: 'var(--font-mono)', color: '#00D8FF', background: 'rgba(0, 216, 255, 0.12)', border: '1px solid #00D8FF', padding: '2px 8px' }}>No Bloat</span>
                 </div>
                 <p style={{ fontSize: '0.88rem', color: '#888888', margin: 0, lineHeight: 1.6 }}>
                   Built with modular component hierarchies, strict typing, and standardized linting so future developers can easily extend the platform.
@@ -148,7 +180,7 @@ export default function AboutSection({ onLearnMore }) {
               <div style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.08)', paddingBottom: '18px' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
                   <h4 style={{ fontSize: '1.05rem', color: '#ffffff', margin: 0 }}>100% IP Transfer</h4>
-                  <span style={{ fontSize: '0.72rem', fontFamily: 'var(--font-mono)', color: '#D32525', background: 'rgba(211, 37, 37, 0.12)', border: '1px solid #D32525', padding: '2px 8px' }}>Zero Lock-In</span>
+                  <span style={{ fontSize: '0.72rem', fontFamily: 'var(--font-mono)', color: '#00D8FF', background: 'rgba(0, 216, 255, 0.12)', border: '1px solid #00D8FF', padding: '2px 8px' }}>Zero Lock-In</span>
                 </div>
                 <p style={{ fontSize: '0.88rem', color: '#888888', margin: 0, lineHeight: 1.6 }}>
                   You own all source repositories, Figma design files, cloud deployment keys, and documentation from the moment work completes.
@@ -159,7 +191,7 @@ export default function AboutSection({ onLearnMore }) {
               <div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
                   <h4 style={{ fontSize: '1.05rem', color: '#ffffff', margin: 0 }}>Post-Launch Reliability</h4>
-                  <span style={{ fontSize: '0.72rem', fontFamily: 'var(--font-mono)', color: '#D32525', background: 'rgba(211, 37, 37, 0.12)', border: '1px solid #D32525', padding: '2px 8px' }}>99.9% Uptime</span>
+                  <span style={{ fontSize: '0.72rem', fontFamily: 'var(--font-mono)', color: '#00D8FF', background: 'rgba(0, 216, 255, 0.12)', border: '1px solid #00D8FF', padding: '2px 8px' }}>99.9% Uptime</span>
                 </div>
                 <p style={{ fontSize: '0.88rem', color: '#888888', margin: 0, lineHeight: 1.6 }}>
                   We stay with you past launch day — providing server patch management, automated monitoring, and fast technical support when needed.

@@ -13,6 +13,7 @@ import HalloweenModal from './components/HalloweenModal.jsx';
 import HalloweenFloatingTrigger from './components/HalloweenFloatingTrigger.jsx';
 import CyberWebs from './components/CyberWebs.jsx';
 import PhosphorCursor from './components/PhosphorCursor.jsx';
+import HalloweenGhost from './components/HalloweenGhost.jsx';
 
 // Home Page Sections
 import Hero from './components/Hero.jsx';
@@ -330,9 +331,9 @@ function AppContent() {
         onOpenQuickFix={() => setQuickFixOpen(true)}
       />
 
-      {/* Floating Halloween Trigger */}
-      {HALLOWEEN_CONFIG.enabled && (
-        <HalloweenFloatingTrigger onClick={() => setHalloweenModalOpen(true)} />
+      {/* Floating Halloween Ghost Companion */}
+      {HALLOWEEN_CONFIG.enabled && HALLOWEEN_CONFIG.animations?.ghostCompanion && (
+        <HalloweenGhost onClaimOffer={(offer) => handleOpenProposal(offer)} />
       )}
 
       {/* Floating Back to Top Button */}

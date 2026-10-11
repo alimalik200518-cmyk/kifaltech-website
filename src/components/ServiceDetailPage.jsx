@@ -117,14 +117,14 @@ export default function ServiceDetailPage({ serviceSlug, onStartProject }) {
                     height: '42px',
                     borderRadius: '0px',
                     backgroundColor: '#111111',
-                    border: '1px solid #D32525',
+                    border: '1px solid #00D8FF',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    color: '#D32525'
+                    color: '#00D8FF'
                   }}
                 >
-                  {getServiceIcon(service.id, service.category, 22, "#D32525")}
+                  {getServiceIcon(service.id, service.category, 22, "#00D8FF")}
                 </div>
                 <span className="eyebrow" style={{ marginBottom: 0 }}>
                   <span className="pulse-indicator" />

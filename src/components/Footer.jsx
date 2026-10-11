@@ -46,8 +46,8 @@ export default function Footer({ onStartProject }) {
   return (
     <footer
       style={{
-        backgroundColor: '#0A0A0A',
-        borderTop: '1px solid rgba(255, 255, 255, 0.14)',
+        backgroundColor: '#06090F',
+        borderTop: '1px solid rgba(0, 216, 255, 0.2)',
         paddingTop: '64px',
         paddingBottom: '36px',
         position: 'relative'
@@ -69,7 +69,7 @@ export default function Footer({ onStartProject }) {
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
             <span className="pulse-indicator"></span>
-            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', letterSpacing: '0.08em', color: '#D32525', textTransform: 'uppercase', fontWeight: 700 }}>
+            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', letterSpacing: '0.08em', color: '#00D8FF', textTransform: 'uppercase', fontWeight: 700 }}>
               100% REMOTE GLOBAL DIGITAL AGENCY
             </span>
           </div>
@@ -191,36 +191,36 @@ export default function Footer({ onStartProject }) {
             </div>
 
             {/* USA Office Block */}
-            <div style={{ marginBottom: '16px', padding: '12px 14px', borderRadius: 'var(--radius-xs)', background: 'rgba(255, 255, 255, 0.02)', border: '1px solid rgba(255, 255, 255, 0.06)' }}>
+            <div style={{ marginBottom: '16px', padding: '12px 14px', borderRadius: '0px', background: 'rgba(255, 255, 255, 0.02)', border: '1px solid rgba(255, 255, 255, 0.08)' }}>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '4px' }}>
-                <span style={{ fontSize: '0.78rem', fontFamily: 'var(--font-mono)', color: 'var(--primary-light)', fontWeight: 600 }}>USA OFFICE</span>
-                <span style={{ fontSize: '0.7rem', color: 'var(--accent-emerald)', fontFamily: 'var(--font-mono)' }}>EST / CST</span>
+                <span style={{ fontSize: '0.78rem', fontFamily: 'var(--font-mono)', color: '#ffffff', fontWeight: 700 }}>US OFFICE 🇺🇸</span>
+                <span style={{ fontSize: '0.7rem', color: '#888888', fontFamily: 'var(--font-mono)' }}>EST / CST</span>
               </div>
-              <div style={{ fontSize: '0.88rem', color: '#ffffff', fontWeight: 500 }}>Henry</div>
+              <div style={{ fontSize: '0.88rem', color: '#ffffff', fontWeight: 600 }}>Henry</div>
               <div style={{ fontSize: '0.76rem', color: 'var(--text-dim)', marginBottom: '6px' }}>Head of Product</div>
-              <a href="tel:+15551234567" style={{ fontSize: '0.84rem', color: 'var(--primary-light)', textDecoration: 'none', fontFamily: 'var(--font-mono)', display: 'inline-block' }}>
-                +1 (555) 123-4567
+              <a href="tel:+15551234567" style={{ fontSize: '0.84rem', color: '#ffffff', textDecoration: 'none', fontFamily: 'var(--font-mono)', display: 'inline-block', fontWeight: 600 }}>
+                📞 +1 (555) 123-4567
               </a>
             </div>
 
             {/* Pakistan Office Block */}
-            <div style={{ marginBottom: '18px', padding: '12px 14px', borderRadius: 'var(--radius-xs)', background: 'rgba(255, 255, 255, 0.02)', border: '1px solid rgba(255, 255, 255, 0.06)' }}>
+            <div style={{ marginBottom: '18px', padding: '12px 14px', borderRadius: '0px', background: 'rgba(255, 255, 255, 0.02)', border: '1px solid rgba(255, 255, 255, 0.08)' }}>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '4px' }}>
-                <span style={{ fontSize: '0.78rem', fontFamily: 'var(--font-mono)', color: 'var(--accent-emerald)', fontWeight: 600 }}>PAKISTAN OFFICE</span>
-                <span style={{ fontSize: '0.7rem', color: 'var(--text-dim)', fontFamily: 'var(--font-mono)' }}>PKT (UTC+5)</span>
+                <span style={{ fontSize: '0.78rem', fontFamily: 'var(--font-mono)', color: '#ffffff', fontWeight: 700 }}>PK OFFICE 🇵🇰</span>
+                <span style={{ fontSize: '0.7rem', color: '#888888', fontFamily: 'var(--font-mono)' }}>PKT (UTC+5)</span>
               </div>
-              <div style={{ fontSize: '0.88rem', color: '#ffffff', fontWeight: 500 }}>Muhammad Ali</div>
+              <div style={{ fontSize: '0.88rem', color: '#ffffff', fontWeight: 600 }}>Muhammad Ali</div>
               <div style={{ fontSize: '0.76rem', color: 'var(--text-dim)' }}>Technical Lead</div>
               <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', margin: '2px 0 6px 0' }}>Karachi, Pakistan</div>
-              <a href="tel:+923176704325" style={{ fontSize: '0.84rem', color: 'var(--accent-emerald)', textDecoration: 'none', fontFamily: 'var(--font-mono)', display: 'inline-block', fontWeight: 600 }}>
-                +92 317 670 4325
+              <a href="tel:+923176704325" style={{ fontSize: '0.84rem', color: '#ffffff', textDecoration: 'none', fontFamily: 'var(--font-mono)', display: 'inline-block', fontWeight: 600 }}>
+                📞 +92 317 670 4325
               </a>
             </div>
 
             {/* Primary Email */}
             <div style={{ fontSize: '0.86rem', color: 'var(--text-muted)' }}>
               <span style={{ display: 'block', fontSize: '0.74rem', fontFamily: 'var(--font-mono)', color: 'var(--text-dim)', textTransform: 'uppercase', marginBottom: '4px' }}>PRIMARY INQUIRY EMAIL</span>
-              <a href="mailto:info@kifaltech.com" style={{ color: '#ffffff', fontWeight: 600, textDecoration: 'none', display: 'inline-block' }}>
+              <a href="mailto:info@kifaltech.com" className="email-mailto-link" style={{ fontWeight: 600, display: 'inline-block' }}>
                 info@kifaltech.com
               </a>
             </div>
@@ -348,7 +348,7 @@ export default function Footer({ onStartProject }) {
             <Link to="/privacy" style={{ color: 'inherit' }}>Privacy Policy</Link>
             <Link to="/terms" style={{ color: 'inherit' }}>Terms of Service</Link>
             <span style={{ color: 'rgba(255, 255, 255, 0.2)' }}>|</span>
-            <span>Submissions: <span style={{ color: 'var(--primary-light)' }}>forms@kifaltech.com</span></span>
+            <span>Contact: <a href="mailto:info@kifaltech.com" className="email-mailto-link">info@kifaltech.com</a></span>
           </div>
         </div>
       </div>

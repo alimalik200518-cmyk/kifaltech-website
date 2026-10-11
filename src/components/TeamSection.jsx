@@ -1,13 +1,17 @@
 import React from 'react';
 import { agencyData } from '../data/agencyData.js';
 import { IconLinkedIn, IconGitHub, IconTwitterX } from './SocialIcons.jsx';
+import HalloweenBats from './HalloweenBats.jsx';
 
 export default function TeamSection() {
   const { founders } = agencyData.company;
 
   return (
-    <section id="team" className="section-spacing" style={{ backgroundColor: '#141010', position: 'relative', borderTop: '1px solid rgba(255, 255, 255, 0.05)', scrollMarginTop: '100px' }}>
-      <div className="container">
+    <section id="team" className="section-spacing" style={{ backgroundColor: 'var(--bg-secondary)', position: 'relative', borderTop: '1px solid var(--border-subtle)', scrollMarginTop: '100px', overflow: 'hidden' }}>
+      {/* Subtle Atmospheric Flying Bats in Negative Space */}
+      <HalloweenBats variant="founders" />
+
+      <div className="container" style={{ position: 'relative', zIndex: 1 }}>
         {/* Section Header */}
         <div style={{ maxWidth: '820px', marginBottom: '52px' }}>
           <div className="eyebrow" style={{ marginBottom: '16px' }}>
