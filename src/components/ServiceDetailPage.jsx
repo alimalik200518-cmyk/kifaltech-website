@@ -115,16 +115,16 @@ export default function ServiceDetailPage({ serviceSlug, onStartProject }) {
                   style={{
                     width: '42px',
                     height: '42px',
-                    borderRadius: '8px',
-                    backgroundColor: 'rgba(124, 58, 237, 0.15)',
-                    border: '1px solid rgba(124, 58, 237, 0.35)',
+                    borderRadius: '0px',
+                    backgroundColor: '#111111',
+                    border: '1px solid #D32525',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    color: 'var(--primary-light)'
+                    color: '#D32525'
                   }}
                 >
-                  {getServiceIcon(service.id, service.category, 22, "var(--primary-light)")}
+                  {getServiceIcon(service.id, service.category, 22, "#D32525")}
                 </div>
                 <span className="eyebrow" style={{ marginBottom: 0 }}>
                   <span className="pulse-indicator" />

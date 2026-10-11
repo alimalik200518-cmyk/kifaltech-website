@@ -75,20 +75,20 @@ export default function AboutPage({ onStartProject }) {
 
               {/* Authentic Capability Pillars (Solid Standards) */}
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '12px', marginTop: '32px' }}>
-                <div style={{ background: '#1c1717', padding: '14px', borderRadius: '6px', border: '1px solid rgba(124, 58, 237, 0.25)' }}>
-                  <div style={{ fontSize: '0.88rem', fontWeight: 600, color: 'var(--primary-light)', fontFamily: 'var(--font-heading)' }}>100% Remote Global</div>
+                <div style={{ background: '#111111', padding: '14px', borderRadius: '0px', border: '1px solid rgba(255, 255, 255, 0.15)' }}>
+                  <div style={{ fontSize: '0.88rem', fontWeight: 700, color: '#D32525', fontFamily: 'var(--font-heading)' }}>100% Remote Global</div>
                   <div style={{ fontSize: '0.74rem', color: 'var(--text-dim)', marginTop: '4px' }}>US &amp; South Asia Hubs</div>
                 </div>
-                <div style={{ background: '#1c1717', padding: '14px', borderRadius: '6px', border: '1px solid rgba(124, 58, 237, 0.25)' }}>
-                  <div style={{ fontSize: '0.88rem', fontWeight: 600, color: '#ffffff', fontFamily: 'var(--font-heading)' }}>Modern Tech Stack</div>
+                <div style={{ background: '#111111', padding: '14px', borderRadius: '0px', border: '1px solid rgba(255, 255, 255, 0.15)' }}>
+                  <div style={{ fontSize: '0.88rem', fontWeight: 700, color: '#ffffff', fontFamily: 'var(--font-heading)' }}>Modern Tech Stack</div>
                   <div style={{ fontSize: '0.74rem', color: 'var(--text-dim)', marginTop: '4px' }}>React, Node &amp; Edge</div>
                 </div>
-                <div style={{ background: '#1c1717', padding: '14px', borderRadius: '6px', border: '1px solid rgba(124, 58, 237, 0.25)' }}>
-                  <div style={{ fontSize: '0.88rem', fontWeight: 600, color: 'var(--primary-light)', fontFamily: 'var(--font-heading)' }}>Production-Grade Code</div>
+                <div style={{ background: '#111111', padding: '14px', borderRadius: '0px', border: '1px solid rgba(255, 255, 255, 0.15)' }}>
+                  <div style={{ fontSize: '0.88rem', fontWeight: 700, color: '#D32525', fontFamily: 'var(--font-heading)' }}>Production-Grade Code</div>
                   <div style={{ fontSize: '0.74rem', color: 'var(--text-dim)', marginTop: '4px' }}>Strict architectures</div>
                 </div>
-                <div style={{ background: '#1c1717', padding: '14px', borderRadius: '6px', border: '1px solid rgba(124, 58, 237, 0.25)' }}>
-                  <div style={{ fontSize: '0.88rem', fontWeight: 600, color: '#10b981', fontFamily: 'var(--font-heading)' }}>Dedicated Support &amp; SLA</div>
+                <div style={{ background: '#111111', padding: '14px', borderRadius: '0px', border: '1px solid rgba(255, 255, 255, 0.15)' }}>
+                  <div style={{ fontSize: '0.88rem', fontWeight: 700, color: '#ffffff', fontFamily: 'var(--font-heading)' }}>Dedicated Support &amp; SLA</div>
                   <div style={{ fontSize: '0.74rem', color: 'var(--text-dim)', marginTop: '4px' }}>Guaranteed uptime</div>
                 </div>
               </div>

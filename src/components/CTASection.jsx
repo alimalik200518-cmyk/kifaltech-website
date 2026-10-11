@@ -9,14 +9,14 @@ export default function CTASection({ onStartProject }) {
   );
 
   return (
-    <section className="section-spacing" style={{ backgroundColor: '#141010', position: 'relative' }}>
+    <section className="section-spacing" style={{ backgroundColor: '#0A0A0A', position: 'relative', borderTop: '1px solid rgba(255, 255, 255, 0.12)' }}>
       <div className="container">
         <div
           style={{
             padding: 'clamp(44px, 6vw, 72px) clamp(28px, 5vw, 60px)',
-            backgroundColor: '#1b1616',
-            border: '1px solid rgba(124, 58, 237, 0.35)',
-            borderRadius: '8px',
+            backgroundColor: '#0E0E0E',
+            border: '1px solid rgba(255, 255, 255, 0.16)',
+            borderRadius: '0px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
@@ -27,23 +27,24 @@ export default function CTASection({ onStartProject }) {
           <div style={{ maxWidth: '640px' }}>
             <div className="eyebrow" style={{ marginBottom: '14px' }}>
               <span className="pulse-indicator"></span>
-              <span>LET'S COLLABORATE</span>
+              <span>DIRECT INITIATION // LET'S COLLABORATE</span>
             </div>
 
             <h2
               style={{
-                fontSize: 'clamp(2.2rem, 3.8vw, 3.2rem)',
-                lineHeight: 1.15,
+                fontSize: 'clamp(2.2rem, 3.8vw, 3.4rem)',
+                lineHeight: 1.05,
                 color: '#ffffff',
-                fontWeight: 700,
-                letterSpacing: '-0.025em',
+                fontWeight: 800,
+                letterSpacing: '-0.03em',
+                textTransform: 'uppercase',
                 marginBottom: '14px'
               }}
             >
               Your Digital Growth Starts Here.
             </h2>
 
-            <p style={{ fontSize: '1.05rem', lineHeight: 1.65, color: 'var(--text-muted)', margin: 0 }}>
+            <p style={{ fontSize: '1.05rem', lineHeight: 1.65, color: '#888888', margin: 0 }}>
               Have a project in mind? Whether you need a modern web application, custom Shopify storefront, or ongoing software engineering, our team is ready to deliver.
             </p>
           </div>

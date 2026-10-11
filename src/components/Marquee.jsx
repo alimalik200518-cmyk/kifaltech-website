@@ -12,10 +12,10 @@ export default function Marquee() {
   return (
     <section
       style={{
-        borderTop: '1px solid rgba(255, 255, 255, 0.08)',
-        borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+        borderTop: '1px solid rgba(255, 255, 255, 0.12)',
+        borderBottom: '1px solid rgba(255, 255, 255, 0.12)',
         padding: '36px 0',
-        backgroundColor: '#191414',
+        backgroundColor: '#0A0A0A',
         position: 'relative'
       }}
     >
@@ -31,15 +31,15 @@ export default function Marquee() {
           <div style={{ textAlign: 'center' }}>
             <span
               style={{
-                fontSize: '0.8rem',
+                fontSize: '0.78rem',
                 fontFamily: 'var(--font-mono)',
                 textTransform: 'uppercase',
-                color: 'var(--primary)',
-                letterSpacing: '0.1em',
-                fontWeight: 600
+                color: '#D32525',
+                letterSpacing: '0.12em',
+                fontWeight: 700
               }}
             >
-              BUILT AROUND YOUR BUSINESS GOALS
+              EXECUTION PIPELINE // BUILT AROUND YOUR BUSINESS GOALS
             </span>
           </div>
 
@@ -47,7 +47,7 @@ export default function Marquee() {
             style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
-              gap: '16px',
+              gap: '12px',
               width: '100%',
               alignItems: 'center'
             }}
@@ -56,10 +56,10 @@ export default function Marquee() {
               <div
                 key={cap.title}
                 style={{
-                  padding: '14px 18px',
-                  backgroundColor: '#1f1919',
-                  border: '1px solid rgba(255, 255, 255, 0.06)',
-                  borderRadius: '6px',
+                  padding: '16px 18px',
+                  backgroundColor: '#0E0E0E',
+                  border: '1px solid rgba(255, 255, 255, 0.12)',
+                  borderRadius: '0px',
                   display: 'flex',
                   alignItems: 'center',
                   gap: '12px'
@@ -68,18 +68,18 @@ export default function Marquee() {
                 <span
                   style={{
                     fontFamily: 'var(--font-mono)',
-                    fontSize: '0.78rem',
-                    color: 'var(--primary)',
-                    fontWeight: 700
+                    fontSize: '0.8rem',
+                    color: '#D32525',
+                    fontWeight: 800
                   }}
                 >
                   {cap.step}
                 </span>
                 <div>
-                  <div style={{ fontSize: '0.94rem', fontWeight: 600, color: '#ffffff', fontFamily: 'var(--font-heading)' }}>
+                  <div style={{ fontSize: '0.94rem', fontWeight: 800, color: '#ffffff', fontFamily: 'var(--font-heading)', textTransform: 'uppercase' }}>
                     {cap.title}
                   </div>
-                  <div style={{ fontSize: '0.76rem', color: 'var(--text-dim)', fontFamily: 'var(--font-mono)' }}>
+                  <div style={{ fontSize: '0.74rem', color: '#888888', fontFamily: 'var(--font-mono)' }}>
                     {cap.desc}
                   </div>
                 </div>

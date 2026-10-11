@@ -243,13 +243,13 @@ export default function ContactPage() {
             </div>
 
             {/* Right Column: Redesigned Minimalist Form with Floating Labels & Bottom Borders */}
-            <div className="agency-card" style={{ padding: 'clamp(28px, 4vw, 42px)', border: '1px solid var(--border-medium)', background: '#1c1717' }}>
+            <div className="agency-card" style={{ padding: 'clamp(28px, 4vw, 42px)', border: '1px solid rgba(255, 255, 255, 0.15)', background: '#0E0E0E', borderRadius: '0px' }}>
               <div style={{ marginBottom: '28px' }}>
-                <h3 style={{ fontSize: '1.45rem', marginBottom: '6px', color: 'var(--text-white)', fontWeight: 700 }}>
+                <h3 style={{ fontSize: '1.45rem', marginBottom: '6px', color: 'var(--text-white)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '-0.02em' }}>
                   Send a Detailed Scope Transmission
                 </h3>
-                <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', margin: 0 }}>
-                  Forms strictly processed through <code style={{ color: 'var(--primary-light)', background: 'rgba(124, 58, 237, 0.1)', padding: '2px 6px', borderRadius: '4px' }}>forms@kifaltech.com</code>
+                <p style={{ fontSize: '0.92rem', color: '#888888', margin: 0 }}>
+                  Forms strictly processed through <code style={{ color: '#D32525', background: 'rgba(211, 37, 37, 0.12)', border: '1px solid #D32525', padding: '2px 6px', fontFamily: 'var(--font-mono)' }}>forms@kifaltech.com</code>
                 </p>
               </div>
 

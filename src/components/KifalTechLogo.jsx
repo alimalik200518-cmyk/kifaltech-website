@@ -20,14 +20,14 @@ export default function KifalTechLogo({ compact = false, showTagline = true, sty
         style={{
           width: compact ? '30px' : '34px',
           height: compact ? '30px' : '34px',
-          borderRadius: '4px',
-          border: '1px solid rgba(255, 255, 255, 0.18)',
-          backgroundColor: '#181414',
+          borderRadius: '0px',
+          border: '1px solid rgba(255, 255, 255, 0.22)',
+          backgroundColor: '#111111',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
           flexShrink: 0,
-          transition: 'border-color 0.2s ease'
+          transition: 'border-color 0.15s ease'
         }}
       >
         <svg
@@ -59,13 +59,13 @@ export default function KifalTechLogo({ compact = false, showTagline = true, sty
             strokeWidth="2.2"
             strokeLinecap="square"
           />
-          {/* Subtle Geometric Point Accent */}
+          {/* Subtle Geometric Point Accent in Bold Red */}
           <rect
             x="17"
             y="4.5"
-            width="2"
-            height="2"
-            fill="#E2E8F0"
+            width="2.5"
+            height="2.5"
+            fill="#D32525"
           />
         </svg>
       </div>
@@ -85,13 +85,13 @@ export default function KifalTechLogo({ compact = false, showTagline = true, sty
           >
             KIFALTECH
           </span>
-          {/* Subtle Geometric Slash Accent */}
+          {/* Subtle Geometric Slash Accent in Bold Red */}
           <span
             style={{
               fontFamily: 'var(--font-mono)',
               fontSize: compact ? '0.95rem' : '1.05rem',
-              color: 'rgba(255, 255, 255, 0.35)',
-              fontWeight: 400,
+              color: '#D32525',
+              fontWeight: 800,
               marginLeft: '2px',
               userSelect: 'none'
             }}

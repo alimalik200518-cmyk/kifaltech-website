@@ -41,13 +41,14 @@ export default function Portfolio({ onStartProjectWithContext }) {
               className="btn"
               style={{
                 padding: '8px 20px',
-                fontSize: '0.88rem',
-                borderRadius: 'var(--radius-full)',
-                backgroundColor: selectedCategory === cat ? 'var(--primary)' : 'rgba(255, 255, 255, 0.04)',
-                color: selectedCategory === cat ? '#ffffff' : 'var(--text-muted)',
+                fontSize: '0.84rem',
+                borderRadius: '0px',
+                backgroundColor: selectedCategory === cat ? '#D32525' : '#141414',
+                color: '#ffffff',
                 fontWeight: selectedCategory === cat ? 700 : 500,
-                boxShadow: selectedCategory === cat ? '0 0 20px rgba(124, 58, 237, 0.35)' : 'none',
-                border: 'none'
+                boxShadow: 'none',
+                border: selectedCategory === cat ? '1px solid #D32525' : '1px solid rgba(255, 255, 255, 0.15)',
+                fontFamily: 'var(--font-mono)'
               }}
             >
               {cat}

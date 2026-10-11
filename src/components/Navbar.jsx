@@ -57,12 +57,12 @@ export default function Navbar({ onOpenQuote, onOpenQuickFix }) {
         left: 0,
         width: '100%',
         zIndex: 1000,
-        backgroundColor: scrolled ? 'rgba(23, 19, 19, 0.95)' : '#171313',
-        backdropFilter: scrolled ? 'blur(10px)' : 'none',
-        WebkitBackdropFilter: scrolled ? 'blur(10px)' : 'none',
+        backgroundColor: scrolled ? 'rgba(10, 10, 10, 0.98)' : '#0A0A0A',
+        backdropFilter: scrolled ? 'blur(12px)' : 'none',
+        WebkitBackdropFilter: scrolled ? 'blur(12px)' : 'none',
         borderBottom: '1px solid',
-        borderColor: scrolled ? 'rgba(124, 58, 237, 0.2)' : 'rgba(255, 255, 255, 0.04)',
-        transition: 'background-color 0.2s ease, border-color 0.2s ease'
+        borderColor: scrolled ? 'rgba(255, 255, 255, 0.16)' : 'rgba(255, 255, 255, 0.08)',
+        transition: 'background-color 0.15s ease, border-color 0.15s ease'
       }}
     >
       {/* Top Utility Bar — International Direct Communication & Dual-Presence */}
@@ -205,8 +205,7 @@ export default function Navbar({ onOpenQuote, onOpenQuickFix }) {
                         left: 0,
                         width: '100%',
                         height: '2px',
-                        background: 'linear-gradient(90deg, #7C3AED, #4F46E5)',
-                        borderRadius: '2px'
+                        backgroundColor: '#D32525'
                       }}
                     />
                   )}

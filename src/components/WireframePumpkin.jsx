@@ -278,7 +278,7 @@ export default function WireframePumpkin() {
           ctx.stroke();
         } else {
           // Latitude rings
-          ctx.strokeStyle = `rgba(124, 58, 237, ${alpha * 0.75})`;
+          ctx.strokeStyle = `rgba(211, 37, 37, ${alpha * 0.75})`;
           ctx.lineWidth = 0.65;
           ctx.stroke();
         }

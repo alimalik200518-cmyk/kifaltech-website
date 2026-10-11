@@ -234,18 +234,18 @@ export default function ContactForm() {
           {/* Right Column: Redesigned Minimalist Form */}
           <div
             style={{
-              backgroundColor: '#1a1616',
-              border: '1px solid rgba(255, 255, 255, 0.09)',
-              borderRadius: '8px',
+              backgroundColor: '#0E0E0E',
+              border: '1px solid rgba(255, 255, 255, 0.15)',
+              borderRadius: '0px',
               padding: 'clamp(28px, 4vw, 40px)',
               position: 'relative'
             }}
           >
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px' }}>
-              <h3 style={{ fontSize: '1.35rem', color: '#ffffff', margin: 0, fontWeight: 700 }}>
+              <h3 style={{ fontSize: '1.35rem', color: '#ffffff', margin: 0, fontWeight: 800, textTransform: 'uppercase', letterSpacing: '-0.02em' }}>
                 Project Discovery Brief
               </h3>
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', color: 'var(--primary-light)', background: 'rgba(124, 58, 237, 0.12)', padding: '2px 8px', borderRadius: '4px' }}>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', color: '#D32525', background: 'rgba(211, 37, 37, 0.12)', border: '1px solid #D32525', padding: '2px 8px', fontWeight: 700 }}>
                 &lt; 2 Hr SLA
               </span>
             </div>

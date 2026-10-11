@@ -5,7 +5,7 @@ export default function ProcessSection() {
   const { processSteps } = agencyData;
 
   return (
-    <section id="process" className="section-spacing" style={{ backgroundColor: '#181313', position: 'relative' }}>
+    <section id="process" className="section-spacing" style={{ backgroundColor: '#0A0A0A', position: 'relative', borderTop: '1px solid rgba(255, 255, 255, 0.12)' }}>
       <div className="container">
         {/* Section Header */}
         <div style={{ maxWidth: '780px', marginBottom: '60px' }}>
@@ -59,22 +59,22 @@ export default function ProcessSection() {
                 alignItems: 'start'
               }}
             >
-              {/* Step Monogram Circle */}
+              {/* Step Monogram Square */}
               <div
                 style={{
                   width: '56px',
                   height: '56px',
-                  borderRadius: '50%',
-                  backgroundColor: '#201a1a',
-                  border: '1px solid rgba(124, 58, 237, 0.45)',
+                  borderRadius: '0px',
+                  backgroundColor: '#111111',
+                  border: '1px solid #D32525',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   fontFamily: 'var(--font-mono)',
                   fontSize: '0.95rem',
-                  fontWeight: 700,
-                  color: 'var(--primary)',
-                  boxShadow: '0 4px 14px rgba(0, 0, 0, 0.4)'
+                  fontWeight: 800,
+                  color: '#D32525',
+                  boxShadow: 'none'
                 }}
               >
                 {step.step}

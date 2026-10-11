@@ -46,8 +46,8 @@ export default function Footer({ onStartProject }) {
   return (
     <footer
       style={{
-        backgroundColor: '#110d0d',
-        borderTop: '1px solid rgba(255, 255, 255, 0.08)',
+        backgroundColor: '#0A0A0A',
+        borderTop: '1px solid rgba(255, 255, 255, 0.14)',
         paddingTop: '64px',
         paddingBottom: '36px',
         position: 'relative'
@@ -64,16 +64,16 @@ export default function Footer({ onStartProject }) {
             gap: '16px',
             paddingBottom: '28px',
             marginBottom: '40px',
-            borderBottom: '1px solid rgba(255, 255, 255, 0.06)'
+            borderBottom: '1px solid rgba(255, 255, 255, 0.08)'
           }}
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
             <span className="pulse-indicator"></span>
-            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', letterSpacing: '0.08em', color: 'var(--primary-light)', textTransform: 'uppercase', fontWeight: 600 }}>
+            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', letterSpacing: '0.08em', color: '#D32525', textTransform: 'uppercase', fontWeight: 700 }}>
               100% REMOTE GLOBAL DIGITAL AGENCY
             </span>
           </div>
-          <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.78rem', color: 'var(--text-dim)' }}>
+          <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.78rem', color: '#777777' }}>
             BRIDGING NORTH AMERICA &amp; SOUTH ASIA • TIMEZONE-ALIGNED
           </div>
         </div>

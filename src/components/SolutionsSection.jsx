@@ -11,27 +11,28 @@ export default function SolutionsSection({ onSelectSolution }) {
   );
 
   return (
-    <section id="solutions" className="section-spacing" style={{ backgroundColor: '#181313', position: 'relative' }}>
+    <section id="solutions" className="section-spacing" style={{ backgroundColor: '#0A0A0A', position: 'relative', borderTop: '1px solid rgba(255, 255, 255, 0.12)' }}>
       <div className="container">
         {/* Section Header */}
         <div style={{ maxWidth: '780px', marginBottom: '56px' }}>
           <div className="eyebrow" style={{ marginBottom: '14px' }}>
             <span className="pulse-indicator"></span>
-            <span>END-TO-END SOLUTIONS</span>
+            <span>END-TO-END SOLUTIONS // CAPABILITY TRACKS</span>
           </div>
           <h2
             style={{
               fontSize: 'clamp(2.3rem, 4.2vw, 3.5rem)',
-              lineHeight: 1.15,
+              lineHeight: 1.05,
               color: '#ffffff',
-              fontWeight: 700,
-              letterSpacing: '-0.025em',
+              fontWeight: 800,
+              letterSpacing: '-0.03em',
+              textTransform: 'uppercase',
               marginBottom: '16px'
             }}
           >
             Structured Solutions by Business Objective
           </h2>
-          <p style={{ fontSize: '1.08rem', lineHeight: 1.7, color: 'var(--text-muted)' }}>
+          <p style={{ fontSize: '1.08rem', lineHeight: 1.7, color: '#888888' }}>
             We package cross-functional engineering, UX design, and search optimization into focused business outcomes.
           </p>
         </div>
@@ -41,22 +42,24 @@ export default function SolutionsSection({ onSelectSolution }) {
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 460px), 1fr))',
-            gap: 'clamp(24px, 3vw, 36px)'
+            gap: '24px'
           }}
         >
           {solutions.map((sol, index) => (
             <div
               key={sol.id}
               style={{
-                backgroundColor: '#1f1919',
-                border: '1px solid rgba(255, 255, 255, 0.08)',
-                borderRadius: '8px',
+                backgroundColor: '#0E0E0E',
+                border: '1px solid rgba(255, 255, 255, 0.14)',
+                borderRadius: '0px',
                 padding: 'clamp(28px, 4vw, 38px)',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
-                transition: 'border-color 0.2s ease'
+                transition: 'border-color 0.12s ease'
               }}
+              onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#D32525'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.14)'; }}
             >
               <div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>

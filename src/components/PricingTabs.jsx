@@ -23,7 +23,7 @@ export default function PricingTabs({ onSelectPlan, onChatNow }) {
   );
 
   return (
-    <section id="pricing" className="section-spacing" style={{ backgroundColor: 'var(--bg-secondary)' }}>
+    <section id="pricing" className="section-spacing" style={{ backgroundColor: '#0A0A0A', position: 'relative', borderTop: '1px solid rgba(255, 255, 255, 0.12)' }}>
       <div className="container">
         <div className="section-header">
           <div className="eyebrow">
@@ -58,11 +58,12 @@ export default function PricingTabs({ onSelectPlan, onChatNow }) {
                 style={{
                   padding: '9px 20px',
                   fontSize: '0.86rem',
-                  borderRadius: 'var(--radius-full)',
-                  backgroundColor: isActive ? 'var(--primary)' : 'var(--bg-card)',
-                  color: isActive ? '#ffffff' : 'var(--text-muted)',
-                  border: isActive ? '1px solid var(--primary)' : '1px solid var(--border-subtle)',
-                  fontWeight: isActive ? 600 : 400
+                  borderRadius: '0px',
+                  backgroundColor: isActive ? '#D32525' : '#141414',
+                  color: '#ffffff',
+                  border: isActive ? '1px solid #D32525' : '1px solid rgba(255, 255, 255, 0.15)',
+                  fontWeight: isActive ? 700 : 500,
+                  fontFamily: 'var(--font-mono)'
                 }}
               >
                 {cat.name}
@@ -103,16 +104,16 @@ export default function PricingTabs({ onSelectPlan, onChatNow }) {
                       position: 'absolute',
                       top: '-12px',
                       right: '24px',
-                      backgroundColor: 'var(--primary)',
+                      backgroundColor: '#D32525',
                       color: '#ffffff',
-                      fontSize: '0.72rem',
+                      fontSize: '0.7rem',
                       fontFamily: 'var(--font-mono)',
-                      fontWeight: 700,
+                      fontWeight: 800,
                       textTransform: 'uppercase',
-                      padding: '4px 12px',
-                      borderRadius: 'var(--radius-full)',
-                      letterSpacing: '0.06em',
-                      boxShadow: '0 4px 14px rgba(99, 102, 241, 0.45)'
+                      padding: '3px 10px',
+                      borderRadius: '0px',
+                      letterSpacing: '0.08em',
+                      border: '1px solid #D32525'
                     }}
                   >
                     Recommended
@@ -203,9 +204,9 @@ export default function PricingTabs({ onSelectPlan, onChatNow }) {
           style={{
             marginTop: '40px',
             padding: '28px 36px',
-            backgroundColor: '#1f1919',
-            border: '1px solid rgba(124, 58, 237, 0.35)',
-            borderRadius: '8px',
+            backgroundColor: '#0E0E0E',
+            border: '1px solid rgba(255, 255, 255, 0.16)',
+            borderRadius: '0px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',

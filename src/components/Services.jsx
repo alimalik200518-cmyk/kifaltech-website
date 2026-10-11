@@ -78,29 +78,30 @@ export default function Services({ onSelectServiceForProposal }) {
                     style={{
                       width: '44px',
                       height: '44px',
-                      borderRadius: '8px',
-                      backgroundColor: 'rgba(124, 58, 237, 0.12)',
-                      border: '1px solid rgba(124, 58, 237, 0.3)',
+                      borderRadius: '0px',
+                      backgroundColor: '#111111',
+                      border: '1px solid #D32525',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      color: 'var(--primary-light)'
+                      color: '#D32525'
                     }}
                   >
-                    {getServiceIcon(service.id, service.category, 22, "var(--primary-light)")}
+                    {getServiceIcon(service.id, service.category, 22, "#D32525")}
                   </div>
 
                   <span
                     style={{
                       fontFamily: 'var(--font-mono)',
-                      fontSize: '0.78rem',
-                      color: 'var(--primary-light)',
+                      fontSize: '0.74rem',
+                      color: '#D32525',
                       textTransform: 'uppercase',
                       letterSpacing: '0.08em',
-                      background: 'rgba(124, 58, 237, 0.08)',
-                      padding: '4px 10px',
-                      borderRadius: 'var(--radius-full)',
-                      border: '1px solid rgba(124, 58, 237, 0.2)'
+                      background: 'rgba(211, 37, 37, 0.12)',
+                      padding: '3px 8px',
+                      borderRadius: '0px',
+                      border: '1px solid #D32525',
+                      fontWeight: 700
                     }}
                   >
                     {service.category}
@@ -142,7 +143,7 @@ export default function Services({ onSelectServiceForProposal }) {
                   justifyContent: 'space-between',
                   padding: '12px 20px',
                   fontSize: '0.9rem',
-                  borderColor: 'rgba(124, 58, 237, 0.3)'
+                  borderColor: 'rgba(255, 255, 255, 0.2)'
                 }}
               >
                 <span>Customize & Get Quote</span>

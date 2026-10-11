@@ -2,8 +2,8 @@
 // Set `enabled: false` to instantly and cleanly deactivate the entire Halloween theme & campaign.
 
 export const HALLOWEEN_CONFIG = {
-  // Master Kill-Switch
-  enabled: true,
+  // Master Kill-Switch (Disabled for high-contrast brutalist agency theme)
+  enabled: false,
 
   // Campaign Information
   campaignName: "KifalTech Halloween 2026 Special",

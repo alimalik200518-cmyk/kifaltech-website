@@ -10,7 +10,7 @@ export default function Testimonials() {
   };
 
   return (
-    <section className="section-spacing" style={{ background: 'rgba(10, 14, 24, 0.4)' }}>
+    <section className="section-spacing" style={{ backgroundColor: '#0A0A0A', position: 'relative', borderTop: '1px solid rgba(255, 255, 255, 0.12)' }}>
       <div className="container">
         {/* Testimonials Header */}
         <div className="section-header">
@@ -61,14 +61,14 @@ export default function Testimonials() {
                   style={{
                     width: '42px',
                     height: '42px',
-                    borderRadius: '50%',
-                    backgroundColor: 'rgba(124, 58, 237, 0.15)',
-                    border: '1px solid rgba(124, 58, 237, 0.35)',
+                    borderRadius: '0px',
+                    backgroundColor: '#111111',
+                    border: '1px solid #D32525',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    color: '#ffffff',
-                    fontWeight: 700,
+                    color: '#D32525',
+                    fontWeight: 800,
                     fontSize: '0.9rem',
                     fontFamily: 'var(--font-mono)'
                   }}
