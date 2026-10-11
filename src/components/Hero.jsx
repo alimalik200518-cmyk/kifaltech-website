@@ -1,10 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { agencyData } from '../data/agencyData.js';
 import { Link } from './Router.jsx';
+import WireframePumpkin from './WireframePumpkin.jsx';
+import { HALLOWEEN_CONFIG } from '../config/halloweenConfig.js';
 
 export default function Hero({ onStartProject, onOpenQuickFix }) {
   const { company } = agencyData;
   const [activeTab, setActiveTab] = useState('ide'); // ide, overview, performance, code
+  const [glitchActive, setGlitchActive] = useState(false);
+
+  // Easter Egg: Terminal glitches every 15s with "Ghost in the machine..."
+  useEffect(() => {
+    if (!HALLOWEEN_CONFIG.enabled || !HALLOWEEN_CONFIG.animations?.terminalEasterEgg) return;
+
+    const interval = setInterval(() => {
+      setGlitchActive(true);
+      setTimeout(() => {
+        setGlitchActive(false);
+      }, 3400); // 3.4 seconds duration
+    }, 15000); // Every 15 seconds
+
+    return () => clearInterval(interval);
+  }, []);
 
   const SvgArrow = () => (
     <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -31,6 +48,11 @@ export default function Hero({ onStartProject, onOpenQuickFix }) {
     >
       {/* Animated CSS Background Grid & Dark Ambient Radial Mesh with Indigo Accents */}
       <div className="hero-ambient-mesh" aria-hidden="true" />
+
+      {/* Abstract 3D Wireframe Jack-o'-Lantern (Hero Background Parallax) */}
+      {HALLOWEEN_CONFIG.enabled && HALLOWEEN_CONFIG.animations?.wireframePumpkin && (
+        <WireframePumpkin />
+      )}
 
       <div className="container" style={{ position: 'relative', zIndex: 1 }}>
         <div
@@ -161,15 +183,17 @@ export default function Hero({ onStartProject, onOpenQuickFix }) {
                   <span className="mockup-dot min"></span>
                   <span className="mockup-dot max"></span>
                 </div>
-                <div className="mockup-url-bar">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <div className="mockup-url-bar" style={{ borderColor: glitchActive ? 'rgba(255, 107, 43, 0.5)' : undefined, transition: 'all 0.3s ease' }}>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke={glitchActive ? '#ff6b2b' : 'currentColor'} strokeWidth="2">
                     <polyline points="16 18 22 12 16 6"></polyline>
                     <polyline points="8 6 2 12 8 18"></polyline>
                   </svg>
-                  <span>src/app/page.tsx — VS Code</span>
+                  <span style={{ color: glitchActive ? '#ff9d66' : 'inherit', fontFamily: 'var(--font-mono)' }}>
+                    {glitchActive ? '> System status: Ghost in the machine...' : 'src/app/page.tsx — VS Code'}
+                  </span>
                 </div>
-                <span style={{ fontSize: '0.68rem', color: '#10b981', fontFamily: 'var(--font-mono)', fontWeight: 600 }}>
-                  ● EDGE READY
+                <span style={{ fontSize: '0.68rem', color: glitchActive ? '#ff6b2b' : '#10b981', fontFamily: 'var(--font-mono)', fontWeight: 600, transition: 'color 0.3s ease' }}>
+                  {glitchActive ? '⚠ ANOMALY DETECTED' : '● EDGE READY'}
                 </span>
               </div>
 
@@ -277,8 +301,8 @@ export default function Hero({ onStartProject, onOpenQuickFix }) {
                             VS Code • TypeScript Strict • Zero Runtime Bloat
                           </div>
                         </div>
-                        <span style={{ fontSize: '0.7rem', fontFamily: 'var(--font-mono)', color: 'var(--accent-emerald)', background: 'rgba(16, 185, 129, 0.15)', border: '1px solid rgba(16, 185, 129, 0.3)', padding: '2px 8px', borderRadius: '4px', flexShrink: 0 }}>
-                          ● Live Sprint
+                        <span style={{ fontSize: '0.7rem', fontFamily: 'var(--font-mono)', color: glitchActive ? '#ff6b2b' : 'var(--accent-emerald)', background: glitchActive ? 'rgba(255, 107, 43, 0.15)' : 'rgba(16, 185, 129, 0.15)', border: `1px solid ${glitchActive ? 'rgba(255, 107, 43, 0.4)' : 'rgba(16, 185, 129, 0.3)'}`, padding: '2px 8px', borderRadius: '4px', flexShrink: 0, transition: 'all 0.3s ease' }}>
+                          {glitchActive ? '⚠ Ghost In The Machine' : '● Live Sprint'}
                         </span>
                       </div>
                     </div>
@@ -380,13 +404,32 @@ export default function Hero({ onStartProject, onOpenQuickFix }) {
 
                 {/* Tab 3: Source Code Spec (Syntax Highlighting) */}
                 {activeTab === 'code' && (
-                  <div className="mockup-terminal" style={{ margin: 0, border: '1px solid rgba(124, 58, 237, 0.25)' }}>
-                    <div style={{ color: '#818CF8', marginBottom: '8px' }}>// Production Build Pipeline &amp; Typecheck</div>
-                    <div><span style={{ color: 'var(--primary-light)' }}>$</span> <span style={{ color: '#ffffff' }}>kifaltech-deploy</span> <span style={{ color: '#A78BFA' }}>--env=production</span></div>
-                    <div style={{ color: '#10b981', marginTop: '4px' }}>✓ TypeScript typecheck passed (0 errors)</div>
-                    <div style={{ color: '#10b981' }}>✓ Static asset bundling optimized (WebP/AVIF)</div>
-                    <div style={{ color: '#10b981' }}>✓ Edge route pre-rendering complete (28 pages)</div>
-                    <div style={{ color: 'var(--primary-light)', marginTop: '8px', fontWeight: 600 }}>✓ Ready for client handover — 100% IP ownership</div>
+                  <div className="mockup-terminal" style={{ margin: 0, border: `1px solid ${glitchActive ? 'rgba(255, 107, 43, 0.4)' : 'rgba(124, 58, 237, 0.25)'}`, transition: 'border-color 0.3s ease' }}>
+                    {glitchActive ? (
+                      <div className="terminal-ghost-glitch">
+                        <div style={{ color: '#ff6b2b', fontFamily: 'var(--font-mono)', fontSize: '0.84rem', fontWeight: 700, textShadow: '0 0 8px rgba(255, 107, 43, 0.6)' }}>
+                          &gt; System status: Ghost in the machine...
+                        </div>
+                        <div style={{ color: '#a855f7', fontFamily: 'var(--font-mono)', fontSize: '0.74rem', marginTop: '6px' }}>
+                          [0xDEADBEEF] Memory trace: anomaly detected in sector 10-31
+                        </div>
+                        <div style={{ color: 'var(--text-dim)', fontFamily: 'var(--font-mono)', fontSize: '0.72rem', marginTop: '4px' }}>
+                          Self-healing kernel engaged... restoring production state
+                        </div>
+                        <div style={{ color: '#10b981', fontFamily: 'var(--font-mono)', fontSize: '0.74rem', fontWeight: 600, marginTop: '8px' }}>
+                          ✓ Normalized: 0ms latency penalty. Zero downtime.
+                        </div>
+                      </div>
+                    ) : (
+                      <>
+                        <div style={{ color: '#818CF8', marginBottom: '8px' }}>// Production Build Pipeline &amp; Typecheck</div>
+                        <div><span style={{ color: 'var(--primary-light)' }}>$</span> <span style={{ color: '#ffffff' }}>kifaltech-deploy</span> <span style={{ color: '#A78BFA' }}>--env=production</span></div>
+                        <div style={{ color: '#10b981', marginTop: '4px' }}>✓ TypeScript typecheck passed (0 errors)</div>
+                        <div style={{ color: '#10b981' }}>✓ Static asset bundling optimized (WebP/AVIF)</div>
+                        <div style={{ color: '#10b981' }}>✓ Edge route pre-rendering complete (28 pages)</div>
+                        <div style={{ color: 'var(--primary-light)', marginTop: '8px', fontWeight: 600 }}>✓ Ready for client handover — 100% IP ownership</div>
+                      </>
+                    )}
                   </div>
                 )}
               </div>

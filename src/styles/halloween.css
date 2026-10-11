@@ -1100,6 +1100,117 @@
 }
 
 /* ==========================================================================
+   5b. Advanced Spooky Micro-Interactions & Glitches
+   ========================================================================== */
+
+/* Ghostly Hover State for Primary CTA Buttons */
+.halloween-theme-active .btn-primary,
+.halloween-theme-active .halloween-claim-btn {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.halloween-theme-active .btn-primary:hover,
+.halloween-theme-active .halloween-claim-btn:hover {
+  border-color: rgba(255, 107, 43, 0.8) !important;
+  box-shadow: 
+    0 0 16px rgba(139, 92, 246, 0.35),
+    0 0 24px rgba(255, 107, 43, 0.28),
+    inset 0 0 10px rgba(255, 107, 43, 0.18) !important;
+  transform: translateY(-2px);
+}
+
+/* Faint Ghost Smoke Sweep across Button Surface */
+.halloween-theme-active .btn-primary::before,
+.halloween-theme-active .halloween-claim-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(168, 85, 247, 0.2) 35%,
+    rgba(255, 107, 43, 0.28) 50%,
+    rgba(168, 85, 247, 0.2) 65%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.halloween-theme-active .btn-primary:hover::before,
+.halloween-theme-active .halloween-claim-btn:hover::before {
+  opacity: 1;
+  animation: ghostSmokeSweep 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+}
+
+@keyframes ghostSmokeSweep {
+  0% { left: -120%; }
+  100% { left: 220%; }
+}
+
+/* Minimalist Cyber-Webs Neon Filament Styles */
+.cyber-web-corner {
+  opacity: 0.32;
+  transition: opacity 0.35s ease, filter 0.35s ease;
+}
+
+.cyber-web-line {
+  stroke: rgba(139, 92, 246, 0.15);
+  stroke-width: 0.75px;
+  transition: stroke 0.35s ease, stroke-width 0.35s ease, filter 0.35s ease;
+}
+
+.cyber-web-corner:hover {
+  opacity: 0.95;
+}
+
+.cyber-web-corner:hover .cyber-web-line {
+  stroke: #a855f7;
+  stroke-width: 0.95px;
+  filter: drop-shadow(0 0 4px rgba(139, 92, 246, 0.8)) drop-shadow(0 0 1px rgba(255, 107, 43, 0.5));
+}
+
+.cyber-web-node {
+  fill: #ff6b2b;
+  filter: drop-shadow(0 0 3px #ff6b2b);
+  animation: webNodePulse 1.2s infinite alternate ease-in-out;
+}
+
+@keyframes webNodePulse {
+  0% { transform: scale(0.9); opacity: 0.7; }
+  100% { transform: scale(1.4); opacity: 1; }
+}
+
+/* Terminal Easter Egg Glitch Sequence */
+.terminal-glitching {
+  animation: terminalFlicker 0.25s ease-in-out;
+  box-shadow: 0 0 18px rgba(255, 107, 43, 0.25), inset 0 0 12px rgba(255, 107, 43, 0.1) !important;
+}
+
+.terminal-ghost-glitch {
+  padding: 8px 0;
+  animation: glitchTextAppear 0.2s ease-out;
+}
+
+@keyframes terminalFlicker {
+  0% { opacity: 0.85; transform: translateX(-1px); }
+  50% { opacity: 1; transform: translateX(1px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes glitchTextAppear {
+  0% { opacity: 0; transform: translateY(-2px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
    6. Responsive Layout Adjustments
    ========================================================================== */
 @media (max-width: 1024px) {

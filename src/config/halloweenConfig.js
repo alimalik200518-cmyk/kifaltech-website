@@ -20,6 +20,15 @@ export const HALLOWEEN_CONFIG = {
     dismissible: true
   },
 
+  // Advanced Animations & Interactions
+  animations: {
+    wireframePumpkin: true,
+    cyberWebs: true,
+    ghostButtonGlitch: true,
+    terminalEasterEgg: true,
+    phosphorCursor: true
+  },
+
   // Dedicated Offer Section Content (reusing real KifalTech services & pricing anchors)
   offerSection: {
     eyebrow: "HALLOWEEN 2026 SPRINT INITIATIVE",

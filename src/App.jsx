@@ -11,6 +11,8 @@ import HalloweenParticles from './components/HalloweenParticles.jsx';
 import HalloweenOfferSection from './components/HalloweenOfferSection.jsx';
 import HalloweenModal from './components/HalloweenModal.jsx';
 import HalloweenFloatingTrigger from './components/HalloweenFloatingTrigger.jsx';
+import CyberWebs from './components/CyberWebs.jsx';
+import PhosphorCursor from './components/PhosphorCursor.jsx';
 
 // Home Page Sections
 import Hero from './components/Hero.jsx';
@@ -306,6 +308,12 @@ function AppContent() {
 
       {/* Ambient Halloween Particles */}
       {HALLOWEEN_CONFIG.enabled && <HalloweenParticles />}
+
+      {/* Geometric Cyber-Webs in Viewport Corners */}
+      {HALLOWEEN_CONFIG.enabled && HALLOWEEN_CONFIG.animations?.cyberWebs && <CyberWebs />}
+
+      {/* Custom Phosphor Cursor with Faint Fog Trail */}
+      {HALLOWEEN_CONFIG.enabled && HALLOWEEN_CONFIG.animations?.phosphorCursor && <PhosphorCursor />}
 
       {/* Sticky Navigation */}
       <Navbar
