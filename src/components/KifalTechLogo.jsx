@@ -8,71 +8,95 @@ export default function KifalTechLogo({ compact = false, showTagline = true, sty
       style={{
         display: 'inline-flex',
         alignItems: 'center',
-        gap: '12px',
+        gap: compact ? '9px' : '11px',
         textDecoration: 'none',
         userSelect: 'none',
         ...style
       }}
-      aria-label="KifalTech Home"
+      aria-label="KifalTech - 100% Remote Global Digital Agency"
     >
-      {/* Precision Technical Geometric Mark */}
+      {/* Flat Monochrome Minimalist Geometric Accent Mark */}
       <div
         style={{
-          position: 'relative',
-          width: compact ? '32px' : '36px',
-          height: compact ? '32px' : '36px',
-          borderRadius: '6px',
-          backgroundColor: '#221d1d',
-          border: '1px solid rgba(41, 217, 197, 0.45)',
+          width: compact ? '30px' : '34px',
+          height: compact ? '30px' : '34px',
+          borderRadius: '4px',
+          border: '1px solid rgba(255, 255, 255, 0.18)',
+          backgroundColor: '#181414',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          flexShrink: 0
+          flexShrink: 0,
+          transition: 'border-color 0.2s ease'
         }}
       >
         <svg
           viewBox="0 0 24 24"
-          width="18"
-          height="18"
+          width={compact ? "18" : "20"}
+          height={compact ? "18" : "20"}
           fill="none"
-          stroke="#29D9C5"
-          strokeWidth="2.4"
-          strokeLinecap="round"
-          strokeLinejoin="round"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          {/* Architectural 'K' geometry */}
-          <line x1="5" y1="4" x2="5" y2="20" />
-          <line x1="17" y1="4" x2="5" y2="12" />
-          <line x1="7.5" y1="10.5" x2="18" y2="20" />
+          {/* Flat Minimalist Architectural 'K' with subtle precision geometric cut */}
+          <line
+            x1="6"
+            y1="4.5"
+            x2="6"
+            y2="19.5"
+            stroke="#FFFFFF"
+            strokeWidth="2.2"
+            strokeLinecap="square"
+          />
+          <path
+            d="M6 12L16 4.5"
+            stroke="#FFFFFF"
+            strokeWidth="2.2"
+            strokeLinecap="square"
+          />
+          <path
+            d="M10.5 9.5L17.5 19.5"
+            stroke="#FFFFFF"
+            strokeWidth="2.2"
+            strokeLinecap="square"
+          />
+          {/* Subtle Geometric Point Accent */}
+          <rect
+            x="17"
+            y="4.5"
+            width="2"
+            height="2"
+            fill="#E2E8F0"
+          />
         </svg>
       </div>
 
-      {/* Brand Typography */}
+      {/* Flat Monochrome Typography */}
       <div style={{ display: 'flex', flexDirection: 'column' }}>
-        <div style={{ display: 'flex', alignItems: 'baseline', gap: '2px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '3px' }}>
           <span
             style={{
               fontFamily: 'var(--font-heading)',
-              fontSize: compact ? '1.2rem' : '1.35rem',
+              fontSize: compact ? '1.18rem' : '1.34rem',
               fontWeight: 800,
-              color: '#ffffff',
+              color: '#FFFFFF',
               letterSpacing: '-0.025em',
               lineHeight: 1
             }}
           >
-            KIFAL
+            KIFALTECH
           </span>
+          {/* Subtle Geometric Slash Accent */}
           <span
             style={{
-              fontFamily: 'var(--font-heading)',
-              fontSize: compact ? '1.2rem' : '1.35rem',
-              fontWeight: 800,
-              color: '#29D9C5',
-              letterSpacing: '-0.025em',
-              lineHeight: 1
+              fontFamily: 'var(--font-mono)',
+              fontSize: compact ? '0.95rem' : '1.05rem',
+              color: 'rgba(255, 255, 255, 0.35)',
+              fontWeight: 400,
+              marginLeft: '2px',
+              userSelect: 'none'
             }}
           >
-            TECH
+            /
           </span>
         </div>
 
@@ -81,14 +105,14 @@ export default function KifalTechLogo({ compact = false, showTagline = true, sty
             style={{
               fontSize: '0.62rem',
               fontFamily: 'var(--font-mono)',
-              color: '#a0a0a0',
-              letterSpacing: '0.12em',
+              color: 'rgba(255, 255, 255, 0.45)',
+              letterSpacing: '0.14em',
               textTransform: 'uppercase',
-              marginTop: '3px',
-              fontWeight: 600
+              marginTop: '4px',
+              fontWeight: 500
             }}
           >
-            DIGITAL SOFTWARE AGENCY
+            GLOBAL DIGITAL AGENCY
           </span>
         )}
       </div>

@@ -15,7 +15,7 @@ export default function CTASection({ onStartProject }) {
           style={{
             padding: 'clamp(44px, 6vw, 72px) clamp(28px, 5vw, 60px)',
             backgroundColor: '#1b1616',
-            border: '1px solid rgba(41, 217, 197, 0.25)',
+            border: '1px solid rgba(124, 58, 237, 0.35)',
             borderRadius: '8px',
             display: 'flex',
             alignItems: 'center',
@@ -40,11 +40,11 @@ export default function CTASection({ onStartProject }) {
                 marginBottom: '14px'
               }}
             >
-              Have a project in mind? Let's build something useful for your business.
+              Your Digital Growth Starts Here.
             </h2>
 
             <p style={{ fontSize: '1.05rem', lineHeight: 1.65, color: 'var(--text-muted)', margin: 0 }}>
-              Whether you need a new web platform, a custom Shopify storefront, or ongoing software engineering, our team is ready to deliver.
+              Have a project in mind? Whether you need a modern web application, custom Shopify storefront, or ongoing software engineering, our team is ready to deliver.
             </p>
           </div>
 

@@ -204,7 +204,7 @@ export default function PricingTabs({ onSelectPlan, onChatNow }) {
             marginTop: '40px',
             padding: '28px 36px',
             backgroundColor: '#1f1919',
-            border: '1px solid rgba(41, 217, 197, 0.25)',
+            border: '1px solid rgba(124, 58, 237, 0.35)',
             borderRadius: '8px',
             display: 'flex',
             alignItems: 'center',

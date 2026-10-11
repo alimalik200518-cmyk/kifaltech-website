@@ -77,35 +77,41 @@ export default function PricingCalculator({ onSelectPlanForProposal }) {
 
   return (
     <div
-      className="agency-card glass-card"
+      className="agency-card"
       style={{
         maxWidth: '960px',
         margin: '0 auto',
-        padding: 'clamp(24px, 4vw, 42px)',
-        border: '1px solid var(--border-medium)'
+        padding: 'clamp(32px, 5vw, 48px)',
+        border: '1px solid rgba(255, 255, 255, 0.08)',
+        backgroundColor: '#141010'
       }}
     >
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '14px', marginBottom: '28px' }}>
         <div>
-          <span className="section-tag" style={{ marginBottom: '8px' }}>
-            ✦ Interactive Scope Calculator
+          <span className="eyebrow" style={{ marginBottom: '8px' }}>
+            SCOPE ENGINE
           </span>
-          <h3 style={{ fontSize: '1.7rem', color: 'var(--text-white)', marginTop: '4px' }}>
-            Configure Your Custom Scope & Estimate
+          <h3 style={{ fontSize: '1.85rem', color: '#ffffff', marginTop: '4px' }}>
+            Interactive Scope &amp; Investment Calculator
           </h3>
           <p style={{ color: 'var(--text-muted)', fontSize: '0.94rem' }}>
-            Select your architecture parameters to calculate transparent, one-time investment with guaranteed milestones.
+            Configure your technical scope parameters below for a transparent, milestone-guaranteed cost estimate.
           </p>
+        </div>
+        <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.78rem', color: 'var(--text-dim)' }}>
+          TRANSMISSION DESTINATION: <span style={{ color: 'var(--primary-light)' }}>forms@kifaltech.com</span>
         </div>
       </div>
 
-      <div style={{ borderTop: '1px solid var(--border-subtle)', paddingTop: '28px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '22px', marginBottom: '24px' }}>
+      <div style={{ borderTop: '1px solid rgba(255, 255, 255, 0.08)', paddingTop: '28px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '24px', marginBottom: '32px' }}>
           {/* Project Platform Type */}
-          <div className="form-group">
-            <label className="form-label">Project Platform / Solution</label>
+          <div className="agency-field-group">
+            <label className="floating-label active">
+              Platform Architecture <span className="required-asterisk">*</span>
+            </label>
             <select
-              className="form-select"
+              className="agency-select-minimal"
               value={calcType}
               onChange={(e) => setCalcType(e.target.value)}
             >
@@ -118,11 +124,13 @@ export default function PricingCalculator({ onSelectPlanForProposal }) {
           </div>
 
           {/* Page Count Slider */}
-          <div className="form-group">
-            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
-              <label className="form-label" style={{ margin: 0 }}>Unique Pages / Screens</label>
-              <span style={{ color: 'var(--primary-light)', fontFamily: 'var(--font-mono)', fontWeight: 700 }}>
-                {calcPages} {calcPages === 1 ? 'Page' : 'Pages'}
+          <div className="agency-field-group" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', paddingBottom: '4px' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '10px' }}>
+              <label className="floating-label active" style={{ position: 'static' }}>
+                Unique Views / Screens <span className="required-asterisk">*</span>
+              </label>
+              <span style={{ color: 'var(--primary-light)', fontFamily: 'var(--font-mono)', fontWeight: 700, fontSize: '0.95rem' }}>
+                {calcPages} {calcPages === 1 ? 'Screen' : 'Screens'}
               </span>
             </div>
             <input
@@ -131,73 +139,75 @@ export default function PricingCalculator({ onSelectPlanForProposal }) {
               max="25"
               value={calcPages}
               onChange={(e) => setCalcPages(Number(e.target.value))}
-              style={{ width: '100%', accentColor: 'var(--primary)' }}
+              style={{ width: '100%', accentColor: 'var(--primary-light)', cursor: 'pointer' }}
             />
-            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.74rem', color: 'var(--text-dim)', marginTop: '4px' }}>
-              <span>1 Page</span>
-              <span>10 Pages</span>
-              <span>25+ Pages</span>
+            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.72rem', color: 'var(--text-dim)', fontFamily: 'var(--font-mono)', marginTop: '6px' }}>
+              <span>1 View</span>
+              <span>10 Views</span>
+              <span>25+ Views</span>
             </div>
           </div>
 
           {/* Delivery Timeline */}
-          <div className="form-group">
-            <label className="form-label">Delivery Timeline Sprint</label>
+          <div className="agency-field-group">
+            <label className="floating-label active">
+              Sprint Velocity <span className="required-asterisk">*</span>
+            </label>
             <select
-              className="form-select"
+              className="agency-select-minimal"
               value={calcTimeline}
               onChange={(e) => setCalcTimeline(e.target.value)}
             >
-              <option value="standard">Standard Agile Sprint</option>
+              <option value="standard">Standard Agile Sprint Pace</option>
               <option value="rush">Accelerated Fast-Track (+25% Rush)</option>
             </select>
           </div>
         </div>
 
         {/* Feature Addons */}
-        <div style={{ marginBottom: '28px' }}>
-          <div style={{ fontSize: '0.82rem', fontFamily: 'var(--font-mono)', color: 'var(--text-dim)', textTransform: 'uppercase', marginBottom: '12px' }}>
-            ENGINEERING CAPABILITIES & MODULES
-          </div>
+        <div style={{ marginBottom: '32px' }}>
+          <span style={{ fontSize: '0.76rem', fontFamily: 'var(--font-mono)', color: 'var(--text-dim)', textTransform: 'uppercase', letterSpacing: '0.08em', display: 'block', marginBottom: '14px', fontWeight: 600 }}>
+            OPTIONAL ARCHITECTURAL MODULES:
+          </span>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '12px' }}>
-            <label style={{ display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer', background: 'var(--bg-card)', padding: '10px 14px', borderRadius: 'var(--radius-xs)', border: '1px solid var(--border-subtle)' }}>
+            <label style={{ display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer', background: 'rgba(255, 255, 255, 0.02)', padding: '12px 14px', borderRadius: 'var(--radius-xs)', border: '1px solid rgba(255, 255, 255, 0.08)', transition: 'border-color 0.2s' }}>
               <input
                 type="checkbox"
                 checked={calcHasEcommerce}
                 onChange={(e) => setCalcHasEcommerce(e.target.checked)}
-                style={{ accentColor: 'var(--primary)', width: '16px', height: '16px' }}
+                style={{ accentColor: 'var(--primary-light)', width: '16px', height: '16px' }}
               />
-              <span style={{ fontSize: '0.86rem', color: 'var(--text-white)' }}>E-Commerce & Payments (+ $200)</span>
+              <span style={{ fontSize: '0.86rem', color: '#ffffff' }}>E-Commerce &amp; Payments (+ $200)</span>
             </label>
 
-            <label style={{ display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer', background: 'var(--bg-card)', padding: '10px 14px', borderRadius: 'var(--radius-xs)', border: '1px solid var(--border-subtle)' }}>
+            <label style={{ display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer', background: 'rgba(255, 255, 255, 0.02)', padding: '12px 14px', borderRadius: 'var(--radius-xs)', border: '1px solid rgba(255, 255, 255, 0.08)', transition: 'border-color 0.2s' }}>
               <input
                 type="checkbox"
                 checked={calcHasSeo}
                 onChange={(e) => setCalcHasSeo(e.target.checked)}
-                style={{ accentColor: 'var(--primary)', width: '16px', height: '16px' }}
+                style={{ accentColor: 'var(--primary-light)', width: '16px', height: '16px' }}
               />
-              <span style={{ fontSize: '0.86rem', color: 'var(--text-white)' }}>Advanced Technical SEO (+ $150)</span>
+              <span style={{ fontSize: '0.86rem', color: '#ffffff' }}>Technical SEO Audit (+ $150)</span>
             </label>
 
-            <label style={{ display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer', background: 'var(--bg-card)', padding: '10px 14px', borderRadius: 'var(--radius-xs)', border: '1px solid var(--border-subtle)' }}>
+            <label style={{ display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer', background: 'rgba(255, 255, 255, 0.02)', padding: '12px 14px', borderRadius: 'var(--radius-xs)', border: '1px solid rgba(255, 255, 255, 0.08)', transition: 'border-color 0.2s' }}>
               <input
                 type="checkbox"
                 checked={calcHasCms}
                 onChange={(e) => setCalcHasCms(e.target.checked)}
-                style={{ accentColor: 'var(--primary)', width: '16px', height: '16px' }}
+                style={{ accentColor: 'var(--primary-light)', width: '16px', height: '16px' }}
               />
-              <span style={{ fontSize: '0.86rem', color: 'var(--text-white)' }}>Headless CMS Setup (+ $120)</span>
+              <span style={{ fontSize: '0.86rem', color: '#ffffff' }}>Headless CMS Setup (+ $120)</span>
             </label>
 
-            <label style={{ display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer', background: 'var(--bg-card)', padding: '10px 14px', borderRadius: 'var(--radius-xs)', border: '1px solid var(--border-subtle)' }}>
+            <label style={{ display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer', background: 'rgba(255, 255, 255, 0.02)', padding: '12px 14px', borderRadius: 'var(--radius-xs)', border: '1px solid rgba(255, 255, 255, 0.08)', transition: 'border-color 0.2s' }}>
               <input
                 type="checkbox"
                 checked={calcHasApi}
                 onChange={(e) => setCalcHasApi(e.target.checked)}
-                style={{ accentColor: 'var(--primary)', width: '16px', height: '16px' }}
+                style={{ accentColor: 'var(--primary-light)', width: '16px', height: '16px' }}
               />
-              <span style={{ fontSize: '0.86rem', color: 'var(--text-white)' }}>Custom API Integrations (+ $250)</span>
+              <span style={{ fontSize: '0.86rem', color: '#ffffff' }}>Custom API Integrations (+ $250)</span>
             </label>
           </div>
         </div>
@@ -210,24 +220,24 @@ export default function PricingCalculator({ onSelectPlanForProposal }) {
             justifyContent: 'space-between',
             flexWrap: 'wrap',
             gap: '20px',
-            background: 'var(--bg-card)',
-            border: '1px solid var(--border-medium)',
-            borderRadius: 'var(--radius-md)',
+            background: '#181313',
+            border: '1px solid rgba(139, 92, 246, 0.3)',
+            borderRadius: 'var(--radius-sm)',
             padding: '24px 28px'
           }}
         >
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '4px' }}>
-              <span style={{ fontSize: '0.78rem', fontFamily: 'var(--font-mono)', color: 'var(--primary-light)', textTransform: 'uppercase' }}>
-                ESTIMATED ONE-TIME INVESTMENT
+              <span style={{ fontSize: '0.76rem', fontFamily: 'var(--font-mono)', color: 'var(--primary-light)', textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 600 }}>
+                ESTIMATED INVESTMENT
               </span>
-              <span style={{ fontSize: '0.74rem', padding: '2px 8px', borderRadius: 'var(--radius-full)', background: 'var(--bg-subtle)', border: '1px solid var(--border-subtle)', color: 'var(--accent-emerald)', fontFamily: 'var(--font-mono)' }}>
+              <span style={{ fontSize: '0.74rem', padding: '2px 8px', borderRadius: 'var(--radius-full)', background: 'rgba(16, 185, 129, 0.1)', border: '1px solid rgba(16, 185, 129, 0.25)', color: 'var(--accent-emerald)', fontFamily: 'var(--font-mono)' }}>
                 Timeline: ~{timeline}
               </span>
             </div>
-            <div style={{ fontSize: '2.5rem', fontWeight: 800, color: 'var(--text-white)', fontFamily: 'var(--font-heading)' }}>
+            <div style={{ fontSize: 'clamp(2rem, 3.5vw, 2.8rem)', fontWeight: 800, color: '#ffffff', fontFamily: 'var(--font-mono)' }}>
               {formatPrice(currentEstimate)}
-              <span style={{ fontSize: '0.88rem', fontWeight: 400, color: 'var(--text-dim)', marginLeft: '10px' }}>
+              <span style={{ fontSize: '0.84rem', fontWeight: 400, color: 'var(--text-dim)', marginLeft: '10px' }}>
                 {currency} • 100% Code Ownership
               </span>
             </div>
@@ -235,7 +245,7 @@ export default function PricingCalculator({ onSelectPlanForProposal }) {
 
           <button
             onClick={handleApplyToProposal}
-            className="btn btn-primary btn-glow"
+            className="btn btn-primary"
             style={{ padding: '14px 28px', fontSize: '0.94rem' }}
           >
             <span>Request Proposal with this Scope</span>

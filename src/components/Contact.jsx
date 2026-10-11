@@ -4,26 +4,51 @@ import { agencyData } from '../data/agencyData.js';
 export default function Contact() {
   const { company } = agencyData;
   const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    phone: '',
-    service: 'Full-Stack Web Development',
+    service: 'Web Apps',
+    budget: '$3k-$5k',
     message: ''
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
+    if (errorMessage) setErrorMessage('');
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setSent(true);
+    setErrorMessage('');
+
+    if (!formData.name.trim() || formData.name.trim().length < 2) {
+      setErrorMessage('Please enter your full name (at least 2 characters).');
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email.trim())) {
+      setErrorMessage('Please provide a valid work email address.');
+      return;
+    }
+
+    if (!formData.message.trim() || formData.message.trim().length < 10) {
+      setErrorMessage('Please provide your project scope / message (at least 10 characters).');
+      return;
+    }
+
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      setSent(true);
+    }, 500);
   };
 
   return (
-    <section id="contact" className="section-spacing">
+    <section id="contact" className="section-spacing bg-dark-slate-texture">
       <div className="container">
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '56px' }}>
           {/* Left Column: Direct Agency Channels */}
@@ -151,12 +176,14 @@ export default function Contact() {
             </div>
 
             {/* Social Network Connections */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-              <span style={{ fontSize: '0.85rem', color: 'var(--text-dim)', fontFamily: 'var(--font-mono)' }}>CONNECT:</span>
-              {['LinkedIn', 'Twitter / X', 'GitHub', 'Instagram', 'YouTube'].map((net) => (
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
+              <span style={{ fontSize: '0.82rem', color: 'var(--primary-light)', fontFamily: 'var(--font-mono)', fontWeight: 600 }}>CONNECT WITH US ON SOCIAL:</span>
+              {company.socials.map((social) => (
                 <a
-                  key={net}
-                  href="#"
+                  key={social.name}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   style={{
                     padding: '6px 12px',
                     borderRadius: 'var(--radius-sm)',
@@ -176,7 +203,7 @@ export default function Contact() {
                     e.currentTarget.style.borderColor = 'var(--border-subtle)';
                   }}
                 >
-                  {net}
+                  {social.name}
                 </a>
               ))}
             </div>
@@ -189,11 +216,31 @@ export default function Contact() {
                 <h3 style={{ fontSize: '1.7rem', marginBottom: '8px', color: '#ffffff' }}>
                   Send a Direct Message
                 </h3>
-                <p style={{ color: 'var(--text-muted)', fontSize: '0.92rem', marginBottom: '28px' }}>
+                <p style={{ color: 'var(--text-muted)', fontSize: '0.92rem', marginBottom: '24px' }}>
                   Tell us about your requirements. We respond within 24 business hours.
                 </p>
 
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px' }}>
+                {errorMessage && (
+                  <div
+                    style={{
+                      padding: '12px 16px',
+                      borderRadius: '6px',
+                      backgroundColor: 'rgba(239, 68, 68, 0.12)',
+                      border: '1px solid rgba(239, 68, 68, 0.35)',
+                      color: '#f87171',
+                      fontSize: '0.88rem',
+                      marginBottom: '20px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '8px'
+                    }}
+                  >
+                    <span>⚠️</span>
+                    <span>{errorMessage}</span>
+                  </div>
+                )}
+
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px', marginBottom: '16px' }}>
                   <div className="form-group">
                     <label className="form-label">Full Name *</label>
                     <input
@@ -208,12 +255,12 @@ export default function Contact() {
                   </div>
 
                   <div className="form-group">
-                    <label className="form-label">Email Address *</label>
+                    <label className="form-label">Work Email *</label>
                     <input
                       type="email"
                       name="email"
                       required
-                      placeholder="alex@brand.com"
+                      placeholder="alex@company.com"
                       value={formData.email}
                       onChange={handleChange}
                       className="form-input"
@@ -221,41 +268,42 @@ export default function Contact() {
                   </div>
                 </div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px', marginBottom: '16px' }}>
                   <div className="form-group">
-                    <label className="form-label">Phone Number (Optional)</label>
-                    <input
-                      type="tel"
-                      name="phone"
-                      placeholder="+1 (555) 000-0000"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      className="form-input"
-                    />
-                  </div>
-
-                  <div className="form-group">
-                    <label className="form-label">Primary Service Area</label>
+                    <label className="form-label">Service Required *</label>
                     <select
                       name="service"
                       value={formData.service}
                       onChange={handleChange}
                       className="form-select"
                     >
-                      <option value="Full-Stack Web Development">Full-Stack Web Development</option>
-                      <option value="E-Commerce & Shopify Plus">E-Commerce & Shopify Plus</option>
-                      <option value="Custom Web Applications">Custom Web Applications</option>
-                      <option value="UI/UX & Product Design">UI/UX & Product Design</option>
-                      <option value="Mobile App Development">Mobile App Development</option>
-                      <option value="SEO & Search Engine Growth">SEO & Search Engine Growth</option>
-                      <option value="Google Ads (PPC) Management">Google Ads (PPC) Management</option>
-                      <option value="Branding & Creative Identity">Branding & Creative Identity</option>
+                      <option value="Web Apps">Web Apps</option>
+                      <option value="E-Commerce">E-Commerce</option>
+                      <option value="Mobile">Mobile</option>
+                      <option value="AI Automation">AI Automation</option>
+                      <option value="UI/UX">UI/UX</option>
+                      <option value="SEO">SEO</option>
+                    </select>
+                  </div>
+
+                  <div className="form-group">
+                    <label className="form-label">Estimated Budget *</label>
+                    <select
+                      name="budget"
+                      value={formData.budget}
+                      onChange={handleChange}
+                      className="form-select"
+                    >
+                      <option value="$1k-$3k">$1k-$3k</option>
+                      <option value="$3k-$5k">$3k-$5k</option>
+                      <option value="$5k-$10k">$5k-$10k</option>
+                      <option value="$10k+">$10k+</option>
                     </select>
                   </div>
                 </div>
 
-                <div className="form-group">
-                  <label className="form-label">Your Project Overview & Target Goals *</label>
+                <div className="form-group" style={{ marginBottom: '22px' }}>
+                  <label className="form-label">Message / Project Scope *</label>
                   <textarea
                     name="message"
                     required
@@ -269,10 +317,11 @@ export default function Contact() {
 
                 <button
                   type="submit"
+                  disabled={loading}
                   className="btn btn-primary btn-glow"
                   style={{ width: '100%', padding: '15px' }}
                 >
-                  Send Inquiry to Kifal Tech
+                  {loading ? 'Submitting Inquiry...' : 'Send Inquiry to KifalTech'}
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                     <path d="M5 12h14M12 5l7 7-7 7" />
                   </svg>

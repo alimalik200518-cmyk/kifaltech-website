@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { agencyData } from '../data/agencyData.js';
 import { Link } from './Router.jsx';
+import { getServiceIcon } from './ServiceIcons.jsx';
 
 export default function ServicesList({ onSelectService }) {
   const { services } = agencyData;
@@ -15,7 +16,7 @@ export default function ServicesList({ onSelectService }) {
   );
 
   const SvgCheck = () => (
-    <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ color: 'var(--primary)', flexShrink: 0, marginTop: '3px' }}>
+    <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ color: 'var(--primary-light)', flexShrink: 0, marginTop: '3px' }}>
       <path d="M3 8.5l3.5 3.5 6.5-7"/>
     </svg>
   );
@@ -68,21 +69,38 @@ export default function ServicesList({ onSelectService }) {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
-                    padding: '18px 22px',
-                    borderRadius: '6px',
-                    backgroundColor: isActive ? '#241e1e' : 'transparent',
-                    border: isActive ? '1px solid rgba(41, 217, 197, 0.35)' : '1px solid rgba(255, 255, 255, 0.05)',
+                    padding: '16px 20px',
+                    borderRadius: '8px',
+                    backgroundColor: isActive ? 'rgba(124, 58, 237, 0.08)' : 'transparent',
+                    border: isActive ? '1px solid rgba(124, 58, 237, 0.4)' : '1px solid rgba(255, 255, 255, 0.05)',
                     cursor: 'pointer',
                     transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
                     transform: isActive ? 'translateX(6px)' : 'none'
                   }}
                 >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+                    <div
+                      style={{
+                        width: '34px',
+                        height: '34px',
+                        borderRadius: '6px',
+                        backgroundColor: isActive ? 'rgba(124, 58, 237, 0.2)' : 'rgba(255, 255, 255, 0.04)',
+                        border: '1px solid',
+                        borderColor: isActive ? 'rgba(124, 58, 237, 0.4)' : 'rgba(255, 255, 255, 0.06)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        color: isActive ? 'var(--primary-light)' : 'var(--text-dim)',
+                        flexShrink: 0
+                      }}
+                    >
+                      {getServiceIcon(s.id, s.category, 18, isActive ? "var(--primary-light)" : "var(--text-dim)")}
+                    </div>
                     <span
                       style={{
                         fontFamily: 'var(--font-mono)',
                         fontSize: '0.82rem',
-                        color: isActive ? 'var(--primary)' : 'var(--text-dim)',
+                        color: isActive ? 'var(--primary-light)' : 'var(--text-dim)',
                         fontWeight: 600
                       }}
                     >
@@ -90,7 +108,7 @@ export default function ServicesList({ onSelectService }) {
                     </span>
                     <span
                       style={{
-                        fontSize: '1.14rem',
+                        fontSize: '1.1rem',
                         fontFamily: 'var(--font-heading)',
                         fontWeight: 600,
                         color: isActive ? '#ffffff' : 'var(--text-main)',
@@ -103,7 +121,7 @@ export default function ServicesList({ onSelectService }) {
 
                   <div
                     style={{
-                      color: isActive ? 'var(--primary)' : 'var(--text-dim)',
+                      color: isActive ? 'var(--primary-light)' : 'var(--text-dim)',
                       display: 'flex',
                       alignItems: 'center',
                       transition: 'transform 0.2s ease',
@@ -122,7 +140,7 @@ export default function ServicesList({ onSelectService }) {
             <div
               style={{
                 padding: 'clamp(28px, 4vw, 40px)',
-                border: '1px solid rgba(255, 255, 255, 0.1)',
+                border: '1px solid rgba(124, 58, 237, 0.3)',
                 backgroundColor: '#1f1919',
                 borderRadius: '8px',
                 boxShadow: '0 8px 30px rgba(0, 0, 0, 0.35)'
@@ -131,11 +149,26 @@ export default function ServicesList({ onSelectService }) {
               {/* Header Badges */}
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '18px', flexWrap: 'wrap', gap: '8px' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  <div
+                    style={{
+                      width: '38px',
+                      height: '38px',
+                      borderRadius: '8px',
+                      backgroundColor: 'rgba(124, 58, 237, 0.15)',
+                      border: '1px solid rgba(124, 58, 237, 0.35)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      color: 'var(--primary-light)'
+                    }}
+                  >
+                    {getServiceIcon(activeService.id, activeService.category, 20, "var(--primary-light)")}
+                  </div>
                   <span
                     style={{
                       fontFamily: 'var(--font-mono)',
                       fontSize: '0.76rem',
-                      color: 'var(--primary)',
+                      color: 'var(--primary-light)',
                       textTransform: 'uppercase',
                       letterSpacing: '0.08em',
                       fontWeight: 600
@@ -159,8 +192,9 @@ export default function ServicesList({ onSelectService }) {
                   style={{
                     fontSize: '0.74rem',
                     fontFamily: 'var(--font-mono)',
-                    color: 'var(--primary)',
-                    background: 'rgba(41, 217, 197, 0.1)',
+                    color: 'var(--primary-light)',
+                    background: 'rgba(124, 58, 237, 0.1)',
+                    border: '1px solid rgba(124, 58, 237, 0.25)',
                     padding: '3px 9px',
                     borderRadius: '4px'
                   }}
@@ -179,23 +213,31 @@ export default function ServicesList({ onSelectService }) {
                 {activeService.shortDesc}
               </p>
 
+              {/* Technical Architecture Statement */}
+              <div
+                style={{
+                  padding: '16px 20px',
+                  backgroundColor: 'rgba(255, 255, 255, 0.03)',
+                  borderLeft: '2px solid var(--primary)',
+                  marginBottom: '26px'
+                }}
+              >
+                <div style={{ fontSize: '0.74rem', fontFamily: 'var(--font-mono)', color: 'var(--primary-light)', textTransform: 'uppercase', marginBottom: '6px', letterSpacing: '0.06em' }}>
+                  TECHNICAL SPECIFICATION & STACK
+                </div>
+                <div style={{ fontSize: '0.9rem', color: 'var(--text-main)', lineHeight: 1.6 }}>
+                  {activeService.architecture}
+                </div>
+              </div>
+
               {/* Key Deliverables */}
               <div style={{ marginBottom: '26px' }}>
-                <div
-                  style={{
-                    fontSize: '0.76rem',
-                    fontFamily: 'var(--font-mono)',
-                    textTransform: 'uppercase',
-                    color: 'var(--text-dim)',
-                    marginBottom: '12px',
-                    letterSpacing: '0.08em'
-                  }}
-                >
-                  WHAT WE DELIVER
+                <div style={{ fontSize: '0.74rem', fontFamily: 'var(--font-mono)', color: 'var(--text-dim)', textTransform: 'uppercase', marginBottom: '12px', letterSpacing: '0.08em' }}>
+                  CORE DELIVERABLES
                 </div>
-                <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '11px', padding: 0, margin: 0 }}>
+                <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '10px' }}>
                   {activeService.deliverables.slice(0, 4).map((item, idx) => (
-                    <li key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '11px', fontSize: '0.91rem' }}>
+                    <li key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', fontSize: '0.92rem' }}>
                       <SvgCheck />
                       <span style={{ color: 'var(--text-main)', lineHeight: 1.55 }}>{item}</span>
                     </li>

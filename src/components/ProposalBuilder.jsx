@@ -301,7 +301,7 @@ export default function ProposalBuilder({ isOpen, onClose, initialData, onPropos
                     <input
                       type="tel"
                       name="phone"
-                      placeholder="+1 (555) 000-0000"
+                      placeholder="+1 (828) 222-3848"
                       value={formData.phone}
                       onChange={handleInputChange}
                       className="form-input"

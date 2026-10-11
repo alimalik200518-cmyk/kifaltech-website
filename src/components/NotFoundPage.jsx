@@ -11,55 +11,102 @@ export default function NotFoundPage() {
   );
 
   return (
-    <div style={{ paddingTop: '140px', paddingBottom: '100px', minHeight: '80vh', display: 'flex', alignItems: 'center' }}>
+    <div
+      style={{
+        paddingTop: '140px',
+        paddingBottom: '120px',
+        minHeight: '85vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: 'var(--bg-main)',
+        position: 'relative'
+      }}
+    >
       <SEOHead
-        title={agencyData.pageSEO.notFound.title}
-        description={agencyData.pageSEO.notFound.metaDesc}
-        canonical={agencyData.pageSEO.notFound.canonical}
+        title="404 - Broken Link | KifalTech Digital Agency"
+        description="404 - Broken Link. Unlike our code, this page doesn't exist. Return to the KifalTech homepage."
+        canonical="https://kifaltech.com/404"
         noIndex={true}
       />
 
-      <div className="container" style={{ textAlign: 'center', maxWidth: '680px' }}>
+      <div className="container" style={{ textAlign: 'center', maxWidth: '720px' }}>
+        {/* Minimal Terminal Tag */}
+        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '20px', padding: '6px 14px', borderRadius: 'var(--radius-full)', background: 'rgba(239, 68, 68, 0.1)', border: '1px solid rgba(239, 68, 68, 0.25)', color: '#f87171', fontFamily: 'var(--font-mono)', fontSize: '0.8rem' }}>
+          <span>●</span>
+          <span>HTTP STATUS 404: RESOURCE_NOT_FOUND</span>
+        </div>
+
+        {/* Big Monospace 404 */}
         <span
           style={{
             fontFamily: 'var(--font-mono)',
-            fontSize: '5rem',
+            fontSize: 'clamp(5rem, 12vw, 8.5rem)',
             fontWeight: 800,
             color: 'var(--primary-light)',
             display: 'block',
             lineHeight: 1,
-            marginBottom: '16px',
-            opacity: 0.9
+            marginBottom: '20px',
+            letterSpacing: '-0.04em',
+            textShadow: '0 0 40px rgba(139, 92, 246, 0.25)'
           }}
         >
           404
         </span>
 
-        <h1 style={{ fontSize: 'clamp(2rem, 3.5vw, 2.6rem)', marginBottom: '16px' }}>
-          Page Not Found
+        {/* Agency Copy */}
+        <h1 style={{ fontSize: 'clamp(1.8rem, 3.2vw, 2.6rem)', marginBottom: '18px', color: '#ffffff', lineHeight: 1.25 }}>
+          Broken Link. Unlike our code, this page doesn't exist.
         </h1>
 
-        <p style={{ fontSize: '1.08rem', lineHeight: 1.68, color: 'var(--text-muted)', marginBottom: '36px' }}>
-          The page you requested may have been moved, renamed, or is temporarily unavailable. Let us guide you back to the right destination.
+        <p style={{ fontSize: '1.08rem', lineHeight: 1.7, color: 'var(--text-muted)', marginBottom: '40px', maxWidth: '580px', margin: '0 auto 40px auto' }}>
+          The URL you navigated to might have been refactored, moved, or never existed in the repository. Let's redirect you back to active platforms.
         </p>
 
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '14px', flexWrap: 'wrap', marginBottom: '40px' }}>
-          <Link to="/" className="btn btn-primary" style={{ padding: '13px 26px' }}>
+        {/* Action Buttons */}
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '14px', flexWrap: 'wrap', marginBottom: '48px' }}>
+          <Link
+            to="/"
+            className="btn btn-primary"
+            style={{ padding: '14px 32px', fontSize: '1rem' }}
+          >
             <span>Return to Home</span>
             <SvgArrow />
           </Link>
-          <Link to="/services" className="btn btn-secondary" style={{ padding: '13px 24px' }}>
-            Explore Services
+          <Link
+            to="/portfolio"
+            className="btn btn-secondary"
+            style={{ padding: '14px 26px', fontSize: '1rem' }}
+          >
+            Explore Case Studies
           </Link>
-          <Link to="/portfolio" className="btn btn-secondary" style={{ padding: '13px 24px' }}>
-            View Portfolio
+          <Link
+            to="/contact"
+            className="btn btn-secondary"
+            style={{ padding: '14px 26px', fontSize: '1rem' }}
+          >
+            Contact Engineering
           </Link>
         </div>
 
-        <div style={{ borderTop: '1px solid var(--border-subtle)', paddingTop: '24px' }}>
-          <span style={{ fontSize: '0.86rem', color: 'var(--text-dim)' }}>
-            Looking for urgent technical support? <Link to="/quick-fix" style={{ color: 'var(--primary-light)', fontWeight: 600 }}>Emergency Quick Fix</Link>
-          </span>
+        {/* Code Snippet Box */}
+        <div
+          style={{
+            background: '#130f0f',
+            border: '1px solid rgba(255, 255, 255, 0.08)',
+            borderRadius: 'var(--radius-sm)',
+            padding: '16px 20px',
+            maxWidth: '480px',
+            margin: '0 auto',
+            textAlign: 'left',
+            fontFamily: 'var(--font-mono)',
+            fontSize: '0.8rem',
+            color: 'var(--text-dim)'
+          }}
+        >
+          <div><span style={{ color: 'var(--primary-light)' }}>const</span> <span style={{ color: '#ffffff' }}>page</span> = router.resolve(window.location.pathname);</div>
+          <div style={{ color: '#ef4444' }}>// Error: page === undefined</div>
+          <div><span style={{ color: '#10b981' }}>window</span>.location.href = <span style={{ color: '#f59e0b' }}>'/'</span>;</div>
         </div>
       </div>
     </div>

@@ -57,17 +57,24 @@ export default function Testimonials() {
 
               {/* Author Info */}
               <div style={{ display: 'flex', alignItems: 'center', gap: '14px', borderTop: '1px solid var(--border-subtle)', paddingTop: '18px' }}>
-                <img
-                  src={t.image}
-                  alt={t.name}
+                <div
                   style={{
-                    width: '46px',
-                    height: '46px',
+                    width: '42px',
+                    height: '42px',
                     borderRadius: '50%',
-                    objectFit: 'cover',
-                    border: '2px solid var(--primary)'
+                    backgroundColor: 'rgba(124, 58, 237, 0.15)',
+                    border: '1px solid rgba(124, 58, 237, 0.35)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: '#ffffff',
+                    fontWeight: 700,
+                    fontSize: '0.9rem',
+                    fontFamily: 'var(--font-mono)'
                   }}
-                />
+                >
+                  {(t.name || t.author || 'C')[0]}
+                </div>
                 <div>
                   <div style={{ fontWeight: 700, color: '#ffffff', fontSize: '0.95rem' }}>{t.name}</div>
                   <div style={{ fontSize: '0.8rem', color: 'var(--text-dim)' }}>

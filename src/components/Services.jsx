@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { agencyData } from '../data/agencyData.js';
+import { getServiceIcon } from './ServiceIcons.jsx';
 
 export default function Services({ onSelectServiceForProposal }) {
   const [activeCategory, setActiveCategory] = useState('All');
-  const categories = ['All', 'Engineering', 'Commerce', 'SaaS & Enterprise', 'Design', 'Growth', 'Paid Media', 'Brand'];
+  const categories = ['All', 'Web & Software', 'Design & Branding', 'E-Commerce', 'Digital Growth'];
 
   const filteredServices = activeCategory === 'All'
     ? agencyData.services
@@ -14,7 +15,7 @@ export default function Services({ onSelectServiceForProposal }) {
       <div className="container">
         {/* Section Header */}
         <div className="section-header">
-          <span className="section-tag">CAPABILITIES & SPECIALIZATIONS</span>
+          <span className="eyebrow">CAPABILITIES & SPECIALIZATIONS</span>
           <h2>Tailored Digital Engineering for Forward-Thinking Enterprises</h2>
           <p>
             Whether you need a full-scale web application, high-converting digital storefront, or comprehensive search domination, our senior team executes with surgical precision.
@@ -62,7 +63,7 @@ export default function Services({ onSelectServiceForProposal }) {
           {filteredServices.map((service) => (
             <div
               key={service.id}
-              className="glass-card"
+              className="agency-card"
               style={{
                 display: 'flex',
                 flexDirection: 'column',
@@ -71,34 +72,43 @@ export default function Services({ onSelectServiceForProposal }) {
               }}
             >
               <div>
-                {/* Card Top Meta */}
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px' }}>
+                {/* Card Top Meta with Linear Stroke SVG Icon */}
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '22px' }}>
+                  <div
+                    style={{
+                      width: '44px',
+                      height: '44px',
+                      borderRadius: '8px',
+                      backgroundColor: 'rgba(124, 58, 237, 0.12)',
+                      border: '1px solid rgba(124, 58, 237, 0.3)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      color: 'var(--primary-light)'
+                    }}
+                  >
+                    {getServiceIcon(service.id, service.category, 22, "var(--primary-light)")}
+                  </div>
+
                   <span
                     style={{
                       fontFamily: 'var(--font-mono)',
                       fontSize: '0.78rem',
-                      color: 'var(--secondary)',
+                      color: 'var(--primary-light)',
                       textTransform: 'uppercase',
-                      letterSpacing: '0.08em'
+                      letterSpacing: '0.08em',
+                      background: 'rgba(124, 58, 237, 0.08)',
+                      padding: '4px 10px',
+                      borderRadius: 'var(--radius-full)',
+                      border: '1px solid rgba(124, 58, 237, 0.2)'
                     }}
                   >
                     {service.category}
                   </span>
-                  <span
-                    style={{
-                      fontSize: '0.85rem',
-                      color: 'var(--text-muted)',
-                      background: 'rgba(255, 255, 255, 0.05)',
-                      padding: '4px 10px',
-                      borderRadius: 'var(--radius-full)'
-                    }}
-                  >
-                    From <strong style={{ color: '#ffffff' }}>{service.startingPrice}</strong>
-                  </span>
                 </div>
 
                 {/* Service Title */}
-                <h3 style={{ fontSize: '1.45rem', marginBottom: '12px' }}>
+                <h3 style={{ fontSize: '1.45rem', marginBottom: '12px', color: 'var(--text-white)' }}>
                   {service.title}
                 </h3>
 
@@ -112,10 +122,10 @@ export default function Services({ onSelectServiceForProposal }) {
                   <div style={{ fontSize: '0.8rem', fontFamily: 'var(--font-mono)', color: 'var(--text-dim)', marginBottom: '12px', textTransform: 'uppercase' }}>
                     Key Deliverables:
                   </div>
-                  <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '9px' }}>
-                    {service.deliverables.map((item, i) => (
+                  <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '9px', padding: 0 }}>
+                    {service.deliverables.slice(0, 4).map((item, i) => (
                       <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', fontSize: '0.88rem', color: 'var(--text-main)' }}>
-                        <span style={{ color: 'var(--secondary)', marginTop: '2px' }}>✦</span>
+                        <span style={{ color: 'var(--primary-light)', marginTop: '2px' }}>✦</span>
                         <span>{item}</span>
                       </li>
                     ))}
@@ -132,7 +142,7 @@ export default function Services({ onSelectServiceForProposal }) {
                   justifyContent: 'space-between',
                   padding: '12px 20px',
                   fontSize: '0.9rem',
-                  borderColor: 'rgba(99, 102, 241, 0.3)'
+                  borderColor: 'rgba(124, 58, 237, 0.3)'
                 }}
               >
                 <span>Customize & Get Quote</span>

@@ -3,6 +3,7 @@ import { useRouter, Link } from './Router.jsx';
 import KifalTechLogo from './KifalTechLogo.jsx';
 import CurrencySelector from './CurrencySelector.jsx';
 import { agencyData } from '../data/agencyData.js';
+import { IconLinkedIn, IconTwitterX, IconGitHub, IconInstagram } from './SocialIcons.jsx';
 
 export default function Navbar({ onOpenQuote, onOpenQuickFix }) {
   const { currentPath, navigate } = useRouter();
@@ -31,10 +32,10 @@ export default function Navbar({ onOpenQuote, onOpenQuickFix }) {
   const navItems = [
     { label: 'Home', to: '/' },
     { label: 'Services', to: '/services' },
-    { label: 'Solutions', to: '/solutions' },
     { label: 'Work', to: '/portfolio' },
-    { label: 'Pricing', to: '/pricing' },
     { label: 'About', to: '/about' },
+    { label: 'Careers', to: '/careers' },
+    { label: 'FAQ', to: '/faq' },
     { label: 'Contact', to: '/contact' }
   ];
 
@@ -45,6 +46,8 @@ export default function Navbar({ onOpenQuote, onOpenQuickFix }) {
       navigate('/contact');
     }
   };
+
+  const whatsappUrl = `https://wa.me/923176704325?text=${encodeURIComponent("Hello KifalTech, I'd like to discuss a new software project.")}`;
 
   return (
     <header
@@ -58,11 +61,11 @@ export default function Navbar({ onOpenQuote, onOpenQuickFix }) {
         backdropFilter: scrolled ? 'blur(10px)' : 'none',
         WebkitBackdropFilter: scrolled ? 'blur(10px)' : 'none',
         borderBottom: '1px solid',
-        borderColor: scrolled ? 'rgba(255, 255, 255, 0.08)' : 'rgba(255, 255, 255, 0.04)',
+        borderColor: scrolled ? 'rgba(124, 58, 237, 0.2)' : 'rgba(255, 255, 255, 0.04)',
         transition: 'background-color 0.2s ease, border-color 0.2s ease'
       }}
     >
-      {/* Subtle Top Utility Bar — International Direct Communication */}
+      {/* Top Utility Bar — International Direct Communication & Dual-Presence */}
       <div
         style={{
           borderBottom: '1px solid rgba(255, 255, 255, 0.05)',
@@ -72,19 +75,99 @@ export default function Navbar({ onOpenQuote, onOpenQuickFix }) {
           fontFamily: 'var(--font-mono)'
         }}
       >
-        <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: '#29D9C5', fontWeight: 600 }}>
+        <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '8px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: 'var(--primary-light)', fontWeight: 600 }}>
               <span className="pulse-indicator" style={{ width: '5px', height: '5px' }}></span>
-              <span>Accepting New Client Projects</span>
+              <span>100% REMOTE GLOBAL DIGITAL AGENCY</span>
             </span>
             <span className="hide-mobile" style={{ color: 'rgba(255, 255, 255, 0.15)' }}>|</span>
             <span className="hide-mobile" style={{ color: 'var(--text-muted)' }}>
-              Direct: <a href={`tel:${company.inquiryPhone}`} style={{ color: '#ffffff', textDecoration: 'none' }}>{company.inquiryPhone}</a>
+              USA: <a href="tel:+15551234567" style={{ color: '#ffffff', textDecoration: 'none' }}>+1 (555) 123-4567</a>
+            </span>
+            <span className="hide-mobile" style={{ color: 'rgba(255, 255, 255, 0.15)' }}>•</span>
+            <span className="hide-mobile" style={{ color: 'var(--text-muted)' }}>
+              PK: <a href="tel:+923176704325" style={{ color: 'var(--accent-emerald)', textDecoration: 'none', fontWeight: 600 }}>+92 317 670 4325</a>
             </span>
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+            {/* Minimal Monochrome Social Media Icon Links (LinkedIn, Twitter/X, GitHub, Instagram) */}
+            <div
+              className="hide-mobile"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '4px',
+                paddingRight: '6px',
+                borderRight: '1px solid rgba(255, 255, 255, 0.1)'
+              }}
+              aria-label="Social media channels"
+            >
+              <a
+                href="https://linkedin.com/company/kifaltech"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="header-social-item"
+                title="KifalTech on LinkedIn"
+                aria-label="KifalTech on LinkedIn"
+              >
+                <IconLinkedIn size={13} />
+              </a>
+              <a
+                href="https://x.com/kifaltech"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="header-social-item"
+                title="KifalTech on Twitter / X"
+                aria-label="KifalTech on Twitter / X"
+              >
+                <IconTwitterX size={12} />
+              </a>
+              <a
+                href="https://github.com/kifaltech"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="header-social-item"
+                title="KifalTech on GitHub"
+                aria-label="KifalTech on GitHub"
+              >
+                <IconGitHub size={13} />
+              </a>
+              <a
+                href="https://instagram.com/kifaltech"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="header-social-item"
+                title="KifalTech on Instagram"
+                aria-label="KifalTech on Instagram"
+              >
+                <IconInstagram size={13} />
+              </a>
+            </div>
+
+            {/* Interactive WhatsApp Button */}
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '6px',
+                color: '#10b981',
+                textDecoration: 'none',
+                fontWeight: 600,
+                fontSize: '0.74rem',
+                background: 'rgba(16, 185, 129, 0.1)',
+                padding: '3px 8px',
+                borderRadius: '4px',
+                border: '1px solid rgba(16, 185, 129, 0.25)'
+              }}
+              title="Chat with Engineering Lead on WhatsApp"
+            >
+              <span>💬 WhatsApp</span>
+            </a>
             <CurrencySelector />
           </div>
         </div>
@@ -93,7 +176,7 @@ export default function Navbar({ onOpenQuote, onOpenQuickFix }) {
       {/* Main Navigation Bar */}
       <div style={{ padding: '12px 0' }}>
         <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-          {/* Authentic KifalTech Logo */}
+          {/* Bespoke KifalTech Logo */}
           <KifalTechLogo compact={false} />
 
           {/* Desktop Navigation Links */}
@@ -105,7 +188,7 @@ export default function Navbar({ onOpenQuote, onOpenQuickFix }) {
                   key={item.label}
                   to={item.to}
                   style={{
-                    color: isActive ? '#29D9C5' : 'var(--text-main)',
+                    color: isActive ? 'var(--primary-light)' : 'var(--text-main)',
                     fontSize: '0.9rem',
                     fontWeight: isActive ? 600 : 500,
                     transition: 'color 0.15s ease',
@@ -122,7 +205,7 @@ export default function Navbar({ onOpenQuote, onOpenQuickFix }) {
                         left: 0,
                         width: '100%',
                         height: '2px',
-                        backgroundColor: '#29D9C5',
+                        background: 'linear-gradient(90deg, #7C3AED, #4F46E5)',
                         borderRadius: '2px'
                       }}
                     />
@@ -206,7 +289,7 @@ export default function Navbar({ onOpenQuote, onOpenQuickFix }) {
                 style={{
                   fontSize: '1rem',
                   fontWeight: isActive ? 600 : 500,
-                  color: isActive ? '#29D9C5' : '#ffffff',
+                  color: isActive ? 'var(--primary-light)' : '#ffffff',
                   padding: '8px 0',
                   display: 'flex',
                   alignItems: 'center',
@@ -215,12 +298,49 @@ export default function Navbar({ onOpenQuote, onOpenQuickFix }) {
                 }}
               >
                 <span>{item.label}</span>
-                {isActive && <span style={{ color: '#29D9C5', fontSize: '0.8rem' }}>●</span>}
+                {isActive && <span style={{ color: 'var(--primary-light)', fontSize: '0.8rem' }}>●</span>}
               </Link>
             );
           })}
 
-          <div style={{ paddingTop: '12px' }}>
+          {/* Mobile Social Links Row */}
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '16px', padding: '12px 0', borderBottom: '1px solid rgba(255, 255, 255, 0.05)' }}>
+            <a href="https://linkedin.com/company/kifaltech" target="_blank" rel="noopener noreferrer" className="header-social-item" title="LinkedIn" aria-label="LinkedIn">
+              <IconLinkedIn size={16} />
+            </a>
+            <a href="https://x.com/kifaltech" target="_blank" rel="noopener noreferrer" className="header-social-item" title="Twitter/X" aria-label="Twitter/X">
+              <IconTwitterX size={15} />
+            </a>
+            <a href="https://github.com/kifaltech" target="_blank" rel="noopener noreferrer" className="header-social-item" title="GitHub" aria-label="GitHub">
+              <IconGitHub size={16} />
+            </a>
+            <a href="https://instagram.com/kifaltech" target="_blank" rel="noopener noreferrer" className="header-social-item" title="Instagram" aria-label="Instagram">
+              <IconInstagram size={16} />
+            </a>
+          </div>
+
+          <div style={{ paddingTop: '12px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '8px',
+                color: '#10b981',
+                textDecoration: 'none',
+                fontWeight: 600,
+                fontSize: '0.9rem',
+                background: 'rgba(16, 185, 129, 0.1)',
+                padding: '10px',
+                borderRadius: '6px',
+                border: '1px solid rgba(16, 185, 129, 0.3)'
+              }}
+            >
+              <span>💬 Chat on WhatsApp</span>
+            </a>
             <button
               onClick={() => {
                 setMobileOpen(false);

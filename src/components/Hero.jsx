@@ -4,13 +4,20 @@ import { Link } from './Router.jsx';
 
 export default function Hero({ onStartProject, onOpenQuickFix }) {
   const { company } = agencyData;
-  const [activeTab, setActiveTab] = useState('overview'); // overview, performance, code
+  const [activeTab, setActiveTab] = useState('ide'); // ide, overview, performance, code
 
   const SvgArrow = () => (
     <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <path d="M3 8h10M9 4l4 4-4 4"/>
     </svg>
   );
+
+  const capabilityBadges = [
+    { label: "Global Delivery", icon: "🌐" },
+    { label: "Modern Tech Stack", icon: "◈" },
+    { label: "Production-Grade Code", icon: "⚡" },
+    { label: "Dedicated Support & SLA", icon: "🛡️" }
+  ];
 
   return (
     <section
@@ -22,7 +29,10 @@ export default function Hero({ onStartProject, onOpenQuickFix }) {
         overflow: 'hidden'
       }}
     >
-      <div className="container">
+      {/* Animated CSS Background Grid & Dark Ambient Radial Mesh with Indigo Accents */}
+      <div className="hero-ambient-mesh" aria-hidden="true" />
+
+      <div className="container" style={{ position: 'relative', zIndex: 1 }}>
         <div
           style={{
             display: 'grid',
@@ -83,38 +93,65 @@ export default function Hero({ onStartProject, onOpenQuickFix }) {
               </Link>
             </div>
 
-            {/* Credibility statement based on real capabilities — NO fake statistics */}
+            {/* Verified Solid Capability Badges */}
             <div
               style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '18px',
-                marginTop: '44px',
+                marginTop: '40px',
                 paddingTop: '24px',
-                borderTop: '1px solid rgba(255, 255, 255, 0.08)',
-                flexWrap: 'wrap',
-                fontSize: '0.84rem',
-                color: 'var(--text-muted)',
-                fontFamily: 'var(--font-mono)'
+                borderTop: '1px solid rgba(255, 255, 255, 0.08)'
               }}
             >
-              <span style={{ color: '#ffffff', fontWeight: 600 }}>CORE STANDARDS:</span>
-              <span>Bespoke Architecture</span>
-              <span style={{ color: 'rgba(255, 255, 255, 0.2)' }}>•</span>
-              <span>100% Code Ownership</span>
-              <span style={{ color: 'rgba(255, 255, 255, 0.2)' }}>•</span>
-              <span>Direct Developer Collaboration</span>
+              <div
+                style={{
+                  fontSize: '0.74rem',
+                  fontFamily: 'var(--font-mono)',
+                  color: 'var(--text-dim)',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.08em',
+                  marginBottom: '12px'
+                }}
+              >
+                VERIFIED CAPABILITY BENCHMARKS:
+              </div>
+              <div
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
+                  gap: '10px'
+                }}
+              >
+                {capabilityBadges.map((badge) => (
+                  <div
+                    key={badge.label}
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                      padding: '8px 12px',
+                      borderRadius: '6px',
+                      backgroundColor: 'rgba(255, 255, 255, 0.03)',
+                      border: '1px solid rgba(124, 58, 237, 0.25)',
+                      fontFamily: 'var(--font-mono)',
+                      fontSize: '0.78rem',
+                      color: '#ffffff'
+                    }}
+                  >
+                    <span style={{ color: 'var(--primary-light)', fontSize: '0.85rem' }}>{badge.icon}</span>
+                    <span style={{ fontWeight: 600 }}>{badge.label}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
-          {/* Right Column: Realistic Product UI Preview (Human-Designed, Authentic) */}
+          {/* Right Column: Realistic Dark-Mode UI Frame Preview */}
           <div>
             <div
               className="mockup-browser"
               style={{
-                border: '1px solid var(--border-medium)',
+                border: '1px solid rgba(124, 58, 237, 0.35)',
                 backgroundColor: 'var(--bg-card)',
-                boxShadow: '0 12px 36px rgba(0, 0, 0, 0.5)'
+                boxShadow: '0 12px 36px rgba(0, 0, 0, 0.5), 0 0 20px rgba(124, 58, 237, 0.15)'
               }}
             >
               {/* Browser Window Chrome */}
@@ -126,18 +163,18 @@ export default function Hero({ onStartProject, onOpenQuickFix }) {
                 </div>
                 <div className="mockup-url-bar">
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
-                    <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                    <polyline points="16 18 22 12 16 6"></polyline>
+                    <polyline points="8 6 2 12 8 18"></polyline>
                   </svg>
-                  <span>app.clientportal.io/production/dashboard</span>
+                  <span>src/app/page.tsx — VS Code</span>
                 </div>
-                <span style={{ fontSize: '0.68rem', color: '#29D9C5', fontFamily: 'var(--font-mono)', fontWeight: 600 }}>
-                  ● 200 OK
+                <span style={{ fontSize: '0.68rem', color: '#10b981', fontFamily: 'var(--font-mono)', fontWeight: 600 }}>
+                  ● EDGE READY
                 </span>
               </div>
 
               {/* Realistic Web Platform Interface Content */}
-              <div style={{ padding: '22px' }}>
+              <div style={{ padding: '20px' }}>
                 {/* Platform Internal Nav */}
                 <div
                   style={{
@@ -146,21 +183,37 @@ export default function Hero({ onStartProject, onOpenQuickFix }) {
                     justifyContent: 'space-between',
                     paddingBottom: '14px',
                     borderBottom: '1px solid var(--border-subtle)',
-                    marginBottom: '18px'
+                    marginBottom: '16px',
+                    flexWrap: 'wrap',
+                    gap: '8px'
                   }}
                 >
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <div style={{ width: '22px', height: '22px', borderRadius: '4px', backgroundColor: '#29D9C5', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#171313', fontSize: '0.72rem', fontWeight: 800 }}>
+                    <div
+                      style={{
+                        width: '20px',
+                        height: '20px',
+                        borderRadius: '4px',
+                        background: 'linear-gradient(135deg, #7C3AED, #4F46E5)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        color: '#ffffff',
+                        fontSize: '0.68rem',
+                        fontWeight: 800
+                      }}
+                    >
                       K
                     </div>
-                    <span style={{ fontSize: '0.86rem', fontWeight: 700, color: '#ffffff', fontFamily: 'var(--font-heading)' }}>
-                      Client Portal Demo
+                    <span style={{ fontSize: '0.84rem', fontWeight: 700, color: '#ffffff', fontFamily: 'var(--font-heading)' }}>
+                      Engineering Environment
                     </span>
                   </div>
 
                   {/* Interface Tabs */}
-                  <div style={{ display: 'flex', gap: '4px' }}>
+                  <div style={{ display: 'flex', gap: '4px', flexWrap: 'wrap' }}>
                     {[
+                      { id: 'ide', label: 'Developer Studio' },
                       { id: 'overview', label: 'Platform Metrics' },
                       { id: 'performance', label: 'Core Vitals' },
                       { id: 'code', label: 'Source Spec' }
@@ -169,13 +222,13 @@ export default function Hero({ onStartProject, onOpenQuickFix }) {
                         key={tab.id}
                         onClick={() => setActiveTab(tab.id)}
                         style={{
-                          background: activeTab === tab ? '#292323' : 'transparent',
-                          color: activeTab === tab ? '#29D9C5' : 'var(--text-muted)',
+                          background: activeTab === tab ? 'rgba(124, 58, 237, 0.15)' : 'transparent',
+                          color: activeTab === tab ? 'var(--primary-light)' : 'var(--text-muted)',
                           border: '1px solid',
-                          borderColor: activeTab === tab ? 'rgba(41, 217, 197, 0.4)' : 'transparent',
+                          borderColor: activeTab === tab ? 'rgba(124, 58, 237, 0.4)' : 'transparent',
                           borderRadius: 'var(--radius-xs)',
-                          padding: '4px 10px',
-                          fontSize: '0.74rem',
+                          padding: '3px 8px',
+                          fontSize: '0.72rem',
                           fontFamily: 'var(--font-mono)',
                           cursor: 'pointer',
                           fontWeight: activeTab === tab ? 600 : 400
@@ -187,6 +240,67 @@ export default function Hero({ onStartProject, onOpenQuickFix }) {
                   </div>
                 </div>
 
+                {/* Tab 0: Authentic Developer Studio Photography */}
+                {activeTab === 'ide' && (
+                  <div>
+                    <div style={{ position: 'relative', borderRadius: '6px', overflow: 'hidden', border: '1px solid rgba(255, 255, 255, 0.1)', backgroundColor: '#100c0c' }}>
+                      <img
+                        src="/images/hero/developer-dark-code.jpg"
+                        alt="KifalTech developer engineering React and TypeScript code on dark-mode IDE with natural window lighting"
+                        style={{
+                          width: '100%',
+                          height: '280px',
+                          objectFit: 'cover',
+                          display: 'block'
+                        }}
+                        loading="eager"
+                      />
+                      <div
+                        style={{
+                          position: 'absolute',
+                          bottom: 0,
+                          left: 0,
+                          right: 0,
+                          padding: '14px 16px',
+                          background: 'linear-gradient(180deg, transparent 0%, rgba(16, 12, 12, 0.95) 75%, #100c0c 100%)',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'space-between',
+                          gap: '12px'
+                        }}
+                      >
+                        <div>
+                          <div style={{ fontSize: '0.84rem', fontWeight: 700, color: '#ffffff', fontFamily: 'var(--font-heading)' }}>
+                            Active Sprint • React 18 &amp; Edge Cloud
+                          </div>
+                          <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', marginTop: '2px' }}>
+                            VS Code • TypeScript Strict • Zero Runtime Bloat
+                          </div>
+                        </div>
+                        <span style={{ fontSize: '0.7rem', fontFamily: 'var(--font-mono)', color: 'var(--accent-emerald)', background: 'rgba(16, 185, 129, 0.15)', border: '1px solid rgba(16, 185, 129, 0.3)', padding: '2px 8px', borderRadius: '4px', flexShrink: 0 }}>
+                          ● Live Sprint
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Quick Capabilities Metrics Row */}
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '8px', marginTop: '12px' }}>
+                      <div style={{ backgroundColor: 'var(--bg-secondary)', padding: '10px', borderRadius: 'var(--radius-xs)', border: '1px solid var(--border-subtle)' }}>
+                        <div style={{ fontSize: '0.64rem', color: 'var(--text-dim)', fontFamily: 'var(--font-mono)' }}>CORE WEB VITALS</div>
+                        <div style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--accent-emerald)', marginTop: '2px' }}>98/100</div>
+                      </div>
+                      <div style={{ backgroundColor: 'var(--bg-secondary)', padding: '10px', borderRadius: 'var(--radius-xs)', border: '1px solid var(--border-subtle)' }}>
+                        <div style={{ fontSize: '0.64rem', color: 'var(--text-dim)', fontFamily: 'var(--font-mono)' }}>EDGE LATENCY</div>
+                        <div style={{ fontSize: '1.1rem', fontWeight: 700, color: '#ffffff', marginTop: '2px' }}>38ms</div>
+                      </div>
+                      <div style={{ backgroundColor: 'var(--bg-secondary)', padding: '10px', borderRadius: 'var(--radius-xs)', border: '1px solid var(--border-subtle)' }}>
+                        <div style={{ fontSize: '0.64rem', color: 'var(--text-dim)', fontFamily: 'var(--font-mono)' }}>SYSTEM SLA</div>
+                        <div style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--primary-light)', marginTop: '2px' }}>99.98%</div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
                 {/* Tab 1: Realistic Platform Metrics */}
                 {activeTab === 'overview' && (
                   <div>
@@ -195,19 +309,19 @@ export default function Hero({ onStartProject, onOpenQuickFix }) {
                       <div style={{ backgroundColor: 'var(--bg-secondary)', padding: '12px', borderRadius: 'var(--radius-xs)', border: '1px solid var(--border-subtle)' }}>
                         <div style={{ fontSize: '0.7rem', color: 'var(--text-dim)', fontFamily: 'var(--font-mono)' }}>ACTIVE SESSIONS</div>
                         <div style={{ fontSize: '1.25rem', fontWeight: 700, color: '#ffffff', marginTop: '2px' }}>18,420</div>
-                        <div style={{ fontSize: '0.68rem', color: '#29D9C5', marginTop: '2px' }}>Operational load</div>
+                        <div style={{ fontSize: '0.68rem', color: 'var(--primary-light)', marginTop: '2px' }}>Operational load</div>
                       </div>
 
                       <div style={{ backgroundColor: 'var(--bg-secondary)', padding: '12px', borderRadius: 'var(--radius-xs)', border: '1px solid var(--border-subtle)' }}>
                         <div style={{ fontSize: '0.7rem', color: 'var(--text-dim)', fontFamily: 'var(--font-mono)' }}>AVG API LATENCY</div>
                         <div style={{ fontSize: '1.25rem', fontWeight: 700, color: '#ffffff', marginTop: '2px' }}>38ms</div>
-                        <div style={{ fontSize: '0.68rem', color: '#29D9C5', marginTop: '2px' }}>Edge cached</div>
+                        <div style={{ fontSize: '0.68rem', color: 'var(--primary-light)', marginTop: '2px' }}>Edge cached</div>
                       </div>
 
                       <div style={{ backgroundColor: 'var(--bg-secondary)', padding: '12px', borderRadius: 'var(--radius-xs)', border: '1px solid var(--border-subtle)' }}>
                         <div style={{ fontSize: '0.7rem', color: 'var(--text-dim)', fontFamily: 'var(--font-mono)' }}>UPTIME SLA</div>
                         <div style={{ fontSize: '1.25rem', fontWeight: 700, color: '#ffffff', marginTop: '2px' }}>99.98%</div>
-                        <div style={{ fontSize: '0.68rem', color: '#29D9C5', marginTop: '2px' }}>Automated health check</div>
+                        <div style={{ fontSize: '0.68rem', color: '#10b981', marginTop: '2px' }}>Automated health check</div>
                       </div>
                     </div>
 
@@ -215,11 +329,11 @@ export default function Hero({ onStartProject, onOpenQuickFix }) {
                     <div style={{ backgroundColor: 'var(--bg-secondary)', padding: '14px', borderRadius: 'var(--radius-xs)', border: '1px solid var(--border-subtle)', marginBottom: '14px' }}>
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
                         <span style={{ fontSize: '0.74rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)' }}>PRODUCTION PIPELINE</span>
-                        <span style={{ fontSize: '0.7rem', color: '#29D9C5', fontFamily: 'var(--font-mono)' }}>Deployment v2.4.1 Active</span>
+                        <span style={{ fontSize: '0.7rem', color: 'var(--primary-light)', fontFamily: 'var(--font-mono)' }}>Deployment v2.4.1 Active</span>
                       </div>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                         <div style={{ flex: 1, height: '4px', backgroundColor: '#332d2d', borderRadius: '2px', overflow: 'hidden' }}>
-                          <div style={{ width: '100%', height: '100%', backgroundColor: '#29D9C5' }} />
+                          <div style={{ width: '100%', height: '100%', background: 'linear-gradient(90deg, #7C3AED, #4F46E5)' }} />
                         </div>
                         <span style={{ fontSize: '0.7rem', color: '#ffffff', fontFamily: 'var(--font-mono)' }}>Verified</span>
                       </div>
@@ -237,24 +351,24 @@ export default function Hero({ onStartProject, onOpenQuickFix }) {
                 {/* Tab 2: Core Web Vitals */}
                 {activeTab === 'performance' && (
                   <div style={{ backgroundColor: 'var(--bg-secondary)', padding: '16px', borderRadius: 'var(--radius-xs)', border: '1px solid var(--border-subtle)' }}>
-                    <div style={{ fontSize: '0.74rem', fontFamily: 'var(--font-mono)', color: '#29D9C5', marginBottom: '12px' }}>
+                    <div style={{ fontSize: '0.74rem', fontFamily: 'var(--font-mono)', color: 'var(--primary-light)', marginBottom: '12px' }}>
                       LIGHTHOUSE AUDIT BENCHMARKS
                     </div>
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '8px', textAlign: 'center' }}>
-                      <div style={{ padding: '10px 4px', background: 'var(--bg-card)', borderRadius: '4px' }}>
-                        <div style={{ fontSize: '1.25rem', fontWeight: 800, color: '#29D9C5' }}>98</div>
+                      <div style={{ padding: '10px 4px', background: 'var(--bg-card)', borderRadius: '4px', border: '1px solid rgba(124, 58, 237, 0.2)' }}>
+                        <div style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--primary-light)' }}>98</div>
                         <div style={{ fontSize: '0.66rem', color: 'var(--text-dim)', marginTop: '2px' }}>Performance</div>
                       </div>
-                      <div style={{ padding: '10px 4px', background: 'var(--bg-card)', borderRadius: '4px' }}>
-                        <div style={{ fontSize: '1.25rem', fontWeight: 800, color: '#29D9C5' }}>100</div>
+                      <div style={{ padding: '10px 4px', background: 'var(--bg-card)', borderRadius: '4px', border: '1px solid rgba(124, 58, 237, 0.2)' }}>
+                        <div style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--primary-light)' }}>100</div>
                         <div style={{ fontSize: '0.66rem', color: 'var(--text-dim)', marginTop: '2px' }}>Accessibility</div>
                       </div>
-                      <div style={{ padding: '10px 4px', background: 'var(--bg-card)', borderRadius: '4px' }}>
-                        <div style={{ fontSize: '1.25rem', fontWeight: 800, color: '#29D9C5' }}>100</div>
+                      <div style={{ padding: '10px 4px', background: 'var(--bg-card)', borderRadius: '4px', border: '1px solid rgba(124, 58, 237, 0.2)' }}>
+                        <div style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--primary-light)' }}>100</div>
                         <div style={{ fontSize: '0.66rem', color: 'var(--text-dim)', marginTop: '2px' }}>Best Practices</div>
                       </div>
-                      <div style={{ padding: '10px 4px', background: 'var(--bg-card)', borderRadius: '4px' }}>
-                        <div style={{ fontSize: '1.25rem', fontWeight: 800, color: '#29D9C5' }}>100</div>
+                      <div style={{ padding: '10px 4px', background: 'var(--bg-card)', borderRadius: '4px', border: '1px solid rgba(124, 58, 237, 0.2)' }}>
+                        <div style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--primary-light)' }}>100</div>
                         <div style={{ fontSize: '0.66rem', color: 'var(--text-dim)', marginTop: '2px' }}>SEO Structure</div>
                       </div>
                     </div>
@@ -264,15 +378,15 @@ export default function Hero({ onStartProject, onOpenQuickFix }) {
                   </div>
                 )}
 
-                {/* Tab 3: Source Code Spec */}
+                {/* Tab 3: Source Code Spec (Syntax Highlighting) */}
                 {activeTab === 'code' && (
-                  <div className="mockup-terminal" style={{ margin: 0 }}>
-                    <div style={{ color: 'var(--text-dim)', marginBottom: '8px' }}>// Production Build Pipeline</div>
-                    <div><span style={{ color: '#29D9C5' }}>$</span> kifaltech-deploy --env=production</div>
-                    <div style={{ color: 'var(--text-muted)' }}>✓ TypeScript typecheck passed (0 errors)</div>
-                    <div style={{ color: 'var(--text-muted)' }}>✓ Static asset bundling optimized (WebP/AVIF)</div>
-                    <div style={{ color: 'var(--text-muted)' }}>✓ Edge route pre-rendering complete (28 pages)</div>
-                    <div style={{ color: '#29D9C5', marginTop: '6px' }}>✓ Ready for client handover — 100% IP ownership</div>
+                  <div className="mockup-terminal" style={{ margin: 0, border: '1px solid rgba(124, 58, 237, 0.25)' }}>
+                    <div style={{ color: '#818CF8', marginBottom: '8px' }}>// Production Build Pipeline &amp; Typecheck</div>
+                    <div><span style={{ color: 'var(--primary-light)' }}>$</span> <span style={{ color: '#ffffff' }}>kifaltech-deploy</span> <span style={{ color: '#A78BFA' }}>--env=production</span></div>
+                    <div style={{ color: '#10b981', marginTop: '4px' }}>✓ TypeScript typecheck passed (0 errors)</div>
+                    <div style={{ color: '#10b981' }}>✓ Static asset bundling optimized (WebP/AVIF)</div>
+                    <div style={{ color: '#10b981' }}>✓ Edge route pre-rendering complete (28 pages)</div>
+                    <div style={{ color: 'var(--primary-light)', marginTop: '8px', fontWeight: 600 }}>✓ Ready for client handover — 100% IP ownership</div>
                   </div>
                 )}
               </div>

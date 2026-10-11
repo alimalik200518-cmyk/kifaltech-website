@@ -124,8 +124,8 @@ export default function AboutSection({ onLearnMore }) {
               {/* Item 1 */}
               <div style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.06)', paddingBottom: '18px' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
-                  <h4 style={{ fontSize: '1.05rem', color: '#ffffff', margin: 0 }}>Clean Code Architecture</h4>
-                  <span style={{ fontSize: '0.75rem', fontFamily: 'var(--font-mono)', color: 'var(--primary)', background: 'rgba(41, 217, 197, 0.1)', padding: '2px 8px', borderRadius: '4px' }}>No Bloat</span>
+                  <h4 style={{ fontSize: '1.05rem', color: '#ffffff', margin: 0 }}>Production-Grade Code Architecture</h4>
+                  <span style={{ fontSize: '0.75rem', fontFamily: 'var(--font-mono)', color: 'var(--primary-light)', background: 'rgba(124, 58, 237, 0.12)', border: '1px solid rgba(124, 58, 237, 0.25)', padding: '2px 8px', borderRadius: '4px' }}>No Bloat</span>
                 </div>
                 <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', margin: 0, lineHeight: 1.6 }}>
                   Built with modular component hierarchies, strict typing, and standardized linting so future developers can easily extend the platform.
@@ -147,7 +147,7 @@ export default function AboutSection({ onLearnMore }) {
               <div style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.06)', paddingBottom: '18px' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
                   <h4 style={{ fontSize: '1.05rem', color: '#ffffff', margin: 0 }}>100% IP Transfer</h4>
-                  <span style={{ fontSize: '0.75rem', fontFamily: 'var(--font-mono)', color: 'var(--primary)', background: 'rgba(41, 217, 197, 0.1)', padding: '2px 8px', borderRadius: '4px' }}>Zero Lock-In</span>
+                  <span style={{ fontSize: '0.75rem', fontFamily: 'var(--font-mono)', color: 'var(--primary-light)', background: 'rgba(124, 58, 237, 0.12)', border: '1px solid rgba(124, 58, 237, 0.25)', padding: '2px 8px', borderRadius: '4px' }}>Zero Lock-In</span>
                 </div>
                 <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', margin: 0, lineHeight: 1.6 }}>
                   You own all source repositories, Figma design files, cloud deployment keys, and documentation from the moment work completes.
@@ -158,10 +158,10 @@ export default function AboutSection({ onLearnMore }) {
               <div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
                   <h4 style={{ fontSize: '1.05rem', color: '#ffffff', margin: 0 }}>Post-Launch Reliability</h4>
-                  <span style={{ fontSize: '0.75rem', fontFamily: 'var(--font-mono)', color: '#ffffff', background: 'rgba(255, 255, 255, 0.08)', padding: '2px 8px', borderRadius: '4px' }}>SLA Maintenance</span>
+                  <span style={{ fontSize: '0.75rem', fontFamily: 'var(--font-mono)', color: 'var(--primary-light)', background: 'rgba(124, 58, 237, 0.12)', border: '1px solid rgba(124, 58, 237, 0.25)', padding: '2px 8px', borderRadius: '4px' }}>99.9% Uptime</span>
                 </div>
                 <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', margin: 0, lineHeight: 1.6 }}>
-                  We stay with you past launch day — providing server patch management, uptime monitoring, and fast technical support when needed.
+                  We stay with you past launch day — providing server patch management, automated monitoring, and fast technical support when needed.
                 </p>
               </div>
             </div>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { agencyData } from '../data/agencyData.js';
 import SEOHead from './SEOHead.jsx';
 import { useRouter, Link } from './Router.jsx';
+import { getServiceIcon } from './ServiceIcons.jsx';
 
 export default function ServiceDetailPage({ serviceSlug, onStartProject }) {
   const { navigate } = useRouter();
@@ -109,7 +110,22 @@ export default function ServiceDetailPage({ serviceSlug, onStartProject }) {
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '48px', alignItems: 'center' }}>
             <div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px', flexWrap: 'wrap' }}>
+                <div
+                  style={{
+                    width: '42px',
+                    height: '42px',
+                    borderRadius: '8px',
+                    backgroundColor: 'rgba(124, 58, 237, 0.15)',
+                    border: '1px solid rgba(124, 58, 237, 0.35)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: 'var(--primary-light)'
+                  }}
+                >
+                  {getServiceIcon(service.id, service.category, 22, "var(--primary-light)")}
+                </div>
                 <span className="eyebrow" style={{ marginBottom: 0 }}>
                   <span className="pulse-indicator" />
                   Service {service.number} • {service.category}

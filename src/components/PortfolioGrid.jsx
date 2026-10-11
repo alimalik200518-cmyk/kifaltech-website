@@ -80,7 +80,7 @@ export default function PortfolioGrid({ onStartSimilarProject }) {
               {/* Metadata & Narrative */}
               <div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px', flexWrap: 'wrap' }}>
-                  <span style={{ fontSize: '0.74rem', fontFamily: 'var(--font-mono)', color: 'var(--primary)', background: 'rgba(41, 217, 197, 0.1)', padding: '3px 8px', borderRadius: '4px', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+                  <span style={{ fontSize: '0.74rem', fontFamily: 'var(--font-mono)', color: 'var(--primary)', background: 'rgba(124, 58, 237, 0.12)', padding: '3px 8px', borderRadius: '4px', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
                     {p1.projectType || 'Client Case Study'}
                   </span>
                   <span style={{ color: 'var(--text-dim)' }}>•</span>
@@ -125,7 +125,7 @@ export default function PortfolioGrid({ onStartSimilarProject }) {
                       {svc}
                     </span>
                   ))}
-                  <span style={{ fontSize: '0.78rem', color: 'var(--primary)', background: 'rgba(41, 217, 197, 0.08)', padding: '3px 10px', borderRadius: '4px', fontFamily: 'var(--font-mono)' }}>
+                  <span style={{ fontSize: '0.78rem', color: 'var(--primary-light)', background: 'rgba(124, 58, 237, 0.1)', padding: '3px 10px', borderRadius: '4px', fontFamily: 'var(--font-mono)' }}>
                     React / Next.js
                   </span>
                 </div>
@@ -161,33 +161,44 @@ export default function PortfolioGrid({ onStartSimilarProject }) {
                   <div style={{ flex: 1, backgroundColor: '#120f0f', padding: '3px 10px', borderRadius: '4px', fontSize: '0.72rem', fontFamily: 'var(--font-mono)', color: 'var(--text-dim)' }}>
                     rise2studio.com/creative-production
                   </div>
+                  <span style={{ fontSize: '0.68rem', fontFamily: 'var(--font-mono)', color: 'var(--accent-emerald)', fontWeight: 600 }}>
+                    ● 60 FPS STREAM
+                  </span>
                 </div>
 
-                {/* Mockup Canvas */}
-                <div style={{ padding: '28px', backgroundColor: '#151111' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '22px', borderBottom: '1px solid rgba(255, 255, 255, 0.06)', paddingBottom: '14px' }}>
-                    <span style={{ fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: '1rem', color: '#ffffff' }}>RISE 2 STUDIO</span>
-                    <span style={{ fontSize: '0.72rem', fontFamily: 'var(--font-mono)', color: 'var(--primary)' }}>STREAM // 4K 60FPS</span>
-                  </div>
-                  <div style={{ height: '160px', backgroundColor: '#211b1b', borderRadius: '4px', border: '1px dashed rgba(255, 255, 255, 0.15)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
-                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" strokeWidth="1.5">
-                      <polygon points="5 3 19 12 5 21 5 3"/>
-                    </svg>
-                    <span style={{ fontSize: '0.78rem', color: 'var(--text-dim)', fontFamily: 'var(--font-mono)' }}>CINEMATIC SHOWREEL PREVIEW</span>
-                  </div>
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '10px', marginTop: '16px' }}>
-                    <div style={{ height: '48px', backgroundColor: '#1a1414', borderRadius: '4px', padding: '8px' }}>
-                      <div style={{ width: '40%', height: '4px', backgroundColor: 'var(--primary)', marginBottom: '6px' }}></div>
-                      <div style={{ width: '70%', height: '3px', backgroundColor: 'rgba(255, 255, 255, 0.1)' }}></div>
+                {/* Mockup Photo Canvas */}
+                <div style={{ position: 'relative', overflow: 'hidden' }}>
+                  <img
+                    src="/images/portfolio/rise-2-studio-macbook.jpg"
+                    alt="MacBook Pro on wooden desk displaying Rise 2 Studio creative media streaming website in natural daylight"
+                    style={{
+                      width: '100%',
+                      height: '280px',
+                      objectFit: 'cover',
+                      display: 'block'
+                    }}
+                    loading="lazy"
+                  />
+                  <div
+                    style={{
+                      position: 'absolute',
+                      bottom: 0,
+                      left: 0,
+                      right: 0,
+                      padding: '12px 18px',
+                      background: 'linear-gradient(180deg, transparent 0%, rgba(18, 14, 14, 0.92) 80%, #120e0e 100%)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between'
+                    }}
+                  >
+                    <div>
+                      <span style={{ fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: '0.94rem', color: '#ffffff' }}>RISE 2 STUDIO</span>
+                      <div style={{ fontSize: '0.72rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)' }}>MacBook Pro 16" Studio Viewport • 4K 60FPS</div>
                     </div>
-                    <div style={{ height: '48px', backgroundColor: '#1a1414', borderRadius: '4px', padding: '8px' }}>
-                      <div style={{ width: '40%', height: '4px', backgroundColor: 'rgba(255, 255, 255, 0.3)', marginBottom: '6px' }}></div>
-                      <div style={{ width: '70%', height: '3px', backgroundColor: 'rgba(255, 255, 255, 0.1)' }}></div>
-                    </div>
-                    <div style={{ height: '48px', backgroundColor: '#1a1414', borderRadius: '4px', padding: '8px' }}>
-                      <div style={{ width: '40%', height: '4px', backgroundColor: 'rgba(255, 255, 255, 0.3)', marginBottom: '6px' }}></div>
-                      <div style={{ width: '70%', height: '3px', backgroundColor: 'rgba(255, 255, 255, 0.1)' }}></div>
-                    </div>
+                    <span style={{ fontSize: '0.72rem', fontFamily: 'var(--font-mono)', color: 'var(--accent-emerald)', background: 'rgba(16, 185, 129, 0.15)', border: '1px solid rgba(16, 185, 129, 0.3)', padding: '2px 8px', borderRadius: '4px' }}>
+                      98/100 LCP
+                    </span>
                   </div>
                 </div>
               </div>
@@ -218,11 +229,67 @@ export default function PortfolioGrid({ onStartSimilarProject }) {
             >
               <div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '14px' }}>
-                  <span style={{ fontSize: '0.72rem', fontFamily: 'var(--font-mono)', color: 'var(--primary)', background: 'rgba(41, 217, 197, 0.1)', padding: '2px 8px', borderRadius: '4px', textTransform: 'uppercase' }}>
+                  <span style={{ fontSize: '0.72rem', fontFamily: 'var(--font-mono)', color: 'var(--primary)', background: 'rgba(124, 58, 237, 0.12)', padding: '2px 8px', borderRadius: '4px', textTransform: 'uppercase' }}>
                     {p2.category}
                   </span>
                   <span style={{ color: 'var(--text-dim)' }}>•</span>
                   <span style={{ fontSize: '0.78rem', color: 'var(--text-dim)', fontFamily: 'var(--font-mono)' }}>{p2.industry}</span>
+                </div>
+
+                {/* Real iPhone Mockup Container */}
+                <div
+                  style={{
+                    backgroundColor: '#120f0f',
+                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                    borderRadius: '6px',
+                    overflow: 'hidden',
+                    marginBottom: '20px'
+                  }}
+                >
+                  <div style={{ backgroundColor: '#1c1717', padding: '8px 12px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: '1px solid rgba(255, 255, 255, 0.08)' }}>
+                    <div style={{ display: 'flex', gap: '5px' }}>
+                      <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#ff5f56' }} />
+                      <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#ffbd2e' }} />
+                      <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#27c93f' }} />
+                    </div>
+                    <span style={{ fontSize: '0.68rem', fontFamily: 'var(--font-mono)', color: 'var(--text-dim)' }}>
+                      cutsclothing.com/storefront
+                    </span>
+                    <span style={{ fontSize: '0.65rem', color: '#10b981', fontFamily: 'var(--font-mono)', fontWeight: 600 }}>
+                      ● +38% CVR
+                    </span>
+                  </div>
+                  <div style={{ position: 'relative', height: '220px', overflow: 'hidden' }}>
+                    <img
+                      src="/images/portfolio/cuts-clothing-iphone.jpg"
+                      alt="iPhone mockup on desk displaying Cuts Clothing custom Shopify storefront with dynamic cart drawer"
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        display: 'block'
+                      }}
+                      loading="lazy"
+                    />
+                    <div
+                      style={{
+                        position: 'absolute',
+                        bottom: 0,
+                        left: 0,
+                        right: 0,
+                        padding: '10px 14px',
+                        background: 'linear-gradient(180deg, transparent 0%, rgba(18, 14, 14, 0.92) 80%, #120e0e 100%)',
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'center'
+                      }}
+                    >
+                      <span style={{ fontSize: '0.8rem', fontWeight: 700, color: '#ffffff', fontFamily: 'var(--font-heading)' }}>CUTS CLOTHING</span>
+                      <span style={{ fontSize: '0.7rem', fontFamily: 'var(--font-mono)', color: 'var(--accent-emerald)', background: 'rgba(16, 185, 129, 0.15)', padding: '2px 8px', borderRadius: '12px' }}>
+                        ✦ Shopify OS 2.0
+                      </span>
+                    </div>
+                  </div>
                 </div>
 
                 <h3 style={{ fontSize: '1.8rem', color: '#ffffff', marginBottom: '12px', letterSpacing: '-0.02em' }}>
@@ -265,11 +332,67 @@ export default function PortfolioGrid({ onStartSimilarProject }) {
             >
               <div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '14px' }}>
-                  <span style={{ fontSize: '0.72rem', fontFamily: 'var(--font-mono)', color: 'var(--primary)', background: 'rgba(41, 217, 197, 0.1)', padding: '2px 8px', borderRadius: '4px', textTransform: 'uppercase' }}>
+                  <span style={{ fontSize: '0.72rem', fontFamily: 'var(--font-mono)', color: 'var(--primary)', background: 'rgba(124, 58, 237, 0.12)', padding: '2px 8px', borderRadius: '4px', textTransform: 'uppercase' }}>
                     {p3.category}
                   </span>
                   <span style={{ color: 'var(--text-dim)' }}>•</span>
                   <span style={{ fontSize: '0.78rem', color: 'var(--text-dim)', fontFamily: 'var(--font-mono)' }}>{p3.industry}</span>
+                </div>
+
+                {/* Real Luxury Hotel Booking Mockup Container */}
+                <div
+                  style={{
+                    backgroundColor: '#120f0f',
+                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                    borderRadius: '6px',
+                    overflow: 'hidden',
+                    marginBottom: '20px'
+                  }}
+                >
+                  <div style={{ backgroundColor: '#1c1717', padding: '8px 12px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: '1px solid rgba(255, 255, 255, 0.08)' }}>
+                    <div style={{ display: 'flex', gap: '5px' }}>
+                      <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#ff5f56' }} />
+                      <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#ffbd2e' }} />
+                      <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#27c93f' }} />
+                    </div>
+                    <span style={{ fontSize: '0.68rem', fontFamily: 'var(--font-mono)', color: 'var(--text-dim)' }}>
+                      winklerhotels.com/luxury-booking
+                    </span>
+                    <span style={{ fontSize: '0.65rem', color: '#10b981', fontFamily: 'var(--font-mono)', fontWeight: 600 }}>
+                      ● DIRECT PMS
+                    </span>
+                  </div>
+                  <div style={{ position: 'relative', height: '220px', overflow: 'hidden' }}>
+                    <img
+                      src="/images/portfolio/winkler-hotels.jpg"
+                      alt="Boutique luxury hospitality architecture and reservation engine for Winkler Hotels"
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        display: 'block'
+                      }}
+                      loading="lazy"
+                    />
+                    <div
+                      style={{
+                        position: 'absolute',
+                        bottom: 0,
+                        left: 0,
+                        right: 0,
+                        padding: '10px 14px',
+                        background: 'linear-gradient(180deg, transparent 0%, rgba(18, 14, 14, 0.92) 80%, #120e0e 100%)',
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'center'
+                      }}
+                    >
+                      <span style={{ fontSize: '0.8rem', fontWeight: 700, color: '#ffffff', fontFamily: 'var(--font-heading)' }}>WINKLER HOTELS</span>
+                      <span style={{ fontSize: '0.7rem', fontFamily: 'var(--font-mono)', color: 'var(--accent-emerald)', background: 'rgba(16, 185, 129, 0.15)', padding: '2px 8px', borderRadius: '12px' }}>
+                        ✦ +46% Direct Bookings
+                      </span>
+                    </div>
+                  </div>
                 </div>
 
                 <h3 style={{ fontSize: '1.8rem', color: '#ffffff', marginBottom: '12px', letterSpacing: '-0.02em' }}>
@@ -319,38 +442,70 @@ export default function PortfolioGrid({ onStartSimilarProject }) {
                 alignItems: 'center'
               }}
             >
-              {/* Terminal Code / API Pipeline Frame */}
+              {/* Terminal Code / API Pipeline Frame & Realistic SaaS Mockup */}
               <div
                 style={{
                   backgroundColor: '#0f0c0c',
                   border: '1px solid rgba(255, 255, 255, 0.1)',
                   borderRadius: '6px',
-                  padding: '20px 24px',
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: '0.82rem',
-                  lineHeight: 1.65,
-                  color: '#e0dede'
+                  overflow: 'hidden',
+                  boxShadow: '0 12px 32px rgba(0, 0, 0, 0.5)'
                 }}
               >
-                <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(255, 255, 255, 0.08)', paddingBottom: '10px', marginBottom: '14px', color: 'var(--text-dim)' }}>
-                  <span>FLOW-TRIX // WORKFLOW ENGINE</span>
-                  <span style={{ color: 'var(--primary)' }}>STATUS: ACTIVE</span>
+                <div style={{ position: 'relative', height: '220px', overflow: 'hidden' }}>
+                  <img
+                    src="/images/portfolio/flow-trix-dashboard.jpg"
+                    alt="Laptop displaying Flow-Trix enterprise SaaS workflow orchestration and data analytics dashboard in natural daylight"
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      display: 'block'
+                    }}
+                    loading="lazy"
+                  />
+                  <div
+                    style={{
+                      position: 'absolute',
+                      top: '12px',
+                      left: '12px',
+                      backgroundColor: 'rgba(15, 12, 12, 0.88)',
+                      backdropFilter: 'blur(6px)',
+                      border: '1px solid rgba(255, 255, 255, 0.1)',
+                      borderRadius: '4px',
+                      padding: '3px 10px',
+                      fontSize: '0.72rem',
+                      fontFamily: 'var(--font-mono)',
+                      color: '#ffffff'
+                    }}
+                  >
+                    FLOW-TRIX // WORKFLOW ENGINE
+                  </div>
                 </div>
-                <div style={{ color: 'var(--primary)', marginBottom: '8px' }}>
-                  &gt; GET /api/v2/pipelines/orchestrate
-                </div>
-                <div style={{ color: 'var(--text-muted)', marginBottom: '12px' }}>
-                  &#123; "status": 200, "rbac": "enforced", "kanban": "synced" &#125;
-                </div>
-                <div style={{ borderTop: '1px dashed rgba(255, 255, 255, 0.1)', paddingTop: '10px', color: 'var(--text-dim)', fontSize: '0.76rem' }}>
-                  // Automated recurring invoice generation and multi-tier user role validation
+
+                <div
+                  style={{
+                    padding: '16px 20px',
+                    backgroundColor: '#120e0e',
+                    fontFamily: 'var(--font-mono)',
+                    fontSize: '0.78rem',
+                    lineHeight: 1.6,
+                    borderTop: '1px solid rgba(255, 255, 255, 0.08)'
+                  }}
+                >
+                  <div style={{ color: 'var(--primary-light)', marginBottom: '4px' }}>
+                    &gt; GET /api/v2/pipelines/orchestrate
+                  </div>
+                  <div style={{ color: 'var(--text-muted)' }}>
+                    &#123; "status": 200, "rbac": "enforced", "kanban": "synced" &#125;
+                  </div>
                 </div>
               </div>
 
               {/* Description & Link */}
               <div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '14px' }}>
-                  <span style={{ fontSize: '0.74rem', fontFamily: 'var(--font-mono)', color: 'var(--primary)', background: 'rgba(41, 217, 197, 0.1)', padding: '2px 8px', borderRadius: '4px', textTransform: 'uppercase' }}>
+                  <span style={{ fontSize: '0.74rem', fontFamily: 'var(--font-mono)', color: 'var(--primary)', background: 'rgba(124, 58, 237, 0.12)', padding: '2px 8px', borderRadius: '4px', textTransform: 'uppercase' }}>
                     {p4.category}
                   </span>
                   <span style={{ color: 'var(--text-dim)' }}>•</span>

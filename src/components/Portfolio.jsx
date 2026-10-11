@@ -43,10 +43,10 @@ export default function Portfolio({ onStartProjectWithContext }) {
                 padding: '8px 20px',
                 fontSize: '0.88rem',
                 borderRadius: 'var(--radius-full)',
-                backgroundColor: selectedCategory === cat ? 'var(--secondary)' : 'rgba(255, 255, 255, 0.04)',
-                color: selectedCategory === cat ? '#040d1a' : 'var(--text-muted)',
+                backgroundColor: selectedCategory === cat ? 'var(--primary)' : 'rgba(255, 255, 255, 0.04)',
+                color: selectedCategory === cat ? '#ffffff' : 'var(--text-muted)',
                 fontWeight: selectedCategory === cat ? 700 : 500,
-                boxShadow: selectedCategory === cat ? '0 0 20px var(--secondary-glow)' : 'none',
+                boxShadow: selectedCategory === cat ? '0 0 20px rgba(124, 58, 237, 0.35)' : 'none',
                 border: 'none'
               }}
             >
@@ -88,6 +88,90 @@ export default function Portfolio({ onStartProjectWithContext }) {
                   background: `linear-gradient(90deg, ${project.accent}, transparent)`
                 }}
               />
+
+              {/* Dark Browser Frame Mockup */}
+              <div
+                style={{
+                  width: '100%',
+                  height: '175px',
+                  borderRadius: 'var(--radius-sm)',
+                  backgroundColor: '#0c0a09',
+                  border: '1px solid rgba(255, 255, 255, 0.08)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  marginBottom: '20px',
+                  overflow: 'hidden',
+                  boxShadow: '0 8px 24px rgba(0, 0, 0, 0.4)'
+                }}
+              >
+                {/* Browser Top Bar */}
+                <div
+                  style={{
+                    height: '28px',
+                    backgroundColor: 'rgba(255, 255, 255, 0.04)',
+                    borderBottom: '1px solid rgba(255, 255, 255, 0.06)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    padding: '0 10px',
+                    justifyContent: 'space-between'
+                  }}
+                >
+                  <div style={{ display: 'flex', gap: '5px' }}>
+                    <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#ff5f56' }} />
+                    <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#ffbd2e' }} />
+                    <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#27c93f' }} />
+                  </div>
+                  <span style={{ fontSize: '0.68rem', fontFamily: 'var(--font-mono)', color: 'var(--text-dim)' }}>
+                    kifaltech.com/case-studies/{project.id}
+                  </span>
+                  <span style={{ fontSize: '0.65rem', color: '#10b981', fontFamily: 'var(--font-mono)', fontWeight: 600 }}>
+                    ● 200 OK
+                  </span>
+                </div>
+
+                {/* Browser Interface Body */}
+                <div
+                  style={{
+                    flex: 1,
+                    padding: '14px 18px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                    background: `radial-gradient(ellipse at top left, ${project.accent}15 0%, rgba(23, 19, 19, 0.95) 75%)`,
+                    position: 'relative'
+                  }}
+                >
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <span style={{ fontSize: '0.72rem', fontFamily: 'var(--font-mono)', color: project.accent, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                      {project.category}
+                    </span>
+                    <span
+                      style={{
+                        fontSize: '0.72rem',
+                        fontFamily: 'var(--font-mono)',
+                        color: 'var(--accent-emerald)',
+                        background: 'rgba(16, 185, 129, 0.12)',
+                        border: '1px solid rgba(16, 185, 129, 0.25)',
+                        padding: '2px 8px',
+                        borderRadius: 'var(--radius-full)'
+                      }}
+                    >
+                      {project.metrics}
+                    </span>
+                  </div>
+
+                  <div style={{ textAlign: 'center', margin: 'auto 0' }}>
+                    <div style={{ fontSize: '1.25rem', fontWeight: 800, color: '#ffffff', fontFamily: 'var(--font-heading)', letterSpacing: '-0.02em' }}>
+                      {project.title}
+                    </div>
+                  </div>
+
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.7rem', color: 'var(--text-dim)' }}>
+                    <span>Production Architecture</span>
+                    <span style={{ fontFamily: 'var(--font-mono)' }}>{project.year}</span>
+                  </div>
+                </div>
+              </div>
 
               <div>
                 {/* Meta Header */}

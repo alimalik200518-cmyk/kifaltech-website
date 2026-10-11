@@ -66,7 +66,7 @@ export default function ProcessSection() {
                   height: '56px',
                   borderRadius: '50%',
                   backgroundColor: '#201a1a',
-                  border: '1px solid rgba(41, 217, 197, 0.35)',
+                  border: '1px solid rgba(124, 58, 237, 0.45)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',

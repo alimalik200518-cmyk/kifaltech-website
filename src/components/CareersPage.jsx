@@ -11,7 +11,7 @@ export default function CareersPage() {
     name: '',
     email: '',
     portfolio: '',
-    role: '',
+    role: 'Senior React Engineer - Remote',
     note: ''
   });
 
@@ -34,61 +34,46 @@ export default function CareersPage() {
 
   const positions = [
     {
-      id: "senior-fullstack-react",
-      title: "Senior Full-Stack React / Next.js Engineer",
+      id: "senior-react-engineer",
+      title: "Senior React Engineer - Remote",
       type: "Full-Time • 100% Remote",
-      location: "Global",
-      dept: "Engineering",
-      desc: "We are seeking a senior engineer with deep proficiency in React 18, Next.js (App Router), TypeScript, and Node.js. You will lead architecture decisions for international client platforms, optimize Core Web Vitals, and build robust API integrations.",
-      reqs: [
-        "4+ years building production web applications in React / TypeScript",
-        "Expertise in modern state management, SSR, edge caching, and server actions",
-        "Deep understanding of Google Core Web Vitals and performance profiling",
-        "Experience collaborating via Git, PR code reviews, and Figma token handoffs"
+      department: "Software Engineering",
+      locations: "Global (North America / South Asia Aligned)",
+      desc: "Architect and scale production web applications using React 18, Next.js App Router, TypeScript, and edge cloud architectures. You will lead technical standards, build reusable component libraries, and optimize Google Core Web Vitals to sub-second thresholds.",
+      responsibilities: [
+        "Architect clean, modular React component hierarchies and client state solutions",
+        "Lead technical reviews, Git branching hygiene, and PR feedback across our distributed team",
+        "Optimize Core Web Vitals (LCP, CLS, INP) for enterprise web apps and Shopify headless builds",
+        "Interface directly with US Product Leadership and client engineering teams via async Slack/Loom"
+      ],
+      qualifications: [
+        "4+ years building high-traffic, production-grade applications with React & TypeScript",
+        "Deep familiarity with SSR, Edge functions, TailwindCSS / modern Vanilla CSS tokens",
+        "Proven experience writing clean, self-documenting code with automated tests"
       ]
     },
     {
-      id: "senior-shopify-developer",
-      title: "Senior Shopify Plus Developer",
+      id: "ui-ux-designer",
+      title: "UI/UX Designer - Remote",
       type: "Full-Time • 100% Remote",
-      location: "Global",
-      dept: "E-Commerce",
-      desc: "Architect and build high-converting Shopify 2.0 bespoke themes using Liquid, Storefront API, and headless architectures for fast-growing DTC retail brands.",
-      reqs: [
-        "3+ years developing custom Shopify Online Store 2.0 themes (Liquid/JSON)",
-        "Deep experience with Shopify API, checkout extensibility, and app integrations",
-        "Obsession with mobile UX, instant cart drawers, and page speed optimization"
-      ]
-    },
-    {
-      id: "lead-uiux-designer",
-      title: "Lead UI/UX & Design Systems Designer",
-      type: "Full-Time • 100% Remote",
-      location: "Global",
-      dept: "Design & Creative",
-      desc: "Design clean, high-conversion web interfaces, design token libraries, and brand systems for ambitious global software clients. Zero AI templates; 100% intentional human design.",
-      reqs: [
-        "Strong portfolio demonstrating modern web product and agency design",
-        "Mastery of Figma components, auto-layout, variable tokens, and design handoff",
-        "Rigorous adherence to typography hierarchy and WCAG 2.1 AA accessibility"
-      ]
-    },
-    {
-      id: "technical-seo-specialist",
-      title: "Technical SEO & Performance Specialist",
-      type: "Part-Time / Contract • Remote",
-      location: "Global",
-      dept: "Growth & Marketing",
-      desc: "Execute technical SEO crawl remediation, rich snippet JSON-LD structured data graphs, and Core Web Vitals audits across client web applications.",
-      reqs: [
-        "Demonstrated track record optimizing large-scale websites for Google organic search",
-        "Deep knowledge of Schema.org, canonical architectures, and indexation controls",
-        "Proficiency with Google Search Console, Ahrefs, and Screaming Frog"
+      department: "Design Systems & Product",
+      locations: "Global (North America / South Asia Aligned)",
+      desc: "Design high-conversion interfaces, bespoke typography systems, and scalable design token libraries for global software startups and high-growth brands. Zero generic templates; strictly intentional, human-crafted design systems.",
+      responsibilities: [
+        "Design world-class responsive web applications, portals, and Shopify storefronts in Figma",
+        "Build and govern multi-brand design systems, token variables, and micro-interaction states",
+        "Conduct user journeys, wireframing, and interactive prototypes for stakeholder alignment",
+        "Collaborate closely with technical leads to ensure pixel-perfect CSS implementation"
+      ],
+      qualifications: [
+        "3+ years product design experience with a stellar portfolio of web applications or digital products",
+        "Mastery of Figma components, autolayout, typography hierarchies, and WCAG AA accessibility",
+        "Strong visual communication and ability to articulate design rationale clearly"
       ]
     }
   ];
 
-  const handleApply = (e) => {
+  const handleApplySubmit = (e) => {
     e.preventDefault();
     const refCode = `KT-APP-${Math.floor(100000 + Math.random() * 900000)}`;
     setAppRef(refCode);
@@ -97,23 +82,24 @@ export default function CareersPage() {
       const existing = JSON.parse(localStorage.getItem('kifaltech_applications') || '[]');
       const newApp = {
         id: refCode,
+        destination: 'forms@kifaltech.com',
         timestamp: new Date().toISOString(),
-        role: applicant.role || (selectedRole ? selectedRole.title : 'General Engineering'),
+        role: applicant.role,
         applicant: { ...applicant }
       };
       existing.unshift(newApp);
       localStorage.setItem('kifaltech_applications', JSON.stringify(existing));
       localStorage.setItem('kifal_career_ref', refCode);
     } catch (err) {
-      console.warn('Could not persist application to localStorage:', err);
+      console.warn('LocalStorage error:', err);
     }
 
     setApplied(true);
   };
 
   const copyRefCode = () => {
-    if (appRef) {
-      navigator.clipboard?.writeText(appRef);
+    if (appRef && navigator.clipboard) {
+      navigator.clipboard.writeText(appRef);
       setCopiedRef(true);
       setTimeout(() => setCopiedRef(false), 2500);
     }
@@ -126,10 +112,10 @@ export default function CareersPage() {
   );
 
   return (
-    <div style={{ paddingTop: '110px', minHeight: '100vh' }}>
+    <div style={{ paddingTop: '110px', minHeight: '100vh', backgroundColor: 'var(--bg-main)' }}>
       <SEOHead
-        title="Careers & Open Engineering Positions | KifalTech"
-        description="Join KifalTech's remote-first engineering and design collective. Explore open roles in React, Next.js, Shopify Plus, UI/UX design, and technical SEO."
+        title="Careers | Build the Future from Anywhere | KifalTech"
+        description="Join KifalTech's 100% remote global engineering and design collective bridging North America and South Asia. Explore open roles in React and UI/UX design."
         canonical="https://kifaltech.com/careers"
         breadcrumbs={breadcrumbs}
       />
@@ -142,106 +128,282 @@ export default function CareersPage() {
             <span className="breadcrumb-current">Careers</span>
           </nav>
 
-          <div className="section-header" style={{ maxWidth: '840px', textAlign: 'left', margin: '0 0 50px 0' }}>
-            <span className="eyebrow">Work With Us</span>
-            <h1 style={{ fontSize: 'clamp(2.4rem, 4vw, 3.5rem)', marginBottom: '16px' }}>
-              Build Exceptional Software with a Passionate Remote Team
+          {/* Hero Header */}
+          <div style={{ maxWidth: '860px', marginBottom: '56px' }}>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '14px' }}>
+              <span className="pulse-indicator"></span>
+              <span className="eyebrow" style={{ marginBottom: 0 }}>
+                100% REMOTE GLOBAL DIGITAL AGENCY
+              </span>
+            </div>
+            <h1 style={{ fontSize: 'clamp(2.6rem, 5vw, 4rem)', marginBottom: '20px', lineHeight: 1.12 }}>
+              Build the Future from Anywhere.
             </h1>
-            <p style={{ fontSize: '1.12rem' }}>
-              At KifalTech, we value craft, intellectual honesty, and meaningful client impact over corporate red tape. Join an agile engineering team delivering modern digital solutions worldwide.
+            <p style={{ fontSize: '1.2rem', lineHeight: 1.7, color: 'var(--text-muted)' }}>
+              We are a distributed engineering collective intentionally bridging North America and South Asia. We value craftsmanship, intellectual honesty, and deep ownership over corporate red tape.
             </p>
           </div>
 
-          {/* Value Pillars */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '20px', marginBottom: '60px' }}>
-            <div className="agency-card" style={{ padding: '24px' }}>
-              <h4 style={{ fontSize: '1.1rem', color: 'var(--text-white)', marginBottom: '8px' }}>100% Remote Flexibility</h4>
-              <p style={{ fontSize: '0.88rem', lineHeight: 1.6 }}>Work from wherever you are most productive. We prioritize output, clear communication, and well-structured code over clock-watching.</p>
-            </div>
-            <div className="agency-card" style={{ padding: '24px' }}>
-              <h4 style={{ fontSize: '1.1rem', color: 'var(--text-white)', marginBottom: '8px' }}>Modern Tech Stacks</h4>
-              <p style={{ fontSize: '0.88rem', lineHeight: 1.6 }}>Work with React 18, Next.js App Router, TypeScript, TailwindCSS, and cloud microservices on real production platforms.</p>
-            </div>
-            <div className="agency-card" style={{ padding: '24px' }}>
-              <h4 style={{ fontSize: '1.1rem', color: 'var(--text-white)', marginBottom: '8px' }}>Growth & Ownership</h4>
-              <p style={{ fontSize: '0.88rem', lineHeight: 1.6 }}>Collaborate directly with senior engineering leads and international clients with full architectural agency.</p>
-            </div>
-          </div>
-
-          {/* Open Roles */}
-          <h2 style={{ fontSize: '2rem', marginBottom: '24px', color: 'var(--text-white)' }}>
-            Current Openings
-          </h2>
-
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '24px', marginBottom: '80px' }}>
-            {positions.map((pos) => (
-              <div key={pos.id} className="agency-card" style={{ padding: '32px' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '14px', marginBottom: '16px' }}>
-                  <div>
-                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.78rem', color: 'var(--primary-light)', textTransform: 'uppercase' }}>{pos.dept}</span>
-                    <h3 style={{ fontSize: '1.45rem', color: 'var(--text-white)', marginTop: '4px' }}>{pos.title}</h3>
-                  </div>
-                  <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.78rem', padding: '6px 14px', borderRadius: 'var(--radius-full)', background: 'var(--bg-subtle)', color: 'var(--accent-emerald)', border: '1px solid var(--border-subtle)' }}>
-                    {pos.type}
-                  </span>
-                </div>
-
-                <p style={{ fontSize: '0.96rem', lineHeight: 1.65, color: 'var(--text-muted)', marginBottom: '20px' }}>
-                  {pos.desc}
-                </p>
-
-                <div style={{ marginBottom: '24px' }}>
-                  <span style={{ fontSize: '0.78rem', fontFamily: 'var(--font-mono)', color: 'var(--text-dim)', textTransform: 'uppercase', display: 'block', marginBottom: '10px' }}>KEY QUALIFICATIONS:</span>
-                  <ul style={{ paddingLeft: '20px', fontSize: '0.9rem', color: 'var(--text-main)', lineHeight: 1.7 }}>
-                    {pos.reqs.map((req, i) => (
-                      <li key={i}>{req}</li>
-                    ))}
-                  </ul>
-                </div>
-
-                <button
-                  onClick={() => {
-                    setSelectedRole(pos);
-                    setApplicant((prev) => ({ ...prev, role: pos.title }));
-                    const el = document.getElementById('apply-section');
-                    if (el) el.scrollIntoView({ behavior: 'smooth' });
-                  }}
-                  className="btn btn-primary"
-                  style={{ padding: '10px 22px', fontSize: '0.88rem' }}
-                >
-                  <span>Apply for this Role</span>
-                  <SvgArrow />
-                </button>
+          {/* Authentic Culture Photographic Banner */}
+          <div
+            style={{
+              marginBottom: '48px',
+              borderRadius: '8px',
+              overflow: 'hidden',
+              border: '1px solid rgba(255, 255, 255, 0.1)',
+              backgroundColor: '#1b1616',
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 420px), 1fr))'
+            }}
+          >
+            <div style={{ position: 'relative', minHeight: '260px' }}>
+              <img
+                src="/images/culture/remote-cafe-workspace.jpg"
+                alt="Laptop open on sunlit wooden cafe table next to notepad and espresso in authentic remote workspace"
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  display: 'block'
+                }}
+                loading="lazy"
+              />
+              <div
+                style={{
+                  position: 'absolute',
+                  bottom: '14px',
+                  left: '14px',
+                  backgroundColor: 'rgba(18, 14, 14, 0.88)',
+                  backdropFilter: 'blur(6px)',
+                  border: '1px solid rgba(255, 255, 255, 0.12)',
+                  borderRadius: '4px',
+                  padding: '4px 10px',
+                  fontSize: '0.72rem',
+                  fontFamily: 'var(--font-mono)',
+                  color: '#ffffff'
+                }}
+              >
+                ● 100% Remote • Work From Anywhere
               </div>
-            ))}
+            </div>
+
+            <div style={{ padding: 'clamp(28px, 4vw, 40px)', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+              <span style={{ fontSize: '0.76rem', fontFamily: 'var(--font-mono)', color: 'var(--primary-light)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '8px' }}>
+                THE KIFALTECH WAY
+              </span>
+              <h3 style={{ fontSize: '1.6rem', color: '#ffffff', marginBottom: '12px', letterSpacing: '-0.02em' }}>
+                Deep Work Over Bureaucracy
+              </h3>
+              <p style={{ fontSize: '0.94rem', lineHeight: 1.68, color: 'var(--text-muted)', marginBottom: '18px' }}>
+                We believe exceptional software is built by engineers with continuous blocks of uninterrupted focus, clear architectural specifications, and the trust to deliver high-impact results from wherever they work best.
+              </p>
+              <div style={{ display: 'flex', gap: '16px', fontSize: '0.78rem', fontFamily: 'var(--font-mono)', color: 'var(--text-dim)', flexWrap: 'wrap' }}>
+                <span>✦ Async Documentation</span>
+                <span>✦ Flexible Hours</span>
+                <span>✦ Direct Ownership</span>
+              </div>
+            </div>
           </div>
 
-          {/* Application Form */}
-          <div id="apply-section" className="agency-card" style={{ padding: 'clamp(32px, 5vw, 48px)', border: '1px solid var(--border-medium)' }}>
-            <h3 style={{ fontSize: '1.6rem', marginBottom: '8px', color: 'var(--text-white)' }}>
-              {selectedRole ? `Apply: ${selectedRole.title}` : "Direct Application & Talent Network"}
-            </h3>
-            <p style={{ fontSize: '0.94rem', marginBottom: '28px' }}>
-              Don't see your exact role? Send us your GitHub or portfolio link. We are always looking for talented engineers and designers.
-            </p>
+          {/* Remote Culture Pillars */}
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+              gap: '24px',
+              marginBottom: '68px',
+              paddingBottom: '52px',
+              borderBottom: '1px solid rgba(255, 255, 255, 0.08)'
+            }}
+          >
+            <div className="agency-card" style={{ padding: '32px' }}>
+              <span style={{ fontSize: '0.8rem', fontFamily: 'var(--font-mono)', color: 'var(--primary-light)', textTransform: 'uppercase', display: 'block', marginBottom: '10px' }}>
+                CULTURE 01
+              </span>
+              <h3 style={{ fontSize: '1.25rem', color: '#ffffff', marginBottom: '12px' }}>
+                Bridging North America &amp; South Asia
+              </h3>
+              <p style={{ fontSize: '0.92rem', lineHeight: 1.68, color: 'var(--text-muted)' }}>
+                Our leadership spans the United States and Pakistan. We operate with asynchronous discipline, clear documentation, and collaborative timezone crossover so you do your best work without 24/7 meetings.
+              </p>
+            </div>
+
+            <div className="agency-card" style={{ padding: '32px' }}>
+              <span style={{ fontSize: '0.8rem', fontFamily: 'var(--font-mono)', color: 'var(--accent-emerald)', textTransform: 'uppercase', display: 'block', marginBottom: '10px' }}>
+                CULTURE 02
+              </span>
+              <h3 style={{ fontSize: '1.25rem', color: '#ffffff', marginBottom: '12px' }}>
+                Uncompromising Engineering Standards
+              </h3>
+              <p style={{ fontSize: '0.92rem', lineHeight: 1.68, color: 'var(--text-muted)' }}>
+                No messy legacy monoliths or bloated site builders. We engineer performant React applications, headless Shopify storefronts, and cloud microservices benchmarked for sub-second speeds.
+              </p>
+            </div>
+
+            <div className="agency-card" style={{ padding: '32px' }}>
+              <span style={{ fontSize: '0.8rem', fontFamily: 'var(--font-mono)', color: 'var(--primary-light)', textTransform: 'uppercase', display: 'block', marginBottom: '10px' }}>
+                CULTURE 03
+              </span>
+              <h3 style={{ fontSize: '1.25rem', color: '#ffffff', marginBottom: '12px' }}>
+                Autonomy &amp; Transparent Merit
+              </h3>
+              <p style={{ fontSize: '0.92rem', lineHeight: 1.68, color: 'var(--text-muted)' }}>
+                You work directly with senior architects like Muhammad Ali (Technical Lead) and Henry (Head of Product). Your contributions have direct impact on high-growth global clients.
+              </p>
+            </div>
+          </div>
+
+          {/* Open Roles Section */}
+          <div style={{ marginBottom: '68px' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '16px', marginBottom: '32px' }}>
+              <div>
+                <span className="eyebrow">Current Openings</span>
+                <h2 style={{ fontSize: 'clamp(2rem, 3.5vw, 2.8rem)' }}>
+                  Open Remote Roles
+                </h2>
+              </div>
+              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.82rem', color: 'var(--text-dim)' }}>
+                ALL POSITIONS 100% REMOTE • APPLICATIONS SENT TO: <span style={{ color: 'var(--primary-light)' }}>forms@kifaltech.com</span>
+              </div>
+            </div>
+
+            {/* Clean List View for Jobs */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+              {positions.map((pos) => (
+                <div
+                  key={pos.id}
+                  className="agency-card"
+                  style={{
+                    padding: '36px',
+                    border: '1px solid rgba(255, 255, 255, 0.08)',
+                    transition: 'all 0.25s ease'
+                  }}
+                >
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '16px', marginBottom: '16px' }}>
+                    <div>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '6px' }}>
+                        <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.78rem', color: 'var(--primary-light)', textTransform: 'uppercase', letterSpacing: '0.06em', fontWeight: 600 }}>
+                          {pos.department}
+                        </span>
+                        <span style={{ color: 'rgba(255, 255, 255, 0.2)' }}>•</span>
+                        <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.78rem', color: 'var(--accent-emerald)' }}>
+                          {pos.locations}
+                        </span>
+                      </div>
+                      <h3 style={{ fontSize: 'clamp(1.4rem, 2.4vw, 1.85rem)', color: '#ffffff', margin: 0 }}>
+                        {pos.title}
+                      </h3>
+                    </div>
+
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
+                      <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', padding: '6px 14px', borderRadius: 'var(--radius-full)', background: 'rgba(255, 255, 255, 0.04)', color: '#ffffff', border: '1px solid rgba(255, 255, 255, 0.1)' }}>
+                        {pos.type}
+                      </span>
+                      <a
+                        href={`mailto:forms@kifaltech.com?subject=Application:%20${encodeURIComponent(pos.title)}`}
+                        className="btn btn-secondary"
+                        style={{ height: '38px', padding: '0 18px', fontSize: '0.84rem' }}
+                      >
+                        Email CV Directly
+                      </a>
+                      <button
+                        onClick={() => {
+                          setSelectedRole(pos);
+                          setApplicant((prev) => ({ ...prev, role: pos.title }));
+                          const el = document.getElementById('apply-form-section');
+                          if (el) el.scrollIntoView({ behavior: 'smooth' });
+                        }}
+                        className="btn btn-primary"
+                        style={{ height: '38px', padding: '0 20px', fontSize: '0.84rem' }}
+                      >
+                        <span>Apply Now</span>
+                        <SvgArrow />
+                      </button>
+                    </div>
+                  </div>
+
+                  <p style={{ fontSize: '1rem', lineHeight: 1.7, color: 'var(--text-muted)', marginBottom: '24px', maxWidth: '920px' }}>
+                    {pos.desc}
+                  </p>
+
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', paddingTop: '20px', borderTop: '1px solid rgba(255, 255, 255, 0.06)' }}>
+                    <div>
+                      <span style={{ fontSize: '0.76rem', fontFamily: 'var(--font-mono)', color: 'var(--text-dim)', textTransform: 'uppercase', letterSpacing: '0.08em', display: 'block', marginBottom: '10px', fontWeight: 600 }}>
+                        KEY RESPONSIBILITIES:
+                      </span>
+                      <ul style={{ paddingLeft: '18px', margin: 0, fontSize: '0.88rem', color: 'var(--text-main)', lineHeight: 1.65 }}>
+                        {pos.responsibilities.map((r, i) => (
+                          <li key={i} style={{ marginBottom: '6px' }}>{r}</li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div>
+                      <span style={{ fontSize: '0.76rem', fontFamily: 'var(--font-mono)', color: 'var(--text-dim)', textTransform: 'uppercase', letterSpacing: '0.08em', display: 'block', marginBottom: '10px', fontWeight: 600 }}>
+                        IDEAL PROFILE:
+                      </span>
+                      <ul style={{ paddingLeft: '18px', margin: 0, fontSize: '0.88rem', color: 'var(--text-main)', lineHeight: 1.65 }}>
+                        {pos.qualifications.map((q, i) => (
+                          <li key={i} style={{ marginBottom: '6px' }}>{q}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Minimalist Application Form */}
+          <div
+            id="apply-form-section"
+            className="agency-card"
+            style={{
+              padding: 'clamp(36px, 5vw, 56px)',
+              border: '1px solid rgba(139, 92, 246, 0.25)',
+              backgroundColor: '#141010',
+              maxWidth: '880px',
+              margin: '0 auto 80px auto'
+            }}
+          >
+            <div style={{ marginBottom: '32px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '10px', marginBottom: '8px' }}>
+                <span className="eyebrow" style={{ marginBottom: 0 }}>
+                  TALENT INTAKE
+                </span>
+                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.76rem', color: 'var(--text-dim)' }}>
+                  ENDPOINT: <strong style={{ color: 'var(--primary-light)' }}>forms@kifaltech.com</strong>
+                </span>
+              </div>
+              <h3 style={{ fontSize: 'clamp(1.6rem, 2.6vw, 2.2rem)', color: '#ffffff', marginBottom: '8px' }}>
+                {selectedRole ? `Submit Application: ${selectedRole.title}` : "Join the KifalTech Remote Collective"}
+              </h3>
+              <p style={{ fontSize: '0.94rem', color: 'var(--text-muted)', lineHeight: 1.6 }}>
+                Submit your credentials and portfolio below. Applications route directly to technical leadership.
+              </p>
+            </div>
 
             {applied ? (
-              <div style={{ padding: '36px 24px', textAlign: 'center', background: 'var(--bg-subtle)', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-subtle)' }}>
-                <div style={{ width: '52px', height: '52px', borderRadius: '50%', background: 'rgba(16, 185, 129, 0.15)', color: 'var(--accent-emerald)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px auto', fontSize: '1.6rem' }}>✔</div>
-                <h4 style={{ fontSize: '1.35rem', color: 'var(--text-white)', marginBottom: '8px' }}>Application Successfully Received</h4>
-                <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', maxWidth: '520px', margin: '0 auto 20px auto' }}>
-                  Thank you, <strong>{applicant.name}</strong>. Our engineering leads will review your work and reply to <strong>{applicant.email}</strong>.
+              <div className="transmission-success-card" style={{ padding: '36px 28px' }}>
+                <div style={{ width: '56px', height: '56px', borderRadius: '50%', background: 'rgba(16, 185, 129, 0.15)', color: 'var(--accent-emerald)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px auto', fontSize: '1.6rem' }}>
+                  ✓
+                </div>
+                <h4 style={{ fontSize: '1.4rem', color: '#ffffff', marginBottom: '8px' }}>
+                  Transmission received. We'll be in touch within 2 business hours.
+                </h4>
+                <p style={{ fontSize: '0.94rem', color: 'var(--text-muted)', maxWidth: '520px', margin: '0 auto 24px auto', lineHeight: 1.6 }}>
+                  Thank you, <strong>{applicant.name}</strong>. Your profile for <strong>{applicant.role}</strong> has been transmitted to our engineering leads at forms@kifaltech.com.
                 </p>
 
                 {appRef && (
-                  <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', background: 'var(--bg-surface)', border: '1px solid var(--border-medium)', padding: '10px 18px', borderRadius: 'var(--radius-sm)', marginBottom: '24px' }}>
-                    <span style={{ fontSize: '0.82rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)' }}>Application Ref:</span>
-                    <strong style={{ fontFamily: 'var(--font-mono)', color: 'var(--primary-light)', fontSize: '0.95rem' }}>{appRef}</strong>
+                  <div style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', background: 'rgba(0, 0, 0, 0.3)', border: '1px solid rgba(255, 255, 255, 0.12)', padding: '10px 18px', borderRadius: 'var(--radius-xs)', marginBottom: '24px' }}>
+                    <span style={{ fontSize: '0.82rem', fontFamily: 'var(--font-mono)', color: 'var(--text-dim)' }}>TICKET REF:</span>
+                    <strong style={{ fontFamily: 'var(--font-mono)', color: 'var(--primary-light)', fontSize: '0.98rem' }}>{appRef}</strong>
                     <button
                       type="button"
                       onClick={copyRefCode}
                       className="btn"
-                      style={{ padding: '4px 10px', fontSize: '0.75rem', background: 'var(--bg-subtle)', border: '1px solid var(--border-subtle)' }}
+                      style={{ padding: '4px 10px', fontSize: '0.74rem', background: 'rgba(255, 255, 255, 0.08)', border: '1px solid rgba(255, 255, 255, 0.14)', color: '#ffffff' }}
                     >
                       {copiedRef ? 'Copied!' : 'Copy'}
                     </button>
@@ -250,45 +412,139 @@ export default function CareersPage() {
 
                 <div>
                   <button
-                    type="button"
                     onClick={() => {
                       setApplied(false);
-                      setApplicant({ name: '', email: '', portfolio: '', role: '', note: '' });
+                      setApplicant({ name: '', email: '', portfolio: '', role: 'Senior React Engineer - Remote', note: '' });
                     }}
-                    className="btn btn-outline"
-                    style={{ padding: '8px 20px', fontSize: '0.85rem' }}
+                    className="btn btn-secondary"
+                    style={{ fontSize: '0.84rem', padding: '8px 20px' }}
                   >
                     Submit Another Application
                   </button>
                 </div>
               </div>
             ) : (
-              <form onSubmit={handleApply} style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '20px' }}>
-                <div>
-                  <label className="form-label">Your Name</label>
-                  <input type="text" required placeholder="Sam Wilson" className="form-input" value={applicant.name} onChange={(e) => setApplicant({ ...applicant, name: e.target.value })} />
+              <form onSubmit={handleApplySubmit} className="agency-form">
+                <div className="agency-form-grid" style={{ marginBottom: '24px' }}>
+                  {/* Full Name */}
+                  <div className="agency-form-col-6">
+                    <div className="agency-field-group">
+                      <label className="floating-label active">
+                        Full Name <span className="required-asterisk">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        name="name"
+                        required
+                        value={applicant.name}
+                        onChange={(e) => setApplicant({ ...applicant, name: e.target.value })}
+                        placeholder="Your full legal or preferred name"
+                        className="agency-input-minimal"
+                      />
+                      <div className="field-underline-bar" />
+                    </div>
+                  </div>
+
+                  {/* Work Email */}
+                  <div className="agency-form-col-6">
+                    <div className="agency-field-group">
+                      <label className="floating-label active">
+                        Work / Personal Email <span className="required-asterisk">*</span>
+                      </label>
+                      <input
+                        type="email"
+                        name="email"
+                        required
+                        value={applicant.email}
+                        onChange={(e) => setApplicant({ ...applicant, email: e.target.value })}
+                        placeholder="name@domain.com"
+                        className="agency-input-minimal"
+                      />
+                      <div className="field-underline-bar" />
+                    </div>
+                  </div>
+
+                  {/* Target Role Selector */}
+                  <div className="agency-form-col-6">
+                    <div className="agency-field-group">
+                      <label className="floating-label active">
+                        Target Position <span className="required-asterisk">*</span>
+                      </label>
+                      <select
+                        name="role"
+                        required
+                        value={applicant.role}
+                        onChange={(e) => setApplicant({ ...applicant, role: e.target.value })}
+                        className="agency-select-minimal"
+                      >
+                        <option value="Senior React Engineer - Remote">Senior React Engineer - Remote</option>
+                        <option value="UI/UX Designer - Remote">UI/UX Designer - Remote</option>
+                        <option value="General Engineering Network">General Engineering Network</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  {/* GitHub or Portfolio Link */}
+                  <div className="agency-form-col-6">
+                    <div className="agency-field-group">
+                      <label className="floating-label active">
+                        GitHub / Portfolio URL <span className="required-asterisk">*</span>
+                      </label>
+                      <input
+                        type="url"
+                        name="portfolio"
+                        required
+                        value={applicant.portfolio}
+                        onChange={(e) => setApplicant({ ...applicant, portfolio: e.target.value })}
+                        placeholder="https://github.com/username or portfolio link"
+                        className="agency-input-minimal"
+                      />
+                      <div className="field-underline-bar" />
+                    </div>
+                  </div>
+
+                  {/* Experience Summary Note */}
+                  <div className="agency-form-col-12">
+                    <div className="agency-field-group">
+                      <label className="floating-label active">
+                        Brief Background &amp; Standout Projects <span className="required-asterisk">*</span>
+                      </label>
+                      <textarea
+                        name="note"
+                        required
+                        rows="3"
+                        value={applicant.note}
+                        onChange={(e) => setApplicant({ ...applicant, note: e.target.value })}
+                        placeholder="Summarize your tech stack expertise, recent production wins, or links to live code..."
+                        className="agency-textarea-minimal"
+                      />
+                      <div className="field-underline-bar" />
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <label className="form-label">Email Address</label>
-                  <input type="email" required placeholder="sam@example.com" className="form-input" value={applicant.email} onChange={(e) => setApplicant({ ...applicant, email: e.target.value })} />
-                </div>
-                <div>
-                  <label className="form-label">Target Role</label>
-                  <input type="text" required placeholder="Role (e.g. Senior Frontend)" className="form-input" value={applicant.role} onChange={(e) => setApplicant({ ...applicant, role: e.target.value })} />
-                </div>
-                <div>
-                  <label className="form-label">Portfolio / GitHub / LinkedIn URL</label>
-                  <input type="url" required placeholder="https://github.com/yourhandle" className="form-input" value={applicant.portfolio} onChange={(e) => setApplicant({ ...applicant, portfolio: e.target.value })} />
-                </div>
-                <div style={{ gridColumn: '1 / -1' }}>
-                  <label className="form-label">Brief Introduction & Why KifalTech</label>
-                  <textarea rows={3} placeholder="Tell us a little about your experience and the projects you enjoy building..." className="form-textarea" value={applicant.note} onChange={(e) => setApplicant({ ...applicant, note: e.target.value })} />
-                </div>
-                <div style={{ gridColumn: '1 / -1' }}>
-                  <button type="submit" className="btn btn-primary" style={{ padding: '14px 32px' }}>
-                    <span>Submit Application</span>
-                    <SvgArrow />
-                  </button>
+
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '16px' }}>
+                  <div style={{ fontSize: '0.78rem', color: 'var(--text-dim)', fontFamily: 'var(--font-mono)' }}>
+                    DIRECT TRANSMISSION TARGET: forms@kifaltech.com
+                  </div>
+
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                    <a
+                      href="mailto:forms@kifaltech.com?subject=Direct%20Career%20Application"
+                      className="btn btn-secondary"
+                      style={{ fontSize: '0.86rem', padding: '12px 20px' }}
+                    >
+                      Email Direct
+                    </a>
+                    <button
+                      type="submit"
+                      className="btn btn-primary"
+                      style={{ fontSize: '0.9rem', padding: '12px 26px' }}
+                    >
+                      <span>Transmit Application</span>
+                      <SvgArrow />
+                    </button>
+                  </div>
                 </div>
               </form>
             )}

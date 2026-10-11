@@ -1,4 +1,5 @@
 import React from 'react';
+import { getServiceIcon } from './ServiceIcons.jsx';
 
 export default function ServiceDetailModal({ service, onClose, onInquire }) {
   if (!service) return null;
@@ -37,30 +38,48 @@ export default function ServiceDetailModal({ service, onClose, onInquire }) {
         </button>
 
         <div style={{ marginBottom: '24px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px' }}>
-            <span
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '14px' }}>
+            <div
               style={{
-                fontFamily: 'var(--font-mono)',
-                fontSize: '0.78rem',
-                color: 'var(--primary-light)',
-                textTransform: 'uppercase',
-                letterSpacing: '0.08em'
+                width: '42px',
+                height: '42px',
+                borderRadius: '8px',
+                backgroundColor: 'rgba(124, 58, 237, 0.15)',
+                border: '1px solid rgba(124, 58, 237, 0.35)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: 'var(--primary-light)'
               }}
             >
-              SERVICE {service.number}
-            </span>
-            <span style={{ color: 'var(--text-dim)' }}>|</span>
-            <span
-              style={{
-                fontFamily: 'var(--font-mono)',
-                fontSize: '0.78rem',
-                color: 'var(--text-dim)',
-                textTransform: 'uppercase',
-                letterSpacing: '0.08em'
-              }}
-            >
-              {service.category}
-            </span>
+              {getServiceIcon(service.id, service.category, 22, "var(--primary-light)")}
+            </div>
+            <div>
+              <span
+                style={{
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '0.78rem',
+                  color: 'var(--primary-light)',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.08em',
+                  fontWeight: 600
+                }}
+              >
+                SERVICE {service.number}
+              </span>
+              <span style={{ color: 'var(--text-dim)', margin: '0 8px' }}>•</span>
+              <span
+                style={{
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '0.78rem',
+                  color: 'var(--text-dim)',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.08em'
+                }}
+              >
+                {service.category}
+              </span>
+            </div>
           </div>
 
           <h3 style={{ fontSize: '2.2rem', color: '#ffffff', marginBottom: '12px' }}>

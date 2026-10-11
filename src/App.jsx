@@ -1,13 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { RouterProvider, useRouter } from './components/Router.jsx';
 import SEOHead from './components/SEOHead.jsx';
 import Navbar from './components/Navbar.jsx';
 import Footer from './components/Footer.jsx';
 
+// Halloween 2026 Campaign Components & Config
+import { HALLOWEEN_CONFIG } from './config/halloweenConfig.js';
+import HalloweenBanner from './components/HalloweenBanner.jsx';
+import HalloweenParticles from './components/HalloweenParticles.jsx';
+import HalloweenOfferSection from './components/HalloweenOfferSection.jsx';
+import HalloweenModal from './components/HalloweenModal.jsx';
+import HalloweenFloatingTrigger from './components/HalloweenFloatingTrigger.jsx';
+
 // Home Page Sections
 import Hero from './components/Hero.jsx';
 import Marquee from './components/Marquee.jsx';
 import AboutSection from './components/AboutSection.jsx';
+import TeamSection from './components/TeamSection.jsx';
 import ServicesList from './components/ServicesList.jsx';
 import SolutionsSection from './components/SolutionsSection.jsx';
 import PortfolioGrid from './components/PortfolioGrid.jsx';
@@ -50,6 +59,51 @@ function AppContent() {
   const [prefillProposal, setPrefillProposal] = useState(null);
   const [quickFixOpen, setQuickFixOpen] = useState(false);
   const [activeServiceDetail, setActiveServiceDetail] = useState(null);
+  const [halloweenModalOpen, setHalloweenModalOpen] = useState(false);
+
+  // Halloween Theme Activation & Cleanup
+  useEffect(() => {
+    if (HALLOWEEN_CONFIG.enabled) {
+      document.body.classList.add('halloween-theme-active');
+    } else {
+      document.body.classList.remove('halloween-theme-active');
+      document.documentElement.style.setProperty('--halloween-banner-offset', '0px');
+    }
+    return () => {
+      document.body.classList.remove('halloween-theme-active');
+    };
+  }, []);
+
+  // Smart Timer & Exit Intent Popup Trigger for Halloween Offer
+  useEffect(() => {
+    if (!HALLOWEEN_CONFIG.enabled) return;
+    const isDismissed = sessionStorage.getItem(HALLOWEEN_CONFIG.modal.storageKey);
+    if (isDismissed) return;
+
+    const timer = setTimeout(() => {
+      const alreadyEngaged = sessionStorage.getItem(HALLOWEEN_CONFIG.modal.storageKey);
+      if (!alreadyEngaged) {
+        setHalloweenModalOpen(true);
+      }
+    }, HALLOWEEN_CONFIG.modal.autoShowDelayMs);
+
+    const handleMouseLeave = (e) => {
+      if (e.clientY <= 0 && !sessionStorage.getItem(HALLOWEEN_CONFIG.modal.storageKey)) {
+        setHalloweenModalOpen(true);
+      }
+    };
+
+    if (HALLOWEEN_CONFIG.modal.exitIntentEnabled) {
+      document.addEventListener('mouseleave', handleMouseLeave);
+    }
+
+    return () => {
+      clearTimeout(timer);
+      if (HALLOWEEN_CONFIG.modal.exitIntentEnabled) {
+        document.removeEventListener('mouseleave', handleMouseLeave);
+      }
+    };
+  }, []);
 
   const handleOpenProposal = (prefill = null) => {
     setPrefillProposal(prefill);
@@ -82,7 +136,11 @@ function AppContent() {
           <Hero onStartProject={() => handleOpenProposal()} onOpenQuickFix={() => setQuickFixOpen(true)} />
           <Marquee />
           <AboutSection onLearnMore={() => navigate('/about')} />
+          <TeamSection />
           <ServicesList onSelectService={handleSelectService} />
+          {HALLOWEEN_CONFIG.enabled && (
+            <HalloweenOfferSection onClaimOffer={handleOpenProposal} />
+          )}
           <SolutionsSection onSelectSolution={(sol) => handleOpenProposal({ title: sol.title })} />
           <PortfolioGrid onStartSimilarProject={(proj) => handleOpenProposal({ title: `Project like ${proj.title}` })} />
           <ProcessSection />
@@ -114,8 +172,8 @@ function AppContent() {
       );
     }
 
-    // 4. Portfolio Hub
-    if (currentPath === '/portfolio') {
+    // 4. Portfolio Hub (/portfolio and /work)
+    if (currentPath === '/portfolio' || currentPath === '/work') {
       return (
         <main style={{ flex: 1 }}>
           <PortfolioPage onStartSimilarProject={(proj) => handleOpenProposal({ title: `Project like ${proj.title}` })} />
@@ -123,9 +181,11 @@ function AppContent() {
       );
     }
 
-    // 5. Portfolio Detail Page (/portfolio/:slug)
-    if (currentPath.startsWith('/portfolio/')) {
-      const slug = currentPath.replace('/portfolio/', '').split('?')[0].split('#')[0];
+    // 5. Portfolio & Work Detail Pages (/portfolio/:slug and /work/:slug)
+    if (currentPath.startsWith('/portfolio/') || currentPath.startsWith('/work/')) {
+      const slug = currentPath.startsWith('/work/')
+        ? currentPath.replace('/work/', '').split('?')[0].split('#')[0]
+        : currentPath.replace('/portfolio/', '').split('?')[0].split('#')[0];
       return (
         <main style={{ flex: 1 }}>
           <PortfolioDetailPage
@@ -184,8 +244,8 @@ function AppContent() {
       );
     }
 
-    // 11. Master FAQs Page
-    if (currentPath === '/faqs') {
+    // 11. Client FAQs Page (/faq and /faqs)
+    if (currentPath === '/faq' || currentPath === '/faqs') {
       return (
         <main style={{ flex: 1 }}>
           <FaqsPage onOpenInquiry={() => handleOpenProposal({ title: 'Technical FAQ Inquiry' })} />
@@ -211,8 +271,8 @@ function AppContent() {
       );
     }
 
-    // 14. Privacy Policy Page
-    if (currentPath === '/privacy-policy') {
+    // 14. Privacy Policy Page (/privacy and /privacy-policy)
+    if (currentPath === '/privacy' || currentPath === '/privacy-policy') {
       return (
         <main style={{ flex: 1 }}>
           <PrivacyPolicyPage />
@@ -220,8 +280,8 @@ function AppContent() {
       );
     }
 
-    // 15. Terms of Service Page
-    if (currentPath === '/terms-of-service') {
+    // 15. Terms of Service Page (/terms and /terms-of-service)
+    if (currentPath === '/terms' || currentPath === '/terms-of-service') {
       return (
         <main style={{ flex: 1 }}>
           <TermsOfServicePage />
@@ -229,7 +289,7 @@ function AppContent() {
       );
     }
 
-    // 16. 404 Not Found
+    // 16. 404 Not Found (/404 and fallback)
     return (
       <main style={{ flex: 1 }}>
         <NotFoundPage />
@@ -238,7 +298,15 @@ function AppContent() {
   };
 
   return (
-    <div className="site-wrapper" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+    <div className={`site-wrapper ${HALLOWEEN_CONFIG.enabled ? 'halloween-theme-active' : ''}`} style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+      {/* Halloween Top Promotional Banner */}
+      {HALLOWEEN_CONFIG.enabled && (
+        <HalloweenBanner onOpenOffer={() => setHalloweenModalOpen(true)} />
+      )}
+
+      {/* Ambient Halloween Particles */}
+      {HALLOWEEN_CONFIG.enabled && <HalloweenParticles />}
+
       {/* Sticky Navigation */}
       <Navbar
         onOpenQuote={() => handleOpenProposal()}
@@ -253,6 +321,11 @@ function AppContent() {
         onStartProject={() => handleOpenProposal()}
         onOpenQuickFix={() => setQuickFixOpen(true)}
       />
+
+      {/* Floating Halloween Trigger */}
+      {HALLOWEEN_CONFIG.enabled && (
+        <HalloweenFloatingTrigger onClick={() => setHalloweenModalOpen(true)} />
+      )}
 
       {/* Floating Back to Top Button */}
       <button
@@ -289,6 +362,18 @@ function AppContent() {
           handleOpenProposal({ title: svc.title });
         }}
       />
+
+      {/* Halloween Special Offer Modal */}
+      {HALLOWEEN_CONFIG.enabled && (
+        <HalloweenModal
+          isOpen={halloweenModalOpen}
+          onClose={() => {
+            setHalloweenModalOpen(false);
+            sessionStorage.setItem(HALLOWEEN_CONFIG.modal.storageKey, 'true');
+          }}
+          onOpenProposal={handleOpenProposal}
+        />
+      )}
     </div>
   );
 }

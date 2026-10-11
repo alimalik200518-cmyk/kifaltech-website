@@ -8,28 +8,48 @@ export default function ProposalModal({ isOpen, onClose, prefillData }) {
     fullName: '',
     email: '',
     phone: '',
-    serviceOrPlan: '',
-    details: ''
+    service: 'Web Apps',
+    budget: '$3k-$5k',
+    message: ''
   });
   const [status, setStatus] = useState('idle');
   const [submittedRefId, setSubmittedRefId] = useState('');
   const [copied, setCopied] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
 
   useEffect(() => {
     if (prefillData) {
-      if (prefillData.name && prefillData.price) {
-        setFormData((prev) => ({
-          ...prev,
-          serviceOrPlan: `${prefillData.category ? prefillData.category + ' - ' : ''}${prefillData.name} (${prefillData.price})`,
-          details: prefillData.details || prev.details
-        }));
-      } else if (prefillData.title) {
-        setFormData((prev) => ({
-          ...prev,
-          serviceOrPlan: prefillData.title,
-          details: prefillData.details || prev.details
-        }));
+      let mappedService = 'Web Apps';
+      const cat = (prefillData.category || prefillData.title || '').toLowerCase();
+      if (cat.includes('mobile') || cat.includes('app')) {
+        mappedService = 'Mobile';
+      } else if (cat.includes('commerce') || cat.includes('shopify') || cat.includes('store')) {
+        mappedService = 'E-Commerce';
+      } else if (cat.includes('ai') || cat.includes('automation') || cat.includes('agent')) {
+        mappedService = 'AI Automation';
+      } else if (cat.includes('ui') || cat.includes('ux') || cat.includes('design')) {
+        mappedService = 'UI/UX';
+      } else if (cat.includes('seo') || cat.includes('marketing')) {
+        mappedService = 'SEO';
+      } else if (cat.includes('web')) {
+        mappedService = 'Web Apps';
       }
+
+      let mappedBudget = '$3k-$5k';
+      const rawPrice = prefillData.originalUsd || (typeof prefillData.price === 'number' ? prefillData.price : parseInt(String(prefillData.price || '').replace(/[^0-9]/g, '')) || 0);
+      if (rawPrice > 0) {
+        if (rawPrice < 3000) mappedBudget = '$1k-$3k';
+        else if (rawPrice <= 5000) mappedBudget = '$3k-$5k';
+        else if (rawPrice <= 10000) mappedBudget = '$5k-$10k';
+        else mappedBudget = '$10k+';
+      }
+
+      setFormData((prev) => ({
+        ...prev,
+        service: mappedService,
+        budget: mappedBudget,
+        message: prefillData.name ? `Inquiry for ${prefillData.name} package. ${prev.message || ''}`.trim() : (prefillData.details || prev.message)
+      }));
     }
   }, [prefillData]);
 
@@ -45,15 +65,29 @@ export default function ProposalModal({ isOpen, onClose, prefillData }) {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    if (errorMsg) setErrorMsg('');
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (!formData.fullName.trim() || !formData.email.trim() || !formData.message.trim()) {
+      setErrorMsg('Please complete your Full Name, Work Email, and Message / Project Scope.');
+      return;
+    }
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())) {
+      setErrorMsg('Please provide a valid business email address.');
+      return;
+    }
+
     setStatus('loading');
+    setErrorMsg('');
 
     const refId = 'KT-REQ-' + Math.floor(100000 + Math.random() * 900000);
     const newProposal = {
       id: refId,
+      destination: 'forms@kifaltech.com',
       timestamp: new Date().toISOString(),
       ...formData
     };
@@ -63,13 +97,13 @@ export default function ProposalModal({ isOpen, onClose, prefillData }) {
       existing.unshift(newProposal);
       localStorage.setItem('kifaltech_proposals', JSON.stringify(existing.slice(0, 50)));
     } catch (err) {
-      // safe fallback
+      console.warn('LocalStorage error:', err);
     }
 
     setSubmittedRefId(refId);
     setTimeout(() => {
       setStatus('success');
-    }, 500);
+    }, 600);
   };
 
   const handleCopyRef = () => {
@@ -81,7 +115,7 @@ export default function ProposalModal({ isOpen, onClose, prefillData }) {
   };
 
   const handleClose = () => {
-    setFormData({ fullName: '', email: '', phone: '', serviceOrPlan: '', details: '' });
+    setFormData({ fullName: '', email: '', phone: '', service: 'Web Apps', budget: '$3k-$5k', message: '' });
     setStatus('idle');
     setSubmittedRefId('');
     setCopied(false);
@@ -90,7 +124,19 @@ export default function ProposalModal({ isOpen, onClose, prefillData }) {
 
   return (
     <div className="modal-overlay" onClick={handleClose}>
-      <div className="modal-body" onClick={(e) => e.stopPropagation()} style={{ maxWidth: '620px' }}>
+      <div
+        className="modal-body"
+        onClick={(e) => e.stopPropagation()}
+        style={{
+          maxWidth: '640px',
+          padding: '36px 32px',
+          maxHeight: '90vh',
+          overflowY: 'auto',
+          backgroundColor: '#151111',
+          border: '1px solid rgba(139, 92, 246, 0.25)',
+          borderRadius: '12px'
+        }}
+      >
         <button
           onClick={handleClose}
           style={{
@@ -100,7 +146,7 @@ export default function ProposalModal({ isOpen, onClose, prefillData }) {
             background: 'transparent',
             border: 'none',
             color: 'var(--text-dim)',
-            fontSize: '1.3rem',
+            fontSize: '1.25rem',
             cursor: 'pointer',
             padding: '4px'
           }}
@@ -111,98 +157,167 @@ export default function ProposalModal({ isOpen, onClose, prefillData }) {
 
         {status !== 'success' ? (
           <div>
-            <div style={{ marginBottom: '24px' }}>
-              <span className="eyebrow" style={{ marginBottom: '10px' }}>
-                GET A FREE QUOTE
-              </span>
-              <h3 style={{ fontSize: '2rem', color: 'var(--text-white)', marginBottom: '8px' }}>
-                Start Your Project with KifalTech
+            <div style={{ marginBottom: '28px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
+                <span className="eyebrow" style={{ marginBottom: 0, fontSize: '0.72rem' }}>
+                  PROPOSAL DISCOVERY
+                </span>
+                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.74rem', color: 'var(--text-dim)' }}>
+                  DESTINATION: <strong style={{ color: 'var(--primary-light)' }}>forms@kifaltech.com</strong>
+                </span>
+              </div>
+              <h3 style={{ fontSize: '1.85rem', color: '#ffffff', marginBottom: '6px' }}>
+                Request Engineering Proposal
               </h3>
-              <p style={{ fontSize: '0.94rem', color: 'var(--text-muted)' }}>
-                Tell us about your requirements and we will review your project goals with clear scope, transparent pricing, and next steps within 12 hours.
+              <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: 1.6 }}>
+                Direct consultation with our technical leads. Transparent milestone budgets and zero vendor lock-in.
               </p>
             </div>
 
-            <form onSubmit={handleSubmit}>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px', marginBottom: '14px' }}>
-                <div>
-                  <label className="form-label">Full Name *</label>
-                  <input
-                    type="text"
-                    name="fullName"
-                    required
-                    placeholder="Your name"
-                    value={formData.fullName}
-                    onChange={handleChange}
-                    className="form-input"
-                  />
+            {errorMsg && (
+              <div style={{ padding: '10px 14px', backgroundColor: 'rgba(239, 68, 68, 0.15)', border: '1px solid #ef4444', borderRadius: '4px', color: '#fca5a5', fontSize: '0.84rem', marginBottom: '18px' }}>
+                {errorMsg}
+              </div>
+            )}
+
+            <form onSubmit={handleSubmit} className="agency-form">
+              <div className="agency-form-grid" style={{ marginBottom: '20px' }}>
+                {/* Full Name */}
+                <div className="agency-form-col-6">
+                  <div className="agency-field-group">
+                    <label className="floating-label active">
+                      Full Name <span className="required-asterisk">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      name="fullName"
+                      required
+                      placeholder="Jane Doe"
+                      value={formData.fullName}
+                      onChange={handleChange}
+                      className="agency-input-minimal"
+                    />
+                    <div className="field-underline-bar" />
+                  </div>
                 </div>
 
-                <div>
-                  <label className="form-label">Email Address *</label>
-                  <input
-                    type="email"
-                    name="email"
-                    required
-                    placeholder="name@domain.com"
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="form-input"
-                  />
+                {/* Work Email */}
+                <div className="agency-form-col-6">
+                  <div className="agency-field-group">
+                    <label className="floating-label active">
+                      Work Email <span className="required-asterisk">*</span>
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      required
+                      placeholder="jane@company.com"
+                      value={formData.email}
+                      onChange={handleChange}
+                      className="agency-input-minimal"
+                    />
+                    <div className="field-underline-bar" />
+                  </div>
+                </div>
+
+                {/* Service Required */}
+                <div className="agency-form-col-6">
+                  <div className="agency-field-group">
+                    <label className="floating-label active">
+                      Service Domain <span className="required-asterisk">*</span>
+                    </label>
+                    <select
+                      name="service"
+                      value={formData.service}
+                      onChange={handleChange}
+                      className="agency-select-minimal"
+                    >
+                      <option value="Web Apps">Web Apps</option>
+                      <option value="E-Commerce">E-Commerce</option>
+                      <option value="Mobile">Mobile Apps</option>
+                      <option value="AI Automation">AI Automation</option>
+                      <option value="UI/UX">UI/UX Design</option>
+                      <option value="SEO">Technical SEO</option>
+                    </select>
+                  </div>
+                </div>
+
+                {/* Estimated Budget */}
+                <div className="agency-form-col-6">
+                  <div className="agency-field-group">
+                    <label className="floating-label active">
+                      Estimated Budget <span className="required-asterisk">*</span>
+                    </label>
+                    <select
+                      name="budget"
+                      value={formData.budget}
+                      onChange={handleChange}
+                      className="agency-select-minimal"
+                    >
+                      <option value="$1k-$3k">$1k – $3k</option>
+                      <option value="$3k-$5k">$3k – $5k</option>
+                      <option value="$5k-$10k">$5k – $10k</option>
+                      <option value="$10k+">$10k+</option>
+                    </select>
+                  </div>
+                </div>
+
+                {/* Phone Number */}
+                <div className="agency-form-col-12">
+                  <div className="agency-field-group">
+                    <label className="floating-label active">
+                      Phone Number (Optional)
+                    </label>
+                    <input
+                      type="tel"
+                      name="phone"
+                      placeholder="+1 (555) 123-4567 or WhatsApp"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      className="agency-input-minimal"
+                    />
+                    <div className="field-underline-bar" />
+                  </div>
+                </div>
+
+                {/* Message / Project Scope */}
+                <div className="agency-form-col-12">
+                  <div className="agency-field-group">
+                    <label className="floating-label active">
+                      Project Scope &amp; Deliverables <span className="required-asterisk">*</span>
+                    </label>
+                    <textarea
+                      name="message"
+                      required
+                      rows="3"
+                      placeholder="Describe target features, user stories, timeline requirements, or existing links..."
+                      value={formData.message}
+                      onChange={handleChange}
+                      className="agency-textarea-minimal"
+                    />
+                    <div className="field-underline-bar" />
+                  </div>
                 </div>
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px', marginBottom: '14px' }}>
-                <div>
-                  <label className="form-label">Phone Number *</label>
-                  <input
-                    type="tel"
-                    name="phone"
-                    required
-                    placeholder="+1 (000) 000-0000"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    className="form-input"
-                  />
-                </div>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '14px' }}>
+                <span style={{ fontSize: '0.78rem', color: 'var(--text-dim)', fontFamily: 'var(--font-mono)' }}>
+                  SUBMISSION DESTINATION: forms@kifaltech.com
+                </span>
 
-                <div>
-                  <label className="form-label">Service or Package</label>
-                  <input
-                    type="text"
-                    name="serviceOrPlan"
-                    placeholder="e.g. Web Development or Standard Plan"
-                    value={formData.serviceOrPlan}
-                    onChange={handleChange}
-                    className="form-input"
-                  />
-                </div>
+                <button
+                  type="submit"
+                  disabled={status === 'loading'}
+                  className="btn btn-primary"
+                  style={{ padding: '12px 28px', fontSize: '0.92rem' }}
+                >
+                  {status === 'loading' ? 'Transmitting Scope...' : 'Transmit Proposal Request'}
+                </button>
               </div>
-
-              <div style={{ marginBottom: '24px' }}>
-                <label className="form-label">Project Details & Requirements</label>
-                <textarea
-                  name="details"
-                  rows="3"
-                  placeholder="Describe your project, timeline, or current goals..."
-                  value={formData.details}
-                  onChange={handleChange}
-                  className="form-textarea"
-                />
-              </div>
-
-              <button
-                type="submit"
-                disabled={status === 'loading'}
-                className="btn btn-primary btn-glow"
-                style={{ width: '100%', padding: '14px', fontSize: '0.96rem' }}
-              >
-                {status === 'loading' ? 'Submitting Quote Request...' : 'REQUEST FREE QUOTE'}
-              </button>
             </form>
           </div>
         ) : (
-          <div style={{ textAlign: 'center', padding: '32px 12px' }}>
+          <div className="transmission-success-card" style={{ padding: '36px 20px', textAlign: 'center' }}>
             <div
               style={{
                 width: '56px',
@@ -212,56 +327,53 @@ export default function ProposalModal({ isOpen, onClose, prefillData }) {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                margin: '0 auto 16px auto'
+                margin: '0 auto 16px auto',
+                fontSize: '1.6rem',
+                color: 'var(--accent-emerald)'
               }}
             >
-              <svg width="26" height="26" viewBox="0 0 16 16" fill="none" stroke="#10b981" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M3 8.5l3.5 3.5 6.5-7"/>
-              </svg>
+              ✓
             </div>
-            <h4 style={{ fontSize: '1.8rem', color: 'var(--text-white)', marginBottom: '8px' }}>
-              Quote Request Confirmed
+            <h4 style={{ fontSize: '1.45rem', color: '#ffffff', marginBottom: '8px' }}>
+              Transmission received. We'll be in touch within 2 business hours.
             </h4>
-            <p style={{ color: 'var(--text-muted)', fontSize: '0.96rem', lineHeight: 1.6, marginBottom: '20px' }}>
-              Thank you, <strong style={{ color: 'var(--text-white)' }}>{formData.fullName}</strong>. We have received your project details and will prepare a tailored proposal for <strong style={{ color: 'var(--primary-light)' }}>{formData.email}</strong> within 12 business hours.
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.94rem', lineHeight: 1.6, marginBottom: '24px', maxWidth: '480px', margin: '0 auto 24px auto' }}>
+              Thank you, <strong>{formData.fullName}</strong>. Your project inquiry has been logged and routed to our technical leadership at forms@kifaltech.com.
             </p>
 
             {/* Reference ID Card */}
             <div
               style={{
-                padding: '16px',
-                borderRadius: 'var(--radius-sm)',
-                background: 'var(--bg-main)',
-                border: '1px solid var(--border-subtle)',
+                padding: '14px 18px',
+                borderRadius: 'var(--radius-xs)',
+                background: 'rgba(0, 0, 0, 0.3)',
+                border: '1px solid rgba(255, 255, 255, 0.12)',
                 marginBottom: '24px',
-                display: 'flex',
+                display: 'inline-flex',
                 alignItems: 'center',
-                justifyContent: 'space-between',
-                flexWrap: 'wrap',
-                gap: '10px'
+                gap: '12px'
               }}
             >
-              <div style={{ textAlign: 'left' }}>
-                <div style={{ fontSize: '0.72rem', fontFamily: 'var(--font-mono)', color: 'var(--text-dim)' }}>
-                  YOUR INQUIRY TRACKING ID
-                </div>
-                <div style={{ fontSize: '1.15rem', fontFamily: 'var(--font-mono)', fontWeight: 700, color: 'var(--primary-light)' }}>
-                  {submittedRefId}
-                </div>
-              </div>
-
+              <span style={{ fontSize: '0.76rem', fontFamily: 'var(--font-mono)', color: 'var(--text-dim)' }}>
+                TICKET REF:
+              </span>
+              <strong style={{ fontSize: '1.05rem', fontFamily: 'var(--font-mono)', color: 'var(--primary-light)' }}>
+                {submittedRefId}
+              </strong>
               <button
                 onClick={handleCopyRef}
-                className="btn btn-secondary"
-                style={{ padding: '6px 14px', fontSize: '0.8rem' }}
+                className="btn"
+                style={{ padding: '4px 10px', fontSize: '0.74rem', background: 'rgba(255, 255, 255, 0.08)', border: '1px solid rgba(255, 255, 255, 0.12)', color: '#ffffff' }}
               >
-                {copied ? '✔ Copied!' : 'Copy Reference'}
+                {copied ? 'Copied!' : 'Copy'}
               </button>
             </div>
 
-            <button onClick={handleClose} className="btn btn-primary" style={{ padding: '10px 26px' }}>
-              Return to Website
-            </button>
+            <div>
+              <button onClick={handleClose} className="btn btn-primary" style={{ padding: '10px 26px', fontSize: '0.88rem' }}>
+                Return to Website
+              </button>
+            </div>
           </div>
         )}
       </div>

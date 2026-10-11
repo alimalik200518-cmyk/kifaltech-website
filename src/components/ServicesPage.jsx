@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { agencyData } from '../data/agencyData.js';
 import SEOHead from './SEOHead.jsx';
 import { Link } from './Router.jsx';
+import { getServiceIcon } from './ServiceIcons.jsx';
 
 export default function ServicesPage({ onStartProject }) {
   const [activeCategory, setActiveCategory] = useState('All');
@@ -39,7 +40,7 @@ export default function ServicesPage({ onStartProject }) {
             <span className="breadcrumb-current">Services</span>
           </nav>
 
-          <div className="section-header" style={{ textAlign: 'left', maxWidth: '820px', margin: '0 0 40px 0' }}>
+          <div className="section-header" style={{ textAlign: 'left', maxWidth: '820px', margin: '0 0 36px 0' }}>
             <span className="eyebrow">Capabilities Directory</span>
             <h1 style={{ fontSize: 'clamp(2.4rem, 4vw, 3.5rem)', marginBottom: '16px' }}>
               Specialized Digital Engineering & Creative Services
@@ -47,6 +48,89 @@ export default function ServicesPage({ onStartProject }) {
             <p style={{ fontSize: '1.12rem' }}>
               Explore our 11 core competencies spanning full-stack development, brand identity, custom e-commerce, and high-ROI digital growth campaigns.
             </p>
+          </div>
+
+          {/* Architectural Whiteboard Discovery Banner */}
+          <div
+            style={{
+              marginBottom: '40px',
+              borderRadius: '8px',
+              overflow: 'hidden',
+              border: '1px solid rgba(255, 255, 255, 0.1)',
+              backgroundColor: '#1c1717',
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 420px), 1fr))',
+              alignItems: 'stretch'
+            }}
+          >
+            <div style={{ position: 'relative', minHeight: '260px' }}>
+              <img
+                src="/images/services/whiteboard-architecture.jpg"
+                alt="KifalTech team whiteboard architectural planning session with hand-drawn system diagrams and database models"
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  display: 'block'
+                }}
+                loading="lazy"
+              />
+              <div
+                style={{
+                  position: 'absolute',
+                  top: '14px',
+                  left: '14px',
+                  backgroundColor: 'rgba(18, 14, 14, 0.85)',
+                  backdropFilter: 'blur(8px)',
+                  border: '1px solid rgba(255, 255, 255, 0.12)',
+                  borderRadius: '4px',
+                  padding: '4px 10px',
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '0.72rem',
+                  color: '#ffffff',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '6px'
+                }}
+              >
+                <span style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: 'var(--accent-emerald)' }}></span>
+                <span>Discovery &amp; System Design</span>
+              </div>
+            </div>
+
+            <div
+              style={{
+                padding: 'clamp(28px, 4vw, 36px)',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                backgroundColor: '#191414'
+              }}
+            >
+              <span
+                style={{
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '0.76rem',
+                  color: 'var(--primary-light)',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.08em',
+                  marginBottom: '10px'
+                }}
+              >
+                ARCHITECTURAL INTEGRITY FIRST
+              </span>
+              <h3 style={{ fontSize: '1.5rem', color: '#ffffff', marginBottom: '12px', letterSpacing: '-0.02em' }}>
+                From Whiteboard Architecture to Production Microservices
+              </h3>
+              <p style={{ fontSize: '0.94rem', lineHeight: 1.68, color: 'var(--text-muted)', marginBottom: '20px' }}>
+                Every engagement begins with systematic architectural discovery. We diagram database entities, API contracts, edge caching topologies, and CI/CD automation before writing a single line of production code.
+              </p>
+              <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', fontSize: '0.78rem', fontFamily: 'var(--font-mono)', color: 'var(--text-dim)' }}>
+                <span>✓ Zero Bloatware</span>
+                <span>✓ Microservices &amp; Edge</span>
+                <span>✓ 100% IP Handover</span>
+              </div>
+            </div>
           </div>
 
           {/* Category Filter Tabs */}
@@ -83,10 +167,27 @@ export default function ServicesPage({ onStartProject }) {
                 style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}
               >
                 <div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
-                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.78rem', color: 'var(--primary-light)', fontWeight: 600 }}>
-                      SERVICE {service.number}
-                    </span>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '18px' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                      <div
+                        style={{
+                          width: '40px',
+                          height: '40px',
+                          borderRadius: '8px',
+                          backgroundColor: 'rgba(124, 58, 237, 0.12)',
+                          border: '1px solid rgba(124, 58, 237, 0.3)',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          color: 'var(--primary-light)'
+                        }}
+                      >
+                        {getServiceIcon(service.id, service.category, 20, "var(--primary-light)")}
+                      </div>
+                      <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.78rem', color: 'var(--primary-light)', fontWeight: 600 }}>
+                        SERVICE {service.number}
+                      </span>
+                    </div>
                     <span style={{ fontSize: '0.75rem', fontFamily: 'var(--font-mono)', padding: '3px 8px', borderRadius: '4px', background: 'var(--bg-subtle)', color: 'var(--text-dim)' }}>
                       {service.turnaround}
                     </span>
