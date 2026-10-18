@@ -22,7 +22,7 @@ export default function HalloweenBats({ variant = 'founders', style = {} }) {
       xmlns="http://www.w3.org/2000/svg"
       style={{
         filter: glow
-          ? 'drop-shadow(0 0 8px rgba(0, 216, 255, 0.35)) drop-shadow(0 2px 4px rgba(0,0,0,0.8))'
+          ? 'drop-shadow(0 0 8px rgba(211, 37, 37, 0.35)) drop-shadow(0 2px 4px rgba(0,0,0,0.8))'
           : 'drop-shadow(0 4px 10px rgba(0, 0, 0, 0.9))',
         opacity: 0.75
       }}
@@ -30,13 +30,13 @@ export default function HalloweenBats({ variant = 'founders', style = {} }) {
       <path
         d="M50 20C48 14 44 8 41 2C40 6 38 10 35 12C31 6 24 3 17 5C19 12 18 19 15 25C10 21 4 21 0 24C3 31 10 36 18 37C22 43 28 47 36 46C41 40 45 32 50 27C55 32 59 40 64 46C72 47 78 43 82 37C90 36 97 31 100 24C96 21 90 21 85 25C82 19 81 12 83 5C76 3 69 6 65 12C62 10 60 6 59 2C56 8 52 14 50 20Z"
         fill="#070D18"
-        stroke="rgba(0, 216, 255, 0.3)"
+        stroke="rgba(211, 37, 37, 0.3)"
         strokeWidth="1.2"
         strokeLinejoin="round"
       />
       {/* Bat Eyes Glowing Cyan */}
-      <circle cx="48" cy="18" r="1.1" fill="#00D8FF" opacity="0.85" />
-      <circle cx="52" cy="18" r="1.1" fill="#00D8FF" opacity="0.85" />
+      <circle cx="48" cy="18" r="1.1" fill="#D32525" opacity="0.85" />
+      <circle cx="52" cy="18" r="1.1" fill="#D32525" opacity="0.85" />
     </svg>
   );
 

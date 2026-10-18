@@ -291,7 +291,7 @@ export default function ContactPage() {
                   {inquiryRef && (
                     <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', background: 'rgba(255, 255, 255, 0.04)', border: '1px solid var(--border-medium)', padding: '10px 18px', borderRadius: '0px', marginBottom: '24px' }}>
                       <span style={{ fontSize: '0.82rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)' }}>Ticket ID:</span>
-                      <strong style={{ fontFamily: 'var(--font-mono)', color: '#00D8FF', fontSize: '0.95rem' }}>{inquiryRef}</strong>
+                      <strong style={{ fontFamily: 'var(--font-mono)', color: '#D32525', fontSize: '0.95rem' }}>{inquiryRef}</strong>
                       <button
                         type="button"
                         onClick={copyRefCode}
@@ -329,7 +329,7 @@ export default function ContactPage() {
                     {/* Full Name */}
                     <div className="agency-field-group col-span-6">
                       <label htmlFor="contact-page-name" className="agency-field-label">
-                        Full Name <span style={{ color: '#00D8FF' }}>*</span>
+                        Full Name <span style={{ color: '#D32525' }}>*</span>
                       </label>
                       <input
                         id="contact-page-name"
@@ -337,19 +337,19 @@ export default function ContactPage() {
                         required
                         placeholder="John Doe"
                         className="agency-input-minimal"
-                        style={formErrors.name ? { borderBottomColor: '#00D8FF' } : {}}
+                        style={formErrors.name ? { borderBottomColor: '#D32525' } : {}}
                         value={formData.name}
                         onChange={(e) => handleInputChange('name', e.target.value)}
                       />
                       {formErrors.name && (
-                        <span style={{ fontSize: '0.75rem', color: '#00D8FF', marginTop: '4px' }}>{formErrors.name}</span>
+                        <span style={{ fontSize: '0.75rem', color: '#D32525', marginTop: '4px' }}>{formErrors.name}</span>
                       )}
                     </div>
 
                     {/* Email */}
                     <div className="agency-field-group col-span-6">
                       <label htmlFor="contact-page-email" className="agency-field-label">
-                        Work Email <span style={{ color: '#00D8FF' }}>*</span>
+                        Work Email <span style={{ color: '#D32525' }}>*</span>
                       </label>
                       <input
                         id="contact-page-email"
@@ -357,12 +357,12 @@ export default function ContactPage() {
                         required
                         placeholder="john@company.com"
                         className="agency-input-minimal"
-                        style={formErrors.email ? { borderBottomColor: '#00D8FF' } : {}}
+                        style={formErrors.email ? { borderBottomColor: '#D32525' } : {}}
                         value={formData.email}
                         onChange={(e) => handleInputChange('email', e.target.value)}
                       />
                       {formErrors.email && (
-                        <span style={{ fontSize: '0.75rem', color: '#00D8FF', marginTop: '4px' }}>{formErrors.email}</span>
+                        <span style={{ fontSize: '0.75rem', color: '#D32525', marginTop: '4px' }}>{formErrors.email}</span>
                       )}
                     </div>
 
@@ -384,7 +384,7 @@ export default function ContactPage() {
                     {/* Service Selection */}
                     <div className="agency-field-group col-span-6">
                       <label id="label-contact-service" className="agency-field-label">
-                        Target Discipline <span style={{ color: '#00D8FF' }}>*</span>
+                        Target Discipline <span style={{ color: '#D32525' }}>*</span>
                       </label>
                       <CustomSelect
                         id="contact-page-service"
@@ -398,7 +398,7 @@ export default function ContactPage() {
                     {/* Estimated Budget */}
                     <div className="agency-field-group col-span-6">
                       <label id="label-contact-budget" className="agency-field-label">
-                        Budget Allocation <span style={{ color: '#00D8FF' }}>*</span>
+                        Budget Allocation <span style={{ color: '#D32525' }}>*</span>
                       </label>
                       <CustomSelect
                         id="contact-page-budget"
@@ -412,7 +412,7 @@ export default function ContactPage() {
                     {/* Message / Brief */}
                     <div className="agency-field-group col-span-12">
                       <label htmlFor="contact-page-message" className="agency-field-label">
-                        Project Scope &amp; Deliverables <span style={{ color: '#00D8FF' }}>*</span>
+                        Project Scope &amp; Deliverables <span style={{ color: '#D32525' }}>*</span>
                       </label>
                       <textarea
                         id="contact-page-message"
@@ -420,12 +420,12 @@ export default function ContactPage() {
                         required
                         placeholder="Brief description of requirements, existing tech stack, and goals..."
                         className="agency-textarea-minimal"
-                        style={formErrors.message ? { borderBottomColor: '#00D8FF' } : {}}
+                        style={formErrors.message ? { borderBottomColor: '#D32525' } : {}}
                         value={formData.message}
                         onChange={(e) => handleInputChange('message', e.target.value)}
                       />
                       {formErrors.message && (
-                        <span style={{ fontSize: '0.75rem', color: '#00D8FF', marginTop: '4px' }}>{formErrors.message}</span>
+                        <span style={{ fontSize: '0.75rem', color: '#D32525', marginTop: '4px' }}>{formErrors.message}</span>
                       )}
                     </div>
                   </div>

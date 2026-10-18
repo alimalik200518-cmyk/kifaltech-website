@@ -22,7 +22,7 @@ export default function AboutSection({ onLearnMore }) {
           right: '5%',
           pointerEvents: 'none',
           opacity: 0.35,
-          filter: 'drop-shadow(0 0 16px rgba(0, 216, 255, 0.45))',
+          filter: 'drop-shadow(0 0 16px rgba(211, 37, 37, 0.45))',
           animation: 'ghostDriftSlow 12s ease-in-out infinite',
           zIndex: 0
         }}
@@ -37,7 +37,7 @@ export default function AboutSection({ onLearnMore }) {
             <linearGradient id="driftGhostGrad" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.85" />
               <stop offset="60%" stopColor="#8BE4F8" stopOpacity="0.5" />
-              <stop offset="100%" stopColor="#00D8FF" stopOpacity="0.2" />
+              <stop offset="100%" stopColor="#D32525" stopOpacity="0.2" />
             </linearGradient>
           </defs>
           <circle cx="36" cy="48" r="4" fill="#06090F" />
@@ -56,10 +56,10 @@ export default function AboutSection({ onLearnMore }) {
           <h2
             style={{
               fontSize: 'clamp(2.4rem, 4.4vw, 3.6rem)',
-              lineHeight: 1.05,
+              lineHeight: 1.1,
               color: '#ffffff',
               fontWeight: 800,
-              letterSpacing: '-0.03em',
+              letterSpacing: '-0.01em',
               textTransform: 'uppercase',
               marginBottom: '20px'
             }}
@@ -67,7 +67,7 @@ export default function AboutSection({ onLearnMore }) {
             A dedicated software and web agency built for businesses that value substance and reliable execution.
           </h2>
 
-          <p style={{ fontSize: '1.12rem', lineHeight: 1.75, color: '#888888' }}>
+          <p style={{ fontSize: '1.08rem', lineHeight: 1.5, letterSpacing: 'normal', color: '#888888' }}>
             We design, develop, and maintain custom digital platforms for international founders, growing brands, and established companies. No bloated agency layers, no generic templates — just dependable software engineering aligned with your commercial objectives.
           </p>
         </div>
@@ -84,7 +84,7 @@ export default function AboutSection({ onLearnMore }) {
           {/* Left Column: Deep Answers to Core Questions */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
             {/* Who We Are & What We Do */}
-            <div style={{ borderLeft: '2px solid #00D8FF', paddingLeft: '24px' }}>
+            <div style={{ borderLeft: '2px solid #D32525', paddingLeft: '24px' }}>
               <h3 style={{ fontSize: '1.25rem', color: '#ffffff', marginBottom: '10px', textTransform: 'uppercase', fontWeight: 800 }}>
                 Who We Are & What We Do
               </h3>
@@ -142,7 +142,7 @@ export default function AboutSection({ onLearnMore }) {
                 fontSize: '0.78rem',
                 textTransform: 'uppercase',
                 letterSpacing: '0.08em',
-                color: '#00D8FF',
+                color: '#D32525',
                 marginBottom: '20px',
                 display: 'flex',
                 alignItems: 'center',
@@ -158,7 +158,7 @@ export default function AboutSection({ onLearnMore }) {
               <div style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.08)', paddingBottom: '18px' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
                   <h4 style={{ fontSize: '1.05rem', color: '#ffffff', margin: 0 }}>Production-Grade Code Architecture</h4>
-                  <span style={{ fontSize: '0.72rem', fontFamily: 'var(--font-mono)', color: '#00D8FF', background: 'rgba(0, 216, 255, 0.12)', border: '1px solid #00D8FF', padding: '2px 8px' }}>No Bloat</span>
+                  <span style={{ fontSize: '0.72rem', fontFamily: 'var(--font-mono)', color: '#D32525', background: 'rgba(211, 37, 37, 0.12)', border: '1px solid #D32525', padding: '2px 8px' }}>No Bloat</span>
                 </div>
                 <p style={{ fontSize: '0.88rem', color: '#888888', margin: 0, lineHeight: 1.6 }}>
                   Built with modular component hierarchies, strict typing, and standardized linting so future developers can easily extend the platform.
@@ -180,7 +180,7 @@ export default function AboutSection({ onLearnMore }) {
               <div style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.08)', paddingBottom: '18px' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
                   <h4 style={{ fontSize: '1.05rem', color: '#ffffff', margin: 0 }}>100% IP Transfer</h4>
-                  <span style={{ fontSize: '0.72rem', fontFamily: 'var(--font-mono)', color: '#00D8FF', background: 'rgba(0, 216, 255, 0.12)', border: '1px solid #00D8FF', padding: '2px 8px' }}>Zero Lock-In</span>
+                  <span style={{ fontSize: '0.72rem', fontFamily: 'var(--font-mono)', color: '#D32525', background: 'rgba(211, 37, 37, 0.12)', border: '1px solid #D32525', padding: '2px 8px' }}>Zero Lock-In</span>
                 </div>
                 <p style={{ fontSize: '0.88rem', color: '#888888', margin: 0, lineHeight: 1.6 }}>
                   You own all source repositories, Figma design files, cloud deployment keys, and documentation from the moment work completes.
@@ -191,7 +191,7 @@ export default function AboutSection({ onLearnMore }) {
               <div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
                   <h4 style={{ fontSize: '1.05rem', color: '#ffffff', margin: 0 }}>Post-Launch Reliability</h4>
-                  <span style={{ fontSize: '0.72rem', fontFamily: 'var(--font-mono)', color: '#00D8FF', background: 'rgba(0, 216, 255, 0.12)', border: '1px solid #00D8FF', padding: '2px 8px' }}>99.9% Uptime</span>
+                  <span style={{ fontSize: '0.72rem', fontFamily: 'var(--font-mono)', color: '#D32525', background: 'rgba(211, 37, 37, 0.12)', border: '1px solid #D32525', padding: '2px 8px' }}>99.9% Uptime</span>
                 </div>
                 <p style={{ fontSize: '0.88rem', color: '#888888', margin: 0, lineHeight: 1.6 }}>
                   We stay with you past launch day — providing server patch management, automated monitoring, and fast technical support when needed.

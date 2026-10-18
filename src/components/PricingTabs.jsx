@@ -59,9 +59,9 @@ export default function PricingTabs({ onSelectPlan, onChatNow }) {
                   padding: '9px 20px',
                   fontSize: '0.86rem',
                   borderRadius: '0px',
-                  backgroundColor: isActive ? '#00D8FF' : '#141414',
+                  backgroundColor: isActive ? '#D32525' : '#141414',
                   color: '#ffffff',
-                  border: isActive ? '1px solid #00D8FF' : '1px solid rgba(255, 255, 255, 0.15)',
+                  border: isActive ? '1px solid #D32525' : '1px solid #222222',
                   fontWeight: isActive ? 700 : 500,
                   fontFamily: 'var(--font-mono)'
                 }}
@@ -72,12 +72,12 @@ export default function PricingTabs({ onSelectPlan, onChatNow }) {
           })}
         </div>
 
-        {/* Plan Cards Grid */}
+        {/* Plan Cards Grid: Multi-Column Grid of Subtle 1px Border Cards */}
         <div
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))',
-            gap: 'clamp(20px, 3vw, 28px)',
+            gap: '24px',
             alignItems: 'stretch'
           }}
         >
@@ -92,10 +92,10 @@ export default function PricingTabs({ onSelectPlan, onChatNow }) {
                   flexDirection: 'column',
                   justifyContent: 'space-between',
                   padding: '36px 30px',
-                  border: isRecommended ? '1px solid #00D8FF' : '1px solid var(--border-subtle)',
-                  backgroundColor: isRecommended ? 'var(--bg-card-hover)' : 'var(--bg-card)',
+                  border: isRecommended ? '1px solid #D32525' : '1px solid #222222',
+                  backgroundColor: isRecommended ? '#141414' : '#0E0E0E',
                   position: 'relative',
-                  boxShadow: isRecommended ? 'var(--shadow-primary)' : 'var(--shadow-card)'
+                  boxShadow: 'none'
                 }}
               >
                 {isRecommended && (
@@ -104,7 +104,7 @@ export default function PricingTabs({ onSelectPlan, onChatNow }) {
                       position: 'absolute',
                       top: '-12px',
                       right: '24px',
-                      backgroundColor: '#00D8FF',
+                      backgroundColor: '#D32525',
                       color: '#ffffff',
                       fontSize: '0.7rem',
                       fontFamily: 'var(--font-mono)',
@@ -113,7 +113,7 @@ export default function PricingTabs({ onSelectPlan, onChatNow }) {
                       padding: '3px 10px',
                       borderRadius: '0px',
                       letterSpacing: '0.08em',
-                      border: '1px solid #00D8FF'
+                      border: '1px solid #D32525'
                     }}
                   >
                     Recommended
@@ -121,7 +121,7 @@ export default function PricingTabs({ onSelectPlan, onChatNow }) {
                 )}
 
                 <div>
-                  <h3 style={{ fontSize: '1.45rem', marginBottom: '8px', color: 'var(--text-white)' }}>
+                  <h3 style={{ fontSize: '1.45rem', lineHeight: 1.1, marginBottom: '8px', color: 'var(--text-white)' }}>
                     {plan.name}
                   </h3>
 

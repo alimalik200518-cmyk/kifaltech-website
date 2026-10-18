@@ -67,7 +67,7 @@ export default function HeroTechCanvas() {
 
         // Highlight center axis lines with slight red tint
         if (Math.abs(i) === 0) {
-          ctx.strokeStyle = 'rgba(0, 216, 255, 0.22)';
+          ctx.strokeStyle = 'rgba(211, 37, 37, 0.22)';
         } else if (Math.abs(i) % 4 === 0) {
           ctx.strokeStyle = 'rgba(255, 255, 255, 0.09)';
         } else {
@@ -126,9 +126,9 @@ export default function HeroTechCanvas() {
       const actualScanY = scanLineY - 100;
       if (actualScanY > 0 && actualScanY < height) {
         const scanGrad = ctx.createLinearGradient(0, actualScanY - 40, 0, actualScanY + 40);
-        scanGrad.addColorStop(0, 'rgba(0, 216, 255, 0)');
-        scanGrad.addColorStop(0.5, 'rgba(0, 216, 255, 0.05)');
-        scanGrad.addColorStop(1, 'rgba(0, 216, 255, 0)');
+        scanGrad.addColorStop(0, 'rgba(211, 37, 37, 0)');
+        scanGrad.addColorStop(0.5, 'rgba(211, 37, 37, 0.05)');
+        scanGrad.addColorStop(1, 'rgba(211, 37, 37, 0)');
         ctx.fillStyle = scanGrad;
         ctx.fillRect(0, actualScanY - 40, width, 80);
       }
@@ -142,7 +142,7 @@ export default function HeroTechCanvas() {
         const py = m.yPct * height;
 
         // Draw micro dot
-        ctx.fillStyle = `rgba(0, 216, 255, ${alpha * 1.5})`;
+        ctx.fillStyle = `rgba(211, 37, 37, ${alpha * 1.5})`;
         ctx.fillRect(px - 2, py - 2, 4, 4);
 
         // Draw micro text

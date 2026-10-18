@@ -34,7 +34,7 @@ export default function Marquee() {
                 fontSize: '0.78rem',
                 fontFamily: 'var(--font-mono)',
                 textTransform: 'uppercase',
-                color: '#00D8FF',
+                color: '#D32525',
                 letterSpacing: '0.12em',
                 fontWeight: 700
               }}
@@ -69,7 +69,7 @@ export default function Marquee() {
                   style={{
                     fontFamily: 'var(--font-mono)',
                     fontSize: '0.8rem',
-                    color: '#00D8FF',
+                    color: '#D32525',
                     fontWeight: 800
                   }}
                 >

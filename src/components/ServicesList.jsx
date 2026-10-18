@@ -29,49 +29,51 @@ export default function ServicesList({ onSelectService }) {
           <h2
             style={{
               fontSize: 'clamp(2.4rem, 4.8vw, 3.8rem)',
-              lineHeight: 0.98,
+              lineHeight: 1.1,
               color: '#FFFFFF',
               fontWeight: 800,
-              letterSpacing: '-0.03em',
+              letterSpacing: '-0.01em',
               textTransform: 'uppercase',
               marginBottom: '16px'
             }}
           >
             Engineering & Design Capabilities
           </h2>
-          <p style={{ fontSize: '1.05rem', lineHeight: 1.65, color: '#888888', maxWidth: '720px' }}>
+          <p style={{ fontSize: '1.05rem', lineHeight: 1.5, letterSpacing: 'normal', color: '#888888', maxWidth: '720px' }}>
             A rigorous engineering collective delivering high-throughput web software, modern React/Next.js architectures, bespoke headless CMS platforms, and precision user interfaces with zero bloated abstractions.
           </p>
         </div>
 
-        {/* Strict 3-Column Unified Dashboard / Workspace Grid */}
+        {/* Structured Multi-Column Grid of Subtle 1px Border Card Containers */}
         <div
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 340px), 1fr))',
-            backgroundColor: 'rgba(255, 255, 255, 0.12)',
-            gap: '1px',
-            border: '1px solid rgba(255, 255, 255, 0.15)',
-            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.7)'
+            gap: '24px'
           }}
         >
-          {services.map((service, index) => (
+          {services.map((service) => (
             <div
               key={service.id}
+              className="agency-card"
               style={{
-                backgroundColor: '#0D0D0D',
-                padding: '24px 22px',
+                backgroundColor: '#0E0E0E',
+                border: '1px solid #222222',
+                borderRadius: '0px',
+                padding: '28px 24px',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
-                transition: 'background-color 0.12s ease',
+                transition: 'border-color 0.15s ease, background-color 0.15s ease',
                 position: 'relative'
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = '#121212';
+                e.currentTarget.style.borderColor = '#D32525';
+                e.currentTarget.style.backgroundColor = '#141414';
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = '#0D0D0D';
+                e.currentTarget.style.borderColor = '#222222';
+                e.currentTarget.style.backgroundColor = '#0E0E0E';
               }}
             >
               {/* Card Header Telemetry */}
@@ -82,30 +84,30 @@ export default function ServicesList({ onSelectService }) {
                     alignItems: 'center',
                     justifyContent: 'space-between',
                     paddingBottom: '12px',
-                    borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+                    borderBottom: '1px solid #222222',
                     marginBottom: '18px'
                   }}
                 >
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                     <div
                       style={{
-                        width: '26px',
-                        height: '26px',
+                        width: '28px',
+                        height: '28px',
                         backgroundColor: '#161616',
-                        border: '1px solid rgba(255, 255, 255, 0.15)',
+                        border: '1px solid #222222',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        color: '#00D8FF'
+                        color: '#D32525'
                       }}
                     >
-                      {getServiceIcon(service.id, service.category, 14, "#00D8FF")}
+                      {getServiceIcon(service.id, service.category, 15, "#D32525")}
                     </div>
                     <span
                       style={{
                         fontFamily: 'var(--font-mono)',
                         fontSize: '0.72rem',
-                        color: '#00D8FF',
+                        color: '#D32525',
                         fontWeight: 700,
                         letterSpacing: '0.06em'
                       }}
@@ -119,7 +121,7 @@ export default function ServicesList({ onSelectService }) {
                       fontFamily: 'var(--font-mono)',
                       fontSize: '0.66rem',
                       color: '#888888',
-                      border: '1px solid rgba(255, 255, 255, 0.12)',
+                      border: '1px solid #222222',
                       padding: '2px 6px',
                       textTransform: 'uppercase'
                     }}
@@ -132,11 +134,11 @@ export default function ServicesList({ onSelectService }) {
                 <h3
                   style={{
                     fontSize: '1.35rem',
-                    lineHeight: 1.15,
+                    lineHeight: 1.1,
                     color: '#FFFFFF',
                     fontWeight: 800,
                     marginBottom: '10px',
-                    letterSpacing: '-0.02em',
+                    letterSpacing: '-0.01em',
                     textTransform: 'uppercase'
                   }}
                 >
@@ -147,7 +149,8 @@ export default function ServicesList({ onSelectService }) {
                 <p
                   style={{
                     fontSize: '0.88rem',
-                    lineHeight: 1.55,
+                    lineHeight: 1.5,
+                    letterSpacing: 'normal',
                     color: '#888888',
                     marginBottom: '16px'
                   }}
@@ -159,7 +162,7 @@ export default function ServicesList({ onSelectService }) {
                 <div
                   style={{
                     backgroundColor: '#111111',
-                    borderLeft: '2px solid #00D8FF',
+                    borderLeft: '2px solid #D32525',
                     padding: '8px 12px',
                     marginBottom: '16px'
                   }}
@@ -168,7 +171,7 @@ export default function ServicesList({ onSelectService }) {
                     style={{
                       fontSize: '0.64rem',
                       fontFamily: 'var(--font-mono)',
-                      color: '#00D8FF',
+                      color: '#D32525',
                       letterSpacing: '0.06em',
                       textTransform: 'uppercase',
                       fontWeight: 700
@@ -216,7 +219,7 @@ export default function ServicesList({ onSelectService }) {
                           lineHeight: 1.4
                         }}
                       >
-                        <span style={{ color: '#00D8FF', fontFamily: 'var(--font-mono)', fontWeight: 700 }}>■</span>
+                        <span style={{ color: '#D32525', fontFamily: 'var(--font-mono)', fontWeight: 700 }}>■</span>
                         <span>{deliv}</span>
                       </li>
                     ))}
@@ -233,7 +236,7 @@ export default function ServicesList({ onSelectService }) {
                       flexWrap: 'wrap',
                       gap: '4px',
                       paddingTop: '12px',
-                      borderTop: '1px solid rgba(255, 255, 255, 0.08)',
+                      borderTop: '1px solid #222222',
                       marginBottom: '14px'
                     }}
                   >
@@ -245,7 +248,7 @@ export default function ServicesList({ onSelectService }) {
                           fontFamily: 'var(--font-mono)',
                           color: '#888888',
                           backgroundColor: '#141414',
-                          border: '1px solid rgba(255, 255, 255, 0.08)',
+                          border: '1px solid #222222',
                           padding: '2px 6px'
                         }}
                       >
@@ -294,7 +297,7 @@ export default function ServicesList({ onSelectService }) {
           style={{
             marginTop: '32px',
             backgroundColor: '#0E0E0E',
-            border: '1px solid rgba(255, 255, 255, 0.15)',
+            border: '1px solid #222222',
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 360px), 1fr))',
             alignItems: 'center',
@@ -323,8 +326,8 @@ export default function ServicesList({ onSelectService }) {
                 fontFamily: 'var(--font-mono)',
                 fontSize: '0.64rem',
                 backgroundColor: '#0A0A0A',
-                color: '#00D8FF',
-                border: '1px solid #00D8FF',
+                color: '#FFFFFF',
+                border: '1px solid #222222',
                 padding: '2px 8px',
                 fontWeight: 700,
                 letterSpacing: '0.06em'
@@ -340,7 +343,7 @@ export default function ServicesList({ onSelectService }) {
               style={{
                 fontFamily: 'var(--font-mono)',
                 fontSize: '0.72rem',
-                color: '#00D8FF',
+                color: '#D32525',
                 letterSpacing: '0.08em',
                 fontWeight: 700,
                 marginBottom: '8px'

@@ -33,10 +33,10 @@ export default function CTASection({ onStartProject }) {
             <h2
               style={{
                 fontSize: 'clamp(2.2rem, 3.8vw, 3.4rem)',
-                lineHeight: 1.05,
+                lineHeight: 1.1,
                 color: '#ffffff',
                 fontWeight: 800,
-                letterSpacing: '-0.03em',
+                letterSpacing: '-0.01em',
                 textTransform: 'uppercase',
                 marginBottom: '14px'
               }}
@@ -44,7 +44,7 @@ export default function CTASection({ onStartProject }) {
               Your Digital Growth Starts Here.
             </h2>
 
-            <p style={{ fontSize: '1.05rem', lineHeight: 1.65, color: '#888888', margin: 0 }}>
+            <p style={{ fontSize: '1.05rem', lineHeight: 1.5, letterSpacing: 'normal', color: '#888888', margin: 0 }}>
               Have a project in mind? Whether you need a modern web application, custom Shopify storefront, or ongoing software engineering, our team is ready to deliver.
             </p>
           </div>

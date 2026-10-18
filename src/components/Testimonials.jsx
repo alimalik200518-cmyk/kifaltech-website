@@ -63,11 +63,11 @@ export default function Testimonials() {
                     height: '42px',
                     borderRadius: '0px',
                     backgroundColor: '#111111',
-                    border: '1px solid #00D8FF',
+                    border: '1px solid #D32525',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    color: '#00D8FF',
+                    color: '#D32525',
                     fontWeight: 800,
                     fontSize: '0.9rem',
                     fontFamily: 'var(--font-mono)'

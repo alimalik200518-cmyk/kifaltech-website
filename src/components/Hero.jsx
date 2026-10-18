@@ -49,32 +49,22 @@ export default function Hero({ onStartProject }) {
         overflow: 'hidden'
       }}
     >
-      {/* 1. Natural Gritty Real Engineering Workspace & Server Room Photograph */}
+      {/* 1. Full-Bleed Desaturated Engineering Workspace Photograph with 85% #0A0A0A Overlay */}
       <div
         aria-hidden="true"
         style={{
           position: 'absolute',
           inset: 0,
-          backgroundImage: "url('/images/hero/real-engineering-workspace.jpg')",
+          backgroundImage: "linear-gradient(rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.85)), url('/images/hero/real-engineering-workspace.jpg')",
           backgroundSize: 'cover',
-          backgroundPosition: 'center 45%',
-          filter: 'grayscale(100%) contrast(1.12) brightness(0.7)',
+          backgroundPosition: 'center center',
+          backgroundRepeat: 'no-repeat',
+          filter: 'grayscale(100%) contrast(1.15) brightness(0.95)',
           zIndex: 0
         }}
       />
 
-      {/* 2. Heavy #0A0A0A Overlay (85% Opacity) for Extreme Contrast & 100% Legibility */}
-      <div
-        aria-hidden="true"
-        style={{
-          position: 'absolute',
-          inset: 0,
-          backgroundColor: 'rgba(10, 10, 10, 0.85)',
-          zIndex: 1
-        }}
-      />
-
-      {/* 3. Subtle Film Grain (Noise) Texture Over Background */}
+      {/* 2. Subtle Film Grain (Noise) Texture Over Background */}
       <div
         aria-hidden="true"
         style={{
@@ -85,12 +75,12 @@ export default function Hero({ onStartProject }) {
           backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
           backgroundRepeat: 'repeat',
           mixBlendMode: 'overlay',
-          zIndex: 2
+          zIndex: 1
         }}
       />
 
       {/* Center-Stage Editorial Typography Layout */}
-      <div className="container" style={{ position: 'relative', zIndex: 3, flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+      <div className="container" style={{ position: 'relative', zIndex: 2, flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
         <div style={{ maxWidth: '1080px', margin: '0 auto', textAlign: 'center', width: '100%' }}>
           
           {/* Eyebrow Metadata Tag */}
@@ -117,7 +107,7 @@ export default function Hero({ onStartProject }) {
                   width: '6px',
                   height: '6px',
                   borderRadius: '0px',
-                  backgroundColor: '#FFFFFF',
+                  backgroundColor: '#D32525',
                   display: 'inline-block'
                 }}
               />
@@ -125,12 +115,12 @@ export default function Hero({ onStartProject }) {
             </span>
           </div>
 
-          {/* Massive, Edge-to-Edge Editorial Heading */}
+          {/* Clean, Non-Squished Editorial Heading (Strict line-height: 1.1) */}
           <h1
             style={{
               fontSize: 'clamp(2.4rem, 4.8vw, 4.4rem)',
-              lineHeight: 1.02,
-              letterSpacing: '-0.035em',
+              lineHeight: 1.1,
+              letterSpacing: '-0.01em',
               fontWeight: 800,
               textTransform: 'uppercase',
               color: '#FFFFFF',
@@ -141,8 +131,7 @@ export default function Hero({ onStartProject }) {
             We Build{' '}
             <span
               style={{
-                color: '#FFFFFF',
-                borderBottom: '2px solid #333333'
+                color: '#D32525'
               }}
             >
               Smart Digital
@@ -150,11 +139,12 @@ export default function Hero({ onStartProject }) {
             Solutions for Modern Businesses.
           </h1>
 
-          {/* Editorial Subtitle */}
+          {/* Subtitle with line-height: 1.5 & standard letter-spacing */}
           <p
             style={{
-              fontSize: 'clamp(1rem, 1.6vw, 1.18rem)',
-              lineHeight: 1.65,
+              fontSize: 'clamp(1rem, 1.6vw, 1.15rem)',
+              lineHeight: 1.5,
+              letterSpacing: 'normal',
               color: '#A0A0A0',
               maxWidth: '720px',
               margin: '0 auto 32px auto',
@@ -184,9 +174,6 @@ export default function Hero({ onStartProject }) {
                 fontSize: '0.86rem',
                 letterSpacing: '0.08em',
                 fontWeight: 700,
-                backgroundColor: '#FFFFFF',
-                color: '#0A0A0A',
-                border: '1px solid #222222',
                 boxShadow: 'none'
               }}
             >

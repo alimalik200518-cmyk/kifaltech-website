@@ -22,17 +22,17 @@ export default function SolutionsSection({ onSelectSolution }) {
           <h2
             style={{
               fontSize: 'clamp(2.3rem, 4.2vw, 3.5rem)',
-              lineHeight: 1.05,
+              lineHeight: 1.1,
               color: '#ffffff',
               fontWeight: 800,
-              letterSpacing: '-0.03em',
+              letterSpacing: '-0.01em',
               textTransform: 'uppercase',
               marginBottom: '16px'
             }}
           >
             Structured Solutions by Business Objective
           </h2>
-          <p style={{ fontSize: '1.08rem', lineHeight: 1.7, color: '#888888' }}>
+          <p style={{ fontSize: '1.05rem', lineHeight: 1.5, letterSpacing: 'normal', color: '#888888' }}>
             We package cross-functional engineering, UX design, and search optimization into focused business outcomes.
           </p>
         </div>
@@ -58,7 +58,7 @@ export default function SolutionsSection({ onSelectSolution }) {
                 justifyContent: 'space-between',
                 transition: 'border-color 0.12s ease'
               }}
-              onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#00D8FF'; }}
+              onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#D32525'; }}
               onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.14)'; }}
             >
               <div>

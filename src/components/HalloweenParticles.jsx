@@ -33,7 +33,7 @@ export default function HalloweenParticles() {
 
     // Color palette: Electric Cyan, Cyan Glow, Deep Teal, Pumpkin Ember
     const colors = [
-      'rgba(0, 210, 255, ',    // Electric Cyan #00D2FF
+      'rgba(211, 37, 37, ',    // Electric Cyan #D32525
       'rgba(56, 225, 255, ',   // High-glow Cyan #38E1FF
       'rgba(14, 116, 144, ',   // Deep Teal #0E7490
       'rgba(255, 122, 0, '     // Pumpkin Ember #FF7A00
@@ -87,7 +87,7 @@ export default function HalloweenParticles() {
           ctx.translate(this.x, this.y);
           ctx.fillStyle = `rgba(224, 247, 255, ${Math.max(0, this.alpha * 0.75)})`;
           ctx.shadowBlur = 10;
-          ctx.shadowColor = `rgba(0, 210, 255, ${Math.max(0, this.alpha)})`;
+          ctx.shadowColor = `rgba(211, 37, 37, ${Math.max(0, this.alpha)})`;
           
           ctx.beginPath();
           ctx.arc(0, 0, 6, Math.PI, 0, false);
@@ -100,7 +100,7 @@ export default function HalloweenParticles() {
           ctx.fill();
 
           // Tiny glowing cyan eyes
-          ctx.fillStyle = `rgba(0, 210, 255, ${Math.max(0, this.alpha * 0.95)})`;
+          ctx.fillStyle = `rgba(211, 37, 37, ${Math.max(0, this.alpha * 0.95)})`;
           ctx.beginPath();
           ctx.arc(-2, -1, 1.1, 0, Math.PI * 2);
           ctx.arc(2, -1, 1.1, 0, Math.PI * 2);

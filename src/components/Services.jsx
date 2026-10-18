@@ -80,27 +80,27 @@ export default function Services({ onSelectServiceForProposal }) {
                       height: '44px',
                       borderRadius: '0px',
                       backgroundColor: '#111111',
-                      border: '1px solid #00D8FF',
+                      border: '1px solid #D32525',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      color: '#00D8FF'
+                      color: '#D32525'
                     }}
                   >
-                    {getServiceIcon(service.id, service.category, 22, "#00D8FF")}
+                    {getServiceIcon(service.id, service.category, 22, "#D32525")}
                   </div>
 
                   <span
                     style={{
                       fontFamily: 'var(--font-mono)',
                       fontSize: '0.74rem',
-                      color: '#00D8FF',
+                      color: '#D32525',
                       textTransform: 'uppercase',
                       letterSpacing: '0.08em',
-                      background: 'rgba(0, 216, 255, 0.12)',
+                      background: 'rgba(211, 37, 37, 0.12)',
                       padding: '3px 8px',
                       borderRadius: '0px',
-                      border: '1px solid #00D8FF',
+                      border: '1px solid #D32525',
                       fontWeight: 700
                     }}
                   >

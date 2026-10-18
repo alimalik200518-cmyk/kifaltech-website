@@ -65,11 +65,11 @@ export default function HalloweenGhost({ onClaimOffer }) {
           style={{
             marginBottom: '12px',
             backgroundColor: 'rgba(10, 16, 26, 0.94)',
-            border: '1px solid rgba(0, 210, 255, 0.4)',
+            border: '1px solid rgba(211, 37, 37, 0.4)',
             borderRadius: '12px',
             padding: '12px 16px',
             maxWidth: '280px',
-            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 210, 255, 0.2)',
+            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.6), 0 0 20px rgba(211, 37, 37, 0.2)',
             backdropFilter: 'blur(12px)',
             color: '#FFFFFF',
             position: 'relative',
@@ -105,7 +105,7 @@ export default function HalloweenGhost({ onClaimOffer }) {
                 fontFamily: 'var(--font-mono)',
                 fontSize: '0.68rem',
                 fontWeight: 700,
-                color: '#00D2FF',
+                color: '#D32525',
                 letterSpacing: '0.08em',
                 textTransform: 'uppercase'
               }}
@@ -123,7 +123,7 @@ export default function HalloweenGhost({ onClaimOffer }) {
             }}
           >
             Complimentary Security &amp; Lighthouse 98+ audit with code{' '}
-            <strong style={{ color: '#00D2FF', fontFamily: 'var(--font-mono)' }}>SPOOKY26</strong>!
+            <strong style={{ color: '#D32525', fontFamily: 'var(--font-mono)' }}>SPOOKY26</strong>!
           </p>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
@@ -160,8 +160,8 @@ export default function HalloweenGhost({ onClaimOffer }) {
               width: '12px',
               height: '12px',
               backgroundColor: 'rgba(10, 16, 26, 0.94)',
-              borderRight: '1px solid rgba(0, 210, 255, 0.4)',
-              borderBottom: '1px solid rgba(0, 210, 255, 0.4)',
+              borderRight: '1px solid rgba(211, 37, 37, 0.4)',
+              borderBottom: '1px solid rgba(211, 37, 37, 0.4)',
               transform: 'rotate(45deg)'
             }}
           />
@@ -193,7 +193,7 @@ export default function HalloweenGhost({ onClaimOffer }) {
             position: 'absolute',
             inset: '-10px',
             borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(0, 210, 255, 0.35) 0%, rgba(14, 116, 144, 0.15) 50%, transparent 70%)',
+            background: 'radial-gradient(circle, rgba(211, 37, 37, 0.35) 0%, rgba(14, 116, 144, 0.15) 50%, transparent 70%)',
             filter: 'blur(8px)',
             zIndex: 0,
             pointerEvents: 'none'
@@ -207,7 +207,7 @@ export default function HalloweenGhost({ onClaimOffer }) {
           viewBox="0 0 100 120"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          style={{ position: 'relative', zIndex: 1, filter: 'drop-shadow(0 4px 16px rgba(0, 210, 255, 0.4))' }}
+          style={{ position: 'relative', zIndex: 1, filter: 'drop-shadow(0 4px 16px rgba(211, 37, 37, 0.4))' }}
         >
           <defs>
             {/* Spectral Body Gradient matching Cyan/Teal brand */}
@@ -215,7 +215,7 @@ export default function HalloweenGhost({ onClaimOffer }) {
               <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.98"/>
               <stop offset="45%" stopColor="#E2F7FD" stopOpacity="0.94"/>
               <stop offset="85%" stopColor="#8BE4F8" stopOpacity="0.88"/>
-              <stop offset="100%" stopColor="#00D2FF" stopOpacity="0.82"/>
+              <stop offset="100%" stopColor="#D32525" stopOpacity="0.82"/>
             </linearGradient>
 
             <linearGradient id="ghostEyeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -224,7 +224,7 @@ export default function HalloweenGhost({ onClaimOffer }) {
             </linearGradient>
 
             <filter id="ghostAura" x="-20%" y="-20%" width="140%" height="140%">
-              <feDropShadow dx="0" dy="2" stdDeviation="5" floodColor="#00D2FF" floodOpacity="0.6"/>
+              <feDropShadow dx="0" dy="2" stdDeviation="5" floodColor="#D32525" floodOpacity="0.6"/>
             </filter>
           </defs>
 
@@ -240,7 +240,7 @@ export default function HalloweenGhost({ onClaimOffer }) {
                C 88 95, 84 75, 84 55 
                C 84 35, 78 10, 50 10 Z"
             fill="url(#ghostBodyGrad)"
-            stroke="rgba(0, 210, 255, 0.65)"
+            stroke="rgba(211, 37, 37, 0.65)"
             strokeWidth="1.8"
           />
 
@@ -259,8 +259,8 @@ export default function HalloweenGhost({ onClaimOffer }) {
           />
 
           {/* Glowing Rosy Cheeks in Electric Cyan */}
-          <circle cx="34" cy="54" r="5" fill="#00D2FF" opacity="0.45" filter="blur(2px)"/>
-          <circle cx="66" cy="54" r="5" fill="#00D2FF" opacity="0.45" filter="blur(2px)"/>
+          <circle cx="34" cy="54" r="5" fill="#D32525" opacity="0.45" filter="blur(2px)"/>
+          <circle cx="66" cy="54" r="5" fill="#D32525" opacity="0.45" filter="blur(2px)"/>
 
           {/* Left Eye & Tracking Pupil */}
           <ellipse cx="38" cy="44" rx="5" ry="6.5" fill="url(#ghostEyeGrad)"/>
@@ -269,7 +269,7 @@ export default function HalloweenGhost({ onClaimOffer }) {
             cy={44 + pupilPos.y}
             rx="2.2"
             ry="2.6"
-            fill="#00D2FF"
+            fill="#D32525"
           />
           {/* Eye Sparkle Catchlight */}
           <circle cx={36.5 + pupilPos.x * 0.5} cy={42 + pupilPos.y * 0.5} r="1.2" fill="#FFFFFF"/>
@@ -281,7 +281,7 @@ export default function HalloweenGhost({ onClaimOffer }) {
             cy={44 + pupilPos.y}
             rx="2.2"
             ry="2.6"
-            fill="#00D2FF"
+            fill="#D32525"
           />
           {/* Eye Sparkle Catchlight */}
           <circle cx={60.5 + pupilPos.x * 0.5} cy={42 + pupilPos.y * 0.5} r="1.2" fill="#FFFFFF"/>
@@ -298,7 +298,7 @@ export default function HalloweenGhost({ onClaimOffer }) {
           {/* Mini Pumpkin Emblem on Chest */}
           <g transform="translate(42, 70) scale(0.42)">
             <ellipse cx="20" cy="20" rx="14" ry="12" fill="#FF7A00"/>
-            <path d="M 20 8 Q 23 2 26 4" stroke="#00D2FF" strokeWidth="2.5" fill="none"/>
+            <path d="M 20 8 Q 23 2 26 4" stroke="#D32525" strokeWidth="2.5" fill="none"/>
             <path d="M 14 17 L 18 17 L 16 13 Z M 22 17 L 26 17 L 24 13 Z" fill="#070C14"/>
             <path d="M 15 23 Q 20 28 25 23 Z" fill="#070C14"/>
           </g>
@@ -310,9 +310,9 @@ export default function HalloweenGhost({ onClaimOffer }) {
             style={{
               fontSize: '0.62rem',
               fontFamily: 'var(--font-mono)',
-              color: '#00D2FF',
+              color: '#D32525',
               backgroundColor: '#070C14',
-              border: '1px solid rgba(0, 210, 255, 0.4)',
+              border: '1px solid rgba(211, 37, 37, 0.4)',
               padding: '2px 8px',
               borderRadius: '999px',
               marginTop: '4px',

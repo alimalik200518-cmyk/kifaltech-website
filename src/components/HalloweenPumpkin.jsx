@@ -45,8 +45,8 @@ export default function HalloweenPumpkin({ size = 56, style = {}, onClick }) {
           inset: '-6px',
           borderRadius: '50%',
           background: hovered || ignited
-            ? 'radial-gradient(circle, rgba(0, 210, 255, 0.45) 0%, rgba(255, 122, 0, 0.35) 45%, transparent 70%)'
-            : 'radial-gradient(circle, rgba(0, 210, 255, 0.2) 0%, rgba(255, 122, 0, 0.15) 50%, transparent 70%)',
+            ? 'radial-gradient(circle, rgba(211, 37, 37, 0.45) 0%, rgba(255, 122, 0, 0.35) 45%, transparent 70%)'
+            : 'radial-gradient(circle, rgba(211, 37, 37, 0.2) 0%, rgba(255, 122, 0, 0.15) 50%, transparent 70%)',
           filter: 'blur(6px)',
           transition: 'all 0.3s ease',
           pointerEvents: 'none',
@@ -65,7 +65,7 @@ export default function HalloweenPumpkin({ size = 56, style = {}, onClick }) {
           position: 'relative',
           zIndex: 1,
           filter: hovered
-            ? 'drop-shadow(0 0 12px rgba(0, 210, 255, 0.75))'
+            ? 'drop-shadow(0 0 12px rgba(211, 37, 37, 0.75))'
             : 'drop-shadow(0 2px 8px rgba(0, 0, 0, 0.6))'
         }}
       >
@@ -79,21 +79,21 @@ export default function HalloweenPumpkin({ size = 56, style = {}, onClick }) {
 
           {/* Glowing Inner Flame (Electric Cyan + Warm Amber) */}
           <linearGradient id="flameInner" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor={ignited ? "#FFFFFF" : "#00E5FF"}/>
-            <stop offset="40%" stopColor="#00D2FF"/>
+            <stop offset="0%" stopColor={ignited ? "#FFFFFF" : "#D32525"}/>
+            <stop offset="40%" stopColor="#D32525"/>
             <stop offset="85%" stopColor="#FF7A00"/>
             <stop offset="100%" stopColor="#FF4D00"/>
           </linearGradient>
 
           {/* Stem Metallic Gradient */}
           <linearGradient id="pumpkinStem" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#00D2FF"/>
+            <stop offset="0%" stopColor="#D32525"/>
             <stop offset="60%" stopColor="#165B72"/>
             <stop offset="100%" stopColor="#0E3542"/>
           </linearGradient>
 
           <filter id="flameGlow" x="-20%" y="-20%" width="140%" height="140%">
-            <feDropShadow dx="0" dy="0" stdDeviation="3.5" floodColor="#00D2FF" floodOpacity="0.8"/>
+            <feDropShadow dx="0" dy="0" stdDeviation="3.5" floodColor="#D32525" floodOpacity="0.8"/>
           </filter>
         </defs>
 
@@ -101,24 +101,24 @@ export default function HalloweenPumpkin({ size = 56, style = {}, onClick }) {
         <path
           d="M 48 24 C 47 14, 53 10, 56 6 C 59 10, 54 18, 52 24 Z"
           fill="url(#pumpkinStem)"
-          stroke="rgba(0, 210, 255, 0.5)"
+          stroke="rgba(211, 37, 37, 0.5)"
           strokeWidth="1.2"
         />
 
         {/* Outer Left Lobe */}
-        <ellipse cx="32" cy="56" rx="20" ry="26" fill="url(#pumpkinShell)" stroke="rgba(0, 210, 255, 0.35)" strokeWidth="1.5"/>
+        <ellipse cx="32" cy="56" rx="20" ry="26" fill="url(#pumpkinShell)" stroke="rgba(211, 37, 37, 0.35)" strokeWidth="1.5"/>
 
         {/* Outer Right Lobe */}
-        <ellipse cx="68" cy="56" rx="20" ry="26" fill="url(#pumpkinShell)" stroke="rgba(0, 210, 255, 0.35)" strokeWidth="1.5"/>
+        <ellipse cx="68" cy="56" rx="20" ry="26" fill="url(#pumpkinShell)" stroke="rgba(211, 37, 37, 0.35)" strokeWidth="1.5"/>
 
         {/* Mid Left Lobe */}
-        <ellipse cx="40" cy="58" rx="19" ry="28" fill="url(#pumpkinShell)" stroke="rgba(0, 210, 255, 0.45)" strokeWidth="1.5"/>
+        <ellipse cx="40" cy="58" rx="19" ry="28" fill="url(#pumpkinShell)" stroke="rgba(211, 37, 37, 0.45)" strokeWidth="1.5"/>
 
         {/* Mid Right Lobe */}
-        <ellipse cx="60" cy="58" rx="19" ry="28" fill="url(#pumpkinShell)" stroke="rgba(0, 210, 255, 0.45)" strokeWidth="1.5"/>
+        <ellipse cx="60" cy="58" rx="19" ry="28" fill="url(#pumpkinShell)" stroke="rgba(211, 37, 37, 0.45)" strokeWidth="1.5"/>
 
         {/* Central Lobe */}
-        <ellipse cx="50" cy="59" rx="18" ry="29" fill="url(#pumpkinShell)" stroke="rgba(0, 210, 255, 0.6)" strokeWidth="1.8"/>
+        <ellipse cx="50" cy="59" rx="18" ry="29" fill="url(#pumpkinShell)" stroke="rgba(211, 37, 37, 0.6)" strokeWidth="1.8"/>
 
         {/* Carved Glowing Left Eye (Triangular with sharp cyber angles) */}
         <polygon
@@ -161,19 +161,19 @@ export default function HalloweenPumpkin({ size = 56, style = {}, onClick }) {
         @keyframes pumpkinFlicker {
           0% {
             opacity: 0.9;
-            filter: drop-shadow(0 0 2px #00D2FF);
+            filter: drop-shadow(0 0 2px #D32525);
           }
           30% {
             opacity: 1;
-            filter: drop-shadow(0 0 7px #00D2FF) drop-shadow(0 0 12px #FF7A00);
+            filter: drop-shadow(0 0 7px #D32525) drop-shadow(0 0 12px #FF7A00);
           }
           60% {
             opacity: 0.82;
-            filter: drop-shadow(0 0 3px #00D2FF);
+            filter: drop-shadow(0 0 3px #D32525);
           }
           100% {
             opacity: 1;
-            filter: drop-shadow(0 0 9px #00D2FF) drop-shadow(0 0 16px #FF7A00);
+            filter: drop-shadow(0 0 9px #D32525) drop-shadow(0 0 16px #FF7A00);
           }
         }
       `}</style>

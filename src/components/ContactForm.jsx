@@ -257,14 +257,14 @@ export default function ContactForm() {
               <h3 style={{ fontSize: '1.35rem', color: '#ffffff', margin: 0, fontWeight: 800, textTransform: 'uppercase', letterSpacing: '-0.02em' }}>
                 Project Discovery Brief
               </h3>
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', color: '#00D8FF', background: 'rgba(0, 216, 255, 0.12)', border: '1px solid #00D8FF', padding: '2px 8px', fontWeight: 700 }}>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', color: '#D32525', background: 'rgba(211, 37, 37, 0.12)', border: '1px solid #D32525', padding: '2px 8px', fontWeight: 700 }}>
                 &lt; 2 Hr SLA
               </span>
             </div>
 
             {status === 'success' ? (
               <div className="transmission-success-card">
-                <div style={{ width: '48px', height: '48px', borderRadius: '0px', background: 'rgba(0, 216, 255, 0.15)', color: '#00D8FF', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px auto', fontSize: '1.4rem' }}>
+                <div style={{ width: '48px', height: '48px', borderRadius: '0px', background: 'rgba(211, 37, 37, 0.15)', color: '#D32525', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px auto', fontSize: '1.4rem' }}>
                   ✓
                 </div>
                 <h4 style={{ fontSize: '1.3rem', color: '#ffffff', marginBottom: '10px' }}>
@@ -274,7 +274,7 @@ export default function ContactForm() {
                   Your scope requirements have been securely logged and assigned to our technical leads.
                 </p>
                 <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.82rem', color: 'var(--text-dim)', marginBottom: '20px' }}>
-                  Inquiry Ticket: <strong style={{ color: '#00D8FF' }}>{refCode}</strong>
+                  Inquiry Ticket: <strong style={{ color: '#D32525' }}>{refCode}</strong>
                 </div>
                 <button
                   type="button"
@@ -416,7 +416,7 @@ export default function ContactForm() {
                 </div>
 
                 {errorMessage && (
-                  <div style={{ marginTop: '16px', padding: '10px 14px', background: 'rgba(0, 216, 255, 0.15)', border: '1px solid #00D8FF', borderRadius: '0px', color: '#ff8a80', fontSize: '0.84rem' }}>
+                  <div style={{ marginTop: '16px', padding: '10px 14px', background: 'rgba(211, 37, 37, 0.15)', border: '1px solid #D32525', borderRadius: '0px', color: '#ff8a80', fontSize: '0.84rem' }}>
                     {errorMessage}
                   </div>
                 )}

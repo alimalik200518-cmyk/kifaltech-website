@@ -181,7 +181,7 @@ export default function ProposalModal({ isOpen, onClose, prefillData }) {
                 <span className="eyebrow" style={{ marginBottom: 0, fontSize: '0.72rem' }}>
                   PROPOSAL DISCOVERY
                 </span>
-                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.74rem', color: '#00D8FF', fontWeight: 700, letterSpacing: '0.08em' }}>
+                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.74rem', color: '#D32525', fontWeight: 700, letterSpacing: '0.08em' }}>
                   2-HOUR RESPONSE SLA
                 </span>
               </div>
@@ -194,7 +194,7 @@ export default function ProposalModal({ isOpen, onClose, prefillData }) {
             </div>
 
             {errorMsg && (
-              <div style={{ padding: '10px 14px', backgroundColor: 'rgba(0, 216, 255, 0.15)', border: '1px solid #00D8FF', borderRadius: '0px', color: '#ff8a80', fontSize: '0.84rem', marginBottom: '18px' }}>
+              <div style={{ padding: '10px 14px', backgroundColor: 'rgba(211, 37, 37, 0.15)', border: '1px solid #D32525', borderRadius: '0px', color: '#ff8a80', fontSize: '0.84rem', marginBottom: '18px' }}>
                 {errorMsg}
               </div>
             )}
@@ -340,14 +340,14 @@ export default function ProposalModal({ isOpen, onClose, prefillData }) {
                 width: '56px',
                 height: '56px',
                 borderRadius: '0px',
-                backgroundColor: 'rgba(0, 216, 255, 0.15)',
-                border: '1px solid #00D8FF',
+                backgroundColor: 'rgba(211, 37, 37, 0.15)',
+                border: '1px solid #D32525',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 margin: '0 auto 16px auto',
                 fontSize: '1.6rem',
-                color: '#00D8FF'
+                color: '#D32525'
               }}
             >
               ✓
@@ -375,7 +375,7 @@ export default function ProposalModal({ isOpen, onClose, prefillData }) {
               <span style={{ fontSize: '0.76rem', fontFamily: 'var(--font-mono)', color: 'var(--text-dim)' }}>
                 TICKET REF:
               </span>
-              <strong style={{ fontSize: '1.05rem', fontFamily: 'var(--font-mono)', color: '#00D8FF' }}>
+              <strong style={{ fontSize: '1.05rem', fontFamily: 'var(--font-mono)', color: '#D32525' }}>
                 {submittedRefId}
               </strong>
               <button

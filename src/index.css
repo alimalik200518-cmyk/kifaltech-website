@@ -7,50 +7,50 @@
    ========================================================================== */
 
 :root, [data-theme="dark"], [data-theme="light"] {
-  /* High-Contrast Dark Blueprint Base Palette */
-  --bg-main: #06090F;
-  --bg-secondary: #0A0F1A;
-  --bg-card: #0D1422;
-  --bg-card-hover: #121B2D;
-  --bg-card-active: #162238;
-  --bg-subtle: rgba(0, 216, 255, 0.05);
-  --bg-glass: rgba(6, 9, 15, 0.95);
-  --bg-tag: #0F1726;
+  /* Strict High-Contrast Brutalist Palette: Pitch Black (#0A0A0A), Stark White (#FFFFFF), Brand Red (#D32525) */
+  --bg-main: #0A0A0A;
+  --bg-secondary: #111111;
+  --bg-card: #0E0E0E;
+  --bg-card-hover: #151515;
+  --bg-card-active: #1C1C1C;
+  --bg-subtle: rgba(255, 255, 255, 0.04);
+  --bg-glass: rgba(10, 10, 10, 0.96);
+  --bg-tag: rgba(211, 37, 37, 0.12);
 
-  /* Typography Colors — High-Contrast Stark White & Steel Blueprint Neutrals */
+  /* Typography Colors — High-Contrast Stark White & Crisp Neutrals */
   --text-white: #FFFFFF;
-  --text-main: #E2EBF5;
-  --text-muted: #8EA2B8;
-  --text-dim: #5C7086;
+  --text-main: #E5E5E5;
+  --text-muted: #888888;
+  --text-dim: #555555;
 
-  /* Primary Brand Accent: Electric Cyan (#00D8FF) matching 3D K emblem */
-  --primary: #00D8FF;
-  --primary-hover: #33E1FF;
-  --primary-light: #66EAFF;
-  --primary-dark: #00A3C4;
-  --primary-subtle: rgba(0, 216, 255, 0.12);
-  --primary-glow: rgba(0, 216, 255, 0.45);
+  /* Primary Brand Accent: Brand Red (#D32525) */
+  --primary: #D32525;
+  --primary-hover: #B71C1C;
+  --primary-light: #EF4444;
+  --primary-dark: #991B1B;
+  --primary-subtle: rgba(211, 37, 37, 0.12);
+  --primary-glow: rgba(211, 37, 37, 0.35);
 
-  /* Secondary Accents — Blueprint Steel & Amber Ember Highlights */
-  --secondary: #0D1422;
-  --secondary-hover: #00D8FF;
-  --secondary-light: #162238;
-  --secondary-subtle: rgba(0, 216, 255, 0.08);
-  --accent-cyan: #00D8FF;
-  --accent-teal: #00E5FF;
-  --accent-steel: #8EA2B8;
-  --accent-purple: #00D8FF;
-  --accent-indigo: #0099FF;
-  --accent-amber: #FF7A00;
+  /* Secondary Accents — Strict Brutalist Monochromes */
+  --secondary: #141414;
+  --secondary-hover: #222222;
+  --secondary-light: #2A2A2A;
+  --secondary-subtle: rgba(255, 255, 255, 0.05);
+  --accent-cyan: #D32525;
+  --accent-teal: #D32525;
+  --accent-steel: #888888;
+  --accent-purple: #D32525;
+  --accent-indigo: #D32525;
+  --accent-amber: #D32525;
   --accent-emerald: #10B981;
-  --accent-rose: #FF5252;
+  --accent-rose: #D32525;
 
   /* Architectural Sharp Brutalist Grid Lines & Dividers */
   --border-subtle: #222222;
   --border-medium: #222222;
   --border-strong: #333333;
-  --border-highlight: #444444;
-  --border-focus: #FFFFFF;
+  --border-highlight: #D32525;
+  --border-focus: #D32525;
 
   /* Zero glowing box-shadows (brutalist, hand-coded engineering feel) */
   --shadow-subtle: none;
@@ -59,10 +59,10 @@
   --shadow-primary: none;
 
   /* UI Frame Chrome */
-  --frame-header: #0B111C;
-  --frame-dot-close: #00D8FF;
-  --frame-dot-min: #5C7086;
-  --frame-dot-max: #FFFFFF;
+  --frame-header: #111111;
+  --frame-dot-close: #D32525;
+  --frame-dot-min: #555555;
+  --frame-dot-max: #888888;
 
   /* Typography Scale — Modern Geometric Sans (Inter) + JetBrains Mono */
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -132,23 +132,38 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   color: var(--text-white);
-  line-height: 1.05;
+  line-height: 1.1 !important;
   font-weight: 800;
-  letter-spacing: -0.035em;
+  letter-spacing: -0.01em;
   text-transform: uppercase;
 }
 
 h1 {
-  font-size: clamp(2.8rem, 6.5vw, 5.5rem);
-  line-height: 0.95;
-  letter-spacing: -0.04em;
+  font-size: clamp(2.4rem, 5vw, 4.4rem);
+  line-height: 1.1 !important;
+  letter-spacing: -0.01em;
   font-weight: 800;
+}
+
+h2 {
+  font-size: clamp(1.8rem, 3.4vw, 2.8rem);
+  line-height: 1.1 !important;
+  letter-spacing: -0.01em;
+  font-weight: 800;
+}
+
+h3 {
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  line-height: 1.1 !important;
+  letter-spacing: -0.01em;
+  font-weight: 700;
 }
 
 p {
   color: var(--text-muted);
-  font-size: 1.02rem;
-  line-height: 1.72;
+  font-size: 1rem;
+  line-height: 1.5 !important;
+  letter-spacing: normal !important;
 }
 
 a {
@@ -204,28 +219,28 @@ img:not(.brand-logo):not(.logo-img):not(.halloween-asset):hover {
   transition: background-color 0.12s ease, color 0.12s ease, border-color 0.12s ease !important;
 }
 
-/* Primary Button: Clean White block with sharp 1px #222 border, 0 glowing shadows */
+/* Primary Button: Brand Red (#D32525) */
 .btn-primary {
-  background-color: #FFFFFF !important;
-  color: #0A0A0A !important;
-  border: 1px solid #222222 !important;
+  background-color: #D32525 !important;
+  color: #FFFFFF !important;
+  border: 1px solid #D32525 !important;
   border-radius: 0px !important;
   box-shadow: none !important;
   font-weight: 700 !important;
 }
 
 .btn-primary:hover {
-  background-color: #EAEAEA !important;
-  border-color: #333333 !important;
-  color: #000000 !important;
+  background-color: #B71C1C !important;
+  border-color: #B71C1C !important;
+  color: #FFFFFF !important;
   transform: none !important;
   box-shadow: none !important;
 }
 
 .btn-primary:active {
-  background-color: #CCCCCC !important;
-  border-color: #444444 !important;
-  color: #000000 !important;
+  background-color: #991B1B !important;
+  border-color: #991B1B !important;
+  color: #FFFFFF !important;
   transform: none !important;
 }
 
@@ -240,7 +255,7 @@ img:not(.brand-logo):not(.logo-img):not(.halloween-asset):hover {
 
 .btn-secondary:hover {
   background-color: #1A1A1A !important;
-  border-color: #333333 !important;
+  border-color: #D32525 !important;
   color: #FFFFFF !important;
   transform: none !important;
   box-shadow: none !important;
@@ -269,12 +284,12 @@ img:not(.brand-logo):not(.logo-img):not(.halloween-asset):hover {
   gap: 8px;
   padding: 5px 12px;
   border-radius: 0px !important;
-  background: #0B1220;
-  border: 1px solid rgba(0, 216, 255, 0.25);
+  background: #111111;
+  border: 1px solid #222222;
   font-family: var(--font-mono);
   font-size: 0.74rem;
   font-weight: 700;
-  color: #00D8FF;
+  color: #FFFFFF;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   margin-bottom: 20px;
@@ -778,7 +793,7 @@ img:not(.brand-logo):not(.logo-img):not(.halloween-asset):hover {
   width: 100%;
   background: transparent;
   border: none;
-  border-bottom: 1px solid rgba(0, 216, 255, 0.25);
+  border-bottom: 1px solid rgba(211, 37, 37, 0.25);
   border-radius: 0px !important;
   color: #ffffff;
   font-family: var(--font-sans);
@@ -811,7 +826,7 @@ img:not(.brand-logo):not(.logo-img):not(.halloween-asset):hover {
 }
 
 .agency-select-minimal:focus ~ .select-arrow {
-  color: #00D8FF;
+  color: #D32525;
   transform: rotate(180deg);
 }
 
@@ -819,16 +834,16 @@ img:not(.brand-logo):not(.logo-img):not(.halloween-asset):hover {
 .email-mailto-link {
   color: #FFFFFF !important;
   text-decoration: none !important;
-  border-bottom: 1px dotted rgba(0, 216, 255, 0.5);
+  border-bottom: 1px dotted rgba(211, 37, 37, 0.5);
   transition: color 0.15s ease, border-color 0.15s ease;
   cursor: pointer;
   display: inline-block;
 }
 
 .email-mailto-link:hover {
-  color: #00D8FF !important;
-  border-bottom: 1px solid #00D8FF !important;
-  text-shadow: 0 0 10px rgba(0, 216, 255, 0.5);
+  color: #D32525 !important;
+  border-bottom: 1px solid #D32525 !important;
+  text-shadow: 0 0 10px rgba(211, 37, 37, 0.5);
 }
 
 /* Custom Select Popout Scrollbar */
@@ -843,7 +858,7 @@ img:not(.brand-logo):not(.logo-img):not(.halloween-asset):hover {
   border-radius: 0px;
 }
 .custom-select-menu::-webkit-scrollbar-thumb:hover {
-  background: #00D8FF;
+  background: #D32525;
 }
 
 /* Pill Selectors */
@@ -1525,16 +1540,16 @@ img:not(.brand-logo):not(.logo-img):not(.halloween-asset):hover {
   color: #FFFFFF !important;
   text-decoration: underline dotted !important;
   text-underline-offset: 4px;
-  text-decoration-color: rgba(0, 216, 255, 0.5) !important;
+  text-decoration-color: rgba(211, 37, 37, 0.5) !important;
   cursor: pointer;
   transition: color 0.18s ease, text-decoration-color 0.18s ease;
 }
 
 .email-mailto-link:hover {
-  color: #00D8FF !important;
+  color: #D32525 !important;
   text-decoration: underline solid !important;
-  text-decoration-color: #00D8FF !important;
-  text-shadow: 0 0 10px rgba(0, 216, 255, 0.5);
+  text-decoration-color: #D32525 !important;
+  text-shadow: 0 0 10px rgba(211, 37, 37, 0.5);
 }
 
 /* Custom Select Menu Scrollbar */
@@ -1548,14 +1563,14 @@ img:not(.brand-logo):not(.logo-img):not(.halloween-asset):hover {
   background: #162438;
 }
 .custom-select-menu::-webkit-scrollbar-thumb:hover {
-  background: #00D8FF;
+  background: #D32525;
 }
 
 /* High-Contrast Dark Blueprint Background Grids */
 .blueprint-grid-overlay {
   background-image: 
-    linear-gradient(to right, rgba(0, 216, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 216, 255, 0.04) 1px, transparent 1px);
+    linear-gradient(to right, rgba(211, 37, 37, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(211, 37, 37, 0.04) 1px, transparent 1px);
   background-size: 40px 40px;
 }
 

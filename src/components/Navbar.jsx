@@ -101,8 +101,8 @@ export default function Navbar({ onOpenQuote }) {
                 style={{
                   fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, sans-serif',
                   fontSize: '0.88rem',
-                  fontWeight: isActive ? 600 : 500,
-                  color: isActive ? '#FFFFFF' : '#888888',
+                  fontWeight: isActive ? 700 : 500,
+                  color: isActive ? '#D32525' : '#888888',
                   textDecoration: 'none',
                   padding: '6px 0',
                   letterSpacing: '0.01em',
@@ -119,7 +119,7 @@ export default function Navbar({ onOpenQuote }) {
                       left: 0,
                       width: '100%',
                       height: '2px',
-                      backgroundColor: '#FFFFFF'
+                      backgroundColor: '#D32525'
                     }}
                   />
                 )}
@@ -140,9 +140,6 @@ export default function Navbar({ onOpenQuote }) {
               fontWeight: 700,
               letterSpacing: '0.04em',
               textTransform: 'uppercase',
-              border: '1px solid #222222',
-              backgroundColor: '#FFFFFF',
-              color: '#0A0A0A',
               boxShadow: 'none'
             }}
           >
@@ -234,9 +231,6 @@ export default function Navbar({ onOpenQuote }) {
               style={{
                 width: '100%',
                 height: '44px',
-                backgroundColor: '#FFFFFF',
-                color: '#0A0A0A',
-                border: '1px solid #222222',
                 boxShadow: 'none',
                 fontWeight: 700
               }}

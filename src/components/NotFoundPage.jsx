@@ -32,7 +32,7 @@ export default function NotFoundPage() {
 
       <div className="container" style={{ textAlign: 'center', maxWidth: '720px' }}>
         {/* Minimal Terminal Tag */}
-        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '20px', padding: '6px 14px', borderRadius: '0px', background: 'rgba(0, 216, 255, 0.1)', border: '1px solid rgba(0, 216, 255, 0.35)', color: '#00D8FF', fontFamily: 'var(--font-mono)', fontSize: '0.8rem' }}>
+        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '20px', padding: '6px 14px', borderRadius: '0px', background: 'rgba(211, 37, 37, 0.1)', border: '1px solid rgba(211, 37, 37, 0.35)', color: '#D32525', fontFamily: 'var(--font-mono)', fontSize: '0.8rem' }}>
           <span>●</span>
           <span>HTTP STATUS 404: RESOURCE_NOT_FOUND</span>
         </div>
@@ -48,7 +48,7 @@ export default function NotFoundPage() {
             lineHeight: 1,
             marginBottom: '20px',
             letterSpacing: '-0.04em',
-            textShadow: '0 0 40px rgba(0, 216, 255, 0.25)'
+            textShadow: '0 0 40px rgba(211, 37, 37, 0.25)'
           }}
         >
           404
@@ -105,7 +105,7 @@ export default function NotFoundPage() {
           }}
         >
           <div><span style={{ color: 'var(--primary-light)' }}>const</span> <span style={{ color: '#ffffff' }}>page</span> = router.resolve(window.location.pathname);</div>
-          <div style={{ color: '#00D8FF' }}>// Error: page === undefined</div>
+          <div style={{ color: '#D32525' }}>// Error: page === undefined</div>
           <div><span style={{ color: '#10b981' }}>window</span>.location.href = <span style={{ color: '#f59e0b' }}>'/'</span>;</div>
         </div>
       </div>
