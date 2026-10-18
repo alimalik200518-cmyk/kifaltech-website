@@ -15,9 +15,10 @@ export const agencyData = {
     whatMakesUsSpecial: "Our 100% remote global model unites North American product oversight with senior Pakistani software engineering. Clients work directly with founders Henry (USA) and Muhammad Ali (Karachi), ensuring rapid turnaround, seamless timezone coverage (EST to PKT), and production-grade architectures.",
     email: "info@kifaltech.com",
     formEndpoint: "forms@kifaltech.com",
-    inquiryPhone: "+1 (555) 123-4567",
+    inquiryPhone: "+92 317 670 4325",
     intlPhone: "+92 317 670 4325",
     whatsapp: "+92 317 670 4325",
+    whatsappUrl: "https://wa.me/923176704325",
     headquarters: "100% Remote Global Digital Agency",
     offices: [
       {
@@ -27,8 +28,7 @@ export const agencyData = {
         leadName: "Henry",
         leadRole: "Head of Product & Co-Founder",
         location: "USA (Remote Operations)",
-        phone: "+1 (555) 123-4567",
-        telLink: "+15551234567",
+        whatsappUrl: "https://wa.me/923176704325",
         focus: "UX Strategy, Commercial Scoping & Client Delivery",
         flag: "🇺🇸",
         hours: "9:00 AM – 6:00 PM EST"
@@ -40,8 +40,7 @@ export const agencyData = {
         leadName: "Muhammad Ali",
         leadRole: "Technical Lead & Co-Founder",
         location: "Karachi, Pakistan",
-        phone: "+92 317 670 4325",
-        telLink: "+923176704325",
+        whatsappUrl: "https://wa.me/923176704325",
         focus: "Cloud Architecture, React Systems & Core Engineering",
         flag: "🇵🇰",
         hours: "9:00 AM – 7:00 PM PKT"

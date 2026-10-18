@@ -124,7 +124,7 @@ export default function ContactPage() {
     <div className="bg-dark-slate-texture" style={{ paddingTop: '110px', minHeight: '100vh' }}>
       <SEOHead
         title="Contact KifalTech | 100% Remote Global Digital Agency"
-        description="Schedule a technical consultation with KifalTech's founders. Direct dual-presence operations in North America (+1 555-123-4567) and Pakistan (+92 317 670 4325)."
+        description="Schedule a technical consultation with KifalTech's founders. Direct dual-presence operations bridging North America and Pakistan via WhatsApp and scheduled engineering consultations."
         canonical="https://kifaltech.com/contact"
         breadcrumbs={breadcrumbs}
       />
@@ -157,17 +157,17 @@ export default function ContactPage() {
               {/* Dual Presence Blocks */}
               <div style={{ marginBottom: '28px' }}>
                 <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.76rem', color: 'var(--primary-light)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '16px', fontWeight: 600 }}>
-                  OUR PRESENCE • NORTH AMERICA & SOUTH ASIA
+                  OUR PRESENCE • NORTH AMERICA &amp; SOUTH ASIA
                 </div>
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                   {/* USA Office */}
-                  <div className="agency-card" style={{ padding: '22px' }}>
+                  <div className="agency-card" style={{ padding: '22px', border: '1px solid #222222' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
                       <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.74rem', color: 'var(--primary-light)', textTransform: 'uppercase', fontWeight: 600 }}>
-                        USA OPERATIONS 🇺🇸
+                        USA STRATEGY HUB 🇺🇸
                       </span>
-                      <span style={{ fontSize: '0.7rem', fontFamily: 'var(--font-mono)', color: 'var(--text-dim)', background: 'rgba(255, 255, 255, 0.05)', padding: '2px 8px', borderRadius: '4px' }}>
+                      <span style={{ fontSize: '0.7rem', fontFamily: 'var(--font-mono)', color: 'var(--text-dim)', background: 'rgba(255, 255, 255, 0.05)', padding: '2px 8px', borderRadius: '0px' }}>
                         9:00 AM – 6:00 PM EST
                       </span>
                     </div>
@@ -175,25 +175,31 @@ export default function ContactPage() {
                       Henry
                     </div>
                     <div style={{ fontSize: '0.84rem', color: 'var(--text-muted)', marginBottom: '12px' }}>
-                      Head of Product & Co-Founder
+                      Head of Product &amp; Co-Founder
                     </div>
-                    <div style={{ fontSize: '0.82rem', color: 'var(--text-dim)', marginBottom: '8px', lineHeight: 1.5 }}>
-                      Focus: Product Strategy, UX Architecture & Commercial Scoping
+                    <div style={{ fontSize: '0.82rem', color: 'var(--text-dim)', marginBottom: '14px', lineHeight: 1.5 }}>
+                      Focus: Product Strategy, UX Architecture &amp; Commercial Scoping
                     </div>
-                    <div style={{ borderTop: '1px solid rgba(255, 255, 255, 0.06)', paddingTop: '10px', marginTop: '10px' }}>
-                      <a href="tel:+15551234567" style={{ fontFamily: 'var(--font-mono)', fontSize: '0.92rem', color: '#ffffff', textDecoration: 'none', fontWeight: 600 }}>
-                        📞 +1 (555) 123-4567
+                    <div style={{ borderTop: '1px solid #222222', paddingTop: '12px' }}>
+                      <a
+                        href={`https://wa.me/923176704325?text=${encodeURIComponent("Hello KifalTech, I'd like to discuss a project with US Product Leadership.")}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', color: '#25D366', textDecoration: 'none', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '6px' }}
+                      >
+                        <span>💬</span>
+                        <span>Chat on WhatsApp</span>
                       </a>
                     </div>
                   </div>
 
                   {/* Pakistan Office */}
-                  <div className="agency-card" style={{ padding: '22px' }}>
+                  <div className="agency-card" style={{ padding: '22px', border: '1px solid #222222' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
                       <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.74rem', color: '#10b981', textTransform: 'uppercase', fontWeight: 600 }}>
-                        PAKISTAN OFFICE 🇵🇰
+                        PAKISTAN ENGINEERING HUB 🇵🇰
                       </span>
-                      <span style={{ fontSize: '0.7rem', fontFamily: 'var(--font-mono)', color: 'var(--text-dim)', background: 'rgba(255, 255, 255, 0.05)', padding: '2px 8px', borderRadius: '4px' }}>
+                      <span style={{ fontSize: '0.7rem', fontFamily: 'var(--font-mono)', color: 'var(--text-dim)', background: 'rgba(255, 255, 255, 0.05)', padding: '2px 8px', borderRadius: '0px' }}>
                         9:00 AM – 7:00 PM PKT
                       </span>
                     </div>
@@ -201,22 +207,20 @@ export default function ContactPage() {
                       Muhammad Ali
                     </div>
                     <div style={{ fontSize: '0.84rem', color: 'var(--text-muted)', marginBottom: '4px' }}>
-                      Technical Lead & Co-Founder
+                      Technical Lead &amp; Co-Founder
                     </div>
-                    <div style={{ fontSize: '0.82rem', color: 'var(--text-dim)', marginBottom: '8px' }}>
+                    <div style={{ fontSize: '0.82rem', color: 'var(--text-dim)', marginBottom: '14px' }}>
                       Location: <strong>Karachi, Pakistan</strong> (Core Engineering Hub)
                     </div>
-                    <div style={{ borderTop: '1px solid rgba(255, 255, 255, 0.06)', paddingTop: '10px', marginTop: '10px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '8px' }}>
-                      <a href="tel:+923176704325" style={{ fontFamily: 'var(--font-mono)', fontSize: '0.92rem', color: '#ffffff', textDecoration: 'none', fontWeight: 600 }}>
-                        📞 +92 317 670 4325
-                      </a>
+                    <div style={{ borderTop: '1px solid #222222', paddingTop: '12px' }}>
                       <a
-                        href={`https://wa.me/923176704325?text=${encodeURIComponent("Hello Muhammad Ali, I'd like to discuss a project with KifalTech.")}`}
+                        href={`https://wa.me/923176704325?text=${encodeURIComponent("Hello Muhammad Ali, I'd like to discuss engineering with KifalTech.")}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        style={{ color: '#10b981', fontSize: '0.78rem', textDecoration: 'none', fontWeight: 600, background: 'rgba(16, 185, 129, 0.1)', padding: '3px 8px', borderRadius: '4px' }}
+                        style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', color: '#25D366', textDecoration: 'none', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '6px' }}
                       >
-                        💬 WhatsApp
+                        <span>💬</span>
+                        <span>Chat on WhatsApp</span>
                       </a>
                     </div>
                   </div>

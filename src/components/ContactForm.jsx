@@ -158,7 +158,7 @@ export default function ContactForm() {
                 <div style={{ padding: '16px 18px', backgroundColor: '#0E0E0E', border: '1px solid rgba(255, 255, 255, 0.14)', borderRadius: '0px' }}>
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '6px' }}>
                     <span style={{ fontSize: '0.75rem', fontFamily: 'var(--font-mono)', color: '#FFFFFF', textTransform: 'uppercase', fontWeight: 600 }}>
-                      USA OFFICE 🇺🇸
+                      USA STRATEGY HUB 🇺🇸
                     </span>
                     <span style={{ fontSize: '0.68rem', fontFamily: 'var(--font-mono)', color: 'var(--text-dim)' }}>EST Hub</span>
                   </div>
@@ -169,19 +169,21 @@ export default function ContactForm() {
                     Head of Product &amp; Co-Founder
                   </div>
                   <a
-                    href="tel:+15551234567"
-                    style={{ fontSize: '0.86rem', color: '#ffffff', fontFamily: 'var(--font-mono)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '6px' }}
+                    href={`https://wa.me/923176704325?text=${encodeURIComponent("Hello KifalTech, I'd like to discuss a project with US Product Leadership.")}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ fontSize: '0.82rem', color: '#25D366', fontFamily: 'var(--font-mono)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '6px', fontWeight: 600 }}
                   >
-                    <span>📞</span>
-                    <span>+1 (555) 123-4567</span>
+                    <span>💬</span>
+                    <span>Chat on WhatsApp</span>
                   </a>
                 </div>
 
                 {/* Pakistan Office */}
-                <div style={{ padding: '16px 18px', backgroundColor: '#0E0E0E', border: '1px solid rgba(255, 255, 255, 0.14)', borderRadius: '0px' }}>
+                <div style={{ padding: '16px 18px', backgroundColor: '#0E0E0E', border: '1px solid #222222', borderRadius: '0px' }}>
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '6px' }}>
                     <span style={{ fontSize: '0.75rem', fontFamily: 'var(--font-mono)', color: '#FFFFFF', textTransform: 'uppercase', fontWeight: 600 }}>
-                      PAKISTAN OFFICE 🇵🇰
+                      PAKISTAN ENGINEERING HUB 🇵🇰
                     </span>
                     <span style={{ fontSize: '0.68rem', fontFamily: 'var(--font-mono)', color: 'var(--text-dim)' }}>PKT Hub</span>
                   </div>
@@ -191,22 +193,24 @@ export default function ContactForm() {
                   <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginBottom: '4px' }}>
                     Technical Lead &amp; Co-Founder
                   </div>
-                  <div style={{ fontSize: '0.75rem', color: 'var(--text-dim)', marginBottom: '6px' }}>
+                  <div style={{ fontSize: '0.75rem', color: 'var(--text-dim)', marginBottom: '8px' }}>
                     Karachi, Pakistan
                   </div>
                   <a
-                    href="tel:+923176704325"
-                    style={{ fontSize: '0.86rem', color: '#ffffff', fontFamily: 'var(--font-mono)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '6px' }}
+                    href={`https://wa.me/923176704325?text=${encodeURIComponent("Hello Muhammad Ali, I'd like to discuss engineering with KifalTech.")}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ fontSize: '0.82rem', color: '#25D366', fontFamily: 'var(--font-mono)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '6px', fontWeight: 600 }}
                   >
-                    <span>📞</span>
-                    <span>+92 317 670 4325</span>
+                    <span>💬</span>
+                    <span>Chat on WhatsApp</span>
                   </a>
                 </div>
               </div>
             </div>
 
             {/* Email CTA */}
-            <div style={{ padding: '18px 22px', backgroundColor: '#0E0E0E', border: '1px solid rgba(255, 255, 255, 0.14)', borderRadius: '0px', marginBottom: '24px' }}>
+            <div style={{ padding: '18px 22px', backgroundColor: '#0E0E0E', border: '1px solid #222222', borderRadius: '0px', marginBottom: '24px' }}>
               <div style={{ fontSize: '0.74rem', fontFamily: 'var(--font-mono)', color: '#9E9E9E', textTransform: 'uppercase', marginBottom: '4px', fontWeight: 600 }}>
                 PRIMARY EMAIL INQUIRIES
               </div>
@@ -227,12 +231,13 @@ export default function ContactForm() {
                     fontWeight: 600,
                     fontSize: '0.8rem',
                     background: 'rgba(255, 255, 255, 0.08)',
-                    padding: '4px 10px',
+                    padding: '6px 12px',
                     borderRadius: '0px',
-                    border: '1px solid rgba(255, 255, 255, 0.2)'
+                    border: '1px solid #222222'
                   }}
                 >
-                  <span>💬 WhatsApp (+92 317 670 4325)</span>
+                  <span style={{ color: '#25D366' }}>💬</span>
+                  <span>Chat on WhatsApp</span>
                 </a>
               </div>
             </div>

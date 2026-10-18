@@ -3,6 +3,7 @@ import { RouterProvider, useRouter } from './components/Router.jsx';
 import SEOHead from './components/SEOHead.jsx';
 import Navbar from './components/Navbar.jsx';
 import Footer from './components/Footer.jsx';
+import FloatingWhatsApp from './components/FloatingWhatsApp.jsx';
 
 // Halloween 2026 Campaign Components & Config
 import { HALLOWEEN_CONFIG } from './config/halloweenConfig.js';
@@ -130,7 +131,7 @@ function AppContent() {
     // 1. Home
     if (currentPath === '/' || currentPath === '') {
       return (
-        <main style={{ flex: 1, paddingTop: '104px' }}>
+        <main style={{ flex: 1, paddingTop: '72px' }}>
           <SEOHead
             title={agencyData.pageSEO.home.title}
             description={agencyData.pageSEO.home.metaDesc}
@@ -301,21 +302,7 @@ function AppContent() {
   };
 
   return (
-    <div className={`site-wrapper ${HALLOWEEN_CONFIG.enabled ? 'halloween-theme-active' : ''}`} style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
-      {/* Halloween Top Promotional Banner */}
-      {HALLOWEEN_CONFIG.enabled && (
-        <HalloweenBanner onOpenOffer={() => setHalloweenModalOpen(true)} />
-      )}
-
-      {/* Ambient Halloween Particles */}
-      {HALLOWEEN_CONFIG.enabled && <HalloweenParticles />}
-
-      {/* Geometric Cyber-Webs in Viewport Corners */}
-      {HALLOWEEN_CONFIG.enabled && HALLOWEEN_CONFIG.animations?.cyberWebs && <CyberWebs />}
-
-      {/* Custom Phosphor Cursor with Faint Fog Trail */}
-      {HALLOWEEN_CONFIG.enabled && HALLOWEEN_CONFIG.animations?.phosphorCursor && <PhosphorCursor />}
-
+    <div className="site-wrapper" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       {/* Sticky Navigation */}
       <Navbar
         onOpenQuote={() => handleOpenProposal()}
@@ -331,11 +318,6 @@ function AppContent() {
         onOpenQuickFix={() => setQuickFixOpen(true)}
       />
 
-      {/* Floating Halloween Ghost Companion */}
-      {HALLOWEEN_CONFIG.enabled && HALLOWEEN_CONFIG.animations?.ghostCompanion && (
-        <HalloweenGhost onClaimOffer={(offer) => handleOpenProposal(offer)} />
-      )}
-
       {/* Floating Back to Top Button */}
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
@@ -347,6 +329,9 @@ function AppContent() {
           <path d="M18 15l-6-6-6 6"/>
         </svg>
       </button>
+
+      {/* Sleek Floating WhatsApp Integration */}
+      <FloatingWhatsApp />
 
       {/* Interactive Modals */}
       <ProposalModal

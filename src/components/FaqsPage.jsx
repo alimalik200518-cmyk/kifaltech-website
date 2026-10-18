@@ -80,7 +80,7 @@ export default function FaqsPage({ onOpenInquiry }) {
   );
 
   return (
-    <div style={{ paddingTop: '110px', minHeight: '100vh', backgroundColor: 'var(--bg-main)' }}>
+    <div style={{ paddingTop: '72px', minHeight: '100vh', backgroundColor: '#0A0A0A' }}>
       <SEOHead
         title="Client FAQs | Code Ownership, Timezones & SLAs | KifalTech"
         description="Clear, honest answers to common B2B questions about KifalTech: code ownership, US & Pakistan timezone collaboration, project timelines, and post-launch SLAs."
@@ -89,63 +89,64 @@ export default function FaqsPage({ onOpenInquiry }) {
         breadcrumbs={breadcrumbs}
       />
 
-      <section className="section-spacing" style={{ paddingTop: '20px' }}>
-        <div className="container" style={{ maxWidth: '900px' }}>
+      <section className="section-spacing" style={{ paddingTop: '28px' }}>
+        <div className="container">
           <nav className="breadcrumb-nav" aria-label="Breadcrumb">
             <Link to="/">Home</Link>
             <span className="breadcrumb-separator">/</span>
             <span className="breadcrumb-current">Client FAQs</span>
           </nav>
 
-          <div style={{ maxWidth: '820px', marginBottom: '44px' }}>
+          <div style={{ maxWidth: '860px', marginBottom: '44px' }}>
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '14px' }}>
-              <span className="pulse-indicator"></span>
-              <span className="eyebrow" style={{ marginBottom: 0 }}>
+              <span className="eyebrow" style={{ marginBottom: 0, border: '1px solid #222222', backgroundColor: '#111111', color: '#FFFFFF' }}>
                 100% REMOTE GLOBAL DIGITAL AGENCY
               </span>
             </div>
-            <h1 style={{ fontSize: 'clamp(2.4rem, 4.5vw, 3.6rem)', marginBottom: '18px', lineHeight: 1.15 }}>
+            <h1 style={{ fontSize: 'clamp(2.4rem, 4.5vw, 3.8rem)', marginBottom: '18px', lineHeight: 1.12, textTransform: 'uppercase', letterSpacing: '-0.03em' }}>
               Client FAQs &amp; Operational Standards
             </h1>
-            <p style={{ fontSize: '1.16rem', lineHeight: 1.7, color: 'var(--text-muted)' }}>
+            <p style={{ fontSize: '1.14rem', lineHeight: 1.7, color: 'var(--text-muted)' }}>
               Transparent answers regarding source code ownership, our dual US/Pakistan timezone model, sprint milestones, and production SLAs.
             </p>
           </div>
 
           {/* Search Filter Input */}
-          <div style={{ marginBottom: '28px' }}>
+          <div style={{ marginBottom: '28px', maxWidth: '860px' }}>
             <div className="agency-field-group">
-              <input
-                type="text"
-                placeholder="Search questions (e.g. code ownership, timezones, timeline, SLA, pricing)..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="agency-input-minimal"
-                style={{ fontSize: '1rem', padding: '14px 4px' }}
-                aria-label="Search FAQs"
-              />
-              <div className="field-underline-bar" />
+              <div className="field-underline-wrapper">
+                <input
+                  type="text"
+                  placeholder="Search questions (e.g. code ownership, timezones, timeline, SLA, pricing)..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="agency-input-minimal"
+                  style={{ fontSize: '1rem', padding: '12px 0', borderBottom: '1px solid #222222' }}
+                  aria-label="Search FAQs"
+                />
+                <div className="field-underline-bar" style={{ backgroundColor: '#FFFFFF' }} />
+              </div>
             </div>
           </div>
 
           {/* Category Tabs */}
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '40px' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '40px', maxWidth: '860px' }}>
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
                 style={{
-                  padding: '8px 18px',
-                  borderRadius: 'var(--radius-full)',
+                  padding: '8px 16px',
+                  borderRadius: '0px',
                   border: '1px solid',
-                  borderColor: activeCategory === cat ? 'var(--primary-light)' : 'rgba(255, 255, 255, 0.12)',
-                  background: activeCategory === cat ? 'rgba(139, 92, 246, 0.15)' : 'rgba(255, 255, 255, 0.02)',
-                  color: activeCategory === cat ? '#ffffff' : 'var(--text-muted)',
+                  borderColor: activeCategory === cat ? '#FFFFFF' : '#222222',
+                  background: activeCategory === cat ? '#FFFFFF' : '#0E0E0E',
+                  color: activeCategory === cat ? '#0A0A0A' : 'var(--text-muted)',
                   fontFamily: 'var(--font-mono)',
                   fontSize: '0.8rem',
                   fontWeight: 600,
                   cursor: 'pointer',
-                  transition: 'all 0.2s ease'
+                  transition: 'all 0.15s ease'
                 }}
               >
                 {cat}
@@ -153,10 +154,10 @@ export default function FaqsPage({ onOpenInquiry }) {
             ))}
           </div>
 
-          {/* Elegant Accordion List */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', marginBottom: '60px' }}>
+          {/* Elegant Accordion List with Strict #222 Borders */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '60px', maxWidth: '860px' }}>
             {filteredFaqs.length === 0 ? (
-              <div className="agency-card" style={{ padding: '36px', textAlign: 'center' }}>
+              <div className="agency-card" style={{ padding: '36px', textAlign: 'center', border: '1px solid #222222', backgroundColor: '#0E0E0E' }}>
                 <p style={{ color: 'var(--text-muted)', margin: 0 }}>No questions matched your search query. Feel free to contact our engineering leads directly.</p>
               </div>
             ) : (
@@ -166,11 +167,10 @@ export default function FaqsPage({ onOpenInquiry }) {
                   <div
                     key={idx}
                     style={{
-                      borderRadius: 'var(--radius-sm)',
-                      background: isOpen ? '#181313' : 'rgba(255, 255, 255, 0.02)',
-                      border: '1px solid',
-                      borderColor: isOpen ? 'rgba(139, 92, 246, 0.35)' : 'rgba(255, 255, 255, 0.06)',
-                      transition: 'all 0.25s ease',
+                      borderRadius: '0px',
+                      background: isOpen ? '#141414' : '#0C0C0C',
+                      border: '1px solid #222222',
+                      transition: 'background-color 0.15s ease',
                       overflow: 'hidden'
                     }}
                   >
@@ -178,7 +178,7 @@ export default function FaqsPage({ onOpenInquiry }) {
                       onClick={() => setActiveIdx(isOpen ? -1 : idx)}
                       style={{
                         width: '100%',
-                        padding: '22px 24px',
+                        padding: '20px 24px',
                         background: 'transparent',
                         border: 'none',
                         color: '#ffffff',
@@ -189,31 +189,18 @@ export default function FaqsPage({ onOpenInquiry }) {
                         cursor: 'pointer',
                         textAlign: 'left'
                       }}
-                      aria-expanded={isOpen}
                     >
-                      <div>
-                        <span style={{ fontSize: '0.72rem', fontFamily: 'var(--font-mono)', color: 'var(--primary-light)', textTransform: 'uppercase', letterSpacing: '0.06em', display: 'block', marginBottom: '4px' }}>
-                          {faq.category}
-                        </span>
-                        <span style={{ fontSize: '1.08rem', fontWeight: 600, color: isOpen ? 'var(--primary-light)' : '#ffffff', lineHeight: 1.4 }}>
-                          {faq.q}
-                        </span>
-                      </div>
+                      <span style={{ fontSize: '1.02rem', fontWeight: 700, fontFamily: 'var(--font-heading)' }}>
+                        {faq.q}
+                      </span>
                       <span
                         style={{
-                          flexShrink: 0,
-                          width: '32px',
-                          height: '32px',
-                          borderRadius: '50%',
-                          background: isOpen ? 'var(--primary)' : 'rgba(255, 255, 255, 0.06)',
-                          color: '#ffffff',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          fontFamily: 'var(--font-mono)',
-                          fontSize: '1.1rem',
+                          fontSize: '1.2rem',
+                          color: '#FFFFFF',
                           transform: isOpen ? 'rotate(45deg)' : 'rotate(0deg)',
-                          transition: 'transform 0.2s ease, background 0.2s ease'
+                          transition: 'transform 0.2s ease',
+                          display: 'inline-block',
+                          flexShrink: 0
                         }}
                       >
                         +
@@ -223,11 +210,11 @@ export default function FaqsPage({ onOpenInquiry }) {
                     {isOpen && (
                       <div
                         style={{
-                          padding: '0 24px 24px 24px',
+                          padding: '0 24px 22px 24px',
                           color: 'var(--text-muted)',
-                          fontSize: '0.98rem',
-                          lineHeight: 1.75,
-                          borderTop: '1px solid rgba(255, 255, 255, 0.04)',
+                          fontSize: '0.96rem',
+                          lineHeight: 1.7,
+                          borderTop: '1px solid #222222',
                           paddingTop: '16px'
                         }}
                       >
@@ -244,22 +231,26 @@ export default function FaqsPage({ onOpenInquiry }) {
           <div
             className="agency-card"
             style={{
-              padding: 'clamp(36px, 5vw, 48px)',
-              border: '1px solid rgba(255, 255, 255, 0.08)',
+              padding: 'clamp(32px, 4vw, 44px)',
+              border: '1px solid #222222',
+              backgroundColor: '#0C0C0C',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'space-between',
               flexWrap: 'wrap',
-              gap: '24px'
+              gap: '24px',
+              borderRadius: '0px'
             }}
           >
-            <div style={{ maxWidth: '520px' }}>
-              <span className="eyebrow" style={{ marginBottom: '8px' }}>Direct Engineering Access</span>
-              <h3 style={{ fontSize: '1.6rem', color: '#ffffff', marginBottom: '8px' }}>
+            <div style={{ maxWidth: '540px' }}>
+              <span className="eyebrow" style={{ marginBottom: '8px', border: '1px solid #222222', backgroundColor: '#111111', color: '#FFFFFF' }}>
+                Direct Engineering Access
+              </span>
+              <h3 style={{ fontSize: '1.5rem', color: '#ffffff', marginBottom: '8px', textTransform: 'uppercase' }}>
                 Have an architecture question not listed here?
               </h3>
               <p style={{ fontSize: '0.94rem', color: 'var(--text-muted)', margin: 0, lineHeight: 1.6 }}>
-                Connect directly with Muhammad Ali (Technical Lead) or Henry (Head of Product) via <a href="mailto:info@kifaltech.com" style={{ color: 'var(--primary-light)', fontWeight: 600 }}>info@kifaltech.com</a>.
+                Connect directly with Muhammad Ali (Technical Lead) or Henry (Head of Product) via <a href="mailto:info@kifaltech.com" className="email-mailto-link" style={{ fontWeight: 600 }}>info@kifaltech.com</a>.
               </p>
             </div>
 
@@ -267,14 +258,14 @@ export default function FaqsPage({ onOpenInquiry }) {
               <a
                 href="mailto:info@kifaltech.com?subject=Technical%20Question%20for%20Engineering%20Leads"
                 className="btn btn-secondary"
-                style={{ padding: '12px 22px', fontSize: '0.88rem' }}
+                style={{ padding: '0 22px', height: '44px', fontSize: '0.84rem', border: '1px solid #222222', backgroundColor: '#111111', color: '#FFFFFF' }}
               >
                 Email Question
               </a>
               <button
                 onClick={onOpenInquiry}
                 className="btn btn-primary"
-                style={{ padding: '12px 24px', fontSize: '0.88rem' }}
+                style={{ padding: '0 24px', height: '44px', fontSize: '0.84rem', border: '1px solid #222222', backgroundColor: '#FFFFFF', color: '#0A0A0A' }}
               >
                 <span>Request Scope Consultation</span>
                 <SvgArrow />

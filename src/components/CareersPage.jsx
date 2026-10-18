@@ -112,7 +112,7 @@ export default function CareersPage() {
   );
 
   return (
-    <div style={{ paddingTop: '110px', minHeight: '100vh', backgroundColor: 'var(--bg-main)' }}>
+    <div style={{ paddingTop: '72px', minHeight: '100vh', backgroundColor: '#0A0A0A' }}>
       <SEOHead
         title="Careers | Build the Future from Anywhere | KifalTech"
         description="Join KifalTech's 100% remote global engineering and design collective bridging North America and South Asia. Explore open roles in React and UI/UX design."
@@ -120,7 +120,7 @@ export default function CareersPage() {
         breadcrumbs={breadcrumbs}
       />
 
-      <section className="section-spacing" style={{ paddingTop: '20px' }}>
+      <section className="section-spacing" style={{ paddingTop: '28px' }}>
         <div className="container">
           <nav className="breadcrumb-nav" aria-label="Breadcrumb">
             <Link to="/">Home</Link>
@@ -366,16 +366,17 @@ export default function CareersPage() {
             id="apply-form-section"
             className="agency-card"
             style={{
-              padding: 'clamp(36px, 5vw, 56px)',
-              border: '1px solid rgba(139, 92, 246, 0.25)',
-              backgroundColor: '#141010',
+              padding: 'clamp(32px, 4vw, 48px)',
+              border: '1px solid #222222',
+              backgroundColor: '#0C0C0C',
               maxWidth: '880px',
-              margin: '0 auto 80px auto'
+              margin: '0 auto 80px auto',
+              borderRadius: '0px'
             }}
           >
             <div style={{ marginBottom: '32px' }}>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '10px', marginBottom: '8px' }}>
-                <span className="eyebrow" style={{ marginBottom: 0 }}>
+                <span className="eyebrow" style={{ marginBottom: 0, border: '1px solid #222222', backgroundColor: '#111111', color: '#FFFFFF' }}>
                   TALENT INTAKE
                 </span>
                 <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.76rem', color: 'var(--text-dim)' }}>
@@ -389,7 +390,7 @@ export default function CareersPage() {
                   </a>
                 </span>
               </div>
-              <h3 style={{ fontSize: 'clamp(1.6rem, 2.6vw, 2.2rem)', color: '#ffffff', marginBottom: '8px' }}>
+              <h3 style={{ fontSize: 'clamp(1.6rem, 2.6vw, 2.2rem)', color: '#ffffff', marginBottom: '8px', textTransform: 'uppercase' }}>
                 {selectedRole ? `Submit Application: ${selectedRole.title}` : "Join the KifalTech Remote Collective"}
               </h3>
               <p style={{ fontSize: '0.94rem', color: 'var(--text-muted)', lineHeight: 1.6 }}>
@@ -399,7 +400,7 @@ export default function CareersPage() {
 
             {applied ? (
               <div className="transmission-success-card" style={{ padding: '36px 28px' }}>
-                <div style={{ width: '56px', height: '56px', borderRadius: '50%', background: 'rgba(16, 185, 129, 0.15)', color: 'var(--accent-emerald)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px auto', fontSize: '1.6rem' }}>
+                <div style={{ width: '56px', height: '56px', borderRadius: '0px', background: '#161616', border: '1px solid #222222', color: '#FFFFFF', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px auto', fontSize: '1.6rem' }}>
                   ✓
                 </div>
                 <h4 style={{ fontSize: '1.4rem', color: '#ffffff', marginBottom: '8px' }}>
@@ -410,14 +411,14 @@ export default function CareersPage() {
                 </p>
 
                 {appRef && (
-                  <div style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', background: 'rgba(0, 0, 0, 0.3)', border: '1px solid rgba(255, 255, 255, 0.12)', padding: '10px 18px', borderRadius: 'var(--radius-xs)', marginBottom: '24px' }}>
+                  <div style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', background: '#111111', border: '1px solid #222222', padding: '10px 18px', borderRadius: '0px', marginBottom: '24px' }}>
                     <span style={{ fontSize: '0.82rem', fontFamily: 'var(--font-mono)', color: 'var(--text-dim)' }}>TICKET REF:</span>
-                    <strong style={{ fontFamily: 'var(--font-mono)', color: 'var(--primary-light)', fontSize: '0.98rem' }}>{appRef}</strong>
+                    <strong style={{ fontFamily: 'var(--font-mono)', color: '#FFFFFF', fontSize: '0.98rem' }}>{appRef}</strong>
                     <button
                       type="button"
                       onClick={copyRefCode}
                       className="btn"
-                      style={{ padding: '4px 10px', fontSize: '0.74rem', background: 'rgba(255, 255, 255, 0.08)', border: '1px solid rgba(255, 255, 255, 0.14)', color: '#ffffff' }}
+                      style={{ padding: '4px 10px', fontSize: '0.74rem', background: '#1C1C1C', border: '1px solid #222222', color: '#ffffff' }}
                     >
                       {copiedRef ? 'Copied!' : 'Copy'}
                     </button>
@@ -431,7 +432,7 @@ export default function CareersPage() {
                       setApplicant({ name: '', email: '', portfolio: '', role: 'Senior React Engineer - Remote', note: '' });
                     }}
                     className="btn btn-secondary"
-                    style={{ fontSize: '0.84rem', padding: '8px 20px' }}
+                    style={{ fontSize: '0.84rem', padding: '8px 20px', border: '1px solid #222222' }}
                   >
                     Submit Another Application
                   </button>
@@ -441,11 +442,11 @@ export default function CareersPage() {
               <form onSubmit={handleApplySubmit} className="agency-form">
                 <div className="agency-form-grid" style={{ marginBottom: '24px' }}>
                   {/* Full Name */}
-                  <div className="agency-form-col-6">
-                    <div className="agency-field-group">
-                      <label className="floating-label active">
-                        Full Name <span className="required-asterisk">*</span>
-                      </label>
+                  <div className="agency-field-group col-span-6">
+                    <label className="agency-field-label">
+                      Full Name <span className="required-asterisk">*</span>
+                    </label>
+                    <div className="field-underline-wrapper">
                       <input
                         type="text"
                         name="name"
@@ -455,16 +456,16 @@ export default function CareersPage() {
                         placeholder="Your full legal or preferred name"
                         className="agency-input-minimal"
                       />
-                      <div className="field-underline-bar" />
+                      <div className="field-underline-bar" style={{ backgroundColor: '#FFFFFF' }} />
                     </div>
                   </div>
 
                   {/* Work Email */}
-                  <div className="agency-form-col-6">
-                    <div className="agency-field-group">
-                      <label className="floating-label active">
-                        Work / Personal Email <span className="required-asterisk">*</span>
-                      </label>
+                  <div className="agency-field-group col-span-6">
+                    <label className="agency-field-label">
+                      Work / Personal Email <span className="required-asterisk">*</span>
+                    </label>
+                    <div className="field-underline-wrapper">
                       <input
                         type="email"
                         name="email"
@@ -474,36 +475,38 @@ export default function CareersPage() {
                         placeholder="name@domain.com"
                         className="agency-input-minimal"
                       />
-                      <div className="field-underline-bar" />
+                      <div className="field-underline-bar" style={{ backgroundColor: '#FFFFFF' }} />
                     </div>
                   </div>
 
                   {/* Target Role Selector */}
-                  <div className="agency-form-col-6">
-                    <div className="agency-field-group">
-                      <label className="floating-label active">
-                        Target Position <span className="required-asterisk">*</span>
-                      </label>
+                  <div className="agency-field-group col-span-6">
+                    <label className="agency-field-label">
+                      Target Position <span className="required-asterisk">*</span>
+                    </label>
+                    <div className="field-underline-wrapper">
                       <select
                         name="role"
                         required
                         value={applicant.role}
                         onChange={(e) => setApplicant({ ...applicant, role: e.target.value })}
-                        className="agency-select-minimal"
+                        className="agency-input-minimal"
+                        style={{ cursor: 'pointer' }}
                       >
                         <option value="Senior React Engineer - Remote">Senior React Engineer - Remote</option>
                         <option value="UI/UX Designer - Remote">UI/UX Designer - Remote</option>
                         <option value="General Engineering Network">General Engineering Network</option>
                       </select>
+                      <div className="field-underline-bar" style={{ backgroundColor: '#FFFFFF' }} />
                     </div>
                   </div>
 
                   {/* GitHub or Portfolio Link */}
-                  <div className="agency-form-col-6">
-                    <div className="agency-field-group">
-                      <label className="floating-label active">
-                        GitHub / Portfolio URL <span className="required-asterisk">*</span>
-                      </label>
+                  <div className="agency-field-group col-span-6">
+                    <label className="agency-field-label">
+                      GitHub / Portfolio URL <span className="required-asterisk">*</span>
+                    </label>
+                    <div className="field-underline-wrapper">
                       <input
                         type="url"
                         name="portfolio"
@@ -513,16 +516,16 @@ export default function CareersPage() {
                         placeholder="https://github.com/username or portfolio link"
                         className="agency-input-minimal"
                       />
-                      <div className="field-underline-bar" />
+                      <div className="field-underline-bar" style={{ backgroundColor: '#FFFFFF' }} />
                     </div>
                   </div>
 
                   {/* Experience Summary Note */}
-                  <div className="agency-form-col-12">
-                    <div className="agency-field-group">
-                      <label className="floating-label active">
-                        Brief Background &amp; Standout Projects <span className="required-asterisk">*</span>
-                      </label>
+                  <div className="agency-field-group col-span-12">
+                    <label className="agency-field-label">
+                      Brief Background &amp; Standout Projects <span className="required-asterisk">*</span>
+                    </label>
+                    <div className="field-underline-wrapper">
                       <textarea
                         name="note"
                         required
@@ -532,7 +535,7 @@ export default function CareersPage() {
                         placeholder="Summarize your tech stack expertise, recent production wins, or links to live code..."
                         className="agency-textarea-minimal"
                       />
-                      <div className="field-underline-bar" />
+                      <div className="field-underline-bar" style={{ backgroundColor: '#FFFFFF' }} />
                     </div>
                   </div>
                 </div>

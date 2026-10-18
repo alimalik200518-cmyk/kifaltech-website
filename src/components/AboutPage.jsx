@@ -159,21 +159,27 @@ export default function AboutPage({ onStartProject }) {
               <p style={{ fontSize: '0.94rem', color: 'var(--text-muted)', lineHeight: 1.65, marginBottom: '22px' }}>
                 Leading product discovery, design token systems, client stakeholder alignments, and North American delivery pipelines.
               </p>
-              <div style={{ borderTop: '1px solid rgba(255, 255, 255, 0.08)', paddingTop: '16px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                <div style={{ fontSize: '0.8rem', fontFamily: 'var(--font-mono)', color: 'var(--text-dim)' }}>DIRECT LINE:</div>
-                <a href="tel:+15551234567" style={{ fontSize: '1.05rem', color: '#ffffff', textDecoration: 'none', fontFamily: 'var(--font-mono)', fontWeight: 600 }}>
-                  +1 (555) 123-4567
+              <div style={{ borderTop: '1px solid #222222', paddingTop: '16px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                <div style={{ fontSize: '0.78rem', fontFamily: 'var(--font-mono)', color: 'var(--text-dim)' }}>DIRECT INQUIRY:</div>
+                <a
+                  href={`https://wa.me/923176704325?text=${encodeURIComponent("Hello Henry, I'd like to discuss a project with KifalTech.")}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ fontSize: '0.88rem', color: '#25D366', textDecoration: 'none', fontFamily: 'var(--font-mono)', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '6px' }}
+                >
+                  <span>💬</span>
+                  <span>Chat on WhatsApp</span>
                 </a>
               </div>
             </div>
 
             {/* Pakistan Office Block */}
-            <div className="agency-card" style={{ padding: '36px', border: '1px solid rgba(16, 185, 129, 0.25)', position: 'relative' }}>
+            <div className="agency-card" style={{ padding: '36px', border: '1px solid #222222', position: 'relative' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '18px' }}>
-                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.82rem', color: 'var(--accent-emerald)', textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 700 }}>
-                  PAKISTAN OFFICE
+                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.82rem', color: '#10b981', textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 700 }}>
+                  PAKISTAN ENGINEERING HUB
                 </span>
-                <span style={{ fontSize: '0.75rem', fontFamily: 'var(--font-mono)', padding: '3px 10px', borderRadius: 'var(--radius-full)', background: 'rgba(16, 185, 129, 0.12)', color: 'var(--accent-emerald)' }}>
+                <span style={{ fontSize: '0.75rem', fontFamily: 'var(--font-mono)', padding: '3px 10px', borderRadius: '0px', background: 'rgba(16, 185, 129, 0.12)', color: 'var(--accent-emerald)', border: '1px solid #222222' }}>
                   PKT (UTC+5) Technical Hub
                 </span>
               </div>
@@ -187,10 +193,16 @@ export default function AboutPage({ onStartProject }) {
               <p style={{ fontSize: '0.94rem', color: 'var(--text-muted)', lineHeight: 1.65, marginBottom: '22px' }}>
                 Directing core full-stack engineering, cloud infrastructure, automated QA, and high-performance React &amp; Shopify builds.
               </p>
-              <div style={{ borderTop: '1px solid rgba(255, 255, 255, 0.08)', paddingTop: '16px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                <div style={{ fontSize: '0.8rem', fontFamily: 'var(--font-mono)', color: 'var(--text-dim)' }}>DIRECT LINE:</div>
-                <a href="tel:+923176704325" style={{ fontSize: '1.05rem', color: 'var(--accent-emerald)', textDecoration: 'none', fontFamily: 'var(--font-mono)', fontWeight: 600 }}>
-                  +92 317 670 4325
+              <div style={{ borderTop: '1px solid #222222', paddingTop: '16px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                <div style={{ fontSize: '0.78rem', fontFamily: 'var(--font-mono)', color: 'var(--text-dim)' }}>DIRECT INQUIRY:</div>
+                <a
+                  href={`https://wa.me/923176704325?text=${encodeURIComponent("Hello Muhammad Ali, I'd like to discuss engineering with KifalTech.")}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ fontSize: '0.88rem', color: '#25D366', textDecoration: 'none', fontFamily: 'var(--font-mono)', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '6px' }}
+                >
+                  <span>💬</span>
+                  <span>Chat on WhatsApp</span>
                 </a>
               </div>
             </div>

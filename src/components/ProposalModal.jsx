@@ -206,18 +206,20 @@ export default function ProposalModal({ isOpen, onClose, prefillData }) {
                   <label htmlFor="proposal-fullName" className="agency-field-label">
                     Full Name <span className="required-asterisk">*</span>
                   </label>
-                  <input
-                    id="proposal-fullName"
-                    type="text"
-                    name="fullName"
-                    required
-                    placeholder="Jane Doe"
-                    value={formData.fullName}
-                    onChange={handleChange}
-                    className="agency-input-minimal"
-                    autoComplete="name"
-                  />
-                  <div className="field-underline-bar" />
+                  <div className="field-underline-wrapper">
+                    <input
+                      id="proposal-fullName"
+                      type="text"
+                      name="fullName"
+                      required
+                      placeholder="Jane Doe"
+                      value={formData.fullName}
+                      onChange={handleChange}
+                      className="agency-input-minimal"
+                      autoComplete="name"
+                    />
+                    <div className="field-underline-bar" />
+                  </div>
                 </div>
 
                 {/* Work Email */}
@@ -225,18 +227,20 @@ export default function ProposalModal({ isOpen, onClose, prefillData }) {
                   <label htmlFor="proposal-email" className="agency-field-label">
                     Work Email <span className="required-asterisk">*</span>
                   </label>
-                  <input
-                    id="proposal-email"
-                    type="email"
-                    name="email"
-                    required
-                    placeholder="jane@company.com"
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="agency-input-minimal"
-                    autoComplete="email"
-                  />
-                  <div className="field-underline-bar" />
+                  <div className="field-underline-wrapper">
+                    <input
+                      id="proposal-email"
+                      type="email"
+                      name="email"
+                      required
+                      placeholder="jane@company.com"
+                      value={formData.email}
+                      onChange={handleChange}
+                      className="agency-input-minimal"
+                      autoComplete="email"
+                    />
+                    <div className="field-underline-bar" />
+                  </div>
                 </div>
 
                 {/* Service Required */}
@@ -270,19 +274,21 @@ export default function ProposalModal({ isOpen, onClose, prefillData }) {
                 {/* Phone Number */}
                 <div className="agency-field-group col-span-12">
                   <label htmlFor="proposal-phone" className="agency-field-label">
-                    Phone Number (Optional)
+                    Phone / WhatsApp (Optional)
                   </label>
-                  <input
-                    id="proposal-phone"
-                    type="tel"
-                    name="phone"
-                    placeholder="+1 (555) 123-4567 or WhatsApp"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    className="agency-input-minimal"
-                    autoComplete="tel"
-                  />
-                  <div className="field-underline-bar" />
+                  <div className="field-underline-wrapper">
+                    <input
+                      id="proposal-phone"
+                      type="tel"
+                      name="phone"
+                      placeholder="e.g. WhatsApp or Direct Handle"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      className="agency-input-minimal"
+                      autoComplete="tel"
+                    />
+                    <div className="field-underline-bar" />
+                  </div>
                 </div>
 
                 {/* Message / Project Scope */}

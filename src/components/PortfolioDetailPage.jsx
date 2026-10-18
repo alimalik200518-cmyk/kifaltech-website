@@ -92,7 +92,7 @@ export default function PortfolioDetailPage({ projectSlug, onStartSimilarProject
   );
 
   return (
-    <div style={{ paddingTop: '110px', minHeight: '100vh', backgroundColor: 'var(--bg-main)' }}>
+    <div style={{ paddingTop: '72px', minHeight: '100vh', backgroundColor: '#0A0A0A' }}>
       <SEOHead
         title={project.seo.title}
         description={project.seo.metaDesc}
@@ -102,7 +102,7 @@ export default function PortfolioDetailPage({ projectSlug, onStartSimilarProject
       />
 
       {/* Case Study Hero */}
-      <section className="section-spacing" style={{ paddingTop: '20px', paddingBottom: '36px' }}>
+      <section className="section-spacing" style={{ paddingTop: '28px', paddingBottom: '36px' }}>
         <div className="container">
           <nav className="breadcrumb-nav" aria-label="Breadcrumb">
             <Link to="/">Home</Link>

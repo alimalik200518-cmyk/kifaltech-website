@@ -1,19 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter, Link } from './Router.jsx';
-import KifalTechLogo from './KifalTechLogo.jsx';
-import CurrencySelector from './CurrencySelector.jsx';
-import { agencyData } from '../data/agencyData.js';
-import { IconLinkedIn, IconTwitterX, IconGitHub, IconInstagram } from './SocialIcons.jsx';
 
-export default function Navbar({ onOpenQuote, onOpenQuickFix }) {
+export default function Navbar({ onOpenQuote }) {
   const { currentPath, navigate } = useRouter();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const { company } = agencyData;
 
   useEffect(() => {
     const onScroll = () => {
-      setScrolled(window.scrollY > 20);
+      setScrolled(window.scrollY > 15);
     };
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
@@ -29,13 +24,12 @@ export default function Navbar({ onOpenQuote, onOpenQuickFix }) {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [mobileOpen]);
 
+  // Clean, minimal 5 core navigation links
   const navItems = [
     { label: 'Home', to: '/' },
     { label: 'Services', to: '/services' },
     { label: 'Work', to: '/portfolio' },
     { label: 'About', to: '/about' },
-    { label: 'Careers', to: '/careers' },
-    { label: 'FAQ', to: '/faq' },
     { label: 'Contact', to: '/contact' }
   ];
 
@@ -47,8 +41,6 @@ export default function Navbar({ onOpenQuote, onOpenQuickFix }) {
     }
   };
 
-  const whatsappUrl = `https://wa.me/923176704325?text=${encodeURIComponent("Hello KifalTech, I'd like to discuss a new software project.")}`;
-
   return (
     <header
       style={{
@@ -57,221 +49,149 @@ export default function Navbar({ onOpenQuote, onOpenQuickFix }) {
         left: 0,
         width: '100%',
         zIndex: 1000,
-        backgroundColor: scrolled ? 'rgba(6, 9, 15, 0.98)' : '#06090F',
-        backdropFilter: scrolled ? 'blur(12px)' : 'none',
-        WebkitBackdropFilter: scrolled ? 'blur(12px)' : 'none',
-        borderBottom: '1px solid',
-        borderColor: scrolled ? 'rgba(0, 216, 255, 0.25)' : 'rgba(0, 216, 255, 0.12)',
-        transition: 'background-color 0.15s ease, border-color 0.15s ease'
+        backgroundColor: scrolled ? 'rgba(10, 10, 10, 0.98)' : '#0A0A0A',
+        backdropFilter: scrolled ? 'blur(10px)' : 'none',
+        WebkitBackdropFilter: scrolled ? 'blur(10px)' : 'none',
+        borderBottom: '1px solid #222222',
+        transition: 'background-color 0.15s ease'
       }}
     >
-      {/* Top Utility Bar — International Direct Communication & Dual-Presence */}
-      <div
-        style={{
-          borderBottom: '1px solid rgba(255, 255, 255, 0.05)',
-          padding: '6px 0',
-          fontSize: '0.74rem',
-          color: 'var(--text-dim)',
-          fontFamily: 'var(--font-mono)'
-        }}
-      >
-        <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '8px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: 'var(--primary-light)', fontWeight: 600 }}>
-              <span className="pulse-indicator" style={{ width: '5px', height: '5px' }}></span>
-              <span>100% REMOTE GLOBAL DIGITAL AGENCY</span>
-            </span>
-            <span className="hide-mobile" style={{ color: 'rgba(255, 255, 255, 0.15)' }}>|</span>
-            <span className="hide-mobile" style={{ color: 'var(--text-muted)' }}>
-              USA: <a href="tel:+15551234567" style={{ color: '#ffffff', textDecoration: 'none' }}>+1 (555) 123-4567</a>
-            </span>
-            <span className="hide-mobile" style={{ color: 'rgba(255, 255, 255, 0.15)' }}>•</span>
-            <span className="hide-mobile" style={{ color: 'var(--text-muted)' }}>
-              PK: <a href="tel:+923176704325" style={{ color: 'var(--accent-emerald)', textDecoration: 'none', fontWeight: 600 }}>+92 317 670 4325</a>
-            </span>
-          </div>
+      <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '72px' }}>
+        
+        {/* Left: Exact Image Asset `final logo of kifal Tech_2.jpg` */}
+        <Link
+          to="/"
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            textDecoration: 'none'
+          }}
+          aria-label="Kifal Tech Home"
+        >
+          <img
+            src="/images/logo/final logo of kifal Tech_2.jpg"
+            alt="Kifal Tech - Digital Software Agency"
+            className="brand-logo"
+            style={{
+              height: '46px',
+              width: 'auto',
+              maxHeight: '46px',
+              objectFit: 'contain',
+              display: 'block'
+            }}
+          />
+        </Link>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-            {/* Minimal Monochrome Social Media Icon Links (LinkedIn, Twitter/X, GitHub, Instagram) */}
-            <div
-              className="hide-mobile"
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '4px',
-                paddingRight: '6px',
-                borderRight: '1px solid rgba(255, 255, 255, 0.1)'
-              }}
-              aria-label="Social media channels"
-            >
-              <a
-                href="https://linkedin.com/company/kifaltech"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="header-social-item"
-                title="KifalTech on LinkedIn"
-                aria-label="KifalTech on LinkedIn"
+        {/* Center: Clean, Minimal Navigation Links using standard system fonts */}
+        <nav
+          className="desktop-nav"
+          aria-label="Main Navigation"
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '32px'
+          }}
+        >
+          {navItems.map((item) => {
+            const isActive = currentPath === item.to || (item.to !== '/' && currentPath.startsWith(item.to));
+            return (
+              <Link
+                key={item.label}
+                to={item.to}
+                style={{
+                  fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, sans-serif',
+                  fontSize: '0.88rem',
+                  fontWeight: isActive ? 600 : 500,
+                  color: isActive ? '#FFFFFF' : '#888888',
+                  textDecoration: 'none',
+                  padding: '6px 0',
+                  letterSpacing: '0.01em',
+                  transition: 'color 0.15s ease',
+                  position: 'relative'
+                }}
               >
-                <IconLinkedIn size={13} />
-              </a>
-              <a
-                href="https://x.com/kifaltech"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="header-social-item"
-                title="KifalTech on Twitter / X"
-                aria-label="KifalTech on Twitter / X"
-              >
-                <IconTwitterX size={12} />
-              </a>
-              <a
-                href="https://github.com/kifaltech"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="header-social-item"
-                title="KifalTech on GitHub"
-                aria-label="KifalTech on GitHub"
-              >
-                <IconGitHub size={13} />
-              </a>
-              <a
-                href="https://instagram.com/kifaltech"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="header-social-item"
-                title="KifalTech on Instagram"
-                aria-label="KifalTech on Instagram"
-              >
-                <IconInstagram size={13} />
-              </a>
-            </div>
-
-            {/* Interactive WhatsApp Button */}
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '6px',
-                color: '#10b981',
-                textDecoration: 'none',
-                fontWeight: 600,
-                fontSize: '0.74rem',
-                background: 'rgba(16, 185, 129, 0.1)',
-                padding: '3px 8px',
-                borderRadius: '4px',
-                border: '1px solid rgba(16, 185, 129, 0.25)'
-              }}
-              title="Chat with Engineering Lead on WhatsApp"
-            >
-              <span>💬 WhatsApp</span>
-            </a>
-            <CurrencySelector />
-          </div>
-        </div>
-      </div>
-
-      {/* Main Navigation Bar */}
-      <div style={{ padding: '12px 0' }}>
-        <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-          {/* Bespoke KifalTech Logo */}
-          <KifalTechLogo compact={false} />
-
-          {/* Desktop Navigation Links */}
-          <nav className="desktop-nav" aria-label="Main Navigation">
-            {navItems.map((item) => {
-              const isActive = currentPath === item.to || (item.to !== '/' && currentPath.startsWith(item.to));
-              return (
-                <Link
-                  key={item.label}
-                  to={item.to}
-                  style={{
-                    color: isActive ? 'var(--primary-light)' : 'var(--text-main)',
-                    fontSize: '0.9rem',
-                    fontWeight: isActive ? 600 : 500,
-                    transition: 'color 0.15s ease',
-                    position: 'relative',
-                    padding: '6px 2px'
-                  }}
-                >
-                  {item.label}
-                  {isActive && (
-                    <span
-                      style={{
-                        position: 'absolute',
-                        bottom: 0,
-                        left: 0,
-                        width: '100%',
-                        height: '2px',
-                        backgroundColor: '#00D8FF'
-                      }}
-                    />
-                  )}
-                </Link>
-              );
-            })}
-          </nav>
-
-          {/* Actions: Start a Project CTA */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-            <button
-              onClick={handleStartProject}
-              className="btn btn-primary"
-              style={{
-                height: '40px',
-                padding: '0 20px',
-                fontSize: '0.86rem'
-              }}
-            >
-              Start a Project
-            </button>
-
-            {/* Mobile Hamburger Toggle */}
-            <button
-              onClick={() => setMobileOpen(!mobileOpen)}
-              className="mobile-toggle-btn"
-              style={{
-                background: 'var(--bg-secondary)',
-                border: '1px solid var(--border-medium)',
-                borderRadius: 'var(--radius-xs)',
-                width: '38px',
-                height: '38px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                color: '#ffffff',
-                cursor: 'pointer'
-              }}
-              aria-label="Toggle Menu"
-              aria-expanded={mobileOpen}
-            >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                {mobileOpen ? (
-                  <>
-                    <line x1="18" y1="6" x2="6" y2="18" />
-                    <line x1="6" y1="6" x2="18" y2="18" />
-                  </>
-                ) : (
-                  <>
-                    <line x1="3" y1="7" x2="21" y2="7" />
-                    <line x1="3" y1="12" x2="21" y2="12" />
-                    <line x1="3" y1="17" x2="21" y2="17" />
-                  </>
+                {item.label}
+                {isActive && (
+                  <span
+                    style={{
+                      position: 'absolute',
+                      bottom: '-2px',
+                      left: 0,
+                      width: '100%',
+                      height: '2px',
+                      backgroundColor: '#FFFFFF'
+                    }}
+                  />
                 )}
-              </svg>
-            </button>
-          </div>
+              </Link>
+            );
+          })}
+        </nav>
+
+        {/* Right: Single Primary CTA Button ("Start a Project") */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          <button
+            onClick={handleStartProject}
+            className="btn btn-primary"
+            style={{
+              height: '40px',
+              padding: '0 20px',
+              fontSize: '0.82rem',
+              fontWeight: 700,
+              letterSpacing: '0.04em',
+              textTransform: 'uppercase',
+              border: '1px solid #222222',
+              backgroundColor: '#FFFFFF',
+              color: '#0A0A0A',
+              boxShadow: 'none'
+            }}
+          >
+            Start a Project
+          </button>
+
+          {/* Mobile Hamburger Toggle */}
+          <button
+            onClick={() => setMobileOpen(!mobileOpen)}
+            className="mobile-toggle-btn"
+            style={{
+              background: '#0E0E0E',
+              border: '1px solid #222222',
+              borderRadius: '0px',
+              width: '40px',
+              height: '40px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: '#ffffff',
+              cursor: 'pointer'
+            }}
+            aria-label="Toggle Navigation Menu"
+            aria-expanded={mobileOpen}
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              {mobileOpen ? (
+                <>
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </>
+              ) : (
+                <>
+                  <line x1="3" y1="7" x2="21" y2="7" />
+                  <line x1="3" y1="12" x2="21" y2="12" />
+                  <line x1="3" y1="17" x2="21" y2="17" />
+                </>
+              )}
+            </svg>
+          </button>
         </div>
       </div>
 
-      {/* Mobile Drawer Menu */}
+      {/* Clean Mobile Drawer Menu */}
       {mobileOpen && (
         <div
           style={{
-            backgroundColor: '#171313',
-            borderBottom: '1px solid var(--border-medium)',
+            backgroundColor: '#0A0A0A',
+            borderBottom: '1px solid #222222',
             padding: '20px 24px',
             display: 'flex',
             flexDirection: 'column',
@@ -286,67 +206,40 @@ export default function Navbar({ onOpenQuote, onOpenQuickFix }) {
                 to={item.to}
                 onClick={() => setMobileOpen(false)}
                 style={{
-                  fontSize: '1rem',
+                  fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, sans-serif',
+                  fontSize: '0.96rem',
                   fontWeight: isActive ? 600 : 500,
-                  color: isActive ? 'var(--primary-light)' : '#ffffff',
-                  padding: '8px 0',
+                  color: isActive ? '#FFFFFF' : '#888888',
+                  padding: '10px 0',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'space-between',
-                  borderBottom: '1px solid rgba(255, 255, 255, 0.05)'
+                  borderBottom: '1px solid #1A1A1A',
+                  textDecoration: 'none'
                 }}
               >
                 <span>{item.label}</span>
-                {isActive && <span style={{ color: 'var(--primary-light)', fontSize: '0.8rem' }}>●</span>}
+                {isActive && <span style={{ color: '#FFFFFF', fontSize: '0.75rem' }}>●</span>}
               </Link>
             );
           })}
 
-          {/* Mobile Social Links Row */}
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '16px', padding: '12px 0', borderBottom: '1px solid rgba(255, 255, 255, 0.05)' }}>
-            <a href="https://linkedin.com/company/kifaltech" target="_blank" rel="noopener noreferrer" className="header-social-item" title="LinkedIn" aria-label="LinkedIn">
-              <IconLinkedIn size={16} />
-            </a>
-            <a href="https://x.com/kifaltech" target="_blank" rel="noopener noreferrer" className="header-social-item" title="Twitter/X" aria-label="Twitter/X">
-              <IconTwitterX size={15} />
-            </a>
-            <a href="https://github.com/kifaltech" target="_blank" rel="noopener noreferrer" className="header-social-item" title="GitHub" aria-label="GitHub">
-              <IconGitHub size={16} />
-            </a>
-            <a href="https://instagram.com/kifaltech" target="_blank" rel="noopener noreferrer" className="header-social-item" title="Instagram" aria-label="Instagram">
-              <IconInstagram size={16} />
-            </a>
-          </div>
-
-          <div style={{ paddingTop: '12px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '8px',
-                color: '#10b981',
-                textDecoration: 'none',
-                fontWeight: 600,
-                fontSize: '0.9rem',
-                background: 'rgba(16, 185, 129, 0.1)',
-                padding: '10px',
-                borderRadius: '6px',
-                border: '1px solid rgba(16, 185, 129, 0.3)'
-              }}
-            >
-              <span>💬 Chat on WhatsApp</span>
-            </a>
+          <div style={{ paddingTop: '12px' }}>
             <button
               onClick={() => {
                 setMobileOpen(false);
                 handleStartProject();
               }}
               className="btn btn-primary"
-              style={{ width: '100%', height: '44px' }}
+              style={{
+                width: '100%',
+                height: '44px',
+                backgroundColor: '#FFFFFF',
+                color: '#0A0A0A',
+                border: '1px solid #222222',
+                boxShadow: 'none',
+                fontWeight: 700
+              }}
             >
               Start a Project
             </button>

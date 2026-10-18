@@ -46,8 +46,8 @@ export default function Footer({ onStartProject }) {
   return (
     <footer
       style={{
-        backgroundColor: '#06090F',
-        borderTop: '1px solid rgba(0, 216, 255, 0.2)',
+        backgroundColor: '#0A0A0A',
+        borderTop: '1px solid #222222',
         paddingTop: '64px',
         paddingBottom: '36px',
         position: 'relative'
@@ -64,12 +64,12 @@ export default function Footer({ onStartProject }) {
             gap: '16px',
             paddingBottom: '28px',
             marginBottom: '40px',
-            borderBottom: '1px solid rgba(255, 255, 255, 0.08)'
+            borderBottom: '1px solid #222222'
           }}
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
             <span className="pulse-indicator"></span>
-            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', letterSpacing: '0.08em', color: '#00D8FF', textTransform: 'uppercase', fontWeight: 700 }}>
+            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', letterSpacing: '0.08em', color: '#D32525', textTransform: 'uppercase', fontWeight: 700 }}>
               100% REMOTE GLOBAL DIGITAL AGENCY
             </span>
           </div>
@@ -191,29 +191,65 @@ export default function Footer({ onStartProject }) {
             </div>
 
             {/* USA Office Block */}
-            <div style={{ marginBottom: '16px', padding: '12px 14px', borderRadius: '0px', background: 'rgba(255, 255, 255, 0.02)', border: '1px solid rgba(255, 255, 255, 0.08)' }}>
+            <div style={{ marginBottom: '16px', padding: '12px 14px', borderRadius: '0px', background: '#0C0C0C', border: '1px solid #222222' }}>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '4px' }}>
-                <span style={{ fontSize: '0.78rem', fontFamily: 'var(--font-mono)', color: '#ffffff', fontWeight: 700 }}>US OFFICE 🇺🇸</span>
+                <span style={{ fontSize: '0.78rem', fontFamily: 'var(--font-mono)', color: '#ffffff', fontWeight: 700 }}>US STRATEGY HUB 🇺🇸</span>
                 <span style={{ fontSize: '0.7rem', color: '#888888', fontFamily: 'var(--font-mono)' }}>EST / CST</span>
               </div>
               <div style={{ fontSize: '0.88rem', color: '#ffffff', fontWeight: 600 }}>Henry</div>
-              <div style={{ fontSize: '0.76rem', color: 'var(--text-dim)', marginBottom: '6px' }}>Head of Product</div>
-              <a href="tel:+15551234567" style={{ fontSize: '0.84rem', color: '#ffffff', textDecoration: 'none', fontFamily: 'var(--font-mono)', display: 'inline-block', fontWeight: 600 }}>
-                📞 +1 (555) 123-4567
+              <div style={{ fontSize: '0.76rem', color: 'var(--text-dim)', marginBottom: '8px' }}>Head of Product</div>
+              <a
+                href={`https://wa.me/923176704325?text=${encodeURIComponent("Hello KifalTech, I'd like to discuss a project with US Product Leadership.")}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  fontSize: '0.8rem',
+                  fontFamily: 'var(--font-mono)',
+                  color: '#25D366',
+                  textDecoration: 'none',
+                  fontWeight: 600,
+                  padding: '4px 8px',
+                  border: '1px solid #222222',
+                  backgroundColor: '#111111'
+                }}
+              >
+                <span>💬</span>
+                <span>Chat on WhatsApp</span>
               </a>
             </div>
 
             {/* Pakistan Office Block */}
-            <div style={{ marginBottom: '18px', padding: '12px 14px', borderRadius: '0px', background: 'rgba(255, 255, 255, 0.02)', border: '1px solid rgba(255, 255, 255, 0.08)' }}>
+            <div style={{ marginBottom: '18px', padding: '12px 14px', borderRadius: '0px', background: '#0C0C0C', border: '1px solid #222222' }}>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '4px' }}>
-                <span style={{ fontSize: '0.78rem', fontFamily: 'var(--font-mono)', color: '#ffffff', fontWeight: 700 }}>PK OFFICE 🇵🇰</span>
+                <span style={{ fontSize: '0.78rem', fontFamily: 'var(--font-mono)', color: '#ffffff', fontWeight: 700 }}>PK ENGINEERING HUB 🇵🇰</span>
                 <span style={{ fontSize: '0.7rem', color: '#888888', fontFamily: 'var(--font-mono)' }}>PKT (UTC+5)</span>
               </div>
               <div style={{ fontSize: '0.88rem', color: '#ffffff', fontWeight: 600 }}>Muhammad Ali</div>
               <div style={{ fontSize: '0.76rem', color: 'var(--text-dim)' }}>Technical Lead</div>
-              <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', margin: '2px 0 6px 0' }}>Karachi, Pakistan</div>
-              <a href="tel:+923176704325" style={{ fontSize: '0.84rem', color: '#ffffff', textDecoration: 'none', fontFamily: 'var(--font-mono)', display: 'inline-block', fontWeight: 600 }}>
-                📞 +92 317 670 4325
+              <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', margin: '2px 0 8px 0' }}>Karachi, Pakistan</div>
+              <a
+                href={`https://wa.me/923176704325?text=${encodeURIComponent("Hello Muhammad Ali, I'd like to discuss technical engineering with KifalTech.")}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  fontSize: '0.8rem',
+                  fontFamily: 'var(--font-mono)',
+                  color: '#25D366',
+                  textDecoration: 'none',
+                  fontWeight: 600,
+                  padding: '4px 8px',
+                  border: '1px solid #222222',
+                  backgroundColor: '#111111'
+                }}
+              >
+                <span>💬</span>
+                <span>Chat on WhatsApp</span>
               </a>
             </div>
 
